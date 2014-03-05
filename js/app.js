@@ -7,7 +7,7 @@ $(function () {
 		"bPaginate": false
 	} );
  	new FixedColumns( oTable, {
- 		"iLeftColumns": 2,
-		"iLeftWidth": 350
+ 		"iLeftColumns": 1,
+		"iLeftWidth": 100
  	} );
 });
