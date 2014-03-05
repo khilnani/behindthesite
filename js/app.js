@@ -5,7 +5,7 @@ $(function () {
 		"sScrollY": "500px",
 		"sScrollX": "100%",
 		"bScrollCollapse": false,
-		"bPaginate": true
+		"bPaginate": false
 	} );
  	new FixedColumns( oTable, {
  		"iLeftColumns": 1,
