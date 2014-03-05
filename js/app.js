@@ -6,6 +6,6 @@ $(function () {
 		"bPaginate": false,
 		"sAjaxSource": 'data/trends.json'
 	} );
-  new FixedHeader( oTable );
+  
   new FixedColumns( oTable );
 });
