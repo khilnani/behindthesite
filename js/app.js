@@ -2,7 +2,7 @@ $(function () {
   var oTable = $('#example').dataTable( {
 		"bProcessing": true,
 		"sAjaxSource": 'data/trends.json',
-		"sScrollX": "1%",
+		"sScrollX": "100px",
 		"bScrollCollapse": true,
 		"bPaginate": false
 	} );
