@@ -6,5 +6,8 @@ $(function () {
 		"bScrollCollapse": true,
 		"bPaginate": false
 	} );
-    new FixedColumns( oTable );
+ 	new FixedColumns( oTable, {
+ 		"iLeftColumns": 2,
+		"iLeftWidth": 350
+ 	} );
 });
