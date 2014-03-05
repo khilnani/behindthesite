@@ -2,8 +2,8 @@ $(function () {
   var oTable = $('#example').dataTable( {
 		"bProcessing": true,
 		"sAjaxSource": 'data/trends.json',
-		"sScrollY": "300px",
 		"sScrollX": "100%",
+		"sScrollXInner": "100%",
 		"bScrollCollapse": true,
 		"bPaginate": false
 	} );
