@@ -1,3 +1,6 @@
 $(function () {
-  var table = $('#example').DataTable();
+  $('#example').dataTable( {
+		"bProcessing": true,
+		"sAjaxSource": 'data/trends.json'
+	} );
 });
