@@ -1,3 +1,4 @@
+/*
 $(function () {
   var oTable = $('#example').dataTable( {
   		"bJQueryUI": false,
@@ -7,11 +8,11 @@ $(function () {
 	} );
 });
 
+*/
 
-/*
 $(function () {
   var oTable = $('#example').dataTable( {
-  		"bJQueryUI": true,
+  		"bJQueryUI": false,
 		"bProcessing": true,
 		"sAjaxSource": 'data/trends.json',
 		"sScrollY": "700px",
@@ -25,4 +26,4 @@ $(function () {
  	} );
 
 });
-*/
+
