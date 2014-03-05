@@ -1,13 +1,6 @@
 /*
  * Colour dictionary:
  *
- * Table control elements:   #719ba7
- * Header cells:             #66A9BD
- * Body header cells:        #91c5d4
- * Body content cells:       #d5eaf0
- * Body content cells (alt): #bcd9e1
- * Footer header:            #b0cc7f
- * Footer content:           #d7e1c5
  */
 
 
@@ -78,7 +71,7 @@ table.pretty th {
 /* Header cells */
 table.pretty thead th {
 	text-align: center;
-	background: #66a9bd;
+	background: #b0cc7f;
 }
 
 /* Body cells */
