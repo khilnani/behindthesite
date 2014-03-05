@@ -1,4 +1,3 @@
-
 /*
  * Colour dictionary:
  *
@@ -148,15 +147,15 @@ div.dataTables_paginate span>a {
  * Sorting
  */
 table.pretty thead th.sorting_asc {
-	background: #66A9BD url('images/sort_asc.png') no-repeat right center;
+	background: #66A9BD url('//datatables.net/media/blog/beautiful_tables/images/sort_asc.png') no-repeat right center;
 }
 
 table.pretty thead th.sorting_desc {
-	background: #66A9BD url('images/sort_desc.png') no-repeat right center;
+	background: #66A9BD url('//datatables.net/media/blog/beautiful_tables/images/sort_desc.png') no-repeat right center;
 }
 
 table.pretty thead th.sorting {
-	background: #66A9BD url('images/sort_both.png') no-repeat right center;
+	background: #66A9BD url('//datatables.net/media/blog/beautiful_tables/images/sort_both.png') no-repeat right center;
 }
 
 
