@@ -1,6 +1,6 @@
 $(function () {
   var oTable = $('#example').dataTable( {
-  		"bJQueryUI": true,
+  		"bJQueryUI": false,
 		"bProcessing": true,
 		"sAjaxSource": 'data/trends.json',
 		"bPaginate": false
