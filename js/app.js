@@ -7,5 +7,6 @@ $(function () {
 		"bPaginate": false,
 		"sAjaxSource": 'data/trends.json'
 	} );
-  new $.fn.dataTable.FixedColumns( oTable );
+  new FixedHeader( oTable );
+  new FixedColumns( oTable );
 });
