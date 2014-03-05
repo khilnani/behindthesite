@@ -3,7 +3,6 @@ $(function () {
 		"bProcessing": true,
 		"sAjaxSource": 'data/trends.json',
 		"sScrollX": "10%",
-		"sScrollXInner": "100%",
 		"bScrollCollapse": true,
 		"bPaginate": false
 	} );
