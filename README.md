@@ -9,7 +9,7 @@ Most infomration has been collected via a variety of Google searches and blogs (
 
 - High Scalabilty - http://highscalability.com
 - InfoQ - http://infoq.com
-- datatables - https://github.com/DataTables/DataTables
 - Technology Blogs by technology enthusiats and technology companies.
+- datatables - https://github.com/DataTables/DataTables
 
 
