@@ -3,5 +3,5 @@ $(function () {
 		"bProcessing": true,
 		"sAjaxSource": 'data/trends.json'
 	} );
-    new FixedColumns( oTable );
+    //new FixedColumns( oTable );
 });
