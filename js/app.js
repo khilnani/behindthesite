@@ -4,7 +4,7 @@ $(function () {
 		"sAjaxSource": 'data/trends.json',
 		"sScrollY": "500px",
 		"sScrollX": "100%",
-		"bScrollCollapse": false,
+		"bScrollCollapse": true,
 		"bPaginate": false
 	} );
  	new FixedColumns( oTable, {
