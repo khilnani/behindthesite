@@ -5,10 +5,10 @@ $(function () {
 		"sScrollY": "100%",
 		"sScrollX": "100%",
 		"bScrollCollapse": true,
-		"bPaginate": false
+		"bPaginate": true
 	} );
  	new FixedColumns( oTable, {
  		"iLeftColumns": 1,
-		"iLeftWidth": 100
+		"iLeftWidth": 150
  	} );
 });
