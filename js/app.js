@@ -8,8 +8,5 @@ $(function () {
 		"bScrollCollapse": true,
 		"bPaginate": false
 	} );
- 	new FixedColumns( oTable, {
- 		"iLeftColumns": 1,
-		"iLeftWidth": 150
- 	} );
+
 });
