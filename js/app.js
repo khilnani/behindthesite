@@ -1,15 +1,3 @@
-/*
-$(function () {
-  var oTable = $('#example').dataTable( {
-  		"bJQueryUI": false,
-		"bProcessing": true,
-		"sAjaxSource": 'data/trends.json',
-		"bPaginate": false
-	} );
-});
-
-*/
-
 $(function () {
   var oTable = $('#example').dataTable( {
   		"bJQueryUI": false,
@@ -24,6 +12,5 @@ $(function () {
  		"iLeftColumns": 1,
 		"iLeftWidth": 150
  	} );
-
 });
 
