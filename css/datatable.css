@@ -55,7 +55,7 @@ table.pretty {
 table.pretty td,
 table.pretty th {
 	padding: 5px;
-	border: 0.5px solid #fff;
+	border: 1px solid #fff;
 }
 
 /* Header cells */
