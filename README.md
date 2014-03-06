@@ -1,8 +1,6 @@
 ## behindthesite.org
 
-> A quick reference of technologies used by leading companies.
-
-Most infomration has been collected via a variety of Google searches and blogs (See References column in `data/trends.json`. Eventually, I would like users to contribute information via Pull requests.
+> A log of technologies used by leading companies.
 
 
 ## Thanks to  
