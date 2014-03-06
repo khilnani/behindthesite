@@ -98,7 +98,7 @@ table.pretty tfoot td {
 a.paginate_button,
 a.paginate_active {
 	display: inline-block;
-	background-color: #608995;
+	background-color: #eee;
 	padding: 2px 6px;
 	margin-left: 2px;
 	cursor: pointer;
@@ -111,7 +111,7 @@ a.paginate_active {
 }
 
 a.paginate_button_disabled {
-	color: #3d6672;
+	color: #ddd;
 }
 .paging_full_numbers a:active {
 	outline: none
@@ -130,14 +130,14 @@ div.dataTables_paginate span>a {
  * Sorting
  */
 table.pretty thead th.sorting_asc {
-	background: #fff url('//datatables.net/media/blog/beautiful_tables/images/sort_asc.png') no-repeat right center;
+	background: #eee url('//datatables.net/media/blog/beautiful_tables/images/sort_asc.png') no-repeat right center;
 }
 
 table.pretty thead th.sorting_desc {
-	background: #fff url('//datatables.net/media/blog/beautiful_tables/images/sort_desc.png') no-repeat right center;
+	background: #eee url('//datatables.net/media/blog/beautiful_tables/images/sort_desc.png') no-repeat right center;
 }
 
 table.pretty thead th.sorting {
-	background: #fff url('//datatables.net/media/blog/beautiful_tables/images/sort_both.png') no-repeat right center;
+	background: #eee url('//datatables.net/media/blog/beautiful_tables/images/sort_both.png') no-repeat right center;
 }
 
