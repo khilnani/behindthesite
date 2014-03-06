@@ -72,11 +72,11 @@ table.pretty tbody th {
 	
 table.pretty tbody td {
 	text-align: center;
-	background: #d5eaf0;
+	background: #fff;
 }
 		
 table.pretty tbody tr.odd td { 
-	background: #bcd9e1;
+	background: #ddd;
 }
 
 /* Footer cells */	
