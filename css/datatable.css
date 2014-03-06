@@ -1,13 +1,4 @@
-/*
- * Colour dictionary:
- *
- */
 
-
-
-/*
- * DataTables framework
- */
 div.dataTables_wrapper {
 	background-color: #719ba7;
 }
@@ -71,7 +62,7 @@ table.pretty th {
 /* Header cells */
 table.pretty thead th {
 	text-align: center;
-	background: #b0cc7f;
+	background: #eee;
 }
 
 /* Body cells */
@@ -91,12 +82,12 @@ table.pretty tbody tr.odd td {
 
 /* Footer cells */	
 table.pretty tfoot th {
-	background: #66a9bd;
+	background: #eee;
 	text-align: left;
 }
 	
 table.pretty tfoot td {
-	background: #66a9bd;
+	background: #eee;
 	text-align: center;
 	font-weight: bold;
 }
