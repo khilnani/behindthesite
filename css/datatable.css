@@ -81,12 +81,12 @@ table.pretty tbody tr.odd td {
 
 /* Footer cells */	
 table.pretty tfoot th {
-	background: #ddd;
+	background: #aaa;
 	text-align: left;
 }
 	
 table.pretty tfoot td {
-	background: #ddd;
+	background: #aaa;
 	text-align: center;
 	font-weight: bold;
 }
