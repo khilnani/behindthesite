@@ -61,13 +61,13 @@ table.pretty th {
 /* Header cells */
 table.pretty thead th {
 	text-align: center;
-	background: #fff;
+	background: #ccc;
 }
 
 /* Body cells */
 table.pretty tbody th {
 	text-align: left;
-	background: #fff;
+	background: #ccc;
 }
 	
 table.pretty tbody td {
@@ -86,7 +86,7 @@ table.pretty tfoot th {
 }
 	
 table.pretty tfoot td {
-	background: #eee;
+	background: #ccc;
 	text-align: center;
 	font-weight: bold;
 }
