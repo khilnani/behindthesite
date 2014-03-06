@@ -61,18 +61,18 @@ table.pretty th {
 /* Header cells */
 table.pretty thead th {
 	text-align: center;
-	background: #eee;
+	background: #fff;
 }
 
 /* Body cells */
 table.pretty tbody th {
 	text-align: left;
-	background: #eee;
+	background: #fff;
 }
 	
 table.pretty tbody td {
 	text-align: center;
-	background: #fff;
+	background: #eee;
 }
 		
 table.pretty tbody tr.odd td { 
@@ -130,14 +130,14 @@ div.dataTables_paginate span>a {
  * Sorting
  */
 table.pretty thead th.sorting_asc {
-	background: #eee url('//datatables.net/media/blog/beautiful_tables/images/sort_asc.png') no-repeat right center;
+	background: #fff url('//datatables.net/media/blog/beautiful_tables/images/sort_asc.png') no-repeat right center;
 }
 
 table.pretty thead th.sorting_desc {
-	background: #eee url('//datatables.net/media/blog/beautiful_tables/images/sort_desc.png') no-repeat right center;
+	background: #fff url('//datatables.net/media/blog/beautiful_tables/images/sort_desc.png') no-repeat right center;
 }
 
 table.pretty thead th.sorting {
-	background: #eee url('//datatables.net/media/blog/beautiful_tables/images/sort_both.png') no-repeat right center;
+	background: #fff url('//datatables.net/media/blog/beautiful_tables/images/sort_both.png') no-repeat right center;
 }
 
