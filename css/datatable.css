@@ -1,4 +1,3 @@
-
 div.dataTables_wrapper {
 	background-color: #719ba7;
 }
@@ -68,7 +67,7 @@ table.pretty thead th {
 /* Body cells */
 table.pretty tbody th {
 	text-align: left;
-	background: #91c5d4;
+	background: #eee;
 }
 	
 table.pretty tbody td {
