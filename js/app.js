@@ -3,7 +3,7 @@ $(function () {
   	"bJQueryUI": false,
 		"bProcessing": true,
 		"sAjaxSource": 'data/trends.json',
-		"sScrollY": "700px",
+		"sScrollY": $( window ).height() - 40,
 		"sScrollX": "150%",
 		"bScrollCollapse": true,
 		"bPaginate": false
