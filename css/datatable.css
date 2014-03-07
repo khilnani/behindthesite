@@ -1,22 +1,22 @@
 div.dataTables_wrapper {
-	background-color: #ddd;
+  background-color: #ddd;
 }
 
 div.dataTables_length {
-	float: left;
+  float: left;
 }
 
 div.dataTables_filter {
-	float: right;
+  float: right;
 }
 
 div.dataTables_info {
-	padding: 9px 6px 6px 6px;
-	float: left;
+  padding: 9px 6px 6px 6px;
+  float: left;
 }
 
 div.dataTables_paginate {
-	float: right;
+  float: right;
 }
 
 div.dataTables_length,
@@ -27,20 +27,20 @@ div.dataTables_paginate {
 
 /* Self clearing - http://www.webtoolkit.info/css-clearfix.html */
 .dataTables_wrapper:after {
-	content: ".";
-	display: block;
-	clear: both;
-	visibility: hidden;
-	line-height: 0;
-	height: 0;
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
  
 html[xmlns] .dataTables_wrapper {
-	display: block;
+  display: block;
 }
  
 * html .dataTables_wrapper {
-	height: 1%;
+  height: 1%;
 }
 
 
@@ -49,36 +49,36 @@ html[xmlns] .dataTables_wrapper {
  */
 
 table.pretty {
-	width: 100%;
-	clear: both;
+  width: 100%;
+  clear: both;
 }
 
 table.pretty td,
 table.pretty th {
-	padding: 5px;
-	border: 1px solid #fff;
+  padding: 5px;
+  border: 1px solid #fff;
 }
 
 /* Header cells */
 table.pretty thead th {
-	text-align: center;
-	background: #bbb;
-	font: 11px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  text-align: center;
+  background: #bbb;
+  font: 11px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
 }
 
 /* Body cells */
 table.pretty tbody th {
-	text-align: left;
-	background: #bbb;
+  text-align: left;
+  background: #bbb;
 }
 	
 table.pretty tbody td {
-	text-align: center;
-	background: #eee;
+  text-align: center;
+  background: #eee;
 }
 		
 table.pretty tbody tr.odd td { 
-	background: #ddd;
+  background: #ddd;
 }
 
 table.pretty tbody tr,
@@ -89,14 +89,14 @@ table.pretty tbody td {
 
 /* Footer cells */	
 table.pretty tfoot th {
-	background: #bbb;
-	text-align: left;
+  background: #bbb;
+  text-align: left;
 }
 	
 table.pretty tfoot td {
-	background: #bbb;
-	text-align: center;
-	font-weight: bold;
+  background: #bbb;
+  text-align: center;
+  font-weight: bold;
 }
 
 
@@ -105,32 +105,32 @@ table.pretty tfoot td {
  */
 a.paginate_button,
 a.paginate_active {
-	display: inline-block;
-	background-color: #eee;
-	padding: 2px 6px;
-	margin-left: 2px;
-	cursor: pointer;
+  display: inline-block;
+  background-color: #eee;
+  padding: 2px 6px;
+  margin-left: 2px;
+  cursor: pointer;
 	*cursor: hand;
 }
 
 a.paginate_active {
-	background-color: transparent;
-	border: 1px solid black;
+  background-color: transparent;
+  border: 1px solid black;
 }
 
 a.paginate_button_disabled {
-	color: #ddd;
+  color: #ddd;
 }
 .paging_full_numbers a:active {
-	outline: none
+  outline: none
 }
 .paging_full_numbers a:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 div.dataTables_paginate span>a {
-	width: 15px;
-	text-align: center;
+  width: 15px;
+  text-align: center;
 }
 
 
@@ -138,14 +138,14 @@ div.dataTables_paginate span>a {
  * Sorting
  */
 table.pretty thead th.sorting_asc {
-	background: #bbb url('//datatables.net/media/blog/beautiful_tables/images/sort_asc.png') no-repeat right center;
+  background: #bbb url('//datatables.net/media/blog/beautiful_tables/images/sort_asc.png') no-repeat right center;
 }
 
 table.pretty thead th.sorting_desc {
-	background: #bbb url('//datatables.net/media/blog/beautiful_tables/images/sort_desc.png') no-repeat right center;
+  background: #bbb url('//datatables.net/media/blog/beautiful_tables/images/sort_desc.png') no-repeat right center;
 }
 
 table.pretty thead th.sorting {
-	background: #bbb url('//datatables.net/media/blog/beautiful_tables/images/sort_both.png') no-repeat right center;
+  background: #bbb url('//datatables.net/media/blog/beautiful_tables/images/sort_both.png') no-repeat right center;
 }
 
