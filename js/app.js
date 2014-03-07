@@ -6,7 +6,7 @@ $(function () {
 		"sScrollY": "700px",
 		"sScrollX": "150%",
 		"bScrollCollapse": true,
-		"bPaginate": true
+		"bPaginate": false
 	} );
  	new FixedColumns( dTable, {
  		"iLeftColumns": 1,
