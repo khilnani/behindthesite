@@ -63,6 +63,7 @@ table.pretty th {
 table.pretty thead th {
   text-align: center;
   background: #bbb;
+  font-weight: bold;
   font: 11px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
   color: #333;
 }
@@ -90,16 +91,11 @@ table.pretty tbody td {
 
 /* Footer cells */	
 table.pretty tfoot th {
+  text-align: center;
   background: #bbb;
-  text-align: left;
+  font-weight: bold;
   font: 11px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
   color: #333;
-}
-	
-table.pretty tfoot td {
-  background: #bbb;
-  text-align: center;
-  font-weight: bold;
 }
 
 
