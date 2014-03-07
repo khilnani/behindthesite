@@ -92,13 +92,13 @@ table.pretty tbody td {
 table.pretty tfoot th {
   background: #bbb;
   text-align: left;
+  font: 11px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  color: #333;
 }
 	
 table.pretty tfoot td {
   background: #bbb;
   text-align: center;
-  font: 11px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-  color: #333;
   font-weight: bold;
 }
 
