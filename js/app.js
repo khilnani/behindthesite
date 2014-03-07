@@ -1,6 +1,6 @@
 $(function () {
-  var oTable = $('#example').dataTable( {
-  		"bJQueryUI": false,
+  var dTable = $('#dataTable').dataTable( {
+  	"bJQueryUI": false,
 		"bProcessing": true,
 		"sAjaxSource": 'data/trends.json',
 		"sScrollY": "700px",
@@ -8,7 +8,7 @@ $(function () {
 		"bScrollCollapse": true,
 		"bPaginate": true
 	} );
- 	new FixedColumns( oTable, {
+ 	new FixedColumns( dTable, {
  		"iLeftColumns": 1,
 		"iLeftWidth": 150
  	} );
