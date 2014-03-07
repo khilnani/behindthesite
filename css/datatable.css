@@ -1,3 +1,4 @@
+
 div.dataTables_wrapper {
 	background-color: #ddd;
 }
@@ -47,6 +48,7 @@ html[xmlns] .dataTables_wrapper {
 /*
  * Table styles
  */
+
 table.pretty {
 	width: 100%;
 	clear: both;
@@ -77,6 +79,12 @@ table.pretty tbody td {
 		
 table.pretty tbody tr.odd td { 
 	background: #ddd;
+}
+
+table.pretty tbody tr,
+table.pretty tbody td {
+  font: 70%/1em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  color: #000;
 }
 
 /* Footer cells */	
