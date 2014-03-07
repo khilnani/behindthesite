@@ -63,6 +63,7 @@ table.pretty th {
 table.pretty thead th {
 	text-align: center;
 	background: #bbb;
+	font: 11px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
 }
 
 /* Body cells */
@@ -82,7 +83,7 @@ table.pretty tbody tr.odd td {
 
 table.pretty tbody tr,
 table.pretty tbody td {
-  font: 0.86em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font: 11px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
   color: #000;
 }
 
