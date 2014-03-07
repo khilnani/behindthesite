@@ -64,6 +64,7 @@ table.pretty thead th {
   text-align: center;
   background: #bbb;
   font: 11px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  color: #333;
 }
 
 /* Body cells */
@@ -96,6 +97,8 @@ table.pretty tfoot th {
 table.pretty tfoot td {
   background: #bbb;
   text-align: center;
+  font: 11px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  color: #333;
   font-weight: bold;
 }
 
