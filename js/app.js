@@ -4,7 +4,7 @@ $(function () {
 		"bProcessing": true,
 		"sAjaxSource": 'data/trends.json',
 		"sScrollY": "700px",
-		"sScrollX": "150%",
+		"sScrollX": "200%",
 		"bScrollCollapse": true,
 		"bPaginate": true
 	} );
