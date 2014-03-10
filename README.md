@@ -1,6 +1,6 @@
 ## behindthesite.org
 
-> A log of technologies used by leading companies.
+> A log of technologies used by companies.
 
 
 ## Thanks to  
