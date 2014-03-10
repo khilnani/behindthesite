@@ -19,4 +19,4 @@ exports.companies = function (req, res) {
       res.json(docs);
     }
   });
-}
+};

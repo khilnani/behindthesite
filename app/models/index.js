@@ -1,7 +1,7 @@
 var log = require('dysf.utils').logger;
 var mongoose = require( 'mongoose' );
 var Schema   = mongoose.Schema;
-var ObjectId = Schema.ObjectId;
+//var ObjectId = Schema.ObjectId;
 
 var models = module.exports;
 
@@ -36,5 +36,5 @@ var companySchema = models.companySchema = new Schema({
 models.init = function () {
   log.debug('models.init()');
   models.Company = mongoose.model( 'Company', companySchema );
-}
+};
 
