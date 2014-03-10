@@ -1,7 +1,7 @@
 behindthesite
 ==========
 
-> A log of technologies used by leading companies. 
+> A log of technologies used by companies. 
 
 
 # Developer Notes
