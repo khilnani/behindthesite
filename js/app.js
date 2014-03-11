@@ -2,7 +2,7 @@ $(function () {
   var dTable = $('#dataTable').dataTable( {
   	"bJQueryUI": false,
 		"bProcessing": true,
-		"sAjaxSource": 'data/trends.json',
+		"sAjaxSource": 'data/data.json',
 		"sScrollY": $( window ).height() - 200,
 		"sScrollX": "200%",
 		"bScrollCollapse": true,
