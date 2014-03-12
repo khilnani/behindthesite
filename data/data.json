@@ -35,7 +35,6 @@
   ["Flickr","","","","","","","","","","","","","","","","","","","","","","","http://highscalability.com/flickr-architecture"  ],
   ["BaseCamp","","","30 servers, 8CPU ea, = 100 CPU 200gb of Ram","","Linux","","","S3","","HAProxy, Apache, Mongrel","Ruby","Rails (author)","memcached","","","","MySQL","","","","","",""  ],
   ["Digg","","","","","","","","","","","","","","","","","","","","","","","http://highscalability.com/blog/2009/4/4/digg-architecture.html"  ],
-  ["K12","","","65,000/req/min - for main server, 3m visits per day, 400000 unique visitors a day","","Linux","Jenkins, VMWare","","NAS","","Tomcat, Apache","Java","Struts, Seam, SpringMVC","","Java","SpringMVC, Hibernate, myBatis","","Oracle","","JMS","","","Oracle BI",""  ],
   ["Heroku","","","","","","","","","","","","","","","","","","","","","","",""  ],
   ["Groupon","","","","","","","","","","","","","","","","","","","","","","Storm",""  ],
   ["Intuit TurboTax","","","","","","","AWS","","CloudFront","Apache, Coyote","JSP","Angular, JSquery, Modernizer, SCSS","","","","","","","","","","",""  ],
