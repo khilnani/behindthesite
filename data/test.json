@@ -1,4 +1,5 @@
-[
+{
+  "data": [
   {
   "word": "hello",
   "defn": "a greeting"
@@ -11,5 +12,5 @@
   "word": "balkanize",
   "defn": "divide, compartmentalize"
   }
-]
-  
+  ]
+}
