@@ -1,6 +1,6 @@
 *.sw*
 *~
-build/
-bin/
-node_modules/
-vendor/
+xbuild/
+xsite/
+xnode_modules/
+xvendor/
