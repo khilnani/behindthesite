@@ -14,7 +14,7 @@
 @gray-light:             #808080;
 @gray-lighter:           #ddd;
 
-//@brand-primary:         #D9230F;
+//NIK @brand-primary:         #D9230F;
 @brand-primary:         #4db9ef;
 @brand-success:         #469408;
 @brand-info:            #029ACF;
@@ -212,7 +212,8 @@
 //## Dropdown menu container and contents.
 
 //** Background for the dropdown menu.
-@dropdown-bg:                    #fff;
+//NIK @dropdown-bg:                    #fff;
+@dropdown-bg:                    darken(@body-bg, 3%);
 //** Dropdown menu `border-color`.
 @dropdown-border:                rgba(0,0,0,.15);
 //** Dropdown menu `border-color` **for IE8**.
@@ -693,7 +694,7 @@
 
 @panel-default-text:          @gray-dark;
 @panel-default-border:        #ddd;
-@panel-default-heading-bg:    darken(@body-bg, 3%);
+@panel-default-heading-bg:    @body-bg;
 
 @panel-primary-text:          #fff;
 @panel-primary-border:        @brand-primary;
