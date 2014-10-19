@@ -1,6 +1,7 @@
 {
-  "name": "ng-boilerplate",
-  "version": "0.3.2",
+  "name": "bts",
+  "private": true,
+  "version": "0.0.1",
   "devDependencies": {
     "angular": "~1.2",
     "angular-mocks": "~1.2",
