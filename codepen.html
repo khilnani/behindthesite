@@ -12,11 +12,23 @@
 
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, x-minimal-ui"/>
 
-  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Signika'>
 <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css'>
-<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Signika'>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 
   <style>/*
+
+i.fa.fa-external-link
+i.fa.fa-file
+span.glyphicon.glyphicon-file
+span.glyphicon.glyphicon-resize-full
+span.glyphicon.glyphicon-comment
+i.fa.fa-expand
+i.fa.fa-bars
+
+http://fonts.googleapis.com/css?family=Signika
+
+//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css
 
 //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
 
@@ -93,6 +105,8 @@ http://api.jquery.com/click/
 
 https://docs.angularjs.org/api/ng/function/angular.element
 
+http://jsfiddle.net/hajpoj/JJQS9/15/
+
 */
 
 var popupTemplate = '<div class="popover" role="tooltip"><div class="arrow"></div><span class="close-btn cursor glyphicon glyphicon-remove"></span><h1 class="popover-title"></h1><div class="popover-content"></div></div>';
@@ -109,14 +123,35 @@ App.directive('itemDisplayed', function() {
         html: true,
         title: attrs.title,
         content: attrs.content,
-        placement: 'left',
-        template: popupTemplate
+        placement: 'top',
+        template: popupTemplate,
+        trigger: 'manual'
       };
 
+      span.data('state', 'hover');
       span.popover(popupConfig);
+      span.on('mouseenter', function (e) { 
+        if (span.data('state') === 'hover') {
+          span.popover('show');
+        }
+      });
+      span.on('mouseleave', function (e) { 
+        if (span.data('state') === 'hover') {
+          span.popover('hide');
+        }
+      });
+      span.on('click', function (e) { 
+        if (span.data('state') === 'hover') {
+            span.data('state', 'pinned');
+        } else {
+            span.data('state', 'hover');
+            span.popover('hide');
+        }
+      });
 
       ele.on('shown.bs.popover', function () {
         ele.find('.close-btn').click( function () {
+          span.data('state', 'hover');
           span.popover('hide');
         });        
       });
