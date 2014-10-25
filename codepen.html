@@ -14,6 +14,7 @@
 
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
 <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Signika'>
 
   <style>/*
 
@@ -29,6 +30,11 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   fieldset {
     display: table-cell;
   }
+}
+.title {
+  font-family: 'Signika', sans-serif;
+  font-style: italic;
+  color: #fff;
 }
 .cursor {
   cursor: pointer;
@@ -49,8 +55,10 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   <div ng-controller="TableCtrl as vm" class="container-fluid">
     <div class="row">
       <div id="main" class="col-xs-12">
-        <h3>Behind The Site</h3>
-        <p>A collection of technology stacks used by a variety of companyes and products.</p>
+        <h1 class="title">BehindTheSite</h1>
+        <p>
+          <div class="text-muted">A collection of technology stacks used by a variety of companyes and products.</div>
+        </p>
         <div class="table-responsive">
           <table class="table table-striped table-bordered table-condensed small">
             <thead>
