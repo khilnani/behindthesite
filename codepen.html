@@ -8,7 +8,7 @@
 
   <meta name="robots" content="noindex">
 
-  <title>Playground - CodePen</title>
+  <title>Playground 3 - CodePen</title>
 
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, x-minimal-ui"/>
 
@@ -62,8 +62,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 
 <body>
 
-<div ng-app="App">
-  <div id="content" class="hidden">hi</div>
+<div ng-app="btsApp">
   <div ng-controller="TableCtrl as vm" class="container-fluid">
     <div class="row">
       <div id="main" class="col-xs-12">
@@ -80,7 +79,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="p in vm.products">
+              <tr ng-repeat="p in vm.products | nocraigslist">
                 <td>{{ p.name }} </td>
                 <td ng-repeat="t in p.tiers">
                   <ul class="list-unstyled">
@@ -96,145 +95,10 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   </div>
 </div>
 
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script><script src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js'></script><script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script><script src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js'></script><script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js'></script><script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-resource.min.js'></script>
 
   <script>
-    /*
-
-http://api.jquery.com/click/
-
-https://docs.angularjs.org/api/ng/function/angular.element
-
-http://jsfiddle.net/hajpoj/JJQS9/15/
-
-*/
-
-var popupTemplate = '<div class="popover" role="tooltip"><div class="arrow"></div><span class="close-btn cursor glyphicon glyphicon-remove"></span><h1 class="popover-title"></h1><div class="popover-content"></div></div>';
-
-var App = angular.module('App', []);
-
-App.directive('itemDisplayed', function() {
-    return function(scope, element, attrs) {
-//    console.log(attrs);
-      var ele = angular.element(element);
-      var span = ele.find('span');
-
-      var popupConfig = {
-        html: true,
-        title: attrs.title,
-        content: attrs.content,
-        placement: 'top',
-        template: popupTemplate,
-        trigger: 'manual'
-      };
-
-      span.data('state', 'hover');
-      span.popover(popupConfig);
-      span.on('mouseenter', function (e) { 
-        if (span.data('state') === 'hover') {
-          span.popover('show');
-        }
-      });
-      span.on('mouseleave', function (e) { 
-        if (span.data('state') === 'hover') {
-          span.popover('hide');
-        }
-      });
-      span.on('click', function (e) { 
-        if (span.data('state') === 'hover') {
-            span.data('state', 'pinned');
-        } else {
-            span.data('state', 'hover');
-            span.popover('hide');
-        }
-      });
-
-      ele.on('shown.bs.popover', function () {
-        ele.find('.close-btn').click( function () {
-          span.data('state', 'hover');
-          span.popover('hide');
-        });        
-      });
-
-    };
-  });
-
-App.controller('TableCtrl', TableCtrl);
-
-function TableCtrl($scope, $http) {
-
-  var vm = this;
-  vm.headers = [];
-  vm.products = [];
-
-  vm.getTaxonomyIds = function (taxonomy) {
-    var ids = [];
-    ids.push( taxonomy.id );
-    for( var i in taxonomy.children ) {
-      var c = taxonomy.children[i];
-      ids = ids.concat( vm.getTaxonomyIds(c) );
-    }
-    return ids;
-  }
-
-  vm.findHeaderIndex = function (tier) {
-    var id = tier.category.id;
-//    console.log('Searching for: ' + id + ' ' + typeof(id) );
-    for(var i in vm.headers) {
-//      console.log('In: ' + vm.headers[i].ids);
-      var index = $.inArray(id, vm.headers[i].ids);
-      if(index > -1) {
-        return i;
-      }
-    }
-    return -1;
-  }
-
-  $http.get('http://api.behindthesite.com/v1/taxonomy/')
-    .success(function(res){
-      var taxonomy = res.taxonomy;
-      console.log('Taxonomy: ' + taxonomy.length  );
-      for(var index in taxonomy) {
-        var t = taxonomy[index];
-        var h = { name: t.name }
-        h.ids = vm.getTaxonomyIds( t );
-//        console.log( h.name + ', ' + h.ids);
-        vm.headers.push( h )
-      }
-    })
-    .error(function(res){
-      console.error('Error loading Taxonomy JSON.');
-    })
-
-  $http.get('http://api.behindthesite.com/v1/stacks/')
-    .success(function(res){
-      var products = res.products;
-      console.log('Products: ' + products.length  );
-      for(var index in products) {
-        var p = products[index];
-        var i = { name: p.name };
-        i.company = p.company;
-        i.tiers = [];
-        for(var h in vm.headers) {
-          i.tiers[h] = []
-        }
-        var tiers = p.stack.tiers;
-        for(var ea in tiers) {
-          var index = vm.findHeaderIndex( tiers[ea] )
-//          console.log('index: ' + index);
-          i.tiers[index].push( tiers[ea].product )
-        }
-//        console.log( i.name );
-//        console.log( i.tiers );
-        vm.products.push( i )
-      }
-    })
-    .error(function(res){
-      console.error('Error loading Stack JSON.');
-    })
-
-}
-    //@ sourceURL=pen.js
+var _0x11c1=["\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x70\x6F\x70\x6F\x76\x65\x72\x22\x20\x72\x6F\x6C\x65\x3D\x22\x74\x6F\x6F\x6C\x74\x69\x70\x22\x3E\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x61\x72\x72\x6F\x77\x22\x3E\x3C\x2F\x64\x69\x76\x3E\x3C\x73\x70\x61\x6E\x20\x63\x6C\x61\x73\x73\x3D\x22\x63\x6C\x6F\x73\x65\x2D\x62\x74\x6E\x20\x63\x75\x72\x73\x6F\x72\x20\x67\x6C\x79\x70\x68\x69\x63\x6F\x6E\x20\x67\x6C\x79\x70\x68\x69\x63\x6F\x6E\x2D\x72\x65\x6D\x6F\x76\x65\x22\x3E\x3C\x2F\x73\x70\x61\x6E\x3E\x3C\x68\x31\x20\x63\x6C\x61\x73\x73\x3D\x22\x70\x6F\x70\x6F\x76\x65\x72\x2D\x74\x69\x74\x6C\x65\x22\x3E\x3C\x2F\x68\x31\x3E\x3C\x64\x69\x76\x20\x63\x6C\x61\x73\x73\x3D\x22\x70\x6F\x70\x6F\x76\x65\x72\x2D\x63\x6F\x6E\x74\x65\x6E\x74\x22\x3E\x3C\x2F\x64\x69\x76\x3E\x3C\x2F\x64\x69\x76\x3E","\x62\x74\x73\x41\x70\x70","\x62\x74\x73\x43\x6F\x6E\x74\x72\x6F\x6C\x6C\x65\x72\x73","\x62\x74\x73\x44\x69\x72\x65\x63\x74\x69\x76\x65\x73","\x62\x74\x73\x46\x69\x6C\x74\x65\x72\x73","\x62\x74\x73\x53\x65\x72\x76\x69\x63\x65\x73","\x6D\x6F\x64\x75\x6C\x65","\x6E\x67\x52\x65\x73\x6F\x75\x72\x63\x65","\x54\x61\x78\x6F\x6E\x6F\x6D\x79\x53\x76\x63","\x24\x72\x65\x73\x6F\x75\x72\x63\x65","\x68\x74\x74\x70\x3A\x2F\x2F\x61\x70\x69\x2E\x62\x65\x68\x69\x6E\x64\x74\x68\x65\x73\x69\x74\x65\x2E\x63\x6F\x6D\x2F\x76\x31\x2F\x74\x61\x78\x6F\x6E\x6F\x6D\x79\x2F","\x66\x61\x63\x74\x6F\x72\x79","\x53\x74\x61\x63\x6B\x53\x76\x63","\x68\x74\x74\x70\x3A\x2F\x2F\x61\x70\x69\x2E\x62\x65\x68\x69\x6E\x64\x74\x68\x65\x73\x69\x74\x65\x2E\x63\x6F\x6D\x2F\x76\x31\x2F\x73\x74\x61\x63\x6B\x73\x2F","\x69\x74\x65\x6D\x44\x69\x73\x70\x6C\x61\x79\x65\x64","\x65\x6C\x65\x6D\x65\x6E\x74","\x73\x70\x61\x6E","\x66\x69\x6E\x64","\x74\x69\x74\x6C\x65","\x63\x6F\x6E\x74\x65\x6E\x74","\x74\x6F\x70","\x6D\x61\x6E\x75\x61\x6C","\x73\x74\x61\x74\x65","\x68\x6F\x76\x65\x72","\x64\x61\x74\x61","\x70\x6F\x70\x6F\x76\x65\x72","\x6D\x6F\x75\x73\x65\x65\x6E\x74\x65\x72","\x73\x68\x6F\x77","\x6F\x6E","\x6D\x6F\x75\x73\x65\x6C\x65\x61\x76\x65","\x68\x69\x64\x65","\x63\x6C\x69\x63\x6B","\x70\x69\x6E\x6E\x65\x64","\x73\x68\x6F\x77\x6E\x2E\x62\x73\x2E\x70\x6F\x70\x6F\x76\x65\x72","\x2E\x63\x6C\x6F\x73\x65\x2D\x62\x74\x6E","\x64\x69\x72\x65\x63\x74\x69\x76\x65","\x6E\x6F\x63\x72\x61\x69\x67\x73\x6C\x69\x73\x74","\x6E\x61\x6D\x65","\x43\x72\x61\x69\x67\x73\x6C\x69\x73\x74\x20\x57\x65\x62\x73\x69\x74\x65","\x70\x75\x73\x68","\x66\x69\x6C\x74\x65\x72","\x54\x61\x62\x6C\x65\x43\x74\x72\x6C","\x63\x6F\x6E\x74\x72\x6F\x6C\x6C\x65\x72","\x68\x65\x61\x64\x65\x72\x73","\x70\x72\x6F\x64\x75\x63\x74\x73","\x67\x65\x74\x54\x61\x78\x6F\x6E\x6F\x6D\x79\x49\x64\x73","\x69\x64","\x63\x68\x69\x6C\x64\x72\x65\x6E","\x63\x6F\x6E\x63\x61\x74","\x66\x69\x6E\x64\x48\x65\x61\x64\x65\x72\x49\x6E\x64\x65\x78","\x63\x61\x74\x65\x67\x6F\x72\x79","\x69\x64\x73","\x69\x6E\x41\x72\x72\x61\x79","\x74\x61\x78\x6F\x6E\x6F\x6D\x79","\x54\x61\x78\x6F\x6E\x6F\x6D\x79\x3A\x20","\x6C\x65\x6E\x67\x74\x68","\x6C\x6F\x67","\x67\x65\x74","\x50\x72\x6F\x64\x75\x63\x74\x73\x3A\x20","\x63\x6F\x6D\x70\x61\x6E\x79","\x74\x69\x65\x72\x73","\x73\x74\x61\x63\x6B","\x70\x72\x6F\x64\x75\x63\x74"];var popupTemplate=_0x11c1[0];var btsApp=angular[_0x11c1[6]](_0x11c1[1],[_0x11c1[2],_0x11c1[3],_0x11c1[4],_0x11c1[5]]);var btsServices=angular[_0x11c1[6]](_0x11c1[5],[_0x11c1[7]]);btsServices[_0x11c1[11]](_0x11c1[8],[_0x11c1[9],function (_0x65f3x4){return _0x65f3x4(_0x11c1[10]);} ]);btsServices[_0x11c1[11]](_0x11c1[12],[_0x11c1[9],function (_0x65f3x4){return _0x65f3x4(_0x11c1[13]);} ]);var btsDirectives=angular[_0x11c1[6]](_0x11c1[3],[]);btsDirectives[_0x11c1[35]](_0x11c1[14],function (){return function (_0x65f3x6,_0x65f3x7,_0x65f3x8){var _0x65f3x9=angular[_0x11c1[15]](_0x65f3x7);var _0x65f3xa=_0x65f3x9[_0x11c1[17]](_0x11c1[16]);var _0x65f3xb={html:true,title:_0x65f3x8[_0x11c1[18]],content:_0x65f3x8[_0x11c1[19]],placement:_0x11c1[20],template:popupTemplate,trigger:_0x11c1[21]};_0x65f3xa[_0x11c1[24]](_0x11c1[22],_0x11c1[23]);_0x65f3xa[_0x11c1[25]](_0x65f3xb);_0x65f3xa[_0x11c1[28]](_0x11c1[26],function (_0x65f3xc){if(_0x65f3xa[_0x11c1[24]](_0x11c1[22])===_0x11c1[23]){_0x65f3xa[_0x11c1[25]](_0x11c1[27]);} ;} );_0x65f3xa[_0x11c1[28]](_0x11c1[29],function (_0x65f3xc){if(_0x65f3xa[_0x11c1[24]](_0x11c1[22])===_0x11c1[23]){_0x65f3xa[_0x11c1[25]](_0x11c1[30]);} ;} );_0x65f3xa[_0x11c1[28]](_0x11c1[31],function (_0x65f3xc){if(_0x65f3xa[_0x11c1[24]](_0x11c1[22])===_0x11c1[23]){_0x65f3xa[_0x11c1[24]](_0x11c1[22],_0x11c1[32]);} else {_0x65f3xa[_0x11c1[24]](_0x11c1[22],_0x11c1[23]);_0x65f3xa[_0x11c1[25]](_0x11c1[30]);} ;} );_0x65f3x9[_0x11c1[28]](_0x11c1[33],function (){_0x65f3x9[_0x11c1[17]](_0x11c1[34])[_0x11c1[31]](function (){_0x65f3xa[_0x11c1[24]](_0x11c1[22],_0x11c1[23]);_0x65f3xa[_0x11c1[25]](_0x11c1[30]);} );} );} ;} );var btsFilters=angular[_0x11c1[6]](_0x11c1[4],[]);btsFilters[_0x11c1[40]](_0x11c1[36],function (){return function (_0x65f3xe){var _0x65f3xf=[];if(_0x65f3xe){for(var _0x65f3x10 in _0x65f3xe){if(_0x65f3xe[_0x65f3x10][_0x11c1[37]]!=_0x11c1[38]){_0x65f3xf[_0x11c1[39]](_0x65f3xe[_0x65f3x10]);} ;} ;} ;return _0x65f3xf;} ;} );var btsControllers=angular[_0x11c1[6]](_0x11c1[2],[]);btsControllers[_0x11c1[42]](_0x11c1[41],TableCtrl);function TableCtrl(_0x65f3x13,_0x65f3x14,_0x65f3x15){var _0x65f3x16=this;_0x65f3x16[_0x11c1[43]]=[];_0x65f3x16[_0x11c1[44]]=[];_0x65f3x16[_0x11c1[45]]=function (_0x65f3x17){var _0x65f3x18=[];_0x65f3x18[_0x11c1[39]](_0x65f3x17[_0x11c1[46]]);for(var _0x65f3x10 in _0x65f3x17[_0x11c1[47]]){var _0x65f3x19=_0x65f3x17[_0x11c1[47]][_0x65f3x10];_0x65f3x18=_0x65f3x18[_0x11c1[48]](_0x65f3x16[_0x11c1[45]](_0x65f3x19));} ;return _0x65f3x18;} ;_0x65f3x16[_0x11c1[49]]=function (_0x65f3x1a){var _0x65f3x1b=_0x65f3x1a[_0x11c1[50]][_0x11c1[46]];for(var _0x65f3x10 in _0x65f3x16[_0x11c1[43]]){var _0x65f3x1c=$[_0x11c1[52]](_0x65f3x1b,_0x65f3x16[_0x11c1[43]][_0x65f3x10][_0x11c1[51]]);if(_0x65f3x1c>-1){return _0x65f3x10;} ;} ;return -1;} ;_0x65f3x14[_0x11c1[57]](function (_0x65f3x1d){var _0x65f3x17=_0x65f3x1d[_0x11c1[53]];console[_0x11c1[56]](_0x11c1[54]+_0x65f3x17[_0x11c1[55]]);for(var _0x65f3x1c in _0x65f3x17){var _0x65f3x1e=_0x65f3x17[_0x65f3x1c];var _0x65f3x1f={name:_0x65f3x1e[_0x11c1[37]]};_0x65f3x1f[_0x11c1[51]]=_0x65f3x16[_0x11c1[45]](_0x65f3x1e);_0x65f3x16[_0x11c1[43]][_0x11c1[39]](_0x65f3x1f);} ;} );_0x65f3x15[_0x11c1[57]](function (_0x65f3x1d){var _0x65f3x20=_0x65f3x1d[_0x11c1[44]];console[_0x11c1[56]](_0x11c1[58]+_0x65f3x20[_0x11c1[55]]);for(var _0x65f3x1c in _0x65f3x20){var _0x65f3x21=_0x65f3x20[_0x65f3x1c];var _0x65f3x10={name:_0x65f3x21[_0x11c1[37]]};_0x65f3x10[_0x11c1[59]]=_0x65f3x21[_0x11c1[59]];_0x65f3x10[_0x11c1[60]]=[];for(var _0x65f3x1f in _0x65f3x16[_0x11c1[43]]){_0x65f3x10[_0x11c1[60]][_0x65f3x1f]=[];} ;var _0x65f3x22=_0x65f3x21[_0x11c1[61]][_0x11c1[60]];for(var _0x65f3x23 in _0x65f3x22){var _0x65f3x1c=_0x65f3x16[_0x11c1[49]](_0x65f3x22[_0x65f3x23]);_0x65f3x10[_0x11c1[60]][_0x65f3x1c][_0x11c1[39]](_0x65f3x22[_0x65f3x23][_0x11c1[62]]);} ;_0x65f3x16[_0x11c1[44]][_0x11c1[39]](_0x65f3x10);} ;} );} ;
   </script>
 
 </body>
