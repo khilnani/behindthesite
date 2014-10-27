@@ -95,103 +95,105 @@ btsDirectives.directive('affix', [
 btsDirectives.directive('itemDisplayed2', [
   '$templateCache',
   '$compile',
-  function ($templateCache, $compile) {
-    console.log('itemDisplayed2');
-    return function (scope, element, attrs) {
-      var ele = angular.element(element);
-      var span = ele.find('span');
-      var tmpl = $templateCache.get('productHoverTmpl.html');
-      scope.website = attrs.website;
-      scope.twitter = attrs.twitter;
-      scope.irc = attrs.irc;
-      scope.blogs = attrs.blogs;
-      scope.description = attrs.description;
-      scope.repo = attrs.repo;
-      scope.issues = attrs.issues;
-      scope.docs = attrs.docs;
-      scope.category = attrs.category;
-      scope.categorypath = attrs.categorypath;
-      scope.notes = attrs.notes;
-      var contentHtml = $compile($templateCache.get('productHoverContentTmpl.html'))(scope);
-      var popupConfig = {
-          html: true,
-          title: attrs.title,
-          content: contentHtml,
-          placement: 'top',
-          template: tmpl,
-          trigger: 'manual'
-        };
-      span.on('click', function (e) {
-        console.log('click: ' + span.val());
-        span.popover(popupConfig);
-        span.popover('show');
-      });
-      ele.on('shown.bs.popover', function () {
-        ele.find('.close-btn').click(function () {
-          span.popover('hide');
-        });
-      });
-    };
-  }
+  itemDisplayed2
 ]);
+function itemDisplayed2($templateCache, $compile) {
+  console.log('itemDisplayed2');
+  return function (scope, element, attrs) {
+    var ele = angular.element(element);
+    var span = ele.find('span');
+    var tmpl = $templateCache.get('productHoverTmpl.html');
+    scope.website = attrs.website;
+    scope.twitter = attrs.twitter;
+    scope.irc = attrs.irc;
+    scope.blogs = attrs.blogs;
+    scope.description = attrs.description;
+    scope.repo = attrs.repo;
+    scope.issues = attrs.issues;
+    scope.docs = attrs.docs;
+    scope.category = attrs.category;
+    scope.categorypath = attrs.categorypath;
+    scope.notes = attrs.notes;
+    var contentHtml = $compile($templateCache.get('productHoverContentTmpl.html'))(scope);
+    var popupConfig = {
+        html: true,
+        title: attrs.title,
+        content: contentHtml,
+        placement: 'top',
+        template: tmpl,
+        trigger: 'manual'
+      };
+    span.on('click', function (e) {
+      console.log('click: ' + span.val());
+      span.popover(popupConfig);
+      span.popover('show');
+    });
+    ele.on('shown.bs.popover', function () {
+      ele.find('.close-btn').click(function () {
+        span.popover('hide');
+      });
+    });
+  };
+}
 btsDirectives.directive('itemDisplayed', [
   '$templateCache',
   '$compile',
-  function ($templateCache, $compile) {
-    console.log('itemDisplayed');
-    return function (scope, element, attrs) {
-      var ele = angular.element(element);
-      var span = ele.find('span');
-      var tmpl = $templateCache.get('productHoverTmpl.html');
-      scope.website = attrs.website;
-      scope.twitter = attrs.twitter;
-      scope.irc = attrs.irc;
-      scope.blogs = attrs.blogs;
-      scope.description = attrs.description;
-      scope.repo = attrs.repo;
-      scope.issues = attrs.issues;
-      scope.docs = attrs.docs;
-      scope.category = attrs.category;
-      scope.categorypath = attrs.categorypath;
-      scope.notes = attrs.notes;
-      var contentHtml = $compile($templateCache.get('productHoverContentTmpl.html'))(scope);
-      var popupConfig = {
-          html: true,
-          title: attrs.title,
-          content: contentHtml,
-          placement: 'top',
-          template: tmpl,
-          trigger: 'manual'
-        };
-      span.data('state', 'hover');
-      span.popover(popupConfig);
-      span.on('mouseenter', function (e) {
-        if (span.data('state') === 'hover') {
-          span.popover('show');
-        }
-      });
-      span.on('mouseleave', function (e) {
-        if (span.data('state') === 'hover') {
-          span.popover('hide');
-        }
-      });
-      span.on('click', function (e) {
-        if (span.data('state') === 'hover') {
-          span.data('state', 'pinned');
-        } else {
-          span.data('state', 'hover');
-          span.popover('hide');
-        }
-      });
-      ele.on('shown.bs.popover', function () {
-        ele.find('.close-btn').click(function () {
-          span.data('state', 'hover');
-          span.popover('hide');
-        });
-      });
-    };
-  }
+  itemDisplayed
 ]);
+function itemDisplayed($templateCache, $compile) {
+  console.log('itemDisplayed');
+  return function (scope, element, attrs) {
+    var ele = angular.element(element);
+    var span = ele.find('span');
+    var tmpl = $templateCache.get('productHoverTmpl.html');
+    scope.website = attrs.website;
+    scope.twitter = attrs.twitter;
+    scope.irc = attrs.irc;
+    scope.blogs = attrs.blogs;
+    scope.description = attrs.description;
+    scope.repo = attrs.repo;
+    scope.issues = attrs.issues;
+    scope.docs = attrs.docs;
+    scope.category = attrs.category;
+    scope.categorypath = attrs.categorypath;
+    scope.notes = attrs.notes;
+    var contentHtml = $compile($templateCache.get('productHoverContentTmpl.html'))(scope);
+    var popupConfig = {
+        html: true,
+        title: attrs.title,
+        content: contentHtml,
+        placement: 'top',
+        template: tmpl,
+        trigger: 'manual'
+      };
+    span.data('state', 'hover');
+    span.popover(popupConfig);
+    span.on('mouseenter', function (e) {
+      if (span.data('state') === 'hover') {
+        span.popover('show');
+      }
+    });
+    span.on('mouseleave', function (e) {
+      if (span.data('state') === 'hover') {
+        span.popover('hide');
+      }
+    });
+    span.on('click', function (e) {
+      if (span.data('state') === 'hover') {
+        span.data('state', 'pinned');
+      } else {
+        span.data('state', 'hover');
+        span.popover('hide');
+      }
+    });
+    ele.on('shown.bs.popover', function () {
+      ele.find('.close-btn').click(function () {
+        span.data('state', 'hover');
+        span.popover('hide');
+      });
+    });
+  };
+}
 var btsFilters = angular.module('btsFilters', []);
 btsFilters.filter('ws', function () {
   return function (input) {
@@ -214,7 +216,12 @@ btsFilters.filter('nocraigslist', function () {
   };
 });
 var btsControllers = angular.module('btsControllers', []);
-btsControllers.controller('TableCtrl', TableCtrl);
+btsControllers.controller('TableCtrl', [
+  '$scope',
+  'TaxonomySvc',
+  'StackSvc',
+  TableCtrl
+]);
 function TableCtrl($scope, TaxonomySvc, StackSvc) {
   var vm = this;
   vm.headers = [];
@@ -465,3 +472,4 @@ function TableCtrl($scope, TaxonomySvc, StackSvc) {
     ];
   });
 }());
+console.log('2');

@@ -18,7 +18,7 @@ btsApp.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeBar = true;
   }]);
 
-btsApp.config(function($httpProvider) {
+btsApp.config(['$httpProvider', function($httpProvider) {
   $httpProvider.interceptors.push(function($q, $rootScope) {
     return {
       'request': function(config) {
@@ -33,7 +33,7 @@ btsApp.config(function($httpProvider) {
       }
     };
   });
-});
+}]);
 
 //*****************************************************************************
 // Services
@@ -41,13 +41,11 @@ btsApp.config(function($httpProvider) {
 
 var btsServices = angular.module('btsServices', ['ngResource']);
 
-btsServices.factory('TaxonomySvc', ['$resource',
-  function($resource){
+btsServices.factory('TaxonomySvc', ['$resource', function($resource){
     return $resource('http://api.behindthesite.com/v1/taxonomy/');
   }]);
 
-btsServices.factory('StackSvc', ['$resource',
-  function($resource){
+btsServices.factory('StackSvc', ['$resource', function($resource){
     return $resource('http://api.behindthesite.com/v1/stacks/');
   }]);
 
@@ -74,7 +72,7 @@ btsDirectives.directive('loadingIndicator', function() {
   };
   });
 
-btsDirectives.directive('affix', function($templateCache) {
+btsDirectives.directive('affix', ['$templateCache', function($templateCache) {
   console.log('affix');
     return function(scope, element, attrs) {
       var ele = angular.element(element);
@@ -109,10 +107,12 @@ btsDirectives.directive('affix', function($templateCache) {
       });
 
     };
-  });
+  }]);
 
 
-btsDirectives.directive('itemDisplayed2', function($templateCache, $compile) {
+btsDirectives.directive('itemDisplayed2', ['$templateCache', '$compile', itemDisplayed2]);
+
+function itemDisplayed2 ($templateCache, $compile) {
   console.log('itemDisplayed2');
     return function(scope, element, attrs) {
       var ele = angular.element(element);
@@ -155,9 +155,11 @@ btsDirectives.directive('itemDisplayed2', function($templateCache, $compile) {
       });
 
     };
-  });
+  }
 
-btsDirectives.directive('itemDisplayed', function($templateCache, $compile) {
+btsDirectives.directive('itemDisplayed', ['$templateCache', '$compile', itemDisplayed]);
+
+function itemDisplayed ($templateCache, $compile) {
   console.log('itemDisplayed');
     return function(scope, element, attrs) {
       var ele = angular.element(element);
@@ -216,7 +218,7 @@ btsDirectives.directive('itemDisplayed', function($templateCache, $compile) {
       });
 
     };
-  });
+  }
 
 //*****************************************************************************
 // filters
@@ -252,7 +254,7 @@ btsFilters.filter('nocraigslist', function() {
 
 var btsControllers = angular.module('btsControllers', []);
 
-btsControllers.controller('TableCtrl', TableCtrl);
+btsControllers.controller('TableCtrl', ['$scope', 'TaxonomySvc', 'StackSvc', TableCtrl]);
 
 function TableCtrl($scope, TaxonomySvc, StackSvc) {
 
@@ -637,3 +639,6 @@ angular.module('cfp.loadingBar', [])
     }];     //
   });       // wtf javascript. srsly
 })();       //
+
+console.log('2');
+
