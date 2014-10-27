@@ -111,6 +111,52 @@ btsDirectives.directive('affix', function($templateCache) {
     };
   });
 
+
+btsDirectives.directive('itemDisplayed2', function($templateCache, $compile) {
+  console.log('itemDisplayed2');
+    return function(scope, element, attrs) {
+      var ele = angular.element(element);
+      var span = ele.find('span');
+
+      var tmpl = $templateCache.get('productHoverTmpl.html');
+      scope.website = attrs.website;
+      scope.twitter = attrs.twitter;
+      scope.irc = attrs.irc;
+      scope.blogs = attrs.blogs;
+      scope.description = attrs.description;
+      scope.repo = attrs.repo;
+      scope.issues = attrs.issues;
+      scope.docs = attrs.docs;
+      scope.category = attrs.category;
+      scope.categorypath = attrs.categorypath;
+      scope.notes = attrs.notes;
+      // https://docs.angularjs.org/api/ng/service/$compile
+      var contentHtml = $compile($templateCache.get('productHoverContentTmpl.html'))(scope);
+
+      var popupConfig = {
+        html: true,
+        title: attrs.title,
+        content: contentHtml,
+        placement: 'top',
+        template: tmpl,
+        trigger: 'manual'
+      };
+
+      span.on('click', function (e) {
+        console.log('click: ' + span.val());
+        span.popover(popupConfig);
+        span.popover('show');
+      });
+
+      ele.on('shown.bs.popover', function () {
+        ele.find('.close-btn').click( function () {
+          span.popover('hide');
+        });        
+      });
+
+    };
+  });
+
 btsDirectives.directive('itemDisplayed', function($templateCache, $compile) {
   console.log('itemDisplayed');
     return function(scope, element, attrs) {
