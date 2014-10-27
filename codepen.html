@@ -100,15 +100,17 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
     </script>
     <script type="text/ng-template" id="productHoverContentTmpl.html">
       <div>
+        <p><em><small>{{ categorypath }}</small></em></p>
         <p>{{ description }}</p>
+        <p class="well well-sm" ng-show='notes != ""'><strong>"</strong>{{ notes }}<strong>"</strong></p>
         <p>
-          <span ng-show='"{{ website }}" != ""'><a href="{{ website }}" target="_blank">Website</a> </span>
-          <span ng-show='"{{ twitter }}" != ""'><a href="{{ twitter }}" target="_blank">Twitter</a> </span>
-          <span ng-show='"{{ irc }}" != ""'><a href="{{ irc }}" target="_blank">Irc</a> </span>
-          <span ng-show='"{{ repo }}" != ""'><a href="{{ repo }}" target="_blank">Source-code</a> </span>
-          <span ng-show='"{{ issues }}" != ""'><a href="{{ issues }}" target="_blank">Issues</a> </span>
-          <span ng-show='"{{ docs }}" != ""'><a href="{{ docs }}" target="_blank">Docs</a> </span>
-          <span ng-show='"{{ blogs }}" != ""'><a href="{{ blogs }}" target="_blank">Blog</a> </span>
+          <span ng-show='website != ""'><a href="{{ website }}" target="_blank">Website</a> </span>
+          <span ng-show='twitter != ""'><a href="{{ twitter }}" target="_blank">Twitter</a> </span>
+          <span ng-show='irc != ""'><a href="{{ irc }}" target="_blank">Irc</a> </span>
+          <span ng-show='repo != ""'><a href="{{ repo }}" target="_blank">Source-code</a> </span>
+          <span ng-show='issues != ""'><a href="{{ issues }}" target="_blank">Issues</a> </span>
+          <span ng-show='docs != ""'><a href="{{ docs }}" target="_blank">Docs</a> </span>
+          <span ng-show='blogs != ""'><a href="{{ blogs }}" target="_blank">Blog</a> </span>
         </p> 
         </div>
     </script>
@@ -130,7 +132,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
                 <td>{{ product.name }}</td>
                 <td ng-repeat="tier in product.tiers">
                   <ul class="list-unstyled">
-                    <li ng-repeat="ea in tier" data-description="{{ ea.description }}" data-title="{{ ea.name }}" data-website="{{ ea.website }}" data-twitter="{{ ea.twitter }}" data-irc="{{ ea.irc }}" data-blogs="{{ ea.blogs }}" data-repo="{{ ea.repo }}" data-issues="{{ ea.issues }}" data-docs="{{ ea.docs }}" item-displayed="item-displayed"><span class="cursor">{{ ea.name }} </span></li>
+                    <li ng-repeat="ea in tier" data-description="{{ ea.product.description }}" data-title="{{ ea.product.name }}" data-website="{{ ea.product.website }}" data-twitter="{{ eaproduct.twitter }}" data-irc="{{ ea.product.irc }}" data-blogs="{{ ea.product.blogs }}" data-repo="{{ ea.product.repo }}" data-issues="{{ ea.product.issues }}" data-docs="{{ ea.product.docs }}" data-category="{{ ea.category.name }}" data-categorypath="{{ ea.category.full_path }}" data-notes="{{ ea.notes }}" item-displayed="item-displayed"><span class="cursor">{{ ea.product.name }} </span></li>
                   </ul>
                 </td>
               </tr>
@@ -212,7 +214,7 @@ btsDirectives.directive('affix', function($templateCache) {
         var ths = ele.find('th');
         ths.each(function(i) {
           $(this).width(scope.affix_widths[i]);
-          console.log(scope.affix_widths[i])
+          //console.log(scope.affix_widths[i])
         })
       });
 
@@ -234,6 +236,9 @@ btsDirectives.directive('itemDisplayed', function($templateCache, $compile) {
       scope.repo = attrs.repo;
       scope.issues = attrs.issues;
       scope.docs = attrs.docs;
+      scope.category = attrs.category;
+      scope.categorypath = attrs.categorypath;
+      scope.notes = attrs.notes;
       // https://docs.angularjs.org/api/ng/service/$compile
       var contentHtml = $compile($templateCache.get('productHoverContentTmpl.html'))(scope);
 
@@ -241,7 +246,7 @@ btsDirectives.directive('itemDisplayed', function($templateCache, $compile) {
         html: true,
         title: attrs.title,
         content: contentHtml,
-        placement: 'top',
+        placement: 'bottom',
         template: tmpl,
         trigger: 'manual'
       };
@@ -363,7 +368,7 @@ function TableCtrl($scope, TaxonomySvc, StackSvc) {
           var index = vm.findHeaderIndex( tiers[tier] )
 //          console.log('index: ' + index);
 //          console.log(tiers[tier].product);
-          model.tiers[index].push( tiers[tier].product )
+          model.tiers[index].push( tiers[tier] )
         }
 //        console.log( i.name );
 //        console.log( i.tiers );
