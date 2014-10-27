@@ -8,7 +8,7 @@
 
   <meta name="robots" content="noindex">
 
-  <title>Playground alt - CodePen</title>
+  <title>Playground 2 - CodePen</title>
 
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, x-minimal-ui"/>
 
@@ -102,13 +102,13 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
       <div>
         <p>{{ description }}</p>
         <p>
-          <span ng-show='"{{twitter}}" != “”’><a href="{{ twitter }}" target="_blank">Website</a>, </span>
-          <span ng-show='"{{blogs}}" != “”’><a href="{{ twitter }}" target="_blank">Twitter</a>, </span>
-          <span ng-show='"{{irc}}" != “”’><a href="{{ irc }}" target="_blank">Irc</a>, </span>
-          <span ng-show='"{{repo}}" != “”’><a href="{{ repo }}" target="_blank">Source-code</a>, </span>
-          <span ng-show='"{{issues}}" != “”’><a href="{{ issues }}" target="_blank">Issues</a>, </span>
-          <span ng-show='"{{docs}}" != “”’><a href="{{ docs }}" target="_blank">Docs</a>, </span>
-          <span ng-show='"{{blogs}}" != “”’><a href="{{ blogs }}" target="_blank">Blog</a></span>
+          <span ng-show='"{{ website }}" != ""'><a href="{{ website }}" target="_blank">Website</a> </span>
+          <span ng-show='"{{ twitter }}" != ""'><a href="{{ twitter }}" target="_blank">Twitter</a> </span>
+          <span ng-show='"{{ irc }}" != ""'><a href="{{ irc }}" target="_blank">Irc</a> </span>
+          <span ng-show='"{{ repo }}" != ""'><a href="{{ repo }}" target="_blank">Source-code</a> </span>
+          <span ng-show='"{{ issues }}" != ""'><a href="{{ issues }}" target="_blank">Issues</a> </span>
+          <span ng-show='"{{ docs }}" != ""'><a href="{{ docs }}" target="_blank">Docs</a> </span>
+          <span ng-show='"{{ blogs }}" != ""'><a href="{{ blogs }}" target="_blank">Blog</a> </span>
         </p> 
         </div>
     </script>
@@ -372,8 +372,8 @@ function TableCtrl($scope, TaxonomySvc, StackSvc) {
 
     // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast downward
     // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#emit upward
-      $scope.$emit('TableCtrl.completed');    
-      $scope.$broadcast('TableCtrl.completed');
+    // $scope.$emit('TableCtrl.completed');    
+    // $scope.$broadcast('TableCtrl.completed');
 
     });
 
