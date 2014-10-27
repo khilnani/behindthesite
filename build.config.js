@@ -7,7 +7,7 @@ module.exports = {
    * development and the `compile_dir` folder is where our app resides once it's
    * completely built.
    */
-  build_dir: 'build',
+  build_dir: 'home',
   compile_dir: 'site',
 
   /**
@@ -62,6 +62,12 @@ module.exports = {
    */
   vendor_files: {
     js: [
+      'vendor/jquery/dist/jquery.js',
+      'vendor/bootstrap/dist/js/bootstrap.js',
+      'vendor/angular/angular.js',
+      'vendor/angular-resource/angular-resource.js',
+      'vendor/angular-route/angular-route.js',
+      'vendor/angular-animate/angular-animate.js'
     ],
     css: [
     ],
