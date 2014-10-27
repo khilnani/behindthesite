@@ -62,12 +62,12 @@ module.exports = {
    */
   vendor_files: {
     js: [
-      'vendor/jquery/dist/jquery.min.js',
-      'vendor/bootstrap/dist/js/bootstrap.min.js',
-      'vendor/angular/angular.min.js',
-      'vendor/angular-resource/angular-resource.min.js',
-      'vendor/angular-route/angular-route.min.js',
-      'vendor/angular-animate/angular-animate.min.js'
+//      'vendor/jquery/dist/jquery.min.js',
+//      'vendor/bootstrap/dist/js/bootstrap.min.js',
+//      'vendor/angular/angular.min.js',
+//      'vendor/angular-resource/angular-resource.min.js',
+//      'vendor/angular-route/angular-route.min.js',
+//      'vendor/angular-animate/angular-animate.min.js'
     ],
     css: [
     ],
