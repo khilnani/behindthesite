@@ -640,5 +640,5 @@ angular.module('cfp.loadingBar', [])
   });       // wtf javascript. srsly
 })();       //
 
-console.log('2');
+console.log('3');
 

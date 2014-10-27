@@ -472,4 +472,4 @@ function TableCtrl($scope, TaxonomySvc, StackSvc) {
     ];
   });
 }());
-console.log('2');
+console.log('3');
