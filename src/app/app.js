@@ -16,7 +16,7 @@ var btsApp = angular.module('btsApp', ['btsControllers', 'btsDirectives', 'btsFi
 btsApp.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = true; 
     cfpLoadingBarProvider.includeBar = true;
-  }])
+  }]);
 
 btsApp.config(function($httpProvider) {
   $httpProvider.interceptors.push(function($q, $rootScope) {
@@ -75,7 +75,7 @@ btsDirectives.directive('loadingIndicator', function() {
   });
 
 btsDirectives.directive('affix', function($templateCache) {
-  console.log('affix')
+  console.log('affix');
     return function(scope, element, attrs) {
       var ele = angular.element(element);
 
@@ -87,7 +87,7 @@ btsDirectives.directive('affix', function($templateCache) {
             return  $('#main').offset().top;
           }
         }
-      })
+      });
 
       ele.on('affix.bs.affix', function (e) {
         console.log('affix.prior');
@@ -95,7 +95,7 @@ btsDirectives.directive('affix', function($templateCache) {
         var ths = ele.find('th');
         ths.each(function(i) { 
           scope.affix_widths[i] = $(this).width();
-        })
+        });
 
       });
 
@@ -105,19 +105,19 @@ btsDirectives.directive('affix', function($templateCache) {
         ths.each(function(i) {
           $(this).width(scope.affix_widths[i]);
           //console.log(scope.affix_widths[i])
-        })
+        });
       });
 
     };
   });
 
 btsDirectives.directive('itemDisplayed', function($templateCache, $compile) {
-  console.log('itemDisplayed')
+  console.log('itemDisplayed');
     return function(scope, element, attrs) {
       var ele = angular.element(element);
       var span = ele.find('span');
 
-      var tmpl = $templateCache.get('productHoverTmpl.html')
+      var tmpl = $templateCache.get('productHoverTmpl.html');
       scope.website = attrs.website;
       scope.twitter = attrs.twitter;
       scope.irc = attrs.irc;
@@ -136,7 +136,7 @@ btsDirectives.directive('itemDisplayed', function($templateCache, $compile) {
         html: true,
         title: attrs.title,
         content: contentHtml,
-        placement: 'bottom',
+        placement: 'top',
         template: tmpl,
         trigger: 'manual'
       };
@@ -222,7 +222,7 @@ function TableCtrl($scope, TaxonomySvc, StackSvc) {
       ids = ids.concat( vm.getTaxonomyIds(c) );
     }
     return ids;
-  }
+  };
 
   vm.findHeaderIndex = function (tier) {
     var id = tier.category.id;
@@ -235,17 +235,17 @@ function TableCtrl($scope, TaxonomySvc, StackSvc) {
       }
     }
     return -1;
-  }
+  };
 
   TaxonomySvc.get(function(res) {
       var taxonomy = res.taxonomy;
       console.log('Taxonomy: ' + taxonomy.length  );
       for(var index in taxonomy) {
         var t = taxonomy[index];
-        var h = { name: t.name }
+        var h = { name: t.name };
         h.ids = vm.getTaxonomyIds( t );
 //        console.log( h.name + ', ' + h.ids);
-        vm.headers.push( h )
+        vm.headers.push( h );
       }
 
     });
@@ -264,14 +264,14 @@ function TableCtrl($scope, TaxonomySvc, StackSvc) {
         }
         var tiers = product.stack.tiers;
         for(var tier in tiers) {
-          var index = vm.findHeaderIndex( tiers[tier] )
+          var i = vm.findHeaderIndex( tiers[tier] );
 //          console.log('index: ' + index);
 //          console.log(tiers[tier].product);
-          model.tiers[index].push( tiers[tier] )
+          model.tiers[i].push( tiers[tier] );
         }
 //        console.log( i.name );
 //        console.log( i.tiers );
-        vm.products.push( model )
+        vm.products.push( model );
       } 
 
     // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast downward
