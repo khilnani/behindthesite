@@ -307,6 +307,7 @@ var btsApp = angular.module('btsApp', ['btsControllers', 'btsDirectives', 'btsFi
 
 btsApp.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = true; 
+    cfpLoadingBarProvider.includeBar = true;
   }])
 
 btsApp.config(function($httpProvider) {
