@@ -117,7 +117,23 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
     <div ng-controller="TableCtrl as vm" class="row">
       <div id="main" class="col-xs-12"> 
         <div class="visible-xs">
-          <p ng-repeat="p in vm.products | nocraigslist">{{ p.name }}</p>
+          <div id="accordion" class="panel-group"> 
+            <div ng-repeat="product in vm.products" class="panel panel-default"> 
+              <div class="panel-heading">
+                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#{{ product.name | ws }}">{{ product.name }}</a></h4>
+              </div>
+              <div id="{{ product.name | ws }}" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div ng-repeat="tier in product.tiers">
+                    <h4>{{ tier.name }}</h4>
+                    <ul class="list-unstyled">
+                      <li ng-repeat="ea in tier" data-description="{{ ea.product.description }}" data-title="{{ ea.product.name }}" data-website="{{ ea.product.website }}" data-twitter="{{ eaproduct.twitter }}" data-irc="{{ ea.product.irc }}" data-blogs="{{ ea.product.blogs }}" data-repo="{{ ea.product.repo }}" data-issues="{{ ea.product.issues }}" data-docs="{{ ea.product.docs }}" data-category="{{ ea.category.name }}" data-categorypath="{{ ea.category.full_path }}" data-notes="{{ ea.notes }}"><a href="{{ ea.product.website }}" target="_blank" class="btn btn-sm btn-primary">{{ ea.product.name }} </a><small>&nbsp;- {{ ea.category.full_path }}</small></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="hidden-xs">
           <table class="table table-striped table-bordered table-condensed small">
@@ -183,6 +199,13 @@ btsServices.factory('StackSvc', ['$resource',
 // https://docs.angularjs.org/guide/directive
 
 var btsDirectives = angular.module('btsDirectives', []);
+
+btsDirectives.directive('mobileDone', function($templateCache) {
+  console.log('mobileDone');
+    return function(scope, element, attrs) {
+      console.log('mobile-done');
+    };
+  });
 
 btsDirectives.directive('affix', function($templateCache) {
   console.log('affix')
@@ -288,6 +311,14 @@ btsDirectives.directive('itemDisplayed', function($templateCache, $compile) {
 
 var btsFilters = angular.module('btsFilters', []);
 
+btsFilters.filter('ws', function () {
+    return function (input) {
+      if (input) {
+        return input.toLowerCase().replace(/[^a-z_]/g, '_');
+      }
+    };
+  });
+
 btsFilters.filter('nocraigslist', function() {
   return function(input) {
     var output = [];
@@ -361,7 +392,8 @@ function TableCtrl($scope, TaxonomySvc, StackSvc) {
         model.company = product.company;
         model.tiers = [];
         for(var header in vm.headers) {
-          model.tiers[header] = []
+          model.tiers[header] = [];
+          model.tiers[header].name = vm.headers[header].name;
         }
         var tiers = product.stack.tiers;
         for(var tier in tiers) {
