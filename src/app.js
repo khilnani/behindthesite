@@ -11,7 +11,7 @@ https://docs.angularjs.org/
 //*****************************************************************************
 // App
 
-var bts = angular.module('bts', ['bts.controllers', 'bts.directives', 'bts.filters', 'bts.services','chieffancypants.loadingBar', 'ngAnimate']);
+var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives', 'bts.filters', 'bts.services','chieffancypants.loadingBar', 'ngAnimate']);
 
 bts.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = true; 
