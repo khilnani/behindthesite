@@ -27,7 +27,7 @@ bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         controller: 'MainCtrl'
     });
     $routeProvider.otherwise({
-        redirectTo: '/'
+        redirectTo: '/main'
     });
   }]);
 
