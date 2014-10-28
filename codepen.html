@@ -8,7 +8,7 @@
 
   <meta name="robots" content="noindex">
 
-  <title>Playground 2 - CodePen</title>
+  <title>Playground fork - CodePen</title>
 
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, x-minimal-ui"/>
 
@@ -42,6 +42,10 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   fieldset {
     display: table-cell;
   }
+}
+.pad {
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .title {
   font-family: 'Signika', sans-serif;
@@ -97,7 +101,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   -moz-transition: width 350ms;
   -o-transition: width 350ms;
   transition: width 350ms;
-  background: #fff;
+  background: #2299dd;
   position: fixed;
   z-index: 10002;
   top: 0;
@@ -115,10 +119,10 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   top: 0;
   height: 2px;
   opacity: .45;
-  -moz-box-shadow: #fff 1px 0 6px 1px;
-  -ms-box-shadow: #fff 1px 0 6px 1px;
-  -webkit-box-shadow: #fff 1px 0 6px 1px;
-  box-shadow: #29d 1px 0 6px 1px;
+  -moz-box-shadow: #2299dd 1px 0 6px 1px;
+  -ms-box-shadow: #2299dd 1px 0 6px 1px;
+  -webkit-box-shadow: #2299dd 1px 0 6px 1px;
+  box-shadow: #2299dd 1px 0 6px 1px;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   border-radius: 100%;
@@ -134,8 +138,8 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   width: 14px;
   height: 14px;
   border: solid 2px transparent;
-  border-top-color: #fff;
-  border-left-color: #fff;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
   border-radius: 10px;
   -webkit-animation: loading-bar-spinner 400ms linear infinite;
   -moz-animation: loading-bar-spinner 400ms linear infinite;
@@ -199,20 +203,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 <div ng-app="btsApp" class="container-fluid">
   <div class="row">
     <div class="jumbotron">
-      <div class="row">
+      <div class="row pad">
         <h2 class="title text-center">BehindTheSite</h2>
-        <p class="text-center text-muted"><small>A collection of technology stacks used by a variety of companies and products. </small></p>
-      </div>
-      <div class="row hidden">
-        <div class="col-sm-4">
-          <p><small>Hi</small></p>
-        </div>
-        <div class="col-sm-4">
-          <p> <small>Hi</small></p>
-        </div>
-        <div class="col-sm-4">
-          <p> <small>Hi.</small></p>
-        </div>
+        <p class="text-center text-muted"><small>An index of web technology stacks used by a variety of companies and products. </small></p>
       </div>
     </div>
   </div>
@@ -242,7 +235,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
         </div>
     </script>
     <div ng-controller="TableCtrl as vm" class="row">
-      <div id="main" class="col-xs-12"> 
+      <div id="main" class="col-xs-12">
         <div class="visible-xs">
           <div id="accordion" class="panel-group"> 
             <div ng-repeat="product in vm.products" class="panel panel-default"> 
@@ -254,7 +247,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
                   <div ng-repeat="tier in product.tiers">
                     <h4>{{ tier.name }}</h4>
                     <ul class="list-unstyled">
-                      <li ng-repeat="ea in tier" data-description="{{ ea.product.description }}" data-title="{{ ea.product.name }}" data-website="{{ ea.product.website }}" data-twitter="{{ eaproduct.twitter }}" data-irc="{{ ea.product.irc }}" data-blogs="{{ ea.product.blogs }}" data-repo="{{ ea.product.repo }}" data-issues="{{ ea.product.issues }}" data-docs="{{ ea.product.docs }}" data-category="{{ ea.category.name }}" data-categorypath="{{ ea.category.full_path }}" data-notes="{{ ea.notes }}"><a href="{{ ea.product.website }}" target="_blank" class="btn btn-sm btn-primary">{{ ea.product.name }} </a><small>&nbsp;- {{ ea.category.full_path }}</small></li>
+                      <li ng-repeat="ea in tier" data-description="{{ ea.product.description }}" data-title="{{ ea.product.name }}" data-website="{{ ea.product.website }}" data-twitter="{{ eaproduct.twitter }}" data-irc="{{ ea.product.irc }}" data-blogs="{{ ea.product.blogs }}" data-repo="{{ ea.product.repo }}" data-issues="{{ ea.product.issues }}" data-docs="{{ ea.product.docs }}" data-category="{{ ea.category.name }}" data-categorypath="{{ ea.category.full_path }}" data-notes="{{ ea.notes }}"><a href="{{ ea.product.website }}" target="_blank" class="btn btn-sm btn-primary">{{ ea.product.name }} </a><small>&nbsp;- {{ ea.category.full_path }} </small></li>
                     </ul>
                   </div>
                 </div>
@@ -300,7 +293,7 @@ https://docs.angularjs.org/
 
 */
 
-//***************************************************************************** 
+//*****************************************************************************
 // App
 
 var btsApp = angular.module('btsApp', ['btsControllers', 'btsDirectives', 'btsFilters', 'btsServices','chieffancypants.loadingBar', 'ngAnimate']);
@@ -309,23 +302,6 @@ btsApp.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = true; 
     cfpLoadingBarProvider.includeBar = true;
   }])
-
-btsApp.config(function($httpProvider) {
-  $httpProvider.interceptors.push(function($q, $rootScope) {
-    return {
-      'request': function(config) {
-        console.log('Request');
-        $rootScope.$broadcast('loading-started');
-        return config || $q.when(config);
-      },
-      'response': function(response) {
-        console.log('Response');
-        $rootScope.$broadcast('loading-complete');
-        return response || $q.when(response);
-      }
-    };
-  });
-});
 
 //*****************************************************************************
 // Services
@@ -348,23 +324,6 @@ btsServices.factory('StackSvc', ['$resource',
 // https://docs.angularjs.org/guide/directive
 
 var btsDirectives = angular.module('btsDirectives', []);
-
-btsDirectives.directive('loadingIndicator', function() {
-  console.log('loadingIndicator');
-  return {
-    restrict : "A",
-    template: "<div>Loading...</div>",
-    link : function(scope, element, attrs) {
-      scope.$on("loading-started", function(e) {element.css({"display" : ""});
-      });
-
-      scope.$on("loading-complete", function(e) {
-        element.css({"display" : "none"});
-      });
-
-    }
-  };
-  });
 
 btsDirectives.directive('affix', function($templateCache) {
   console.log('affix')
@@ -406,6 +365,7 @@ btsDirectives.directive('affix', function($templateCache) {
 btsDirectives.directive('itemDisplayed', function($templateCache, $compile) {
   console.log('itemDisplayed')
     return function(scope, element, attrs) {
+//    console.log(attrs);
       var ele = angular.element(element);
       var span = ele.find('span');
 
@@ -428,7 +388,7 @@ btsDirectives.directive('itemDisplayed', function($templateCache, $compile) {
         html: true,
         title: attrs.title,
         content: contentHtml,
-        placement: 'bottom',
+        placement: 'top',
         template: tmpl,
         trigger: 'manual'
       };
@@ -540,36 +500,35 @@ function TableCtrl($scope, TaxonomySvc, StackSvc) {
         vm.headers.push( h )
       }
 
-    });
+      StackSvc.get(function(res) {
+          var products = res.products;
+          console.log('Products: ' + products.length  );
+          for(var index in products) {
+            var product = products[index];
+            var model = { name: product.name };
+            model.company = product.company;
+            model.tiers = [];
+            for(var header in vm.headers) {
+              model.tiers[header] = [];
+              model.tiers[header].name = vm.headers[header].name;
+            }
+            var tiers = product.stack.tiers;
+            for(var tier in tiers) {
+              var index = vm.findHeaderIndex( tiers[tier] )
+    //          console.log('index: ' + index);
+    //          console.log(tiers[tier].product);
+              model.tiers[index].push( tiers[tier] )
+            }
+    //        console.log( i.name );
+    //        console.log( i.tiers );
+            vm.products.push( model )
+          } 
 
-  StackSvc.get(function(res) {
-      var products = res.products;
-      console.log('Products: ' + products.length  );
-      for(var index in products) {
-        var product = products[index];
-        var model = { name: product.name };
-        model.company = product.company;
-        model.tiers = [];
-        for(var header in vm.headers) {
-          model.tiers[header] = [];
-          model.tiers[header].name = vm.headers[header].name;
-        }
-        var tiers = product.stack.tiers;
-        for(var tier in tiers) {
-          var index = vm.findHeaderIndex( tiers[tier] )
-//          console.log('index: ' + index);
-//          console.log(tiers[tier].product);
-          model.tiers[index].push( tiers[tier] )
-        }
-//        console.log( i.name );
-//        console.log( i.tiers );
-        vm.products.push( model )
-      } 
-
-    // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast downward
-    // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#emit upward
-    // $scope.$emit('TableCtrl.completed');    
-    // $scope.$broadcast('TableCtrl.completed');
+        // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast downward
+        // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#emit upward
+        //  $scope.$emit('TableCtrl.completed');    
+        //  $scope.$broadcast('TableCtrl.completed');
+        });
 
     });
 
