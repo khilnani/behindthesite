@@ -22,12 +22,12 @@ bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $locationProvider.html5Mode(false);
     var path = window.location.pathname.replace(/[^\\\/]*$/, '');
     console.log('path: ' + path);
-    $routeProvider.when('#/hi/', {
+    $routeProvider.when('/hi', {
         templateUrl: 'main/main.html',
         controller: 'MainCtrl'
     });
     $routeProvider.otherwise({
-        redirectTo: '/'
+        redirectTo: '/404'
     });
   }]);
 
