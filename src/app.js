@@ -21,7 +21,7 @@ bts.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
 bts.config(['$routeProvider', '$locationProvider', function($routeProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider.when('/', {
-        templateUrl: 'main/index.html',
+        templateUrl: 'main/main.html',
         controller: 'MainCtrl'
     });
     $routeProvider.otherwise({
