@@ -9,16 +9,12 @@ i.fa.fa-expand
 i.fa.fa-bars
 
 http://fonts.googleapis.com/css?family=Signika
-
 //maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css
-
 //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
-
 //netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
-
 https://github.com/thomaspark/bootswatch/tree/gh-pages/slate
-
 http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
+
 */
 @-moz-document url-prefix() {
   fieldset {
