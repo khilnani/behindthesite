@@ -18,7 +18,16 @@ bts.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeBar = true;
   }]);
   
-
+bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
+    $routeProvider.when('/', {
+        templateUrl: 'main/main.html',
+        controller: 'MainCtrl'
+    });
+    $routeProvider.otherwise({
+        redirectTo: '/'
+    });
+  }]);
 
 /*! 
  * angular-loading-bar v0.6.0
