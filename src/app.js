@@ -13,10 +13,7 @@ https://docs.angularjs.org/
 
 var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives', 'bts.filters', 'bts.services','chieffancypants.loadingBar', 'ngAnimate']);
 
-bts.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
-    cfpLoadingBarProvider.includeSpinner = true; 
-    cfpLoadingBarProvider.includeBar = true;
-  }]);
+
   
 bts.config(['$routeProvider', '$locationProvider', function($routeProvider) {
     $locationProvider.html5Mode(true);
