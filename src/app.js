@@ -20,12 +20,14 @@ bts.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
   
 bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
-    $routeProvider.when('/', {
+    var path = window.location.pathname.replace(/[^\\\/]*$/, '');
+    console.log('path: ' + path);
+    $routeProvider.when(path, {
         templateUrl: 'main/main.html',
         controller: 'MainCtrl'
     });
     $routeProvider.otherwise({
-        redirectTo: '/'
+        redirectTo: path
     });
   }]);
 
