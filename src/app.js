@@ -24,7 +24,8 @@ bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $locationProvider.html5Mode(false);
     $routeProvider.when('/main', {
         templateUrl: 'main/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        controllerAs: 'vm'
     });
     $routeProvider.otherwise({
         redirectTo: '/main'
