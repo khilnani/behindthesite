@@ -1,0 +1,52 @@
+/*
+
+i.fa.fa-external-link
+i.fa.fa-file
+span.glyphicon.glyphicon-file
+span.glyphicon.glyphicon-resize-full
+span.glyphicon.glyphicon-comment
+i.fa.fa-expand
+i.fa.fa-bars
+
+http://fonts.googleapis.com/css?family=Signika
+
+//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css
+
+//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
+
+//netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
+
+https://github.com/thomaspark/bootswatch/tree/gh-pages/slate
+
+http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
+*/
+@-moz-document url-prefix() {
+  fieldset {
+    display: table-cell;
+  }
+}
+.pad {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.title {
+  font-family: 'Signika', sans-serif;
+  font-style: italic;
+  color: #fff;
+}
+.cursor {
+  cursor: pointer;
+  cursor: hand;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.affix {
+  top: 0px;
+  z-index: 99999;
+  color: #c8c8c8;
+  background: #272b30;
+  border-color: gray;
+}
