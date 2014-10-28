@@ -60,7 +60,7 @@ btsDirectives.directive('affix', function($templateCache) {
   });
 
 btsDirectives.directive('itemDisplayed', function($templateCache, $compile) {
-  console.log('itemDisplayed')
+  console.log('item-displayed')
     return function(scope, element, attrs) {
 //    console.log(attrs);
       var ele = angular.element(element);
