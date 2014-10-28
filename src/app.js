@@ -22,8 +22,6 @@ bts.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
 // https://docs.angularjs.org/api/ng/service/$location
 bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(false);
-    var path = window.location.pathname.replace(/[^\\\/]*$/, '');
-    console.log('path: ' + path);
     $routeProvider.when('/main', {
         templateUrl: 'main/main.html',
         controller: 'MainCtrl'
