@@ -26,7 +26,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   padding-bottom: 60px;
 }
 .pad-bottom-20 {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 .title {
   font-family: 'Signika', sans-serif;
