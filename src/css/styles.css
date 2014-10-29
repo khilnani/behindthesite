@@ -60,8 +60,8 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 }
 
 .double-bounce1, .double-bounce2 {
-  width: 100%;
-  height: 100%;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: #333;
   opacity: 0.6;
