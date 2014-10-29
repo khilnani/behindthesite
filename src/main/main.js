@@ -22,104 +22,106 @@ btsServices.factory('StackSvc', ['$resource',
 
 var btsDirectives = angular.module('bts.directives', []);
 
-btsDirectives.directive('affix', function($templateCache) {
+btsDirectives.directive('affix', ['$templateCache', affix]);
+
+function affix ($templateCache) {
   console.log('affix')
-    return function(scope, element, attrs) {
-      var ele = angular.element(element);
+  return function(scope, element, attrs) {
+    var ele = angular.element(element);
 
-      scope.affix_widths = [];
+    scope.affix_widths = [];
 
-      ele.affix({
-        offset: {
-          top: function() { 
-            return  $('#main').offset().top;
-          }
+    ele.affix({
+      offset: {
+        top: function() { 
+          return  $('#main').offset().top;
         }
+      }
+    })
+
+    ele.on('affix.bs.affix', function (e) {
+      console.log('affix.prior');
+
+      var ths = ele.find('th');
+      ths.each(function(i) { 
+        scope.affix_widths[i] = $(this).width();
       })
 
-      ele.on('affix.bs.affix', function (e) {
-        console.log('affix.prior');
+    });
 
-        var ths = ele.find('th');
-        ths.each(function(i) { 
-          scope.affix_widths[i] = $(this).width();
-        })
+    ele.on('affixed.bs.affix', function (e) {
+      console.log('affix.post');
+      var ths = ele.find('th');
+      ths.each(function(i) {
+        $(this).width(scope.affix_widths[i]);
+        //console.log(scope.affix_widths[i])
+      })
+    });
+  };
+}
 
-      });
+btsDirectives.directive('itemDisplayed', ['$templateCache', '$compile', itemDisplayed]);
 
-      ele.on('affixed.bs.affix', function (e) {
-        console.log('affix.post');
-        var ths = ele.find('th');
-        ths.each(function(i) {
-          $(this).width(scope.affix_widths[i]);
-          //console.log(scope.affix_widths[i])
-        })
-      });
-
-    };
-  });
-
-btsDirectives.directive('itemDisplayed', function($templateCache, $compile) {
+function itemDisplayed ($templateCache, $compile) {
   console.log('item-displayed')
-    return function(scope, element, attrs) {
+  return function(scope, element, attrs) {
 //    console.log(attrs);
-      var ele = angular.element(element);
-      var span = ele.find('span');
+    var ele = angular.element(element);
+    var span = ele.find('span');
 
-      var tmpl = $templateCache.get('productHoverTmpl.html')
-      scope.website = attrs.website;
-      scope.twitter = attrs.twitter;
-      scope.irc = attrs.irc;
-      scope.blogs = attrs.blogs;
-      scope.description = attrs.description;
-      scope.repo = attrs.repo;
-      scope.issues = attrs.issues;
-      scope.docs = attrs.docs;
-      scope.category = attrs.category;
-      scope.categorypath = attrs.categorypath;
-      scope.notes = attrs.notes;
-      // https://docs.angularjs.org/api/ng/service/$compile
-      var contentHtml = $compile($templateCache.get('productHoverContentTmpl.html'))(scope);
+    var tmpl = $templateCache.get('productHoverTmpl.html')
+    scope.website = attrs.website;
+    scope.twitter = attrs.twitter;
+    scope.irc = attrs.irc;
+    scope.blogs = attrs.blogs;
+    scope.description = attrs.description;
+    scope.repo = attrs.repo;
+    scope.issues = attrs.issues;
+    scope.docs = attrs.docs;
+    scope.category = attrs.category;
+    scope.categorypath = attrs.categorypath;
+    scope.notes = attrs.notes;
+    // https://docs.angularjs.org/api/ng/service/$compile
+    var contentHtml = $compile($templateCache.get('productHoverContentTmpl.html'))(scope);
 
-      var popupConfig = {
-        html: true,
-        title: attrs.title,
-        content: contentHtml,
-        placement: 'top',
-        template: tmpl,
-        trigger: 'manual'
-      };
+    var popupConfig = {
+      html: true,
+      title: attrs.title,
+      content: contentHtml,
+      placement: 'top',
+      template: tmpl,
+      trigger: 'manual'
+    };
 
-      span.data('state', 'hover');
-      span.popover(popupConfig);
-      span.on('mouseenter', function (e) { 
-        if (span.data('state') === 'hover') {
-          span.popover('show');
-        }
-      });
-      span.on('mouseleave', function (e) { 
-        if (span.data('state') === 'hover') {
-          span.popover('hide');
-        }
-      });
-      span.on('click', function (e) { 
-        if (span.data('state') === 'hover') {
-            span.data('state', 'pinned');
-        } else {
-            span.data('state', 'hover');
-            span.popover('hide');
-        }
-      });
-
-      ele.on('shown.bs.popover', function () {
-        ele.find('.close-btn').click( function () {
+    span.data('state', 'hover');
+    span.popover(popupConfig);
+    span.on('mouseenter', function (e) { 
+      if (span.data('state') === 'hover') {
+        span.popover('show');
+      }
+    });
+    span.on('mouseleave', function (e) { 
+      if (span.data('state') === 'hover') {
+        span.popover('hide');
+      }
+    });
+    span.on('click', function (e) { 
+      if (span.data('state') === 'hover') {
+          span.data('state', 'pinned');
+      } else {
           span.data('state', 'hover');
           span.popover('hide');
-        });        
-      });
+      }
+    });
 
-    };
-  });
+    ele.on('shown.bs.popover', function () {
+      ele.find('.close-btn').click( function () {
+        span.data('state', 'hover');
+        span.popover('hide');
+      });        
+    });
+  };
+}
 
 //*****************************************************************************
 // filters
@@ -155,7 +157,7 @@ btsFilters.filter('nocraigslist', function() {
 
 var btsControllers = angular.module('bts.controllers', []);
 
-btsControllers.controller('MainCtrl', MainCtrl);
+btsControllers.controller('MainCtrl', ['$scope', 'TaxonomySvc', 'StackSvc', MainCtrl]);
 
 function MainCtrl($scope, TaxonomySvc, StackSvc) {
 
