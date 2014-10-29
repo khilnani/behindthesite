@@ -157,7 +157,7 @@ btsFilters.filter('nocraigslist', function() {
 
 var btsControllers = angular.module('bts.controllers', []);
 
-btsControllers.controller('MainCtrl', ['$scope', 'TaxonomySvc', 'StackSvc', MainCtrl]);
+btsControllers.controller('MainCtrl', ['$scope', '$timeout', 'TaxonomySvc', 'StackSvc', MainCtrl]);
 
 function isMobile() {
   var check = false;
@@ -166,7 +166,7 @@ function isMobile() {
   return check;
 }
 
-function MainCtrl($scope, TaxonomySvc, StackSvc) {
+function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
 
   var vm = this;
   vm.isMobile = isMobile();
@@ -174,7 +174,19 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
   vm.headers = [];
   vm.products = [];
   vm.size = 5;
-  vm.end = vm.size;
+  vm.end = vm.increment();
+  
+  vm.increment = function () {
+    vm.end = vm.end + vm.size;
+    if(vm.end > vm.products.length) {
+      vm.end = vm.products.length;
+    }
+  }
+  
+  vm.updateBusy = function () {
+    vm.busy = false;
+    console.log('MainCtrl.updateBusy: ' + vm.busy);
+  }
 
   vm.getTaxonomyIds = function (taxonomy) {
     var ids = [];
@@ -204,19 +216,16 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
     return vm.products.slice(0, vm.end);
   }
   
+
+  
   vm.getAdditionalData = function () {
     vm.busy = true;
-    vm.end = vm.end + vm.size;
+    vm.increment();
     console.log('MainCtrl.getAdditionalData: ' + vm.end);
-    window.setTimeout(function () {
+    $timeout.setTimeout(function () {
       console.log('MainCtrl.getAdditionalData: Timeout');
       vm.updateBusy();
     }, 2000);
-  }
-  
-  vm.updateBusy = function () {
-    console.log('MainCtrl.updateBusy');
-    vm.busy = false;
   }
   
   vm.getProductData = function () {
