@@ -174,6 +174,7 @@ function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
   vm.headers = [];
   vm.products = [];
   vm.size = 5;
+  vm.end = 0;
   
   vm.increment = function () {
     vm.end = vm.end + vm.size;
@@ -181,8 +182,6 @@ function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
       vm.end = vm.products.length;
     }
   }
-  
-  vm.end = vm.increment();
   
   vm.updateBusy = function () {
     vm.busy = false;
@@ -255,6 +254,8 @@ function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
 //        console.log( i.tiers );
         vm.products.push( model )
       } 
+      
+      vm.increment();
       vm.busy = false;
     });
       // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast downward
