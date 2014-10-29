@@ -15,11 +15,6 @@ var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives',
 
 angular.module('infinite-scroll').value('THROTTLE_MILLISECONDS', 700);
 
-bts.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
-    cfpLoadingBarProvider.includeSpinner = true; 
-    cfpLoadingBarProvider.includeBar = true;
-  }]);
-
 // https://docs.angularjs.org/api/ngRoute/provider/$routeProvider
 // https://docs.angularjs.org/api/ng/service/$location
 bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
