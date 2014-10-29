@@ -57,9 +57,6 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .spinner {
   width: 40px;
   height: 40px;
-
-  position: relative;
-  margin: 100px auto;
 }
 
 .double-bounce1, .double-bounce2 {
