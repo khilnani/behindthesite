@@ -207,8 +207,13 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
   }
   
   vm.getAdditionalData = function () {
+    vm.busy = true;
     vm.count = vm.count + vm.size;
     console.log('MainCtrl.getAdditionalData: ' + vm.count);
+    window.setTimeout(function () {
+      vm.busy = false;
+      console.log('MainCtrl.getAdditionalData: DONE');
+    }, 2000);
   }
   
   vm.getProductData = function () {
