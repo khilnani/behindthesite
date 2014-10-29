@@ -47,10 +47,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   border-color: gray;
 }
 
-.footer {
+.bottom {
   position: absolute;
   bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 40px;
 }
