@@ -216,7 +216,7 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
     }, 2000);
   }
   
-  vm.updateBusy() {
+  vm.updateBusy = function () {
     console.log('MainCtrl.updateBusy');
     vm.busy = false;
   }
