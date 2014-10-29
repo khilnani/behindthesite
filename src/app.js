@@ -30,7 +30,7 @@ bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   }]);
 
 bts.factory('Common', ['$location', function ($location) {
-    console.log("forceMobile: " + forceMobile);    
+    console.log("bts.Common");    
     return {
         mobile: ($location.search()).mobile
     }
