@@ -64,10 +64,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   height: 40px;
   border-radius: 50%;
   background-color: #333;
-  opacity: 0.6;
-  position: absolute;
-  top: 0;
-  left: 0;
+  opacity: 1.0;
   
   -webkit-animation: bounce 2.0s infinite ease-in-out;
   animation: bounce 2.0s infinite ease-in-out;
