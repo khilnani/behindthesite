@@ -173,7 +173,7 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
   vm.busy = true;
   vm.headers = [];
   vm.products = [];
-  vm.count = 0;
+  vm.end = 0;
   vm.size = 10;
 
   vm.getTaxonomyIds = function (taxonomy) {
@@ -200,17 +200,15 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
   }
   
   vm.getProducts = function () {
-    var start = vm.count;
-    var end = vm.count + vm.size;
-    console.log('MainCtrl.getProducts: start: ' + start + ', end: ' + end);
-    return vm.products.slice(start, end);
+    console.log('MainCtrl.getProducts: end: ' + vm.end);
+    return vm.products.slice(0, vm.end);
   }
   
   vm.getAdditionalData = function () {
     vm.busy = true;
-    vm.count = vm.count + vm.size;
-    console.log('MainCtrl.getAdditionalData: ' + vm.count);
-    window.setTimeout(function (vm) {
+    vm.end = vm.end + vm.size;
+    console.log('MainCtrl.getAdditionalData: ' + vm.end);
+    window.setTimeout(function () {
       console.log('MainCtrl.getAdditionalData: Timeout');
       vm.updateBusy();
     }, 2000);
