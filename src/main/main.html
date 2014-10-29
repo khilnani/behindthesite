@@ -61,7 +61,7 @@
                 <th ng-repeat="h in vm.headers">{{ h.name }}</th>
               </tr>
             </thead>
-            <tbody infinite-scroll="vm.getAdditionalData()" infinite-scroll-disabled="false" infinite-scroll-distance="1" infinite-scroll-immediate-check="false">
+            <tbody infinite-scroll="vm.getAdditionalData()" infinite-scroll-disabled="true" infinite-scroll-distance="1" infinite-scroll-immediate-check="false">
               <tr ng-repeat="product in vm.products">
                 <td>{{ product.name }}</td>
                 <td ng-repeat="tier in product.tiers">
