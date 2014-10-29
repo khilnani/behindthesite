@@ -32,4 +32,4 @@ bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 bts.run(['$location', function($location) {
     var forceMobile = ($location.search()).mobile;
     console.log("forceMobile: " + forceMobile);
-});
+}]);
