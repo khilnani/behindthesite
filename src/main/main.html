@@ -36,7 +36,7 @@
       <div id="main" class="col-xs-12" infinite-scroll="vm.getAdditionalData()" infinite-scroll-disabled='vm.busy' infinite-scroll-distance="0" infinite-scroll-immediate-check="false">
         <div ng-if="vm.isMobile">
           <div id="accordion" class="panel-group"> 
-            <div ng-repeat="product in vm.products" class="panel panel-default"> 
+            <div ng-repeat="product in vm.getProducts()" class="panel panel-default"> 
               <div class="panel-heading">
                 <h4 class="panel-title"><button type="button" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#{{ product.name | ws }}" data-parent="#accordion">{{ product.name }}</button></h4>
               </div>
@@ -75,7 +75,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="product in vm.products">
+              <tr ng-repeat="product in vm.getProducts()">
                 <td>{{ product.name }}</td>
                 <td ng-repeat="tier in product.tiers">
                   <ul class="list-unstyled">
