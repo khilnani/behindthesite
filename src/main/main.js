@@ -167,6 +167,8 @@ function isMobile() {
 }
 
 function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
+  
+  console.log($timeout);
 
   var vm = this;
   vm.isMobile = isMobile();
