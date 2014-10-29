@@ -50,5 +50,5 @@ bts.factory('Common', ['$location', function ($location) {
 
 bts.run(['Common', function(Common) {
     console.log('bts.run');
-    console.log('Common.mobile: ' + Common.mobile);
+    console.log('Common.isMobile: ' + Common.isMobile);
 }]);
