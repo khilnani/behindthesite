@@ -191,10 +191,12 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
   
   vm.getAdditionalData = function () {
     console.log('MainCtrl.getAdditionalData');
+    vm.getData();
   }
   
   vm.getData = function () {
     console.log('MainCtrl.getData()');
+    vm.busy = true;
     TaxonomySvc.get(function(res) {
       var taxonomy = res.taxonomy;
       console.log('MainCtrl.Taxonomy: ' + taxonomy.length  );
