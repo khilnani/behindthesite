@@ -102,13 +102,19 @@
   </div>
 </div>
 <div class="row" ng-if="!vm.hasMore">
-  <i class="fa fa-ban fa-2x"></i>
+  <p class="well well-sm text-center text-muted">
+    <i class="fa fa-ban fa-2x"></i>
+  </p>
 </div>
 <div class="row" ng-if="vm.hasMore">
-  <i class="fa fa-arrow-circle-o-down fa-2x"></i>
+  <p class="well well-sm text-center text-muted">
+    <i class="fa fa-arrow-circle-o-down fa-2x"></i>
+  </p>
 </div>
 <div class="row" ng-if="vm.hasMore && vm.busy">
-  <div class="loader">Loading...</div>
+  <p class="well well-sm text-center text-muted">
+    <div>Loading...</div>
+  </p>
 </div>
 
 
