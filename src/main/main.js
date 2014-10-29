@@ -235,5 +235,7 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
 
     });
   }
+  
+  vm.getData();
 
 }
