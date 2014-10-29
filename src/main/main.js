@@ -181,6 +181,7 @@ function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
     if(vm.end > vm.products.length) {
       vm.end = vm.products.length;
     }
+    console.log('MainCtrl.increment: ' + vm.end);
   }
   
   vm.updateBusy = function () {
@@ -215,8 +216,6 @@ function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
     console.log('MainCtrl.getProducts: end: ' + vm.end);
     return vm.products.slice(0, vm.end);
   }
-  
-
   
   vm.getAdditionalData = function () {
     vm.busy = true;
