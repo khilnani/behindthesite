@@ -47,39 +47,4 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   border-color: #808080;
 }
 
-/*
-  SpinKit
-  The MIT License (MIT)
-  Copyright (c) 2014 Tobias Ahlin
-  https://github.com/tobiasahlin/SpinKit
-*/
 
-.double-bounce1, .double-bounce2 {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #ccc;
-  
-  -webkit-animation: bounce 2.0s infinite ease-in-out;
-  animation: bounce 2.0s infinite ease-in-out;
-}
-
-.double-bounce2 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
-}
-
-@-webkit-keyframes bounce {
-  0%, 100% { -webkit-transform: scale(0.0) }
-  50% { -webkit-transform: scale(1.0) }
-}
-
-@keyframes bounce {
-  0%, 100% { 
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 50% { 
-    transform: scale(1.0);
-    -webkit-transform: scale(1.0);
-  }
-}
