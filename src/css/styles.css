@@ -53,8 +53,11 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 */
 
 .loader {
+  margin: 0.1em auto;
+  height: 20px;
   font-size: 10px;
   position: relative;
+  text-indent: -9999em;
   border-top: 0.5em solid rgba(255, 255, 255, 0.2);
   border-right: 0.5em solid rgba(255, 255, 255, 0.2);
   border-bottom: 0.5em solid rgba(255, 255, 255, 0.2);
