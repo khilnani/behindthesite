@@ -20,7 +20,7 @@ btsServices.factory('StackSvc', ['$resource',
 // Directives
 // https://docs.angularjs.org/guide/directive
 
-var btsDirectives = angular.module('bts.directives', []);
+var btsDirectives = angular.module('bts.directives', []
 
 btsDirectives.directive('affix', ['$templateCache', affix]);
 
