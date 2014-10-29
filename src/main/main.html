@@ -106,11 +106,10 @@
     <i class="fa fa-arrow-circle-o-down fa-2x"></i>
   </p>
 </div>
-<div class="row" ng-if="vm.busy">
-  <div class="spinner">
-    <div class="double-bounce1"></div>
-    <div class="double-bounce2"></div>
-  </div>
+<div class="row" ng-if="vm.hasMore && vm.busy">
+  <p class="well well-sm text-center text-muted">
+    Loading ...
+  </p>
 </div>
 
 
