@@ -67,8 +67,8 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .loader,
 .loader:after {
   border-radius: 50%;
-  width: 10em;
-  height: 10em;
+  width: 3em;
+  height: 3em;
 }
 @-webkit-keyframes load8 {
   0% {
