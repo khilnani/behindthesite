@@ -32,7 +32,7 @@
       </div>
   </script>
   <div class="row">
-    <div id="main" class="col-xs-12" infinite-scroll="vm.getAdditionalData()" infinite-scroll-disabled='vm.busy' infinite-scroll-distance="0" infinite-scroll-immediate-check="false">
+    <div id="main" class="col-xs-12" infinite-scroll="vm.getAdditionalData()" infinite-scroll-disabled='vm.busy' infinite-scroll-distance="1" infinite-scroll-immediate-check="false">
       <div ng-if="vm.isMobile">
         <div id="accordion" class="panel-group"> 
           <div ng-repeat="product in vm.getProducts()" class="panel panel-default"> 
