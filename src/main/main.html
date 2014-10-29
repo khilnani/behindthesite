@@ -38,7 +38,7 @@
           <div id="accordion" class="panel-group"> 
             <div ng-repeat="product in vm.products" class="panel panel-default"> 
               <div class="panel-heading">
-                <h4 class="panel-title"><button type="button" class="btn btn-danger" data-toggle="collapse" target="{{ product.name | ws }}" data-parent="#accordion">{{ product.name }}</button></h4>
+                <h4 class="panel-title"><button type="button" class="btn btn-danger" data-toggle="collapse" target="#{{ product.name | ws }}" data-parent="#accordion">{{ product.name }}</button></h4>
               </div>
               <div id="{{ product.name | ws }}" class="panel-collapse collapse">
                 <div class="panel-body">
