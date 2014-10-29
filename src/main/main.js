@@ -191,7 +191,36 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
   
   vm.getAdditionalData = function () {
     console.log('MainCtrl.getAdditionalData');
-    vm.getData();
+    vm.busy = true;
+    StackSvc.get(function(res) {
+      var products = res.products;
+      console.log('MainCtrl.Products: ' + products.length  );
+      for(var index in products) {
+        var product = products[index];
+        var model = { name: product.name };
+        model.company = product.company;
+        model.tiers = [];
+        for(var header in vm.headers) {
+          model.tiers[header] = [];
+          model.tiers[header].name = vm.headers[header].name;
+        }
+        var tiers = product.stack.tiers;
+        for(var tier in tiers) {
+          var index = vm.findHeaderIndex( tiers[tier] )
+//          console.log('index: ' + index);
+//          console.log(tiers[tier].product);
+          model.tiers[index].push( tiers[tier] )
+        }
+//        console.log( i.name );
+//        console.log( i.tiers );
+        vm.products.push( model )
+      } 
+      vm.busy = false;
+    });
+      // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast downward
+      // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#emit upward
+      //  $scope.$emit('MainCtrl.completed');    
+      //  $scope.$broadcast('MainCtrl.completed');
   }
   
   vm.getData = function () {
@@ -207,38 +236,8 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
 //        console.log( h.name + ', ' + h.ids);
         vm.headers.push( h )
       }
-
-      StackSvc.get(function(res) {
-        var products = res.products;
-        console.log('MainCtrl.Products: ' + products.length  );
-        for(var index in products) {
-          var product = products[index];
-          var model = { name: product.name };
-          model.company = product.company;
-          model.tiers = [];
-          for(var header in vm.headers) {
-            model.tiers[header] = [];
-            model.tiers[header].name = vm.headers[header].name;
-          }
-          var tiers = product.stack.tiers;
-          for(var tier in tiers) {
-            var index = vm.findHeaderIndex( tiers[tier] )
-  //          console.log('index: ' + index);
-  //          console.log(tiers[tier].product);
-            model.tiers[index].push( tiers[tier] )
-          }
-  //        console.log( i.name );
-  //        console.log( i.tiers );
-          vm.products.push( model )
-        } 
-
-      // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast downward
-      // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#emit upward
-      //  $scope.$emit('MainCtrl.completed');    
-      //  $scope.$broadcast('MainCtrl.completed');
-        vm.busy = false;
-      });
-
+      vm.busy = false;
+      vm.getAdditionalData();
     });
   }
   
