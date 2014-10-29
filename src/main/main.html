@@ -45,7 +45,20 @@
                   <div ng-repeat="tier in product.tiers">
                     <h4>{{ tier.name }}</h4>
                     <ul class="list-unstyled">
-                      <li ng-repeat="ea in tier" data-description="{{ ea.product.description }}" data-title="{{ ea.product.name }}" data-website="{{ ea.product.website }}" data-twitter="{{ eaproduct.twitter }}" data-irc="{{ ea.product.irc }}" data-blogs="{{ ea.product.blogs }}" data-repo="{{ ea.product.repo }}" data-issues="{{ ea.product.issues }}" data-docs="{{ ea.product.docs }}" data-category="{{ ea.category.name }}" data-categorypath="{{ ea.category.full_path }}" data-notes="{{ ea.notes }}"><a href="{{ ea.product.website }}" target="_blank" class="btn btn-sm btn-primary">{{ ea.product.name }} </a><small>&nbsp;- {{ ea.category.full_path }} </small></li>
+                      <li ng-repeat="ea in tier" 
+                          data-description="{{ ea.product.description }}" 
+                          data-title="{{ ea.product.name }}" 
+                          data-website="{{ ea.product.website }}" 
+                          data-twitter="{{ eaproduct.twitter }}" 
+                          data-irc="{{ ea.product.irc }}" 
+                          data-blogs="{{ ea.product.blogs }}" 
+                          data-repo="{{ ea.product.repo }}" 
+                          data-issues="{{ ea.product.issues }}" 
+                          data-docs="{{ ea.product.docs }}" 
+                          data-category="{{ ea.category.name }}" 
+                          data-categorypath="{{ ea.category.full_path }}" 
+                          data-notes="{{ ea.notes }}">
+                        <a href="{{ ea.product.website }}" target="_blank" class="btn btn-sm btn-default">{{ ea.product.name }} </a><small>&nbsp;- {{ ea.category.full_path }} </small></li>
                     </ul>
                   </div>
                 </div>
