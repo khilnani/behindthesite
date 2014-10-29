@@ -29,7 +29,14 @@ bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     });
   }]);
 
-bts.run(['$location', function($location) {
-    var forceMobile = ($location.search()).mobile;
-    console.log("forceMobile: " + forceMobile);
+bts.factory('Common', ['$location', function ($location) {
+    console.log("forceMobile: " + forceMobile);    
+    return {
+        mobile: ($location.search()).mobile
+    }
+}]);
+
+bts.run(['Common', function(Common) {
+    console.log('bts.run');
+    conosle.log('Common.mobile: ' + Common.mobile);
 }]);
