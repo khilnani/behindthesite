@@ -223,7 +223,7 @@ function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
     console.log('MainCtrl.getAdditionalData: ' + vm.end);
     $timeout.setTimeout(function () {
       console.log('MainCtrl.getAdditionalData: Timeout');
-      vm.updateBusy();
+      $scope.vm.updateBusy();
     }, 2000);
   }
   
