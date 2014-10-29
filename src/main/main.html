@@ -33,7 +33,7 @@
         </div>
     </script>
     <div class="row">
-      <div id="main" class="col-xs-12">
+      <div id="main" class="col-xs-12" infinite-scroll="vm.getAdditionalData()" infinite-scroll-disabled='vm.busy' infinite-scroll-distance="0" infinite-scroll-immediate-check="false">
         <div class="visible-xs">
           <div id="accordion" class="panel-group"> 
             <div ng-repeat="product in vm.products" class="panel panel-default"> 
@@ -61,7 +61,7 @@
                 <th ng-repeat="h in vm.headers">{{ h.name }}</th>
               </tr>
             </thead>
-            <tbody infinite-scroll="vm.getAdditionalData()" infinite-scroll-disabled='vm.busy' infinite-scroll-distance="0" infinite-scroll-immediate-check="false">
+            <tbody>
               <tr ng-repeat="product in vm.products">
                 <td>{{ product.name }}</td>
                 <td ng-repeat="tier in product.tiers">
