@@ -40,7 +40,7 @@ bts.factory('Common', ['$location', function ($location) {
     }
     var isMobileOverride = ($location.search()).mobile;
     console.log('bts.Common.isMobileOverride: ' + isMobileOverride);
-    var isMobile = isMobileOverride == undefined ? isMobileCheck() : isMobileOverride;
+    var isMobile = (isMobileOverride == 'true' || isMobileOverride == 'false') ? isMobileOverride : isMobileCheck();
     console.log('bts.Common.isMobile: ' + isMobile);
     
     return {
