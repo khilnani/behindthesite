@@ -173,8 +173,8 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
   vm.busy = true;
   vm.headers = [];
   vm.products = [];
-  vm.end = 0;
   vm.size = 10;
+  vm.end = vm.size;
 
   vm.getTaxonomyIds = function (taxonomy) {
     var ids = [];
