@@ -176,11 +176,13 @@ function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
   vm.products = [];
   vm.size = 5;
   vm.end = 0;
+  vm.hasMore = true;
   
   vm.increment = function () {
     vm.end = vm.end + vm.size;
-    if(vm.end > vm.products.length) {
+    if(vm.end >= vm.products.length) {
       vm.end = vm.products.length;
+      vm.hasMore = false;
     }
     console.log('MainCtrl.increment: ' + vm.end);
   }
