@@ -167,8 +167,6 @@ function isMobile() {
 }
 
 function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
-  
-  console.log($timeout);
 
   var vm = this;
   vm.isMobile = isMobile();
@@ -257,7 +255,7 @@ function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
       } 
       
       vm.increment();
-      vm.busy = false;
+      vm.updateBusy();
     });
       // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast downward
       // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#emit upward
@@ -278,7 +276,7 @@ function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
 //        console.log( h.name + ', ' + h.ids);
         vm.headers.push( h )
       }
-      vm.busy = false;
+      vm.updateBusy();
       vm.getProductData();
     });
   }
