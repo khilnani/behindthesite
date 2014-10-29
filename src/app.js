@@ -11,7 +11,7 @@ https://docs.angularjs.org/
 //*****************************************************************************
 // App
 
-var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives', 'bts.filters', 'bts.services','chieffancypants.loadingBar', 'ngAnimate']);
+var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives', 'bts.filters', 'bts.services','chieffancypants.loadingBar', 'ngAnimate', 'infinite-scroll']);
 
 bts.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = true; 
@@ -31,4 +31,6 @@ bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         redirectTo: '/main'
     });
   }]);
+  
+angular.module('infinite-scroll').value('THROTTLE_MILLISECONDS', 700);
 
