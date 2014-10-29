@@ -174,7 +174,6 @@ function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
   vm.headers = [];
   vm.products = [];
   vm.size = 5;
-  vm.end = vm.increment();
   
   vm.increment = function () {
     vm.end = vm.end + vm.size;
@@ -182,6 +181,8 @@ function MainCtrl($scope, $timeout, TaxonomySvc, StackSvc) {
       vm.end = vm.products.length;
     }
   }
+  
+  vm.end = vm.increment();
   
   vm.updateBusy = function () {
     vm.busy = false;
