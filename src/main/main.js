@@ -210,10 +210,15 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
     vm.busy = true;
     vm.count = vm.count + vm.size;
     console.log('MainCtrl.getAdditionalData: ' + vm.count);
-    window.setTimeout(function () {
-      vm.busy = false;
-      console.log('MainCtrl.getAdditionalData: DONE');
+    window.setTimeout(function (vm) {
+      console.log('MainCtrl.getAdditionalData: Timeout');
+      vm.updateBusy();
     }, 2000);
+  }
+  
+  vm.updateBusy() {
+    console.log('MainCtrl.updateBusy');
+    vm.busy = false;
   }
   
   vm.getProductData = function () {
