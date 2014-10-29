@@ -162,6 +162,7 @@ btsControllers.controller('MainCtrl', ['$scope', 'TaxonomySvc', 'StackSvc', Main
 function MainCtrl($scope, TaxonomySvc, StackSvc) {
 
   var vm = this;
+  vm.busy = true;
   vm.headers = [];
   vm.products = [];
 
@@ -233,6 +234,7 @@ function MainCtrl($scope, TaxonomySvc, StackSvc) {
       // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#emit upward
       //  $scope.$emit('MainCtrl.completed');    
       //  $scope.$broadcast('MainCtrl.completed');
+        vm.busy = false;
       });
 
     });
