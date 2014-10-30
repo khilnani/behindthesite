@@ -57,7 +57,8 @@
                         data-category="{{ ea.category.name }}" 
                         data-categorypath="{{ ea.category.full_path }}" 
                         data-notes="{{ ea.notes }}">
-                      <a href="{{ ea.product.website }}" target="_blank" class="btn btn-sm btn-default">{{ ea.product.name }} </a><small>&nbsp;- {{ ea.category.full_path }} </small></li>
+                      <a href="{{ ea.product.website }}" target="_blank" class="btn btn-sm btn-default">{{ ea.product.name }} </a><small>
+                      &nbsp;- {{ ea.category.full_path.split('>').slice(2) }} </small></li>
                   </ul>
                 </div>
               </div>
