@@ -16,7 +16,7 @@
     </div>
   </script>
   <script type="text/ng-template" id="productHoverContentTmpl.html">
-      <p><em><strong>{{ categorypath.split('>').join(' | ') }}</strong></em></p>
+      <p><em><small>{{ categorypath.split('>').join(' | ') }}</small></em></p>
       <p>{{ description }}</p>
       <p class="well well-sm text-muted" ng-show='notes != ""'><strong>"</strong><em>{{ notes }}</em><strong>"</strong></p>
       <p>
