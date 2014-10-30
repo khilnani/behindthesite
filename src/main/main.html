@@ -33,15 +33,15 @@
     <h4 class="list-group-item-heading">{{ ea.product.name }}</h4>
     <p class="list-group-item-text" >
       <p><em><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }} </small></em></p>
-      <p>
+      <p><small>
         <a ng-show='ea.product.website != ""' href="{{ ea.product.website }}" target="_blank">Website</a> 
         <a ng-show='ea.product.twitter != ""' href="{{ ea.product.twitter }}" target="_blank">Twitter</a> 
-        <a ng-show='ea.product.irc != ""' href="{{ ea.product.irc }}" target="_blank">Irc</a> 
+        <a ng-if='ea.product.irc' href="{{ ea.product.irc }}" target="_blank">Irc</a> 
         <a ng-show='ea.product.repo != ""' href="{{ ea.product.repo }}" target="_blank">Source-code</a> 
         <a ng-show='ea.product.issues != ""' href="{{ ea.product.issues }}" target="_blank">Issues</a> 
         <a ng-show='ea.product.docs != ""' href="{{ ea.product.docs }}" target="_blank">Docs</a> 
         <a ng-show='ea.product.blogs != ""' href="{{ ea.product.blogs }}" target="_blank">Blog</a> 
-      </p>
+      </small></p>
     </p>
   </script>
   <div class="row">
