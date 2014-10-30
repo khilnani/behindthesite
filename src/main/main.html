@@ -11,7 +11,7 @@
     <div class="popover" role="tooltip">
       <div class="arrow"></div>
       <span class="close-btn cursor glyphicon glyphicon-remove"></span>
-      <h1 class="popover-title text-strong bg-dark"></h1>
+      <h1 class="popover-title text-strong bg-darker"></h1>
       <div class="popover-content"></div>
     </div>
   </script>
@@ -57,7 +57,7 @@
                 <div ng-repeat="tier in product.tiers" ng-if="tier.length > 0">
                   <h3 class="list-group-item-heading text-default">{{ tier.name }}</h3>
                   <div class="list-group">
-                    <div class="list-group-item bg-dark"
+                    <div class="list-group-item bg-darker"
                         ng-repeat="ea in tier" 
                         data-description="{{ ea.product.description }}" 
                         data-title="{{ ea.product.name }}" 
