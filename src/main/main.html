@@ -16,7 +16,7 @@
     </div>
   </script>
   <script type="text/ng-template" id="productHoverContentTmpl.html">
-      <p><em><small>{{ categorypath.split('>').join(' | ') }}</small></em></p>
+      <p class="text-muted"><em><small>{{ categorypath.split('>').join(' | ') }}</small></em></p>
       <p>{{ description }}</p>
       <p class="well well-sm" ng-show='notes != ""'><strong>"</strong>{{ notes }}<strong>"</strong></p>
       <p>
@@ -36,7 +36,7 @@
   <script type="text/ng-template" id="productMobileTmpl.html">
     <h5 class="list-group-item-heading">{{ ea.product.name }}</h5>
     <p class="list-group-item-text" >
-      <p><em><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }} </small></em></p>
+      <p class="text-muted"><em><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }} </small></em></p>
       <p><small>
         <span ng-show='ea.product.website != ""'><a href="{{ ea.product.website }}" target="_blank">Website</a> </span>
         <span ng-show='ea.product.twitter != ""'><a href="{{ ea.product.twitter }}" target="_blank">Twitter</a> </span>
