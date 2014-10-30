@@ -33,6 +33,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   font-style: italic;
   color: #fff;
 }
+.bg-dark {
+  background-color: #1c1e22;
+}
 .cursor {
   cursor: pointer;
   cursor: hand;
