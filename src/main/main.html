@@ -11,7 +11,7 @@
     <div class="popover" role="tooltip">
       <div class="arrow"></div>
       <span class="close-btn cursor glyphicon glyphicon-remove"></span>
-      <h1 class="popover-title></h1>
+      <h1 class="popover-title"></h1>
       <div class="popover-content"></div>
     </div>
   </script>
@@ -20,13 +20,13 @@
       <p>{{ description }}</p>
       <p class="well well-sm" ng-show='notes != ""'><strong>"</strong>{{ notes }}<strong>"</strong></p>
       <p>
-        <span ng-show='website != ""'><a href="{{ website }}" target="_blank">Website</a> </span>
-        <span ng-show='twitter != ""'><a href="{{ twitter }}" target="_blank">Twitter</a> </span>
-        <span ng-show='irc != ""'><a href="{{ irc }}" target="_blank">Irc</a> </span>
-        <span ng-show='repo != ""'><a href="{{ repo }}" target="_blank">Source-code</a> </span>
-        <span ng-show='issues != ""'><a href="{{ issues }}" target="_blank">Issues</a> </span>
-        <span ng-show='docs != ""'><a href="{{ docs }}" target="_blank">Docs</a> </span>
-        <span ng-show='blogs != ""'><a href="{{ blogs }}" target="_blank">Blog</a> </span>
+        <a ng-show='website != ""' href="{{ website }}" target="_blank">Website</a> 
+        <a ng-show='twitter != ""' href="{{ twitter }}" target="_blank">Twitter</a> 
+        <a ng-show='irc != ""' href="{{ irc }}" target="_blank">Irc</a> 
+        <a ng-show='repo != ""' href="{{ repo }}" target="_blank">Source-code</a> 
+        <a ng-show='issues != ""' href="{{ issues }}" target="_blank">Issues</a> 
+        <a ng-show='docs != ""' href="{{ docs }}" target="_blank">Docs</a> 
+        <a ng-show='blogs != ""' href="{{ blogs }}" target="_blank">Blog</a> 
       </p> 
   </script>
   <script type="text/ng-template" id="productMobileTmpl.html">
