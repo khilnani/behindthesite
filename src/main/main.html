@@ -20,13 +20,13 @@
       <p>{{ description }}</p>
       <p class="well well-sm" ng-show='notes != ""'><strong>"</strong>{{ notes }}<strong>"</strong></p>
       <p>
-        <a ng-show='website != ""' href="{{ website }}" target="_blank">Website</a> 
-        <a ng-show='twitter != ""' href="{{ twitter }}" target="_blank">Twitter</a> 
-        <a ng-show='irc != ""' href="{{ irc }}" target="_blank">Irc</a> 
-        <a ng-show='repo != ""' href="{{ repo }}" target="_blank">Source-code</a> 
-        <a ng-show='issues != ""' href="{{ issues }}" target="_blank">Issues</a> 
-        <a ng-show='docs != ""' href="{{ docs }}" target="_blank">Docs</a> 
-        <a ng-show='blogs != ""' href="{{ blogs }}" target="_blank">Blog</a> 
+        <a ng-if='website != ""' href="{{ website }}" target="_blank">Website</a> 
+        <a ng-if='twitter != ""' href="{{ twitter }}" target="_blank">Twitter</a> 
+        <a ng-if='irc != ""' href="{{ irc }}" target="_blank">Irc</a> 
+        <a ng-if='repo != ""' href="{{ repo }}" target="_blank">Source-code</a> 
+        <a ng-if='issues != ""' href="{{ issues }}" target="_blank">Issues</a> 
+        <a ng-if='docs != ""' href="{{ docs }}" target="_blank">Docs</a> 
+        <a ng-if='blogs != ""' href="{{ blogs }}" target="_blank">Blog</a> 
       </p> 
   </script>
   <script type="text/ng-template" id="productMobileTmpl.html">
