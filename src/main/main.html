@@ -34,16 +34,19 @@
     {{ ea.category.full_path.split('>').slice(1).join(' | ') }} </small>
   </script>
   <script type="text/ng-template" id="productMobileTmpl.html">
-    <p><em><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }} </small></em></p>
-    <p><small>
-      <span ng-show='ea.product.website != ""'><a href="{{ ea.product.website }}" target="_blank">Website</a> </span>
-      <span ng-show='ea.product.twitter != ""'><a href="{{ ea.product.twitter }}" target="_blank">Twitter</a> </span>
-      <span ng-show='ea.product.irc != ""'><a href="{{ ea.product.irc }}" target="_blank">Irc</a> </span>
-      <span ng-show='ea.product.repo != ""'><a href="{{ ea.product.repo }}" target="_blank">Source-code</a> </span>
-      <span ng-show='ea.product.issues != ""'><a href="{{ ea.product.issues }}" target="_blank">Issues</a> </span>
-      <span ng-show='ea.product.docs != ""'><a href="{{ ea.product.docs }}" target="_blank">Docs</a> </span>
-      <span ng-show='ea.product.blogs != ""'><a href="{{ ea.product.blogs }}" target="_blank">Blog</a> </span>
-    </small></p> 
+    <h5 class="list-group-item-heading">{{ ea.product.name }}</h5>
+    <p class="list-group-item-text" >
+      <p><em><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }} </small></em></p>
+      <p><small>
+        <span ng-show='ea.product.website != ""'><a href="{{ ea.product.website }}" target="_blank">Website</a> </span>
+        <span ng-show='ea.product.twitter != ""'><a href="{{ ea.product.twitter }}" target="_blank">Twitter</a> </span>
+        <span ng-show='ea.product.irc != ""'><a href="{{ ea.product.irc }}" target="_blank">Irc</a> </span>
+        <span ng-show='ea.product.repo != ""'><a href="{{ ea.product.repo }}" target="_blank">Source-code</a> </span>
+        <span ng-show='ea.product.issues != ""'><a href="{{ ea.product.issues }}" target="_blank">Issues</a> </span>
+        <span ng-show='ea.product.docs != ""'><a href="{{ ea.product.docs }}" target="_blank">Docs</a> </span>
+        <span ng-show='ea.product.blogs != ""'><a href="{{ ea.product.blogs }}" target="_blank">Blog</a> </span>
+      </small></p>
+    </p>
   </script>
   <div class="row">
     <div id="main" class="col-xs-12" infinite-scroll="vm.getAdditionalData()" infinite-scroll-disabled='vm.busy' infinite-scroll-distance="0" infinite-scroll-immediate-check="false">
@@ -71,8 +74,7 @@
                         data-category="{{ ea.category.name }}" 
                         data-categorypath="{{ ea.category.full_path }}" 
                         data-notes="{{ ea.notes }}">
-                          <h5 class="list-group-item-heading">{{ ea.product.name }}</h5>
-                          <p class="list-group-item-text" ng-include="'productMobileTmpl.html'"></p>
+                          <div class="list-group-item" ng-include="'productMobileTmpl.html'"></div>
                     </div>
                 </div>
               </div>
