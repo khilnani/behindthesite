@@ -34,7 +34,7 @@
     <p class="list-group-item-text" >
       <p><em><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }} </small></em></p>
       <p>{{ description }}</p>
-      <p class="well well-sm" ng-if='ea.product.notes'><strong>"</strong>{{ ea.product.notes }}<strong>"</strong></p>
+      <p class="well well-sm" ng-show='ea.product.notes != ""'><strong>"</strong>{{ ea.product.notes }}<strong>"</strong></p>
       <p><small>
         <a ng-if='ea.product.website' href="{{ ea.product.website }}" target="_blank">Website</a> 
         <a ng-if='ea.product.twitter' href="{{ ea.product.twitter }}" target="_blank">Twitter</a> 
