@@ -41,7 +41,7 @@
             </div>
             <div id="{{ product.name | ws }}" class="panel-collapse collapse">
               <div class="panel-body">
-                <div ng-repeat="tier in product.tiers">
+                <div ng-repeat="tier in product.tiers" ng-if="tier.length > 0">
                   <h4>{{ tier.name }}</h4>
                   <ul class="list-unstyled">
                     <li ng-repeat="ea in tier" 
