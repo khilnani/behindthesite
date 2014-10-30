@@ -16,7 +16,6 @@
     </div>
   </script>
   <script type="text/ng-template" id="productHoverContentTmpl.html">
-    <div>
       <p><em><small>{{ categorypath.split('>').join(' | ') }}</small></em></p>
       <p>{{ description }}</p>
       <p class="well well-sm" ng-show='notes != ""'><strong>"</strong>{{ notes }}<strong>"</strong></p>
@@ -29,7 +28,6 @@
         <span ng-show='docs != ""'><a href="{{ docs }}" target="_blank">Docs</a> </span>
         <span ng-show='blogs != ""'><a href="{{ blogs }}" target="_blank">Blog</a> </span>
       </p> 
-      </div>
   </script>
   <script type="text/ng-template" id="_productMobileTmpl.html">
     <a href="{{ ea.product.website }}" target="_blank" class="btn btn-sm btn-default">{{ ea.product.name }} </a><small><br/>
@@ -73,7 +71,7 @@
                         data-category="{{ ea.category.name }}" 
                         data-categorypath="{{ ea.category.full_path }}" 
                         data-notes="{{ ea.notes }}">
-                          <h4 class="list-group-item-heading">{{ ea.product.name }}</h4>
+                          <h5 class="list-group-item-heading">{{ ea.product.name }}</h5>
                           <p class="list-group-item-text" ng-include="'productMobileTmpl.html'"></p>
                     </div>
                 </div>
