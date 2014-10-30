@@ -36,7 +36,6 @@
     {{ ea.category.full_path.split('>').slice(1).join(' | ') }} </small>
   </script>
   <script type="text/ng-template" id="productMobileTmpl.html">
-    <p><h5>{{ ea.product.name }}</h5></p>
     <p><em><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }} </small></em></p>
     <p><small>
       <span ng-show='ea.product.website != ""'><a href="{{ ea.product.website }}" target="_blank">Website</a> </span>
@@ -59,9 +58,9 @@
             <div id="{{ product.name | ws }}" class="panel-collapse collapse">
               <div class="panel-body">
                 <div ng-repeat="tier in product.tiers" ng-if="tier.length > 0">
-                  <h4>{{ tier.name }} <span class="badge">{{ tier.length }}</span></h4>
-                  <ul class="list-unstyled">
-                    <li ng-repeat="ea in tier" 
+                  <h4 class="list-group-item-heading">{{ tier.name }} <span class="badge">{{ tier.length }}</span></h4>
+                    <div class="list-group"
+                        ng-repeat="ea in tier" 
                         data-description="{{ ea.product.description }}" 
                         data-title="{{ ea.product.name }}" 
                         data-website="{{ ea.product.website }}" 
@@ -74,9 +73,9 @@
                         data-category="{{ ea.category.name }}" 
                         data-categorypath="{{ ea.category.full_path }}" 
                         data-notes="{{ ea.notes }}">
-                          <div ng-include="'productMobileTmpl.html'" class="well well-sm"></div>
-                      </li>
-                  </ul>
+                          <h4 class="list-group-item-heading">{{ ea.product.name }}</h4>
+                          <p class="list-group-item-text" ng-include="'productMobileTmpl.html'"></p>
+                    </div>
                 </div>
               </div>
             </div>
