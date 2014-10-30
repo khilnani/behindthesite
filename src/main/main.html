@@ -12,13 +12,13 @@
       <div class="arrow"></div>
       <span class="close-btn cursor glyphicon glyphicon-remove"></span>
       <h1 class="popover-title text-strong bg-darker"></h1>
-      <div class="popover-content"></div>
+      <div class="popover-content bg-darker"></div>
     </div>
   </script>
   <script type="text/ng-template" id="productHoverContentTmpl.html">
       <p><em><small>{{ categorypath.split('>').join(' | ') }}</small></em></p>
       <p>{{ description }}</p>
-      <p class="well well-sm text-muted" ng-show='notes != ""'><strong>"</strong><em>{{ notes }}</em><strong>"</strong></p>
+      <p class="text-muted" ng-show='notes != ""'><strong>"</strong><em>{{ notes }}</em><strong>"</strong></p>
       <p>
         <a ng-if='website' href="{{ website }}" target="_blank">Website</a> 
         <a ng-if='twitter' href="{{ twitter }}" target="_blank">Twitter</a> 
