@@ -69,8 +69,8 @@
   width: 14px;
   height: 14px;
   border: solid 2px transparent;
-  border-top-color: #2299dd;
-  border-left-color: #2299dd;
+  border-top-color: #fff;
+  border-left-color: #fff;
   border-radius: 10px;
   -webkit-animation: loading-bar-spinner 400ms linear infinite;
   -moz-animation: loading-bar-spinner 400ms linear infinite;
