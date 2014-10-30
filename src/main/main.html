@@ -57,7 +57,7 @@
                 <div ng-repeat="tier in product.tiers" ng-if="tier.length > 0">
                   <h3 class="list-group-item-heading text-default">{{ tier.name }}</h3>
                   <div class="list-group">
-                    <div class="list-group-item"
+                    <div class="list-group-item bg-dark"
                         ng-repeat="ea in tier" 
                         data-description="{{ ea.product.description }}" 
                         data-title="{{ ea.product.name }}" 
