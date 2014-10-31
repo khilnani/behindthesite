@@ -125,7 +125,7 @@
 </div>
 <div class="row" ng-if="vm.hasMore && !vm.busy">
   <p class="text-center text-muted">
-    <i class="fa fa-arrow-circle-o-down fa-2x"></i>
+    <button type="button" class="btn btn-default" ng-click="vm.getAdditionalData()"><i class="fa fa-arrow-circle-o-down fa-2x"></i></button>
   </p>
 </div>
 <div class="row" ng-if="vm.hasMore && vm.busy">
