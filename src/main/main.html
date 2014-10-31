@@ -33,7 +33,8 @@
     <h4 class="list-group-item-heading">{{ ea.product.name }}</h4>
     <p class="list-group-item-text" >
       <p><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }}</small></p>
-      <p>{{ ea.product.description }}</p>
+      <p ><button type="button" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#{{ ea.product.name | ws }}-description">Show more</button></p>
+      <p id="#{{ ea.product.name | ws }}-description" class="panel-collapse collapse">{{ ea.product.description }}</p>
       <p class="text-muted" ng-if='ea.notes'><strong>"</strong><em>{{ ea.notes }}</em><strong>"</strong></p>
       <p><small>
         <a ng-if='ea.product.website' href="{{ ea.product.website }}" target="_blank">Website</a> 
