@@ -33,7 +33,7 @@
     <h4 class="list-group-item-heading">{{ ea.product.name }}</h4>
     <p class="list-group-item-text" >
       <p><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }}</small></p>
-      <p>{{ ea.product.description }}</p>
+      <p class="hidden">{{ ea.product.description }}</p>
       <p class="text-muted" ng-if='ea.notes'><strong>"</strong><em>{{ ea.notes }}</em><strong>"</strong></p>
       <p><small>
         <a ng-if='ea.product.website' href="{{ ea.product.website }}" target="_blank">Website</a> 
@@ -57,7 +57,7 @@
             <div id="{{ product.name | ws }}" class="panel-collapse collapse">
               <div class="panel-body">
                 <div ng-repeat="tier in product.tiers" ng-if="tier.length > 0">
-                  <h3 class="list-group-item-heading text-default">{{ tier.name }}</h3>
+                  <h4 class="list-group-item-heading text-default">{{ tier.name }}</h3>
                   <div class="list-group">
                     <div class="list-group-item bg-darker"
                         ng-repeat="ea in tier" 
@@ -119,13 +119,13 @@
   </div>
 </div>
 <div class="row" ng-if="!vm.hasMore">
-  <p class="text-center text-muted">
+  <p class="text-center text-muted margin-bottom-20">
     <i class="fa fa-ban fa-2x"></i>
   </p>
 </div>
 <div class="row" ng-if="vm.hasMore && !vm.busy">
-  <p class="text-center text-muted">
-    <i class="fa fa-arrow-circle-o-down fa-2x"></i>
+  <p class="text-center text-muted margin-bottom-20">
+    <button type="button" class="btn btn-default vcenter" ng-click="vm.getAdditionalData()"><span class="shift-up-5">Scroll</span> <i class="fa fa-arrow-circle-o-down fa-2x"></i> <span class="shift-up-5">Down</span></button>
   </p>
 </div>
 <div class="row" ng-if="vm.hasMore && vm.busy">
