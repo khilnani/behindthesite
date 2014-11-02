@@ -214,6 +214,7 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
   
   vm.delayedGetAdditionalData = function () {
     console.log('MainCtrl.delayedGetAdditionalData');
+    vm.busy = true;
     $timeout(function () {
       console.log('MainCtrl.delayedGetAdditionalData: Timeout');
       vm.getAdditionalData();
