@@ -214,6 +214,7 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
   
   vm.delayedGetAdditionalData = function () {
     console.log('MainCtrl.delayedGetAdditionalData');
+    // allow the busy icon to display before rendering (freezes otherwise and busy indicator doesnt show)
     vm.busy = true;
     $timeout(function () {
       console.log('MainCtrl.delayedGetAdditionalData: Timeout');
