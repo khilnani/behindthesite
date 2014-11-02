@@ -23,7 +23,7 @@
         <a ng-if='website' href="{{ website }}" target="_blank">Website</a> 
         <a ng-if='twitter' href="{{ twitter }}" target="_blank">Twitter</a> 
         <a ng-if='irc' href="{{ irc }}" target="_blank">Irc</a> 
-        <a ng-if='repo' href="{{ repo }}" target="_blank">Source-code</a> 
+        <a ng-if='repo' href="{{ repo }}" target="_blank">Code</a> 
         <a ng-if='issues' href="{{ issues }}" target="_blank">Issues</a> 
         <a ng-if='docs' href="{{ docs }}" target="_blank">Docs</a> 
         <a ng-if='blogs' href="{{ blogs }}" target="_blank">Blog</a> 
@@ -39,7 +39,7 @@
         <a ng-if='ea.product.website' href="{{ ea.product.website }}" target="_blank">Website</a> 
         <a ng-if='ea.product.twitter' href="{{ ea.product.twitter }}" target="_blank">Twitter</a> 
         <a ng-if='ea.product.irc' href="{{ ea.product.irc }}" target="_blank">Irc</a> 
-        <a ng-if='ea.product.repo' href="{{ ea.product.repo }}" target="_blank">Source-code</a> 
+        <a ng-if='ea.product.repo' href="{{ ea.product.repo }}" target="_blank">Code</a> 
         <a ng-if='ea.product.issues' href="{{ ea.product.issues }}" target="_blank">Issues</a> 
         <a ng-if='ea.product.docs' href="{{ ea.product.docs }}" target="_blank">Docs</a> 
         <a ng-if='ea.product.blogs' href="{{ ea.product.blogs }}" target="_blank">Blog</a> 
@@ -49,6 +49,16 @@
   <script type="text/ng-template" id="productTmpl.html">
     <p>
       <small><span class="text-muted"><super>Updated: {{ product.updated }}</super></span></small>
+    </p>
+    <p>Company: {{ product.company.name }}
+    <!-- 
+    {{ product.company.status }}
+    {{ product.company.website }}
+    {{ product.company.twitter }}
+    {{ product.company.linkedin }}
+    {{ product.company.blogs }}
+    {{ product.company.repo }}
+    //-->
     </p>
     <p>
       <a ng-if='product.insight' href="{{ product.insight }}" target="_blank">Insight</a> 
