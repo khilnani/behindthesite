@@ -61,6 +61,12 @@
             </div>
             <div id="{{ product.name | ws }}" class="panel-collapse collapse">
               <div class="panel-body">
+                <ul class="list-unstyled">
+                  <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
+                  <li ng-if='product.insight'><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
+                  <li ng-if='product.notes'><span class="cursor">Notes <i class="fa fa-comment"></i></span></li>
+                  <li ng-if='product.references'><span class="cursor">References <i class="fa fa-external-link"></i></li>
+                </ul>
                 <div ng-repeat="tier in product.tiers" ng-if="tier.length > 0">
                   <h4 class="list-group-item-heading text-default">{{ tier.name }}</h3>
                   <div class="list-group">
