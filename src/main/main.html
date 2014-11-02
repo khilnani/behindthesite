@@ -117,7 +117,7 @@
                     <span class="cursor">{{ product.name }} <i class="fa fa-info-circle"></i></span>
                     <small class="text-muted pull-right">{{ $index+1 }}/{{ vm.total() }}</span></small>
                   </li>
-                  <li><small><span class="text-muted"><sup>Updated: {{ product.updated }}</sup></span></small></li>
+                  <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
                   <li ng-if='product.insight'><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
                   <li ng-if='product.notes'><span class="cursor">Notes <i class="fa fa-comment"></i></span></li>
                   <li ng-if='product.references'><span class="cursor">References <i class="fa fa-external-link"></i></li>
