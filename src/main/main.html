@@ -88,7 +88,7 @@
         </div>
       </div>
       <div ng-if="!vm.isMobile" infinite-scroll="vm.getAdditionalData()" infinite-scroll-disabled='vm.busy' infinite-scroll-distance="0" infinite-scroll-immediate-check="false">
-        <table class="table table-striped table-bordered table-condensed small">
+        <table id="main-table" class="table table-striped table-bordered table-condensed small">
           <thead affix="affix"> 
             <tr>
               <th>Products</th>
