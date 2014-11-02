@@ -119,16 +119,16 @@
   </div>
 </div>
 <div class="row" ng-if="!vm.hasMore">
-  <p class="text-center text-muted margin-bottom-20">
+  <p class="text-center text-muted margin-bottom-40">
     <i class="fa fa-ban fa-2x"></i>
   </p>
 </div>
 <div class="row" ng-if="vm.hasMore && vm.busy">
-    <div class="spinner center-block margin-bottom-20"></div>
+    <div class="spinner center-block margin-bottom-40"></div>
 </div>
 <div class="row" ng-if="vm.isMobile && !vm.busy">
-  <p class="text-center text-muted margin-bottom-20">
-    <button class="btn btn-default vcenter margin-bottom-20" ng-click="vm.delayedGetAdditionalData()">Click for more</button>
+  <p class="text-center text-muted margin-bottom-40">
+    <button class="btn btn-default vcenter" ng-click="vm.delayedGetAdditionalData()">Click for more</button>
   </p>
 </div>
 
