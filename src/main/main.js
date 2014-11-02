@@ -68,10 +68,10 @@ function collapse () {
     var ele = angular.element(element);
 
     ele.on('shown.bs.collapse', function (e) {
-      console.log('shown.bs.collapse');
+      console.log('shown.bs.collapse:' + ele);
         $('html, body').animate({
           scrollTop: ele.offset().top
-        }, 2000);
+        }, 500);
     });
   };
 }
