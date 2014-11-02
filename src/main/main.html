@@ -84,10 +84,6 @@
                     <h4 class="list-group-item-heading">Notes <i class="fa fa-comment"></i></h4>
                     <p class="list-group-item-text" >{{ product.notes }}</p>
                   </div>
-                  <div class="list-group-item bg-darker" ng-if='product.references'>
-                    <h4 class="list-group-item-heading">References <i class="fa fa-external-link"></i></h4>
-                    <p class="list-group-item-text" >{{ product.references }}</p>
-                  </div>
                 </div>
                 <div ng-repeat="tier in product.tiers" ng-if="tier.length > 0">
                   <h4 class="list-group-item-heading text-default">{{ tier.name }}</h3>
@@ -110,10 +106,10 @@
                     </div>
                   </div>
                 </div>
-                  <div class="list-group-item" ng-if='product.references'>
-                    <h4 class="list-group-item-heading">References <i class="fa fa-external-link"></i></h4>
-                    <p class="list-group-item-text" >{{ product.references }}</p>
-                  </div>
+                <div class="list-group-item bg-darker" ng-if='product.references'>
+                  <h4 class="list-group-item-heading">References <i class="fa fa-external-link"></i></h4>
+                  <p class="list-group-item-text" >{{ product.references }}</p>
+                </div>
                 <button type="button" class="btn btn-xs btn-default pull-right" ng-click="vm.backToTop((product.name | ws))">Back to Top</button>
               </div>
             </div>
