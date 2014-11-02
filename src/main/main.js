@@ -53,7 +53,7 @@ function affix ($templateCache) {
       console.log('affix.post');
       var ths = ele.find('th');
       ths.each(function(i) {
-        //$(this).width(scope.affix_widths[i]);
+        $(this).width(scope.affix_widths[i]);
         //console.log(scope.affix_widths[i])
       })
     });
