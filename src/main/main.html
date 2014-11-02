@@ -65,7 +65,16 @@
                   <div class="list-group-item bg-darker">
                     <h4 class="list-group-item-heading">Product Info</h4>
                     <p class="list-group-item-text" >
-                      <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
+                      <p><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></p>
+                      <p><small>
+                        <a ng-if='product.website' href="{{ product.website }}" target="_blank">Website</a> 
+                        <a ng-if='product.twitter' href="{{ product.twitter }}" target="_blank">Twitter</a> 
+                        <a ng-if='product.irc' href="{{ product.irc }}" target="_blank">Irc</a> 
+                        <a ng-if='product.repo' href="{{ product.repo }}" target="_blank">Code</a> 
+                        <a ng-if='product.issues' href="{{ product.issues }}" target="_blank">Issues</a> 
+                        <a ng-if='product.docs' href="{{ product.docs }}" target="_blank">Docs</a> 
+                        <a ng-if='product.blogs' href="{{ product.blogs }}" target="_blank">Blog</a> 
+                      </small></p>
                     </p>
                   </div>
                   <div class="list-group-item bg-darker" ng-if='product.insight'>
