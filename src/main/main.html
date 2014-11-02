@@ -17,7 +17,7 @@
   </script>
   <script type="text/ng-template" id="productHoverContentTmpl.html">
       <p ng-show='categorypath != ""'><small>{{ categorypath.split('>').join(' | ') }}</small></p>
-      <p ng-show='description != ""'>{{ description }}</p>
+      <p ng-show='description != ""'>{{ marked( description ) }}</p>
       <p class="text-muted" ng-show='notes != ""'><strong>"</strong><em>{{ notes }}</em><strong>"</strong></p>
       <p>
         <a ng-if='website' href="{{ website }}" target="_blank">Website</a> 
@@ -33,8 +33,8 @@
     <h4 class="list-group-item-heading">{{ ea.product.name }}</h4>
     <p class="list-group-item-text" >
       <p><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }}</small></p>
-      <p class="hidden">{{ ea.product.description }}</p>
-      <p class="text-muted" ng-if='ea.notes'><strong>"</strong><em>{{ ea.notes }}</em><strong>"</strong></p>
+      <p class="hidden">{{ marked( ea.product.description ) }}</p>
+      <p class="text-muted" ng-if='ea.notes'><strong>"</strong><em>{{ marked( ea.notes ) }}</em><strong>"</strong></p>
       <p><small>
         <a ng-if='ea.product.website' href="{{ ea.product.website }}" target="_blank">Website</a> 
         <a ng-if='ea.product.twitter' href="{{ ea.product.twitter }}" target="_blank">Twitter</a> 
@@ -148,9 +148,9 @@
                     <small class="text-muted pull-right">{{ $index+1 }}/{{ vm.total() }}</span></small>
                   </li>
                   <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
-                  <li popover="popover" ng-if='product.insight' data-title="Insight" data-content="{{ product.insight }}"><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
-                  <li popover="popover" ng-if='product.notes' data-title="Notes" data-content="{{ product.notes }}" ><span class="cursor">Notes <i class="fa fa-comment"></i></span></li>
-                  <li popover="popover" ng-if='product.references' data-title="References" data-content="{{ product.references }}"><span class="cursor">References <i class="fa fa-external-link"></i></li>
+                  <li popover="popover" ng-if='product.insight' data-title="Insight" data-content="{{ marked( product.insight ) }}"><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
+                  <li popover="popover" ng-if='product.notes' data-title="Notes" data-content="{{ marked( product.notes ) }}" ><span class="cursor">Notes <i class="fa fa-comment"></i></span></li>
+                  <li popover="popover" ng-if='product.references' data-title="References" data-content="{{ marked( product.references ) }}"><span class="cursor">References <i class="fa fa-external-link"></i></li>
                 </ul>  
               </td>
               <td ng-repeat="tier in product.tiers">
