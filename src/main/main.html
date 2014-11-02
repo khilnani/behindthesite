@@ -97,7 +97,7 @@
           </thead>
           <tbody>
             <tr ng-repeat="product in vm.getProducts()">
-              <td>{{ product.name }}</td>
+              <td>{{ product.name }} {{ $index+1 }} / {{ vm.total() }}</td>
               <td ng-repeat="tier in product.tiers">
                 <ul class="list-unstyled">
                   <li ng-repeat="ea in tier" 
@@ -133,7 +133,7 @@
 </div>
 <div class="row" ng-if="vm.isMobile && !vm.busy">
   <p class="text-center text-muted margin-bottom-40">
-    <button class="btn btn-default vcenter" ng-click="vm.delayedGetAdditionalData()">Click for more</button>
+    <button class="btn btn-default vcenter" ng-click="vm.delayedGetAdditionalData()">Loaded {{ vm.end }} / {{ vm.total() }}. Click for more</button>
   </p>
 </div>
 
