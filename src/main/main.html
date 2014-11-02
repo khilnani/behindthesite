@@ -79,6 +79,9 @@
                         data-categorypath="{{ ea.category.full_path }}" 
                         data-notes="{{ ea.notes }}">
                           <span ng-include="'productMobileTmpl.html'"></span>
+                          <button 
+                            type="button" 
+                            class="btn btn-xs btn-default pull-right" >Back to Top</button>
                     </div>
                   </div>
                 </div>
@@ -97,7 +100,7 @@
           </thead>
           <tbody>
             <tr ng-repeat="product in vm.getProducts()">
-              <td>{{ product.name }} <small><span class="text-muted pull-right">({{ $index+1 }}/{{ vm.total() }})</span></small></td>
+              <td>{{ product.name }} <small><span class="text-muted pull-right">{{ $index+1 }}/{{ vm.total() }}</span></small></td>
               <td ng-repeat="tier in product.tiers">
                 <ul class="list-unstyled">
                   <li ng-repeat="ea in tier" 
