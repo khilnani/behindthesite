@@ -16,8 +16,8 @@
     </div>
   </script>
   <script type="text/ng-template" id="productHoverContentTmpl.html">
-      <p><small>{{ categorypath.split('>').join(' | ') }}</small></p>
-      <p>{{ description }}</p>
+      <p ng-if='categorypath'><small>{{ categorypath.split('>').join(' | ') }}</small></p>
+      <p ng-if='description'>{{ description }}</p>
       <p class="text-muted" ng-show='notes != ""'><strong>"</strong><em>{{ notes }}</em><strong>"</strong></p>
       <p>
         <a ng-if='website' href="{{ website }}" target="_blank">Website</a> 
