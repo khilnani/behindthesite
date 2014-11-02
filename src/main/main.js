@@ -179,6 +179,11 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
     console.log('MainCtrl.increment: ' + vm.end);
   }
   
+  vm.scrollTo = function ( id ) {
+    //$.scrollTo($('#{{ product.name | ws }}'), 2000); 
+    console.log('Hey');
+  }
+  
   vm.updateBusy = function () {
     vm.busy = false;
     console.log('MainCtrl.updateBusy: ' + vm.busy);
