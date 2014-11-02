@@ -70,6 +70,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   background: #272b30;
   border-color: #808080;
 }
+#main-table td {
+  width: 12.5%;
+}
 /*
   http://spiffygif.com/?color=cccccc&lines=11&bgColor=272b30&radius=7&width=2&halo=false
 */
