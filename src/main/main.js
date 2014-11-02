@@ -200,9 +200,9 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
     console.log('MainCtrl.increment: ' + vm.end);
   }
   
-  vm.scrollTo = function ( id ) {
-    //$.scrollTo($('#{{ product.name | ws }}'), 2000); 
-    console.log('Hey');
+  vm.backToTop = function (id) {
+    console.log('MainCtrl.backToTop: ' + id)
+    $.scrollTo($(id), 500); 
   }
   
   vm.updateBusy = function () {
