@@ -90,7 +90,7 @@ function popover ($templateCache, $compile) {
     var popupConfig = {
       html: true,
       title: attrs.title,
-      content: marked( attrs.content ),
+      content: attrs.content,
       placement: 'top',
       template: tmpl,
       trigger: 'manual'
@@ -146,7 +146,7 @@ function product ($templateCache, $compile) {
     scope.docs = attrs.docs;
     scope.category = attrs.category;
     scope.categorypath = attrs.categorypath;
-    scope.notes = marked( attrs.notes );
+    scope.notes = attrs.notes;
     // https://docs.angularjs.org/api/ng/service/$compile
     var contentHtml = $compile($templateCache.get('productHoverContentTmpl.html'))(scope);
 
@@ -315,9 +315,9 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
           issues: product.issues,
           docs: product.docs,
           updated: product.stack.updated,
-          insight: product.stack.insight,
-          notes: product.stack.notes,
-          references: product.stack.references
+          insight: marked( product.stack.insight ),
+          notes: marked( product.stack.notes ),
+          references: marked( product.stack.references )
         };
         model.company = product.company;
         model.tiers = [];
@@ -328,6 +328,9 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
         var tiers = product.stack.tiers;
         for(var tier in tiers) {
           var index = vm.findHeaderIndex( tiers[tier] );
+          if(tiers[tier].notes) {
+            tiers[tier].notes = marked( tiers[tier].notes );
+          }
 //          console.log('index: ' + index);
 //          console.log(tiers[tier].product);
           model.tiers[index].push( tiers[tier] )
