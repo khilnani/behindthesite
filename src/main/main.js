@@ -262,6 +262,7 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
           irc: product.irc,
           blogs: product.blogs,
           repo: product.repo,
+          issues: product.issues,
           docs: product.docs,
           updated: product.stack.updated,
           insight: product.stack.insight,
