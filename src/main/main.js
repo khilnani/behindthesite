@@ -76,9 +76,9 @@ function collapse () {
   };
 }
 
-btsDirectives.directive('itemDisplayed', ['$templateCache', '$compile', itemDisplayed]);
+btsDirectives.directive('product', ['$templateCache', '$compile', product]);
 
-function itemDisplayed ($templateCache, $compile) {
+function product ($templateCache, $compile) {
   console.log('item-displayed')
   return function(scope, element, attrs) {
 //    console.log(attrs);
