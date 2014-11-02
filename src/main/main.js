@@ -212,6 +212,14 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
     return vm.products.slice(0, vm.end);
   }
   
+  vm.delayedGetAdditionalData = function () {
+    console.log('MainCtrl.delayedGetAdditionalData');
+    $timeout(function () {
+      console.log('MainCtrl.delayedGetAdditionalData: Timeout');
+      vm.getAdditionalData();
+    }, 500);
+  }
+  
   vm.getAdditionalData = function () {
     vm.busy = true;
     vm.increment();
