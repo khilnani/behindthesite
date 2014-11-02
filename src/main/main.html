@@ -110,8 +110,7 @@
             <tr ng-repeat="product in vm.getProducts()">
               <td>
                 <ul class="list-unstyled">
-                  <li ng-repeat="ea in tier" 
-                      data-title="{{ product.name }}" 
+                  <li data-title="{{ product.name }}" 
                       data-updated="{{ product.updated }}" 
                       data-description="{{ product.description }}" 
                       data-website="{{ product.website }}" 
