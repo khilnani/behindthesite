@@ -327,7 +327,10 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
         }
         var tiers = product.stack.tiers;
         for(var tier in tiers) {
-          var index = vm.findHeaderIndex( tiers[tier] )
+          var index = vm.findHeaderIndex( tiers[tier] );
+          if(tiers[tier].notes) {
+            tiers[tier].notes = marked( tiers[tier].notes );
+          }
 //          console.log('index: ' + index);
 //          console.log(tiers[tier].product);
           model.tiers[index].push( tiers[tier] )
