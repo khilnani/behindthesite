@@ -146,24 +146,10 @@ function itemDisplayed ($templateCache, $compile) {
 var btsFilters = angular.module('bts.filters', []);
 
 btsFilters.filter('ws', function () {
-    return function (input) {
-      if (input) {
-        return input.toLowerCase().replace(/[^a-z_]/g, '_');
-      }
-    };
-  });
-
-btsFilters.filter('nocraigslist', function() {
-  return function(input) {
-    var output = [];
-    if(input) {
-      for(var i in input) {
-        if(input[i].name != 'Craigslist Website' ) {
-          output.push(input[i]);
-        }
-      }
+  return function (input) {
+    if (input) {
+      return input.toLowerCase().replace(/[^a-z_]/g, '_');
     }
-    return output;
   };
 });
 
@@ -202,7 +188,7 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
   vm.backToTop = function (id) {
     console.log('MainCtrl.backToTop: ' + id);
     $('html, body').animate({
-      scrollTop: $('#' + id).offset().top
+      scrollTop: $('#' + id + '-panel').offset().top
     }, 500);
   }
   
