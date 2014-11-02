@@ -47,7 +47,18 @@
     </p>
   </script>
   <script type="text/ng-template" id="productTmpl.html">
-    <li>{{ product.name }} <small><span class="text-muted pull-right">{{ $index+1 }}/{{ vm.total() }}</span></small></li>
+    <li>{{ product.name }} <i class="fa fa-info-circle"></i> <small><span class="text-muted pull-right">{{ $index+1 }}/{{ vm.total() }}</span></small></li>
+    <li>
+    <small><span class="text-muted pull-right">Updated: {{ product.updated }}</span></small></li>
+    <li>
+    {{ product.notes }}
+    </li>
+    <li>
+    {{ product.insight }}
+    </li>
+    <li>
+    {{ product.references }}
+    </li>
     <li><small>
       <a ng-if='product.website' href="{{ product.website }}" target="_blank">Website</a> 
       <a ng-if='product.twitter' href="{{ product.twitter }}" target="_blank">Twitter</a> 
