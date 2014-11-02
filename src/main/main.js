@@ -69,7 +69,7 @@ function collapse () {
 
     ele.on('shown.bs.collapse', function (e) {
       console.log('shown.bs.collapse:');
-      console.log(ele);
+      console.log(element);
         $('html, body').animate({
           scrollTop: ele.offset().top
         }, 500);
