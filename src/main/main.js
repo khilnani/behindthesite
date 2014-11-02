@@ -68,11 +68,10 @@ function collapse () {
     var ele = angular.element(element);
 
     ele.on('shown.bs.collapse', function (e) {
-      console.log('shown.bs.collapse:');
-      console.log(element);
-        $('html, body').animate({
-          scrollTop: ele.offset().top
-        }, 500);
+      console.log('shown.bs.collapse');
+      $('html, body').animate({
+        scrollTop: ele.offset().top
+      }, 500);
     });
   };
 }
@@ -201,8 +200,10 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
   }
   
   vm.backToTop = function (id) {
-    console.log('MainCtrl.backToTop: ' + id)
-    $.scrollTo($('#' + id), 500); 
+    console.log('MainCtrl.backToTop: ' + id);
+    $('html, body').animate({
+      scrollTop: $('#' + id).offset().top
+    }, 500);
   }
   
   vm.updateBusy = function () {
