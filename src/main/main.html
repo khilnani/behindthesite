@@ -57,7 +57,7 @@
                 class="btn btn-xs btn-default" 
                 data-toggle="collapse" 
                 data-target="#{{ product.name | ws }}" 
-                ng-click="$.scrollTo($('#{{ product.name | ws }}'), 2000); console.log('Hey');"
+                ng-click="vm.scrollTo('#{{ product.name | ws }}')"
                 data-parent="#accordion">{{ product.name }}</button></h4>
             </div>
             <div id="{{ product.name | ws }}" class="panel-collapse collapse">
