@@ -46,6 +46,18 @@
       </small></p>
     </p>
   </script>
+  <script type="text/ng-template" id="productTmpl.html">
+    <li>{{ product.name }} <small><span class="text-muted pull-right">{{ $index+1 }}/{{ vm.total() }}</span></small></li>
+    <li><small>
+      <a ng-if='product.website' href="{{ product.website }}" target="_blank">Website</a> 
+      <a ng-if='product.twitter' href="{{ product.twitter }}" target="_blank">Twitter</a> 
+      <a ng-if='product.irc' href="{{ product.irc }}" target="_blank">Irc</a> 
+      <a ng-if='product.repo' href="{{ product.repo }}" target="_blank">Source-code</a> 
+      <a ng-if='product.issues' href="{{ product.issues }}" target="_blank">Issues</a> 
+      <a ng-if='product.docs' href="{{ product.docs }}" target="_blank">Docs</a> 
+      <a ng-if='product.blogs' href="{{ product.blogs }}" target="_blank">Blog</a> 
+    </small></li>
+  </script>
   <div class="row">
     <div id="main" class="col-xs-12">
       <div ng-if="vm.isMobile">
@@ -98,7 +110,10 @@
           </thead>
           <tbody>
             <tr ng-repeat="product in vm.getProducts()">
-              <td>{{ product.name }} <small><span class="text-muted pull-right">{{ $index+1 }}/{{ vm.total() }}</span></small></td>
+              <td>
+                <ul class="list-unstyled" ng-include="'productTmpl.html'">
+                </ul>  
+              </td>
               <td ng-repeat="tier in product.tiers">
                 <ul class="list-unstyled">
                   <li ng-repeat="ea in tier" 
@@ -114,7 +129,7 @@
                       data-category="{{ ea.category.name }}" 
                       data-categorypath="{{ ea.category.full_path }}" 
                       data-notes="{{ ea.notes }}" 
-                      item-displayed="item-displayed"><span class="cursor">{{ ea.product.name }} </span></li>
+                      item-displayed="item-displayed"><span class="cursor">{{ ea.product.name }} <i class="fa fa-info-circle"></i></span></li>
                 </ul>
               </td>
             </tr>
