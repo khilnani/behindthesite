@@ -1133,7 +1133,7 @@ function merge(obj) {
  */
 
 function marked(src, opt, callback) {
-  console.log('marked: ' + typeof(src));
+  //console.log('marked: ' + typeof(src));
   if(src == undefined || src == null) {
     return src;
   }
