@@ -306,18 +306,18 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
         var model = { 
           name: product.name,
           website: product.website,
-          description: product.description,
+          description: marked( product.description ),
           twitter: product.twitter,
           facebook: product.facebook,
           irc: product.irc,
-          blogs: product.blogs,
+          blogs: marked( product.blogs ),
           repo: product.repo,
           issues: product.issues,
           docs: product.docs,
           updated: product.stack.updated,
-          insight: product.stack.insight,
-          notes: product.stack.notes,
-          references: product.stack.references
+          insight: marked( product.stack.insight ),
+          notes: marked( product.stack.notes ),
+          references: marked( product.stack.references )
         };
         model.company = product.company;
         model.tiers = [];
@@ -328,6 +328,9 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
         var tiers = product.stack.tiers;
         for(var tier in tiers) {
           var index = vm.findHeaderIndex( tiers[tier] )
+            tier.notes = marked(tier.notes);
+            if(tier.product.description)
+              tier.product.description = marked(tier.product.description)
 //          console.log('index: ' + index);
 //          console.log(tiers[tier].product);
           model.tiers[index].push( tiers[tier] )
