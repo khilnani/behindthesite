@@ -107,8 +107,10 @@
                   </div>
                 </div>
                 <h4 class="list-group-item-heading text-default" ng-if='product.references'>References <i class="fa fa-external-link"></i></h3>
-                <div class="list-group-item bg-darker" ng-if='product.references'>
-                  <p class="list-group-item-text" >{{ product.references }}</p>
+                <div class="list-group" ng-if='product.references'>
+                  <div class="list-group-item bg-darker">
+                    <p class="list-group-item-text" >{{ product.references }}</p>
+                  </div>
                 </div>
                 <button type="button" class="btn btn-xs btn-default pull-right" ng-click="vm.backToTop((product.name | ws))">Back to Top</button>
               </div>
