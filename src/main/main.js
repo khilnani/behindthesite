@@ -76,16 +76,66 @@ function collapse () {
   };
 }
 
-btsDirectives.directive('product', ['$templateCache', '$compile', product]);
+btsDirectives.directive('popover', ['$templateCache', '$compile', popover]);
 
-function product ($templateCache, $compile) {
-  console.log('item-displayed')
+function popover ($templateCache, $compile) {
+  console.log('popover')
   return function(scope, element, attrs) {
 //    console.log(attrs);
     var ele = angular.element(element);
     var span = ele.find('span');
 
-    var tmpl = $templateCache.get('productHoverTmpl.html')
+    var tmpl = $templateCache.get('hoverTmpl.html')
+
+    var popupConfig = {
+      html: true,
+      title: attrs.title,
+      content: attrs.content,
+      placement: 'top',
+      template: tmpl,
+      trigger: 'manual'
+    };
+
+    span.data('state', 'hover');
+    span.popover(popupConfig);
+    span.on('mouseenter', function (e) { 
+      if (span.data('state') === 'hover') {
+        span.popover('show');
+      }
+    });
+    span.on('mouseleave', function (e) { 
+      if (span.data('state') === 'hover') {
+        span.popover('hide');
+      }
+    });
+    span.on('click', function (e) { 
+      if (span.data('state') === 'hover') {
+          span.data('state', 'pinned');
+      } else {
+          span.data('state', 'hover');
+          span.popover('hide');
+      }
+    });
+
+    ele.on('shown.bs.popover', function () {
+      ele.find('.close-btn').click( function () {
+        span.data('state', 'hover');
+        span.popover('hide');
+      });        
+    });
+  };
+}
+
+btsDirectives.directive('product', ['$templateCache', '$compile', product]);
+
+function product ($templateCache, $compile) {
+  console.log('product')
+  return function(scope, element, attrs) {
+//    console.log(attrs);
+    var ele = angular.element(element);
+    var span = ele.find('span');
+
+    var tmpl = $templateCache.get('hoverTmpl.html')
     scope.website = attrs.website;
     scope.twitter = attrs.twitter;
     scope.irc = attrs.irc;
