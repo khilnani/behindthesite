@@ -202,7 +202,7 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
   
   vm.backToTop = function (id) {
     console.log('MainCtrl.backToTop: ' + id)
-    $.scrollTo($(id), 500); 
+    $.scrollTo($('#' + id), 500); 
   }
   
   vm.updateBusy = function () {
