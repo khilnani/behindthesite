@@ -146,14 +146,14 @@ function product ($templateCache, $compile) {
     scope.docs = attrs.docs;
     scope.category = attrs.category;
     scope.categorypath = attrs.categorypath;
-    scope.notes = attrs.notes;
+    scope.notes = marked( attrs.notes );
     // https://docs.angularjs.org/api/ng/service/$compile
     var contentHtml = $compile($templateCache.get('productHoverContentTmpl.html'))(scope);
 
     var popupConfig = {
       html: true,
       title: attrs.title,
-      content: marked( $(contentHtml).html() ),
+      content: contentHtml,
       placement: 'top',
       template: tmpl,
       trigger: 'manual'
