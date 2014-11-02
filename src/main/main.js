@@ -81,7 +81,7 @@ btsDirectives.directive('popover', ['$templateCache', '$compile', popover]);
 function popover ($templateCache, $compile) {
   console.log('popover')
   return function(scope, element, attrs) {
-    console.log(attrs);
+    //console.log(attrs);
     var ele = angular.element(element);
     var span = ele.find('span');
 
