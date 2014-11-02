@@ -50,15 +50,14 @@
     <div id="main" class="col-xs-12">
       <div ng-if="vm.isMobile">
         <div id="accordion" class="panel-group"> 
-          <div ng-repeat="product in vm.getProducts()" class="panel panel-default"> 
+          <div ng-repeat="product in vm.getProducts()" class="panel panel-default" collapse="collapse"> 
             <div class="panel-heading">
               <h4 class="panel-title"><button 
                 type="button" 
                 class="btn btn-xs btn-default" 
                 data-toggle="collapse" 
                 data-target="#{{ product.name | ws }}" 
-                data-parent="#accordion"
-                collapse="collapse">{{ product.name }}</button></h4>
+                data-parent="#accordion">{{ product.name }}</button></h4>
             </div>
             <div id="{{ product.name | ws }}" class="panel-collapse collapse">
               <div class="panel-body">
