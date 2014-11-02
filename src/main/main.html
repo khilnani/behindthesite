@@ -61,12 +61,26 @@
             </div>
             <div id="{{ product.name | ws }}" class="panel-collapse collapse">
               <div class="panel-body">
-                <ul class="list-unstyled">
-                  <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
-                  <li ng-if='product.insight'><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
-                  <li ng-if='product.notes'><span class="cursor">Notes <i class="fa fa-comment"></i></span></li>
-                  <li ng-if='product.references'><span class="cursor">References <i class="fa fa-external-link"></i></li>
-                </ul>
+                <div class="list-group">
+                  <div class="list-group-item bg-darker">
+                    <h4 class="list-group-item-heading">Product Info</h4>
+                    <p class="list-group-item-text" >
+                      <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
+                    </p>
+                  </div>
+                  <div class="list-group-item bg-darker" ng-if='product.insight'>
+                    <h4 class="list-group-item-heading">Insight <i class="fa fa-graduation-cap"></i></h4>
+                    <p class="list-group-item-text" >{{ product.insight }}</p>
+                  </div>
+                  <div class="list-group-item bg-darker" ng-if='product.notes'>
+                    <h4 class="list-group-item-heading">Notes <i class="fa fa-comment"></i></h4>
+                    <p class="list-group-item-text" >{{ product.notes }}</p>
+                  </div>
+                  <div class="list-group-item bg-darker" ng-if='product.references'>
+                    <h4 class="list-group-item-heading">References <i class="fa fa-external-link"></i></h4>
+                    <p class="list-group-item-text" >{{ product.references }}</p>
+                  </div>
+                </div>
                 <div ng-repeat="tier in product.tiers" ng-if="tier.length > 0">
                   <h4 class="list-group-item-heading text-default">{{ tier.name }}</h3>
                   <div class="list-group">
