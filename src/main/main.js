@@ -253,7 +253,21 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
       console.log('MainCtrl.Products: ' + products.length  );
       for(var index in products) {
         var product = products[index];
-        var model = { name: product.name };
+        var model = { 
+          name: product.name,
+          website: product.website
+          description: product.description,
+          twitter: product.twitter,
+          facebook: product.facebook,
+          irc: product.irc,
+          blogs: product.blogs,
+          repo: product.repo,
+          docs: product.docs,
+          updated: product.stack.updated,
+          insight: product.stack.insight,
+          notes: product.stack.notes,
+          references: product.stack.references
+        };
         model.company = product.company;
         model.tiers = [];
         for(var header in vm.headers) {
