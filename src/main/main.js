@@ -140,20 +140,20 @@ function product ($templateCache, $compile) {
     scope.twitter = attrs.twitter;
     scope.irc = attrs.irc;
     scope.blogs = attrs.blogs;
-    scope.description = marked( attrs.description );
+    scope.description = attrs.description;
     scope.repo = attrs.repo;
     scope.issues = attrs.issues;
     scope.docs = attrs.docs;
     scope.category = attrs.category;
     scope.categorypath = attrs.categorypath;
-    scope.notes = marked( attrs.notes );
+    scope.notes = attrs.notes;
     // https://docs.angularjs.org/api/ng/service/$compile
     var contentHtml = $compile($templateCache.get('productHoverContentTmpl.html'))(scope);
 
     var popupConfig = {
       html: true,
       title: attrs.title,
-      content: contentHtml,
+      content: marked( contentHtml ),
       placement: 'top',
       template: tmpl,
       trigger: 'manual'
