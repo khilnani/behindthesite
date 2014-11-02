@@ -255,7 +255,7 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
         var product = products[index];
         var model = { 
           name: product.name,
-          website: product.website
+          website: product.website,
           description: product.description,
           twitter: product.twitter,
           facebook: product.facebook,
