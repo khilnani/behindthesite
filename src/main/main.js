@@ -153,7 +153,7 @@ function product ($templateCache, $compile) {
     var popupConfig = {
       html: true,
       title: attrs.title,
-      content: marked( contentHtml[0].innerHTML ),
+      content: marked( $(contentHtml).html() ),
       placement: 'top',
       template: tmpl,
       trigger: 'manual'
