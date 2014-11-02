@@ -143,14 +143,14 @@
                       data-references="{{ ea.references }}"
                       data-insight="{{ ea.insight }}"
                       data-notes="{{ ea.notes }}" 
-                      item-displayed="item-displayed">
+                      product="product">
                     <span class="cursor">{{ product.name }}</span>
                     <small class="text-muted pull-right">{{ $index+1 }}/{{ vm.total() }}</span></small>
                   </li>
                   <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
-                  <li ng-if='product.insight'><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
-                  <li ng-if='product.notes'><span class="cursor">Notes <i class="fa fa-comment"></i></span></li>
-                  <li ng-if='product.references'><span class="cursor">References <i class="fa fa-external-link"></i></li>
+                  <li insight="insight" ng-if='product.insight' data-insight="{{ ea.insight }}"><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
+                  <li notes="notes" ng-if='product.notes' data-notes="{{ ea.notes }}" ><span class="cursor">Notes <i class="fa fa-comment"></i></span></li>
+                  <li references="references" ng-if='product.references' data-references="{{ ea.references }}"><span class="cursor">References <i class="fa fa-external-link"></i></li>
                 </ul>  
               </td>
               <td ng-repeat="tier in product.tiers">
