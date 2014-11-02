@@ -69,7 +69,9 @@ function collapse () {
 
     ele.on('shown.bs.collapse', function (e) {
       console.log('shown.bs.collapse');
-
+        $('html, body').animate({
+          scrollTop: ele.offset().top
+        }, 2000);
     });
   };
 }
