@@ -132,12 +132,11 @@
 <div class="row" ng-if="vm.hasMore && vm.busy">
     <div class="spinner center-block margin-bottom-40"></div>
 </div>
-<div class="row" ng-if="vm.isMobile && !vm.busy">
+<div class="row" ng-if="vm.isMobile && vm.hasMore && !vm.busy">
   <p class="text-center text-muted margin-bottom-40">
     <button class="btn btn-default vcenter" ng-click="vm.delayedGetAdditionalData()">Loaded {{ vm.end }} of {{ vm.total() }}. Click for more.</button>
   </p>
 </div>
-
 
 
 
