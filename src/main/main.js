@@ -60,6 +60,20 @@ function affix ($templateCache) {
   };
 }
 
+btsDirectives.directive('collapse', collapse);
+
+function collapse () {
+  console.log('collapse')
+  return function(scope, element, attrs) {
+    var ele = angular.element(element);
+
+    ele.on('shown.bs.collapse', function (e) {
+      console.log('shown.bs.collapse');
+
+    });
+  };
+}
+
 btsDirectives.directive('itemDisplayed', ['$templateCache', '$compile', itemDisplayed]);
 
 function itemDisplayed ($templateCache, $compile) {
