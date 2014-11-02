@@ -46,26 +46,6 @@
       </small></p>
     </p>
   </script>
-  <script type="text/ng-template" id="productTmpl.html">
-    <p>
-      <small><span class="text-muted"><super>Updated: {{ product.updated }}</super></span></small>
-    </p>
-    <p>Company: {{ product.company.name }}
-    <!-- 
-    {{ product.company.status }}
-    {{ product.company.website }}
-    {{ product.company.twitter }}
-    {{ product.company.linkedin }}
-    {{ product.company.blogs }}
-    {{ product.company.repo }}
-    //-->
-    </p>
-    <p>
-      <a ng-if='product.insight' href="{{ product.insight }}" target="_blank">Insight</a> 
-      <a ng-if='product.notes' href="{{ product.notes }}" target="_blank">Notes</a> 
-      <a ng-if='product.references' href="{{ product.references }}" target="_blank">References</a> 
-    </p>
-  </script>
   <div class="row">
     <div id="main" class="col-xs-12">
       <div ng-if="vm.isMobile">
@@ -137,8 +117,10 @@
                     <span class="cursor">{{ product.name }} <i class="fa fa-info-circle"></i></span>
                     <small class="text-muted pull-right">{{ $index+1 }}/{{ vm.total() }}</span></small>
                   </li>
-                  <li ng-include="'productTmpl.html'">
-                  </li>
+                  <li><small><span class="text-muted"><super>Updated: {{ product.updated }}</super></span></small></li>
+                  <li ng-if='product.insight'><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
+                  <li ng-if='product.notes'><span class="cursor">Notes <i class="fa fa-file-text-o"></i></span></li>
+                  <li ng-if='product.references'><span class="cursor">References <i class="fa fa-eye"></i></span></li>
                 </ul>  
               </td>
               <td ng-repeat="tier in product.tiers">
