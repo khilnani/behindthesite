@@ -90,7 +90,7 @@ function popover ($templateCache, $compile) {
     var popupConfig = {
       html: true,
       title: attrs.title,
-      content: markdown.toHTML( attrs.content ),
+      content: marked( attrs.content ),
       placement: 'top',
       template: tmpl,
       trigger: 'manual'
@@ -153,7 +153,7 @@ function product ($templateCache, $compile) {
     var popupConfig = {
       html: true,
       title: attrs.title,
-      content: markdown.toHTML( contentHtml ),
+      content: marked( contentHtml ),
       placement: 'top',
       template: tmpl,
       trigger: 'manual'
