@@ -57,7 +57,7 @@
                 class="btn btn-xs btn-default" 
                 data-toggle="collapse" 
                 data-target="#{{ product.name | ws }}" 
-                data-parent="#accordion">{{ product.name }} <small><span class="text-muted">({{ $index+1 }}/{{ vm.total() }})</span></small></button><small><span class="text-muted">({{ $index+1 }}/{{ vm.total() }})</span></small></h4>
+                data-parent="#accordion">{{ product.name }}</button><small><span class="text-muted pull-right">({{ $index+1 }}/{{ vm.total() }})</span></small></h4>
             </div>
             <div id="{{ product.name | ws }}" class="panel-collapse collapse">
               <div class="panel-body">
@@ -97,7 +97,7 @@
           </thead>
           <tbody>
             <tr ng-repeat="product in vm.getProducts()">
-              <td>{{ product.name }} <small><span class="text-muted">({{ $index+1 }}/{{ vm.total() }})</span></small></td>
+              <td>{{ product.name }} <small><span class="text-muted pull-right">({{ $index+1 }}/{{ vm.total() }})</span></small></td>
               <td ng-repeat="tier in product.tiers">
                 <ul class="list-unstyled">
                   <li ng-repeat="ea in tier" 
