@@ -315,9 +315,9 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
           issues: product.issues,
           docs: product.docs,
           updated: product.stack.updated,
-          insight: product.stack.insight,
-          notes: product.stack.notes,
-          references: product.stack.references
+          insight: marked( product.stack.insight ),
+          notes: marked( product.stack.notes ),
+          references: marked( product.stack.references )
         };
         model.company = product.company;
         model.tiers = [];
