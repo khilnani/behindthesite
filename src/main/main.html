@@ -49,8 +49,8 @@
   <div class="row">
     <div id="main" class="col-xs-12">
       <div ng-if="vm.isMobile">
-        <div id="accordion" class="panel-group" collapse="collapse"> 
-          <div ng-repeat="product in vm.getProducts()" class="panel panel-default"> 
+        <div id="accordion" class="panel-group"> 
+          <div ng-repeat="product in vm.getProducts()" class="panel panel-default" collapse="collapse"> 
             <div class="panel-heading">
               <h4 class="panel-title"><button 
                 type="button" 
