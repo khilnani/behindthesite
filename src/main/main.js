@@ -187,7 +187,7 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
   vm.end = 0;
   vm.hasMore = true;
   
-  vm.total() {
+  vm.total = function () {
     return vm.products.length;
   }
   
