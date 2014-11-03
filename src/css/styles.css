@@ -80,7 +80,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   display: inline;
 }
 .markdown ul {
-  padding-left: 0;
+  padding-left: 10px;
   list-style: disc;
 }
 #main-table td {
