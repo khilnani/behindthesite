@@ -218,7 +218,7 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
   vm.busy = true;
   vm.headers = [];
   vm.products = [];
-  vm.size = 5;
+  vm.size = 10;
   vm.end = 0;
   vm.hasMore = true;
   
