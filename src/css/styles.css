@@ -73,8 +73,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .popover {
   max-width: 500px;
 }
-.markdown p {
-  margin-top: 0.6em;
+.markdown p:first-child, 
+.markdown p:last-child {
+  margin-top: 0em;
   margin-bottom: 0em;
 }
 #main-table td {
