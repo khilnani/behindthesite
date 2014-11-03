@@ -73,6 +73,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .popover {
   max-width: 500px;
 }
+.markdown {
+  word-wrap: break-word;
+}
 .markdown p:first-child {
   margin-top: 0em;
   display: inline;
