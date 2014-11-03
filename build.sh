@@ -16,6 +16,6 @@ uglifyjs src/vendor/marked/marked.js \
   src/app.js \
   src/main/main.js \
   -o src/min.js \
-  -c -m -r '$'
+  -c 'drop_console=true,drop_debugger=true,keep_fargs=true' -m -r '$'
 #  --source-map src/min.js.map \
 #  -p relative \
