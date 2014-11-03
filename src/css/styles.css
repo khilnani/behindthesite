@@ -77,6 +77,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .markdown p:last-child {
   margin-top: 0em;
   margin-bottom: 0em;
+  display: inline;
 }
 #main-table td {
   width: 12.5%;
