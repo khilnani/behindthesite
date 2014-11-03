@@ -12,13 +12,13 @@
       <div class="arrow"></div>
       <span class="close-btn cursor glyphicon glyphicon-remove"></span>
       <h1 class="popover-title text-strong bg-darker"></h1>
-      <div class="popover-content markdoen bg-darker"></div>
+      <div class="popover-content markdown bg-darker"></div>
     </div>
   </script>
   <script type="text/ng-template" id="productHoverContentTmpl.html">
       <p ng-show='categorypath != ""'><small>{{ categorypath.split('>').join(' | ') }}</small></p>
       <p ng-show='description != ""'><span class="markdown" ng-bind-html="description"></span></p>
-      <p class="text-muted" ng-show='notes != ""'><strong>"</strong><em><span class="markdown" ng-bind-html="notes"></span></em><strong>"</strong></p>
+      <p class="text-muted" ng-show='notes != ""'><em><span class="markdown" ng-bind-html="notes"></span></em></p>
       <p>
         <a ng-if='website' href="{{ website }}" target="_blank">Website</a> 
         <a ng-if='twitter' href="{{ twitter }}" target="_blank">Twitter</a> 
@@ -34,7 +34,7 @@
     <p class="list-group-item-text" >
       <p><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }}</small></p>
       <p class="hidden"><span class="markdown" ng-bind-html="ea.product.description"></span></p>
-      <p class="text-muted" ng-if='ea.notes'><strong>"</strong><em><span class="markdown" ng-bind-html="ea.notes"></span></em><strong>"</strong></p>
+      <p class="text-muted" ng-if='ea.notes'><em><span class="markdown" ng-bind-html="ea.notes"></span></em></p>
       <p><small>
         <a ng-if='ea.product.website' href="{{ ea.product.website }}" target="_blank">Website</a> 
         <a ng-if='ea.product.twitter' href="{{ ea.product.twitter }}" target="_blank">Twitter</a> 
