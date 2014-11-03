@@ -17,8 +17,8 @@
   </script>
   <script type="text/ng-template" id="productHoverContentTmpl.html">
       <p ng-show='categorypath != ""'><small>{{ categorypath.split('>').join(' | ') }}</small></p>
-      <p ng-show='description != ""'><span ng-bind-html="description"></span></p>
-      <p class="text-muted" ng-show='notes != ""'><strong>"</strong><em><span ng-bind-html="notes"></span></em><strong>"</strong></p>
+      <p ng-show='description != ""'><span class="markdown" ng-bind-html="description"></span></p>
+      <p class="text-muted" ng-show='notes != ""'><strong>"</strong><em><span class="markdown" ng-bind-html="notes"></span></em><strong>"</strong></p>
       <p>
         <a ng-if='website' href="{{ website }}" target="_blank">Website</a> 
         <a ng-if='twitter' href="{{ twitter }}" target="_blank">Twitter</a> 
@@ -33,8 +33,8 @@
     <h4 class="list-group-item-heading">{{ ea.product.name }}</h4>
     <p class="list-group-item-text" >
       <p><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }}</small></p>
-      <p class="hidden"><span ng-bind-html="ea.product.description"></span></p>
-      <p class="text-muted" ng-if='ea.notes'><strong>"</strong><em><span ng-bind-html="ea.notes"></span></em><strong>"</strong></p>
+      <p class="hidden"><span class="markdown" ng-bind-html="ea.product.description"></span></p>
+      <p class="text-muted" ng-if='ea.notes'><strong>"</strong><em><span class="markdown" ng-bind-html="ea.notes"></span></em><strong>"</strong></p>
       <p><small>
         <a ng-if='ea.product.website' href="{{ ea.product.website }}" target="_blank">Website</a> 
         <a ng-if='ea.product.twitter' href="{{ ea.product.twitter }}" target="_blank">Twitter</a> 
@@ -78,11 +78,11 @@
                   </div>
                   <div class="list-group-item bg-darker" ng-if='product.insight'>
                     <h4 class="list-group-item-heading">Insight <i class="fa fa-graduation-cap"></i></h4>
-                    <p class="list-group-item-text" ><span ng-bind-html="product.insight"></span></p>
+                    <p class="list-group-item-text" ><span class="markdown" ng-bind-html="product.insight"></span></p>
                   </div>
                   <div class="list-group-item bg-darker" ng-if='product.notes'>
                     <h4 class="list-group-item-heading">Notes <i class="fa fa-comment"></i></h4>
-                    <p class="list-group-item-text" ><span ng-bind-html="product.notes"></span></p>
+                    <p class="list-group-item-text" ><span class="markdown" ng-bind-html="product.notes"></span></p>
                   </div>
                 </div>
                 <div ng-repeat="tier in product.tiers" ng-if="tier.length > 0">
@@ -109,7 +109,7 @@
                 <h4 class="list-group-item-heading text-default" ng-if='product.references'>References <i class="fa fa-external-link"></i></h3>
                 <div class="list-group" ng-if='product.references'>
                   <div class="list-group-item bg-darker">
-                    <p class="list-group-item-text" ><span ng-bind-html="product.references"></span></p>
+                    <p class="list-group-item-text" ><span class="markdown" ng-bind-html="product.references"></span></p>
                   </div>
                 </div>
                 <button type="button" class="btn btn-xs btn-default pull-right" ng-click="vm.backToTop((product.name | ws))">Back to Top</button>
