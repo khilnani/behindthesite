@@ -1,0 +1,97 @@
+/*
+
+i.fa.fa-external-link
+i.fa.fa-file
+span.glyphicon.glyphicon-file
+span.glyphicon.glyphicon-resize-full
+span.glyphicon.glyphicon-comment
+i.fa.fa-expand
+i.fa.fa-bars
+
+http://fonts.googleapis.com/css?family=Signika
+//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css
+//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
+//netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
+https://github.com/thomaspark/bootswatch/tree/gh-pages/slate
+http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
+
+*/
+@-moz-document url-prefix() {
+  fieldset {
+    display: table-cell;
+  }
+}
+.pad {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.shift-up-5 {
+  position: relative;
+  top: -5px;
+}
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+.margin-bottom-40 {
+  margin-bottom: 40px;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.title {
+  font-family: 'Signika', sans-serif;
+  font-style: italic;
+  color: #fff;
+}
+.text-strong {
+  font-weight: bold;
+}
+.bg-dark {
+  background-color: #272b30;
+}
+.bg-darker {
+  background-color: #1c1e22;
+}
+.cursor {
+  cursor: pointer;
+  cursor: hand;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.affix {
+  top: 0px;
+  z-index: 1000;
+  color: #c8c8c8;
+  background: #272b30;
+  border-color: #808080;
+}
+.popover {
+  max-width: 500px;
+}
+.markdown {
+  word-wrap: break-word;
+}
+.markdown p:first-child {
+  margin-top: 0em;
+  display: inline;
+}
+.markdown ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+#main-table td {
+  width: 12.5%;
+}
+/*
+  http://spiffygif.com/?color=cccccc&lines=11&bgColor=272b30&radius=7&width=2&halo=false
+*/
+.spinner {
+  background-image: url("../images/spiffygif_30x30.gif");
+  width: 30px;
+  height: 30px;
+}
