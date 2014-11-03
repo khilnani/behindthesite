@@ -17,8 +17,6 @@
   </script>
   <script type="text/ng-template" id="productHoverContentTmpl.html">
       <p ng-show='categorypath != ""'><small>{{ categorypath.split('>').join(' | ') }}</small></p>
-      <p ng-show='description != ""'><span class="markdown" ng-bind-html="description"></span></p>
-      <p class="text-muted" ng-show='notes != ""'><em><span class="markdown" ng-bind-html="notes"></span></em></p>
       <p>
         <a ng-if='website' href="{{ website }}" target="_blank">Website</a> 
         <a ng-if='twitter' href="{{ twitter }}" target="_blank">Twitter</a> 
@@ -28,13 +26,13 @@
         <a ng-if='docs' href="{{ docs }}" target="_blank">Docs</a> 
         <a ng-if='blogs' href="{{ blogs }}" target="_blank">Blog</a> 
       </p> 
+      <p ng-show='description != ""'><span class="markdown" ng-bind-html="description"></span></p>
+      <p class="text-muted" ng-show='notes != ""'><em><span class="markdown" ng-bind-html="notes"></span></em></p>
   </script>
   <script type="text/ng-template" id="productMobileTmpl.html">
     <h4 class="list-group-item-heading">{{ ea.product.name }}</h4>
     <p class="list-group-item-text" >
       <p><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }}</small></p>
-      <p class="hidden"><span class="markdown" ng-bind-html="ea.product.description"></span></p>
-      <p class="text-muted" ng-if='ea.notes'><em><span class="markdown" ng-bind-html="ea.notes"></span></em></p>
       <p><small>
         <a ng-if='ea.product.website' href="{{ ea.product.website }}" target="_blank">Website</a> 
         <a ng-if='ea.product.twitter' href="{{ ea.product.twitter }}" target="_blank">Twitter</a> 
@@ -44,6 +42,8 @@
         <a ng-if='ea.product.docs' href="{{ ea.product.docs }}" target="_blank">Docs</a> 
         <a ng-if='ea.product.blogs' href="{{ ea.product.blogs }}" target="_blank">Blog</a> 
       </small></p>
+      <p class="hidden"><span class="markdown" ng-bind-html="ea.product.description"></span></p>
+      <p class="text-muted" ng-if='ea.notes'><em><span class="markdown" ng-bind-html="ea.notes"></span></em></p>
     </p>
   </script>
   <div class="row">
@@ -57,14 +57,13 @@
                 class="btn btn-xs btn-default" 
                 data-toggle="collapse" 
                 data-target="#{{ product.name | ws }}" 
-                data-parent="#accordion">{{ product.name }}</button><span class="text-muted pull-right">{{ $index+1 }}/{{ vm.total() }}</span></h4>
+                data-parent="#accordion">{{ product.name }}</button><span class="text-muted pull-right"><em>{{ product.updated }}</em></span></h4>
             </div>
             <div id="{{ product.name | ws }}" class="panel-collapse collapse">
               <div class="panel-body">
                 <div class="list-group">
                   <div class="list-group-item bg-darker">
                     <p class="list-group-item-text" >
-                      <p><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></p>
                       <p><small>
                         <a ng-if='product.website' href="{{ product.website }}" target="_blank">Website</a> 
                         <a ng-if='product.twitter' href="{{ product.twitter }}" target="_blank">Twitter</a> 
