@@ -35,13 +35,13 @@ bts.config(function($provide){
 // https://docs.angularjs.org/api/ng/service/$location
 bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(false);
-    $routeProvider.when('/main', {
+    $routeProvider.when('/', {
         templateUrl: 'main/main.html',
         controller: 'MainCtrl',
         controllerAs: 'vm'
     });
     $routeProvider.otherwise({
-        redirectTo: '/main'
+        redirectTo: '/'
     });
   }]);
 
