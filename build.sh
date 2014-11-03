@@ -16,5 +16,6 @@ uglifyjs src/vendor/marked/marked.js \
   src/app.js \
   src/main/main.js \
   -o src/min.js \
-  --source-map src/min.js.map \
-  -p relative -c -m -r '$'
+  -c -m -r '$'
+#  --source-map src/min.js.map \
+#  -p relative \
