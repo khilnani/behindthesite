@@ -15,6 +15,20 @@ var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives',
 
 angular.module('infinite-scroll').value('THROTTLE_MILLISECONDS', 700);
 
+// http://odetocode.com/blogs/scott/archive/2014/09/10/a-journey-with-trusted-html-in-angularjs.aspx
+bts.config(function($provide){
+    $provide.decorator("$sanitize", function($delegate, $log){
+        return function(text, target){
+ 
+            var result = $delegate(text, target);
+            $log.info("$sanitize input: " + text);
+            $log.info("$sanitize output: " + result);
+ 
+            return result;
+        };
+    });
+});
+
 // https://docs.angularjs.org/api/ngRoute/provider/$routeProvider
 // https://docs.angularjs.org/api/ng/service/$location
 bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
