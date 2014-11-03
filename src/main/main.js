@@ -6,13 +6,11 @@
 
 var btsServices = angular.module('bts.services', ['ngResource']);
 
-btsServices.factory('TaxonomySvc', ['$resource',
-  function($resource){
+btsServices.factory('TaxonomySvc', ['$resource', function($resource){
     return $resource('http://api.behindthesite.com/v1/taxonomy/');
   }]);
 
-btsServices.factory('StackSvc', ['$resource',
-  function($resource){
+btsServices.factory('StackSvc', ['$resource', function($resource){
     return $resource('http://api.behindthesite.com/v1/stacks/');
   }]);
 
