@@ -15,7 +15,7 @@ uglifyjs src/vendor/marked/marked.js \
   src/vendor/ngInfiniteScroll/build/ng-infinite-scroll.min.js \
   src/app.js \
   src/main/main.js \
-  -o _/min.js \
+  -o _/js/min.js \
   -c 'drop_console=true,drop_debugger=true,keep_fargs=true' -m -r '$'
 #  --source-map src/min.js.map \
 #  -p relative \
