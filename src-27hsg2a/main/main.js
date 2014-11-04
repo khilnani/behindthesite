@@ -11,11 +11,9 @@ btsServices.factory('TaxonomySvc', ['$resource', function($resource){
     get: {
       method: 'GET',
         transformResponse: function (data, headers) {
-          console.log('transformResponse PRE: ' + data);
             if(data) {
               data = Base64.decode(data);
               data = JSON.parse(data);
-              console.log('transformResponse POST: ' + JSON.stringify(data));
             }
             return data;
           }
@@ -28,11 +26,9 @@ btsServices.factory('StackSvc', ['$resource', function($resource){
     get: {
       method: 'GET',
         transformResponse: function (data, headers) {
-          console.log('transformResponse PRE: ' + data);
             if(data) {
               data = Base64.decode(data);
               data = JSON.parse(data);
-              console.log('transformResponse POST: ' + JSON.stringify(data));
             }
             return data;
           }
