@@ -186,10 +186,10 @@ x.Ctr = {};  // x.Ctr namespace: a subclass or extension of x
 x.Ctr.encrypt = function(plaintext, password, nBits) {
   var blockSize = 16;  // block size fixed at 16 bytes / 128 bits (Nb=4) for x
   if (!(nBits==128 || nBits==192 || nBits==256)) return '';  // standard allows 128/192/256 bit keys
-  plaintext = z.encode(plaintext);
-  password = z.encode(password);
+  plaintext = z._(plaintext);
+  password = z._(password);
   //var t = new Date();  // timer
-	
+  
   // use x itself to encrypt password to get cipher key (using plain password as source for key 
   // expansion) - gives us well encrypted key (though hashed key might be preferred for prod'n use)
   var nBytes = nBits/8;  // no bytes in key (16/24/32)
@@ -244,7 +244,7 @@ x.Ctr.encrypt = function(plaintext, password, nBits) {
 
   // Array.join is more efficient than repeated string concatenation in IE
   var ciphertext = ctrTxt + ciphertxt.join('');
-  ciphertext = y.encode(ciphertext);  // encode in y
+  ciphertext = y._(ciphertext);  // encode in y
   
   //alert((new Date()) - t);
   return ciphertext;
@@ -261,8 +261,8 @@ x.Ctr.encrypt = function(plaintext, password, nBits) {
 x.Ctr.decrypt = function(ciphertext, password, nBits) {
   var blockSize = 16;  // block size fixed at 16 bytes / 128 bits (Nb=4) for x
   if (!(nBits==128 || nBits==192 || nBits==256)) return '';  // standard allows 128/192/256 bit keys
-  ciphertext = y.decode(ciphertext);
-  password = z.encode(password);
+  ciphertext = y.__(ciphertext);
+  password = z._(password);
   //var t = new Date();  // timer
   
   // use x to encrypt password (mirroring encrypt routine)
@@ -309,7 +309,7 @@ x.Ctr.decrypt = function(ciphertext, password, nBits) {
 
   // join array of blocks into single plaintext string
   var plaintext = plaintxt.join('');
-  plaintext = z.decode(plaintext);  // decode from z back to Unicode multi-byte chars
+  plaintext = z.__(plaintext);  // decode from z back to Unicode multi-byte chars
   
   //alert((new Date()) - t);
   return plaintext;
@@ -334,12 +334,12 @@ y.code = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
  *   to z before conversion to y; otherwise string is assumed to be 8-bit characters
  * @returns {String} y-encoded string
  */ 
-y.encode = function(str, zencode) {  // http://tools.ietf.org/html/rfc4648
+y._ = function(str, zencode) {  // http://tools.ietf.org/html/rfc4648
   zencode =  (typeof zencode == 'undefined') ? false : zencode;
   var o1, o2, o3, bits, h1, h2, h3, h4, e=[], pad = '', c, plain, coded;
   var b64 = y.code;
    
-  plain = zencode ? str.encodez() : str;
+  plain = zencode ? str.encodeUTF8() : str;
   
   c = plain.length % 3;  // pad string to length of multiple of 3
   if (c > 0) { while (c++ < 3) { pad += '='; plain += '\0'; } }
@@ -377,12 +377,12 @@ y.encode = function(str, zencode) {  // http://tools.ietf.org/html/rfc4648
  *   from z after conversion from y
  * @returns {String} decoded string
  */ 
-y.decode = function(str, zdecode) {
+y.__ = function(str, zdecode) {
   zdecode =  (typeof zdecode == 'undefined') ? false : zdecode;
   var o1, o2, o3, h1, h2, h3, h4, bits, d=[], plain, coded;
   var b64 = y.code;
 
-  coded = zdecode ? str.decodez() : str;
+  coded = zdecode ? str.decodeUTF8() : str;
   
   
   for (var c=0; c<coded.length; c+=4) {  // unpack four hexets into three octets
@@ -404,7 +404,7 @@ y.decode = function(str, zdecode) {
   }
   plain = d.join('');  // join() is far faster than repeated string concatenation in IE
    
-  return zdecode ? plain.decodez() : plain; 
+  return zdecode ? plain.decodeUTF8() : plain; 
 }
 
 
@@ -424,7 +424,7 @@ var z = {};  // z namespace
  * @param {String} strUni Unicode string to be encoded as UTF-8
  * @returns {String} encoded string
  */
-z.encode = function(strUni) {
+z._ = function(strUni) {
   // use regular expressions & String.replace callback function for better efficiency 
   // than procedural approaches
   var strUtf = strUni.replace(
@@ -448,7 +448,7 @@ z.encode = function(strUni) {
  * @param {String} strUtf UTF-8 string to be decoded back to Unicode
  * @returns {String} decoded string
  */
-z.decode = function(strUtf) {
+z.__ = function(strUtf) {
   // note: decode 3-byte chars first as decoded 2-byte strings could appear to be 3-byte char!
   var strUni = strUtf.replace(
       /[\u00e0-\u00ef][\u0080-\u00bf][\u0080-\u00bf]/g,  // 3-byte chars
