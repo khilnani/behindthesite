@@ -1,4 +1,3 @@
-- http://www.daftlogic.com/projects-online-javascript-obfuscator.htm
 - http://javascriptobfuscator.com/
   - Only Enable
     - Encode Strings
