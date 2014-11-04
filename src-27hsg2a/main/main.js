@@ -7,31 +7,35 @@
 var btsServices = angular.module('bts.services', ['ngResource']);
 
 btsServices.factory('TaxonomySvc', ['$resource', function($resource){
-    return $resource('http://api.behindthesite.com/v1/taxonomy/', {}, {
-        get: {
-            method: 'GET',
-            transformResponse: function (data, headers) {
-                console.log('transformResponse PRE: ' + data);
-                data = Base64.decode(data);
-                data = JSON.parse(data);
-                console.log('transformResponse POST: ' + data);
-                return data;
+  return $resource('http://api.behindthesite.com/v1/taxonomy/', {}, {
+    get: {
+      method: 'GET',
+        transformResponse: function (data, headers) {
+          console.log('transformResponse PRE: ' + data);
+            if(data) {
+              data = Base64.decode(data);
+              data = JSON.parse(data);
+              console.log('transformResponse POST: ' + JSON.stringify(data));
             }
+            return data;
+          }
         }
     });
   }]);
 
 btsServices.factory('StackSvc', ['$resource', function($resource){
-    return $resource('http://api.behindthesite.com/v1/stacks/', {}, {
-        get: {
-            method: 'GET',
-            transformResponse: function (data, headers) {
-                console.log('transformResponse PRE: ' + data);
-                data = Base64.decode(data);
-                data = JSON.parse(data);
-                console.log('transformResponse POST: ' + data);
-                return data;
+  return $resource('http://api.behindthesite.com/v1/stacks/', {}, {
+    get: {
+      method: 'GET',
+        transformResponse: function (data, headers) {
+          console.log('transformResponse PRE: ' + data);
+            if(data) {
+              data = Base64.decode(data);
+              data = JSON.parse(data);
+              console.log('transformResponse POST: ' + JSON.stringify(data));
             }
+            return data;
+          }
         }
     });
   }]);
