@@ -13,9 +13,9 @@ uglifyjs ../vendor/marked/marked.js \
   ../vendor/angular-sanitize/angular-sanitize.js \
   ../vendor/angular-loading-bar/build/loading-bar.js \
   ../vendor/ngInfiniteScroll/build/ng-infinite-scroll.js \
-  common/aes.js \
+  common/aes.enc.js \
   app.js \
-  main/main.js \
+  main/main.enc.js \
   -o ../_/js/min.js \
   --preamble "/* ####### $(date +"%Y-%m-%d %T %Z") ####### */" \
   -c 'drop_console=true,drop_debugger=true,keep_fargs=true' -m -r '$'
