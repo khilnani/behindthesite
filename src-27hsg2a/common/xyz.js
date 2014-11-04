@@ -1,3 +1,5 @@
+
+/*  encode _, decode __, aes x, base64 y utf8 z  */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 /* License -  Attribution 3.0 Unported (CC BY 3.0) - http://creativecommons.org/licenses/by/3.0/  */
 /* See - http://www.movable-type.co.uk/scripts/x.html                                           */
