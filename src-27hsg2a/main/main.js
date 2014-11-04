@@ -13,6 +13,7 @@ btsServices.factory('TaxonomySvc', ['$resource', function($resource){
             transformResponse: function (data, headers) {
                 console.log('transformResponse PRE: ' + data);
                 data = Base64.decode(data);
+                data = JSON.parse(data);
                 console.log('transformResponse POST: ' + data);
                 return data;
             }
@@ -27,6 +28,7 @@ btsServices.factory('StackSvc', ['$resource', function($resource){
             transformResponse: function (data, headers) {
                 console.log('transformResponse PRE: ' + data);
                 data = Base64.decode(data);
+                data = JSON.parse(data);
                 console.log('transformResponse POST: ' + data);
                 return data;
             }
