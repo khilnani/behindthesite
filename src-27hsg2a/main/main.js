@@ -7,11 +7,27 @@
 var btsServices = angular.module('bts.services', ['ngResource']);
 
 btsServices.factory('TaxonomySvc', ['$resource', function($resource){
-    return $resource('http://api.behindthesite.com/v1/taxonomy/');
+    return $resource('http://api.behindthesite.com/v1/taxonomy/', {}, {
+        get: {
+            method: 'GET',
+            transformResponse: function (data, headers) {
+                console.log('transformResponse: ' + data);
+                return data;
+            }
+        }
+    });
   }]);
 
 btsServices.factory('StackSvc', ['$resource', function($resource){
-    return $resource('http://api.behindthesite.com/v1/stacks/');
+    return $resource('http://api.behindthesite.com/v1/stacks/', {}, {
+        get: {
+            method: 'GET',
+            transformResponse: function (data, headers) {
+                console.log('transformResponse: ' + data);
+                return data;
+            }
+        }
+    });
   }]);
 
 //*****************************************************************************
