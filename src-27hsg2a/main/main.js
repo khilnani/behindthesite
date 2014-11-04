@@ -12,7 +12,7 @@ btsServices.factory('TaxonomySvc', ['$resource', function($resource){
       method: 'GET',
         transformResponse: function (data, headers) {
             if(data) {
-              data = Base64.decode(data);
+              data = y.decode(data);
               data = JSON.parse(data);
             }
             return data;
@@ -27,7 +27,7 @@ btsServices.factory('StackSvc', ['$resource', function($resource){
       method: 'GET',
         transformResponse: function (data, headers) {
             if(data) {
-              data = Base64.decode(data);
+              data = y.decode(data);
               data = JSON.parse(data);
             }
             return data;
