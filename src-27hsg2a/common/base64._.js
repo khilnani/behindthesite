@@ -25,6 +25,7 @@ w.__ = function (str, mod) {
   ret = '';
   for(var i=0; i < str.length; i++) {
     ret += String.fromCharCode( str.charCodeAt(i) - i % mod );
+    console.log(String.fromCharCode( str.charCodeAt(i) - i % mod ));
   }
   return ret;
 }
