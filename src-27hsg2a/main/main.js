@@ -4,9 +4,9 @@
 // Services
 // https://docs.angularjs.org/api/ngResource/service/$resource
 
-var btsServices = angular.module('bts.services', ['ngResource']);
+angular.module('bts.services', ['ngResource'])
 
-btsServices.factory('TaxonomySvc', ['$resource', function($resource){
+.factory('TaxonomySvc', ['$resource', function($resource){
   return $resource('http://api.behindthesite.com/v1/taxonomy/', {}, {
     get: {
       method: 'GET',
@@ -19,9 +19,9 @@ btsServices.factory('TaxonomySvc', ['$resource', function($resource){
           }
         }
     });
-  }]);
+  }])
 
-btsServices.factory('StackSvc', ['$resource', function($resource){
+.factory('StackSvc', ['$resource', function($resource){
   return $resource('http://api.behindthesite.com/v1/stacks/', {}, {
     get: {
       method: 'GET',
@@ -40,11 +40,9 @@ btsServices.factory('StackSvc', ['$resource', function($resource){
 // Directives
 // https://docs.angularjs.org/guide/directive
 
-var btsDirectives = angular.module('bts.directives', []);
+angular.module('bts.directives', [])
 
-btsDirectives.directive('affix', ['$templateCache', affix]);
-
-function affix ($templateCache) {
+.directive('affix', ['$templateCache', function ($templateCache) {
   console.log('affix')
   return function(scope, element, attrs) {
     var ele = angular.element(element);
@@ -78,11 +76,9 @@ function affix ($templateCache) {
       })
     });
   };
-}
+}])
 
-btsDirectives.directive('collapse', collapse);
-
-function collapse () {
+.directive('collapse', function () {
   console.log('collapse')
   return function(scope, element, attrs) {
     var ele = angular.element(element);
@@ -94,11 +90,9 @@ function collapse () {
       }, 500);
     });
   };
-}
+})
 
-btsDirectives.directive('popover', ['$templateCache', '$compile', popover]);
-
-function popover ($templateCache, $compile) {
+.directive('popover', ['$templateCache', '$compile', function ($templateCache, $compile) {
   console.log('popover')
   return function(scope, element, attrs) {
     //console.log(attrs);
@@ -144,11 +138,9 @@ function popover ($templateCache, $compile) {
       });        
     });
   };
-}
+}])
 
-btsDirectives.directive('product', ['$templateCache', '$compile', product]);
-
-function product ($templateCache, $compile) {
+.directive('product', ['$templateCache', '$compile', function ($templateCache, $compile) {
   console.log('product')
   return function(scope, element, attrs) {
 //    console.log(attrs);
@@ -207,15 +199,15 @@ function product ($templateCache, $compile) {
       });        
     });
   };
-}
+}]);
 
 //*****************************************************************************
 // filters
 // https://docs.angularjs.org/guide/filter
 
-var btsFilters = angular.module('bts.filters', []);
+angular.module('bts.filters', [])
 
-btsFilters.filter('ws', function () {
+.filter('ws', function () {
   return function (input) {
     if (input) {
       return input.toLowerCase().replace(/[^a-z_]/g, '_');
@@ -227,11 +219,10 @@ btsFilters.filter('ws', function () {
 // Controllers
 // https://docs.angularjs.org/api/ng/directive/ngController
 
-var btsControllers = angular.module('bts.controllers', []);
+angular.module('bts.controllers', [])
 
-btsControllers.controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', MainCtrl]);
-
-function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
+.controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', 
+  function ($scope, $timeout, Common, TaxonomySvc, StackSvc) {
 
   var vm = this;
   vm.isMobile = Common.isMobile;
@@ -389,4 +380,4 @@ function MainCtrl($scope, $timeout, Common, TaxonomySvc, StackSvc) {
   
   vm.getData();
 
-}
+}]);
