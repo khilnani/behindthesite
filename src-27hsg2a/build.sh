@@ -10,12 +10,12 @@ uglifyjs ../vendor/marked/marked.js \
   ../vendor/angular-resource/angular-resource.js \
   ../vendor/angular-route/angular-route.js \
   ../vendor/angular-animate/angular-animate.js \
-  common/base64.enc.js \
-  app.js \
-  main/main.enc.js \
   ../vendor/angular-sanitize/angular-sanitize.js \
   ../vendor/angular-loading-bar/build/loading-bar.js \
   ../vendor/ngInfiniteScroll/build/ng-infinite-scroll.js \
+  common/base64.enc.js \
+  app.js \
+  main/main.enc.js \
   -o ../_/js/min.js \
   --preamble "/* ####### $(date +"%Y-%m-%d %T %Z") ####### */" \
   -c 'drop_console=true,drop_debugger=true,keep_fargs=true' -m -r '$'
