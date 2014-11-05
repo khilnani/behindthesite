@@ -1,4 +1,35 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+/*  Base64 class: Base 64 encoding / decoding (c) Chris Veness 2002-2012                          */
+/*    note: depends on Utf8 class                                                                 */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+var w = {}
+
+// encode
+w._ = function (str, mod) {
+  if(typeof str == 'undefined' || typeof mod == 'undefined')  {
+    return str;
+  }
+  ret = '';
+  for(var i=0; i < str.length; i++) {
+    ret += String.fromCharCode( str.charCodeAt(i) + i % mod );
+  }
+  return ret;
+}
+
+//decode
+w.__ = function (str, mod) {
+  if(typeof str == 'undefined' || typeof mod == 'undefined')  {
+    return str;
+  }
+  ret = '';
+  for(var i=0; i < str.length; i++) {
+    ret += String.fromCharCode( str.charCodeAt(i) - i % mod );
+  }
+  return ret;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 /*  y class: Base 64 encoding / decoding (c) Chris Veness 2002-2012                          */
 /*    note: depends on z class                                                                 */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
