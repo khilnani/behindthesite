@@ -3,6 +3,30 @@
 /*    note: depends on Utf8 class                                                                 */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 
+var Rot = {}
+
+Rot.encode = function (str, mod) {
+  if(typeof str == 'undefined' || typeof mod == 'undefined')  {
+    return str;
+  }
+  ret = '';
+  for(var i=0; i < str.length; i++) {
+    ret += String.fromCharCode( str.charCodeAt(i) + i % mod );
+  }
+  return ret;
+}
+
+Rot.decode = function (str, mod) {
+  if(typeof str == 'undefined' || typeof mod == 'undefined')  {
+    return str;
+  }
+  ret = '';
+  for(var i=0; i < str.length; i++) {
+    ret += String.fromCharCode( str.charCodeAt(i) - i % mod );
+  }
+  return ret;
+}
+
 var Base64 = {};  // Base64 namespace
 
 Base64.code = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
