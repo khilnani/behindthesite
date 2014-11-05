@@ -12,7 +12,6 @@ btsServices.factory('TaxonomySvc', ['$resource', function($resource){
       method: 'GET',
         transformResponse: function (data, headers) {
             if(data) {
-              console('data = w.__(w.__(y.__(data), 5), 9);')
               data = w.__(w.__(y.__(data), 5), 9);
               data = JSON.parse(data);
             }
@@ -28,7 +27,6 @@ btsServices.factory('StackSvc', ['$resource', function($resource){
       method: 'GET',
         transformResponse: function (data, headers) {
             if(data) {
-              console('data = w.__(w.__(y.__(data), 5), 9);')
               data = w.__(w.__(y.__(data), 5), 9);
               data = JSON.parse(data);
             }
