@@ -17,10 +17,10 @@ btsServices.factory('TaxonomySvc', ['$resource', function($resource){
               data = y.__(data);
               console.log('DECODED');
               console.log(data);
-              data = w.__(5);
+              data = w.__(data, 5);
               console.log('ROT5');
               console.log(data);
-              data = w.__(9);
+              data = w.__(data, 9);
               console.log('ROT9');
               console.log(data);
               data = JSON.parse(data);
@@ -42,10 +42,10 @@ btsServices.factory('StackSvc', ['$resource', function($resource){
               data = y.__(data);
               console.log('DECODED');
               console.log(data);
-              data = w.__(5);
+              data = w.__(data, 5);
               console.log('ROT5');
               console.log(data);
-              data = w.__(9);
+              data = w.__(data, 9);
               console.log('ROT9');
               console.log(data);
               data = JSON.parse(data);
