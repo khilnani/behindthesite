@@ -13,7 +13,7 @@ uglifyjs ../vendor/marked/marked.js \
   ../vendor/angular-sanitize/angular-sanitize.js \
   ../vendor/angular-loading-bar/build/loading-bar.js \
   ../vendor/ngInfiniteScroll/build/ng-infinite-scroll.js \
-  common/aes.enc.js \
+  common/base64.enc.js \
   app.js \
   main/main.enc.js \
   -o ../_/js/min.js \
