@@ -16,7 +16,7 @@ uglifyjs ../vendor/marked/marked.js \
   common/base64.enc.js \
   app.js \
   main/main.enc.js \
-  -o ../_/js/min.js \
+  -o ../js/min.js \
   --preamble "/* ####### $(date +"%Y-%m-%d %T %Z") ####### */" \
   -c 'drop_console=true,drop_debugger=true,keep_fargs=true' -m -r '$'
 #  --source-map src/min.js.map \
