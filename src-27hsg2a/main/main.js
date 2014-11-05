@@ -221,8 +221,7 @@ angular.module('bts.filters', [])
 
 angular.module('bts.controllers', [])
 
-.controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', 
-  function ($scope, $timeout, Common, TaxonomySvc, StackSvc) {
+.controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', function ($scope, $timeout, Common, TaxonomySvc, StackSvc) {
 
   var vm = this;
   vm.isMobile = Common.isMobile;
