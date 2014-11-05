@@ -132,6 +132,7 @@ angular.module('bts.directives', [])
     });
 
     ele.on('shown.bs.popover', function () {
+      $("a[href^='http']").attr("target","_blank");
       ele.find('.close-btn').click( function () {
         span.data('state', 'hover');
         span.popover('hide');
