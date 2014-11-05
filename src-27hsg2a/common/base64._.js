@@ -7,28 +7,28 @@ var w = {}
 
 // encode
 w._ = function (str, mod) {
-  console.log('Rot.encode');
+  console.log('Rot.encode: ' + mod + ", " + str);
   if(typeof str == 'undefined' || typeof mod == 'undefined')  {
     return str;
   }
   ret = '';
   for(var i=0; i < str.length; i++) {
     ret += String.fromCharCode( str.charCodeAt(i) + i % mod );
-    console.log(String.fromCharCode( str.charCodeAt(i) - i % mod ));
+    console.log(i + ', ' + String.fromCharCode( str.charCodeAt(i) + i % mod ));
   }
   return ret;
 }
 
 //decode
 w.__ = function (str, mod) {
-  console.log('Rot.decode');
+  console.log('Rot.decode: ' + mod + ", " + str);
   if(typeof str == 'undefined' || typeof mod == 'undefined')  {
     return str;
   }
   ret = '';
   for(var i=0; i < str.length; i++) {
     ret += String.fromCharCode( str.charCodeAt(i) - i % mod );
-    console.log(String.fromCharCode( str.charCodeAt(i) - i % mod ));
+    console.log(i + ', ' + String.fromCharCode( str.charCodeAt(i) - i % mod ));
   }
   return ret;
 }
