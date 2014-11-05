@@ -5,7 +5,9 @@
 
 var Rot = {}
 
-Rot.encode = function (str, mod) {
+// encode
+Rot._ = function (str, mod) {
+  //console.log('Rot.encode: ' + mod + ", " + str);
   if(typeof str == 'undefined' || typeof mod == 'undefined')  {
     return str;
   }
@@ -16,7 +18,9 @@ Rot.encode = function (str, mod) {
   return ret;
 }
 
-Rot.decode = function (str, mod) {
+//decode
+Rot.__ = function (str, mod) {
+  //console.log('Rot.decode: ' + mod + ", " + str);
   if(typeof str == 'undefined' || typeof mod == 'undefined')  {
     return str;
   }
