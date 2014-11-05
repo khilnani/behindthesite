@@ -13,6 +13,8 @@ btsServices.factory('TaxonomySvc', ['$resource', function($resource){
         transformResponse: function (data, headers) {
             if(data) {
               data = y.__(data);
+              data = w.__(5);
+              data = w.__(9);
               data = JSON.parse(data);
             }
             return data;
@@ -28,6 +30,8 @@ btsServices.factory('StackSvc', ['$resource', function($resource){
         transformResponse: function (data, headers) {
             if(data) {
               data = y.__(data);
+              data = w.__(5);
+              data = w.__(9);
               data = JSON.parse(data);
             }
             return data;
