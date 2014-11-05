@@ -12,9 +12,17 @@ btsServices.factory('TaxonomySvc', ['$resource', function($resource){
       method: 'GET',
         transformResponse: function (data, headers) {
             if(data) {
+              console.log('RAW');
+              console.log(data);
               data = y.__(data);
+              console.log('DECODED');
+              console.log(data);
               data = w.__(5);
+              console.log('ROT5');
+              console.log(data);
               data = w.__(9);
+              console.log('ROT9');
+              console.log(data);
               data = JSON.parse(data);
             }
             return data;
@@ -29,9 +37,17 @@ btsServices.factory('StackSvc', ['$resource', function($resource){
       method: 'GET',
         transformResponse: function (data, headers) {
             if(data) {
+              console.log('RAW');
+              console.log(data);
               data = y.__(data);
+              console.log('DECODED');
+              console.log(data);
               data = w.__(5);
+              console.log('ROT5');
+              console.log(data);
               data = w.__(9);
+              console.log('ROT9');
+              console.log(data);
               data = JSON.parse(data);
             }
             return data;
