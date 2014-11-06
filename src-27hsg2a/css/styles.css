@@ -99,6 +99,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   github buttons
 */
 .gh-btn {
+  display: inline-block;
   border: 1px solid #d4d4d4;
   border-bottom-color: #bcbcbc;
   background-color: #e6e6e6;
