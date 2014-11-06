@@ -98,25 +98,23 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 /* 
   github buttons
 */
-a.github-button {
-  display: inline-block;
-  padding: 1px 3px 0 19px;
-  height: 20px;
+.gh-btn {
   border: 1px solid #d4d4d4;
   border-bottom-color: #bcbcbc;
-  border-radius: 3px;
   background-color: #e6e6e6;
   background-image: linear-gradient(#fafafa,#eaeaea);
- 
-  /* Text */
-  font: bold 11px/17px Helvetica, Arial, sans-serif;
+
+  border-radius: 3px;
+  padding: 2px 5px 2px 4px;
+  color: #000;
   text-decoration: none;
-  color: #333;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+  cursor: pointer;
+  text-shadow: 0 1px 0 #fff;
+  font: 700 11px/14px "Helvetica Neue",Helvetica,Arial,sans-serif;
   white-space: nowrap;
 }
 
-a.github-button .ico {
+.gh-ico {
   width: 14px;
   height: 14px;
   margin-right: 4px;
@@ -126,9 +124,9 @@ a.github-button .ico {
   background-repeat: no-repeat;
   background-position: 0 0;
 }
- 
-/* Color Highlight for keyboard navigation */
-a.github-button:focus {
-  outline: none;
-  border-color: #0089cb;
+
+.gh-text {
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  font: 700 11px/14px "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
