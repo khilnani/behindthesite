@@ -21,6 +21,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
     display: table-cell;
   }
 }
+.align-top {
+  vertical-align: top;
+}
 .pad {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -94,4 +97,31 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   background-image: url("../images/spiffygif_30x30.gif");
   width: 30px;
   height: 30px;
+}
+/* 
+  github buttons
+*/
+.gh-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid #d4d4d4;
+  border-bottom-color: #bcbcbc;
+  background-color: #e6e6e6;
+  background-image: linear-gradient(#fafafa,#eaeaea);
+  height: 20px;
+  overflow: hidden;
+
+  border-radius: 3px;
+  padding: 0 5px 4px 3px;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  text-shadow: 0 1px 0 #fff;
+  font: 700 11px/17px "Helvetica Neue",Helvetica,Arial,sans-serif;
+  white-space: nowrap;
+}
+
+.gh-btn:hover {
+  color: #000;
+  text-decoration: none;
 }
