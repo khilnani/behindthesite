@@ -108,9 +108,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   background-image: linear-gradient(#fafafa,#eaeaea);
   height: 20px;
 
+  margin-top: -5px;
   border-radius: 3px;
-  padding: 2px 5px 2px 4px;
-  margin-bottom: 2px;
+  padding: 3px 5px 4px 4px;
   color: #000;
   text-decoration: none;
   cursor: pointer;
