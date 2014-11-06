@@ -1,5 +1,5 @@
 #!/bin/sh -x
 
-cp -r css/*.css ../css/
-cp -r main/*.html ../main/
-cp -r images/*.* ../images/
+cp -rf css/*.css ../css/
+cp -rf main/*.html ../main/
+cp -rf images/*.* ../images/

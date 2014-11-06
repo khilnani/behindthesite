@@ -24,12 +24,19 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .align-top {
   vertical-align: top;
 }
+.align-inherit {
+  vertical-align: inherit;
+}
 .pad {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 #social-buttons {
   font-size: 11px;
+}
+.text-bold-12 {
+  font-size: 12px;
+  font-weight: bold;
 }
 .shift-up-5 {
   position: relative;
