@@ -25,8 +25,11 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   vertical-align: top;
 }
 .pad {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#social-buttons {
+  font-size: 11px;
 }
 .shift-up-5 {
   position: relative;
@@ -102,6 +105,8 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   github buttons
 */
 .gh-btn {
+  position:relative;
+  top: 0px;
   display: inline-block;
   box-sizing: border-box;
   border: 1px solid #d4d4d4;
@@ -112,12 +117,13 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   overflow: hidden;
 
   border-radius: 3px;
-  padding: 0 5px 4px 3px;
+  padding: 1px 5px 4px 3px;
   color: #000;
   text-decoration: none;
   cursor: pointer;
   text-shadow: 0 1px 0 #fff;
-  font: 700 11px/17px "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
   white-space: nowrap;
 }
 
