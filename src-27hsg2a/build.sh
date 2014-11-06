@@ -21,6 +21,3 @@ uglifyjs ../vendor/marked/marked.js \
   -c 'drop_console=true,drop_debugger=true,keep_fargs=true' -m -r '$'
 #  --source-map src/min.js.map \
 #  -p relative \
-cp -r css/*.css ../css/
-cp -r main/*.html ../main/
-cp -r images/*.* ../images/
