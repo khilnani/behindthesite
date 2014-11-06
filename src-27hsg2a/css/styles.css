@@ -98,19 +98,17 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 /* 
   github buttons
 */
-a.twitter-share-button,
-a.twitter-mention-button,
-a.twitter-hashtag-button {
+a.github-button {
   display: inline-block;
   padding: 1px 3px 0 19px;
   border: #ccc solid 1px;
   border-radius: 3px;
-  background: #f8f8f8 url(//platform.twitter.com/images/bird.png) 2px 3px no-repeat;
-  background: url(//platform.twitter.com/images/bird.png) 2px 3px no-repeat,
+  background: #f8f8f8 url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…0xNi4yLDIxLjktMzAuNEMxMzEsMTYuMSwxMTYuNywxLjgsOTksMS44eiIvPg0KPC9zdmc+DQo=) 2px 3px no-repeat;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…0xNi4yLDIxLjktMzAuNEMxMzEsMTYuMSwxMTYuNywxLjgsOTksMS44eiIvPg0KPC9zdmc+DQo=) 2px 3px no-repeat,
               -webkit-linear-gradient(#fff, #dedede);
-  background: url(//platform.twitter.com/images/bird.png) 2px 3px no-repeat,
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…0xNi4yLDIxLjktMzAuNEMxMzEsMTYuMSwxMTYuNywxLjgsOTksMS44eiIvPg0KPC9zdmc+DQo=) 2px 3px no-repeat,
               linear-gradient(#fff, #dedede);
-  background-size: 16px 13px, auto auto;
+  background-size: 14px 14px, auto auto;
  
   /* Text */
     font: bold 11px/17px Helvetica, Arial, sans-serif;
@@ -121,9 +119,7 @@ a.twitter-hashtag-button {
 }
  
 /* Color Highlight for keyboard navigation */
-a.twitter-share-button:focus,
-a.twitter-mention-button:focus,
-a.twitter-hashtag-button:focus {
+a.github-button:focus {
   outline: none;
   border-color: #0089cb;
 }
