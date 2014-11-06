@@ -106,7 +106,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
     font: 700 11px/14px "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.gh-count,.gh-ico {
+.github-btn, .gh-count,.gh-ico {
     float: left;
 }
 
