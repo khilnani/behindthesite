@@ -98,11 +98,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   width: 12.5%;
 }
 #dc-logo {
-  vertical-align: none;
+  vertical-align: bottom;
   width: 14px;
   height: 14px;
-  background-image: url('images/dc_logo.png');
-  
 }
 /*
   http://spiffygif.com/?color=cccccc&lines=11&bgColor=272b30&radius=7&width=2&halo=false
