@@ -12,7 +12,7 @@
       
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://behindthesite.com" data-text="Check out @behindthesite a site tracking #techstacks used by companies" data-via="BehindTheSite">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
+        <div>
         <span class=github-btn id=github-btn><a class=gh-btn id=gh-btn href=# target=_blank>
         <span class=gh-ico></span> <span class=gh-text id=gh-text></span></a> <a class=gh-count id=gh-count href=# target=_blank></a></span>
         <script>
@@ -44,6 +44,7 @@ var params = function() {
   counter = document.getElementById("gh-count");
 button.href = "https://github.com/" + user + "/" + repo + "/", "watch" == type ? (mainButton.className += " github-watchers", text.innerHTML = "Star", counter.href = "https://github.com/" + user + "/" + repo + "/stargazers") : "fork" == type ? (mainButton.className += " github-forks", text.innerHTML = "Fork", counter.href = "https://github.com/" + user + "/" + repo + "/network") : "follow" == type && (mainButton.className += " github-me", text.innerHTML = "Follow @" + user, button.href = "https://github.com/" + user, counter.href = "https://github.com/" + user + "/followers"), "large" == size && (mainButton.className += " github-btn-large"), jsonp("follow" == type ? "https://api.github.com/users/" + user : "https://api.github.com/repos/" + user + "/" + repo);
         </script>
+        </div>
       </p>
     </div>
   </div>
