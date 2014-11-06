@@ -12,39 +12,10 @@
       
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://behindthesite.com" data-text="Check out @behindthesite a site tracking #techstacks used by companies" data-via="BehindTheSite">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        <div>
-        <span class=github-btn id=github-btn><a class=gh-btn id=gh-btn href=# target=_blank>
-        <span class=gh-ico></span> <span class=gh-text id=gh-text></span></a> <a class=gh-count id=gh-count href=# target=_blank></a></span>
-        <script>
-function addCommas(t) {
-  return String(t).replace(/(\d)(?=(\d{3})+$)/g, "$1,")
-}
+        
+        <a class="github-button" href="https://github.com/behindthesite/behindthesite" data-count-href="/behindthesite/behindthesite/stargazers" data-count-api="/repos/behindthesite/behindthesite#stargazers_count">Star</a>
+        <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
 
-function jsonp(t) {
-  var e = document.createElement("script");
-  e.src = t + "?callback=callback", head.insertBefore(e, head.firstChild)
-}
-
-function callback(t) {
-  "watch" == type ? counter.innerHTML = addCommas(t.data.watchers) : "fork" == type ? counter.innerHTML = addCommas(t.data.forks) : "follow" == type && (counter.innerHTML = addCommas(t.data.followers)), "true" == count && (counter.style.display = "block")
-}
-var params = function() {
-    for (var t, e = [], o = window.location.href.slice(window.location.href.indexOf("?") + 1).split("&"), r = 0; r < o.length; r++) t = o[r].split("="), e.push(t[0]), e[t[0]] = t[1];
-    return e
-  }(),
-  user = 'behindthesite',
-  repo = 'behindthesite',
-  type = 'watch',
-  count = params.count,
-  size = params.size,
-  head = document.getElementsByTagName("head")[0],
-  button = document.getElementById("gh-btn"),
-  mainButton = document.getElementById("github-btn"),
-  text = document.getElementById("gh-text"),
-  counter = document.getElementById("gh-count");
-button.href = "https://github.com/" + user + "/" + repo + "/", "watch" == type ? (mainButton.className += " github-watchers", text.innerHTML = "Star", counter.href = "https://github.com/" + user + "/" + repo + "/stargazers") : "fork" == type ? (mainButton.className += " github-forks", text.innerHTML = "Fork", counter.href = "https://github.com/" + user + "/" + repo + "/network") : "follow" == type && (mainButton.className += " github-me", text.innerHTML = "Follow @" + user, button.href = "https://github.com/" + user, counter.href = "https://github.com/" + user + "/followers"), "large" == size && (mainButton.className += " github-btn-large"), jsonp("follow" == type ? "https://api.github.com/users/" + user : "https://api.github.com/repos/" + user + "/" + repo);
-        </script>
-        </div>
       </p>
     </div>
   </div>
