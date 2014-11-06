@@ -106,19 +106,27 @@ a.github-button {
   border-radius: 3px;
   background-color: #e6e6e6;
   background-image: linear-gradient(#fafafa,#eaeaea);
+ 
+  /* Text */
+  font: bold 11px/17px Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  color: #333;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+  white-space: nowrap;
+}
+
+a.github-button .ico {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
   background: #e6e6e6 url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…0xNi4yLDIxLjktMzAuNEMxMzEsMTYuMSwxMTYuNywxLjgsOTksMS44eiIvPg0KPC9zdmc+DQo=) 2px 3px no-repeat;
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…0xNi4yLDIxLjktMzAuNEMxMzEsMTYuMSwxMTYuNywxLjgsOTksMS44eiIvPg0KPC9zdmc+DQo=) 2px 3px no-repeat,
               -webkit-linear-gradient(#fff, #dedede);
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…0xNi4yLDIxLjktMzAuNEMxMzEsMTYuMSwxMTYuNywxLjgsOTksMS44eiIvPg0KPC9zdmc+DQo=) 2px 3px no-repeat,
               linear-gradient(#fff, #dedede);
-  background-size: 28px 14px, auto auto;
- 
-  /* Text */
-    font: bold 11px/17px Helvetica, Arial, sans-serif;
-  text-decoration: none;
-  color: #333;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
-  white-space: nowrap;
+  background-size: 28px 14px;
+  background-repeast: no-repeat;
+  background-position: 0 0;
 }
  
 /* Color Highlight for keyboard navigation */
