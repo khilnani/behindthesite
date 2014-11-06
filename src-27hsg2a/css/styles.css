@@ -100,7 +100,8 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 */
 a.github-button {
   display: inline-block;
-  padding: 1px 3px 6px 19px;
+  padding: 1px 3px 0 19px;
+  margin-bottom:; 6px
   border: 1px solid #d4d4d4;
   border-bottom-color: #bcbcbc;
   border-radius: 3px;
