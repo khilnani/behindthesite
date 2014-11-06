@@ -32,7 +32,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   font-size: 11px;
 }
 .text-bold-12 {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
 }
 .shift-up-5 {
@@ -96,11 +96,6 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 }
 #main-table td {
   width: 12.5%;
-}
-#dc-logo {
-  vertical-align: top;
-  width: 14px;
-  height: 14px;
 }
 /*
   http://spiffygif.com/?color=cccccc&lines=11&bgColor=272b30&radius=7&width=2&halo=false
