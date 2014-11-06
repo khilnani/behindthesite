@@ -112,12 +112,13 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   overflow: hidden;
 
   border-radius: 3px;
-  padding: 0 5px 4px 3px;
+  padding: 2px 5px 4px 3px;
   color: #000;
   text-decoration: none;
   cursor: pointer;
   text-shadow: 0 1px 0 #fff;
-  font: 700 11px/17px "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 11px;
+  font-weight: 700;
   white-space: nowrap;
 }
 
