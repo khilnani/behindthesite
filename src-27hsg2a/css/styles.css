@@ -28,8 +28,8 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   padding-top: 40px;
   padding-bottom: 40px;
 }
-.font-11 {
-  font-size: 11px;
+#font-12 {
+  font-size: 12px;
 }
 .shift-up-5 {
   position: relative;
@@ -120,7 +120,8 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   text-decoration: none;
   cursor: pointer;
   text-shadow: 0 1px 0 #fff;
-  font: 700 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-face: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
   white-space: nowrap;
 }
 
