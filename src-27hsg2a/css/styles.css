@@ -28,8 +28,8 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   padding-top: 40px;
   padding-bottom: 40px;
 }
-#font-12 {
-  font-size: 12px;
+#social-buttons {
+  font-size: 11px;
 }
 .shift-up-5 {
   position: relative;
@@ -115,7 +115,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   overflow: hidden;
 
   border-radius: 3px;
-  padding: 2px 5px 4px 3px;
+  padding: 0 5px 4px 3px;
   color: #000;
   text-decoration: none;
   cursor: pointer;
