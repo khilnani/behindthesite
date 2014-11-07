@@ -77,5 +77,10 @@ bts.run(['$http','Common', function($http, Common) {
        .then(function(res){
           window.ENV = res.data.env;
           console.log('bts.run: window.ENV: ' + window.ENV);
+          if(window.ENV == "production") {
+            console.log('bts.run: ga');
+            ga('create', 'UA-24322958-20', 'auto');
+            ga('send', 'pageview');
+          }
         });
 }]);
