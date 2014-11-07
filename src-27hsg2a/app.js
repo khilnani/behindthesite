@@ -86,12 +86,10 @@ bts.run(['$http','Common', function($http, Common) {
     $http.get('env.json')
         .success(function(data, status, headers, config){
             window.ENV = data.env;
-            console.log('bts.run: ENV: ' + window.ENV);
             setupEnvironment();
         })
         .error(function (data, status, headers, config) {
-            console.error('ERROR env.json Not Found. Assuming "dev"');
-            window.ENV = "dev";
+            window.ENV = "production";
             setupEnvironment();
          });
 }]);
