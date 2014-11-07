@@ -74,8 +74,8 @@ bts.run(['$http','Common', function($http, Common) {
     console.log('bts.run');
     console.log('Common.isMobile: ' + Common.isMobile);
     $http.get('env.json')
-       .then(function(res){
-          window.ENV = res.data;
+       .then(function(data){
+          window.ENV = data.env;
           console.log('bts.run: window.ENV: ' + window.ENV);
         });
 }]);
