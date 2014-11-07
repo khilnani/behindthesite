@@ -77,5 +77,6 @@ bts.run(['$http','Common', function($http, Common) {
        .then(function(data){
           window.ENV = data.env;
           console.log('bts.run: window.ENV: ' + window.ENV);
+          console.log(data);
         });
 }]);
