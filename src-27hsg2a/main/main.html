@@ -45,6 +45,7 @@
       </p> 
       <p ng-show='description != ""'><span class="markdown" ng-bind-html="description"></span></p>
       <p class="text-muted" ng-show='notes != ""'><em><span class="markdown" ng-bind-html="notes"></span></em></p>
+      <p class="text-muted" ng-show='notes != ""'>&nbsp;</p>
   </script>
   <script type="text/ng-template" id="productMobileTmpl.html">
     <h4 class="list-group-item-heading">{{ ea.product.name }}</h4>
