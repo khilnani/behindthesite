@@ -31,9 +31,6 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   padding-top: 10px;
   padding-bottom: 10px;
 }
-#btn-feedback {
-  font-size: 11px;
-}
 .text-bold-12 {
   font-size: 12px;
   font-weight: bold;
@@ -99,6 +96,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 }
 #main-table td {
   width: 12.5%;
+}
+#p-feedback {
+  font-size: 11px;
 }
 /*
   http://spiffygif.com/?color=cccccc&lines=11&bgColor=272b30&radius=7&width=2&halo=false
