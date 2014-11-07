@@ -70,7 +70,12 @@ bts.factory('Common', ['$location', function ($location) {
     }
 }]);
 
-bts.run(['Common', function(Common) {
+bts.run(['$http','Common', function($http, Common) {
     console.log('bts.run');
     console.log('Common.isMobile: ' + Common.isMobile);
+    $http.get('env.json')
+       .then(function(res){
+          window.ENV = res.data;
+          console.log('bts.run: window.ENV: ' + window.ENV);
+        });
 }]);
