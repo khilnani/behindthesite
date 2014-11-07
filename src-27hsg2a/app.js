@@ -70,7 +70,7 @@ bts.factory('Common', ['$location', function ($location) {
     }
 }]);
 
-bts.run(['$http','Common', function($http, Common) {
+bts.run(['$http', 'Common', function($http, Common) {
     console.log('bts.run');
     console.log('Common.isMobile: ' + Common.isMobile);
     
