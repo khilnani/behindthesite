@@ -74,7 +74,7 @@ bts.run(['$http','Common', function($http, Common) {
     console.log('bts.run');
     console.log('Common.isMobile: ' + Common.isMobile);
     $http.get('env.json')
-       .then(function(res){
+        .then(function(res){
           window.ENV = res.data.env;
           console.log('bts.run: window.ENV: ' + window.ENV);
           if(window.ENV == "production") {
@@ -82,5 +82,8 @@ bts.run(['$http','Common', function($http, Common) {
             ga('create', 'UA-24322958-20', 'auto');
             ga('send', 'pageview');
           }
-        });
+        })
+        .error(function (data, status, headers, config) {
+             console.error('ERROR env.json NOT FOUND.');
+         });
 }]);
