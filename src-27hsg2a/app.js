@@ -84,6 +84,6 @@ bts.run(['$http','Common', function($http, Common) {
           }
         })
         .error(function (data, status, headers, config) {
-             console.error('ERROR env.json NOT FOUND.');
+             console.error('ERROR env.json { "env":"value" } NOT FOUND.');
          });
 }]);
