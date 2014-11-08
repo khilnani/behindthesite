@@ -16,6 +16,8 @@
               <p ng-show="SubmissionForm.name.$error.required" class="text-danger help-block">Please do tell us your name.</p>
               <p ng-show="form.name.$error.required" class="text-danger help-block">Please do tell us your name.</p>
               <p class="text-danger help-block">hm: {{ form.name.$error.required }}</p>
+              <p class="text-danger help-block">hmm: {{ SubmissionForm.name.$error.required }}</p>
+              <p class="text-danger help-block">hmmm: {{ name.$error.required }}</p>
             </div>
           </div>
           <div class="form-group has-feedback">
@@ -73,7 +75,7 @@
             <button class="btn btn-primary pull-left" ng-click="add()">Add More</button>
             <div class="pull-right">
               <button class="btn btn-default" ng-click="reset()" ng-disabled="isUnchanged(submission)">Reset</button>
-              <button type="submit" class="btn btn-primary" ng-click="update(submission)" ng-disabled="form.$invalid || form.$error.required">Submit</button>
+              <button type="submit" class="btn btn-primary" ng-click="update(submission)" ng-disabled="form.$invalid">Submit</button>
             </div>
         </div><!-- /.modal-footer -->
       </form>
