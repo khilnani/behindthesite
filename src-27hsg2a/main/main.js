@@ -241,10 +241,12 @@ angular.module('bts.controllers', [])
     });
   };
 
+  $scope.delete = function(id) {
+    console.log('SubmissionForm.delete: ' + id);
+  };
+
   $scope.update = function(submission) {
     $scope.master = angular.copy(submission);
-    console.log('SubmissionForm.update');
-    console.log($scope.master);
   };
 
   $scope.reset = function() {
@@ -253,6 +255,11 @@ angular.module('bts.controllers', [])
 
   $scope.isUnchanged = function(submission) {
     return angular.equals(submission, $scope.master);
+  };
+  
+  $scope.submit = function() {
+    console.log('SubmissionForm.submit');
+    console.log($scope.master);
   };
   
   $scope.reset();
