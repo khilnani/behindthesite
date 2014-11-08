@@ -54,15 +54,7 @@ angular.module('bts.services', ['ngResource'])
 .factory('SubmitSvc', ['$resource', function($resource){
   return $resource('http://api.behindthesite.com/v1/submit/', {}, {
     post: {
-      method: 'POST',
-        transformResponse: function (data, headers) {
-            if(data) {
-              data = w.__(w.__(y.__(data), 5), 9);
-              data = JSON.parse(data);
-            }
-            return data;
-          }
-        }
+      method: 'POST'
     });
   }]);
 
