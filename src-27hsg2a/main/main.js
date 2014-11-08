@@ -255,7 +255,7 @@ angular.module('bts.controllers', [])
       $scope.clear();
       $scope.reset();
       $scope.add();
-      $scope.update();
+      $scope.update($scope.submission);
     });
   }, 3000);
   
