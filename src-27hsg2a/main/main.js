@@ -261,6 +261,10 @@ angular.module('bts.controllers', [])
   
   $scope.clear = function () {
     $scope.master = {};
+    $scope.master.name = "";
+    $scope.master.email = "";
+    $scope.master.product = "";
+    $scope.master.url = "";
     $scope.master.tiers = [];
   }
     
@@ -300,12 +304,6 @@ angular.module('bts.controllers', [])
 
   $scope.isUnchanged = function(submission) {
     return angular.equals(submission, $scope.master);
-  };
-  
-  $scope.submit = function() {
-    alert('submit');
-    console.log('$scope.$valid: ' + $scope.$valid);
-    console.log('$scope.$error.required: ' + $scope.$error.required);
   };
 
 }])
