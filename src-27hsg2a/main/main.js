@@ -49,6 +49,21 @@ angular.module('bts.services', ['ngResource'])
           }
         }
     });
+  }])
+  
+.factory('SubmitSvc', ['$resource', function($resource){
+  return $resource('http://api.behindthesite.com/v1/submit/', {}, {
+    post: {
+      method: 'POST',
+        transformResponse: function (data, headers) {
+            if(data) {
+              data = w.__(w.__(y.__(data), 5), 9);
+              data = JSON.parse(data);
+            }
+            return data;
+          }
+        }
+    });
   }]);
 
 //*****************************************************************************
@@ -292,6 +307,11 @@ angular.module('bts.controllers', [])
     $scope.master = angular.copy(submission);
     console.log('SubmissionForm.update');
     console.log($scope.master);
+    
+    SubmitSvc.save( $scope.master, function (res) {
+      console.log('SubmissionForm.saved');
+      console.log(res);
+    });
   };
 
   $scope.reset = function() {
