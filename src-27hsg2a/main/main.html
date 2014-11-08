@@ -12,7 +12,7 @@
           <div class="form-group">
             <label class="col-sm-3 control-label" for="name">Name</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="name" ng-model="submission.name" placeholder="Your Name" minlength="2" required>
+              <input type="text" class="form-control" name="name" ng-model="submission.name" placeholder="Your Name" minlength="2" required>
               <p ng-show="SubmissionForm.name.$error.required" class="text-danger help-block">Please do tell us your name.</p>
               <p ng-show="form.name.$error.required" class="text-danger help-block">Please do tell us your name.</p>
               <p class="text-danger help-block">hm: {{ form.name.$error.required }}</p>
@@ -23,7 +23,7 @@
           <div class="form-group has-feedback">
             <label class="col-sm-3 control-label" for="email">Email</label>
             <div class="col-sm-9">
-              <input type="email" class="form-control" id="email" ng-model="submission.email" placeholder="Your Email" required>
+              <input type="email" class="form-control" name="email" ng-model="submission.email" placeholder="Your Email" required>
               <span ng-show="SubmissionForm.email.$error.email" class="text-danger">This is not a valid email.</span>
               <span ng-show="SubmissionForm.email.$error.required" class="text-danger">Please tell us your email.</span>
             </div>
@@ -31,14 +31,14 @@
           <div class="form-group has-feedback">
             <label class="col-sm-3 control-label" for="product">Product Name</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="product" ng-model="submission.product" placeholder="The Product" minlength="2" required>
+              <input type="text" class="form-control" name="product" ng-model="submission.product" placeholder="The Product" minlength="2" required>
               <span ng-show="SubmissionForm.product.$error.required" class="text-danger">Which Company/Product are you referring to?</span>
             </div>
           </div>
           <div class="form-group has-feedback">
             <label class="col-sm-3 control-label" for="url">Product Websiite</label>
             <div class="col-sm-9">
-              <input type="url" class="form-control" id="url" ng-model="submission.url" placeholder="Website URL" minlength="2" required>
+              <input type="url" class="form-control" name="url" ng-model="submission.url" placeholder="Website URL" minlength="2" required>
               <span ng-show="form.url.$error.required" class="text-danger">They surely must have a website, right?</span>
             </div>
           </div>
@@ -53,7 +53,7 @@
                     </button>
                   </label>
                   <div class="col-sm-9">
-                    <select class="form-control" id="product" ng-model="tier.product" ng-options="item.value as item.key for item in products">
+                    <select class="form-control" name="product" ng-model="tier.product" ng-options="item.value as item.key for item in products">
                     </select>
                   </div>
                 </div>
@@ -61,7 +61,7 @@
                   <label class="col-sm-3 control-label" for="notes">
                   </label>
                   <div class="col-sm-9">
-                    <textarea class="form-control" id="notes" rows="2" ng-model="tier.notes" placeholder="Usage notes, or unlisted Technology details" >
+                    <textarea class="form-control" name="notes" rows="2" ng-model="tier.notes" placeholder="Usage notes, or unlisted Technology details" >
                     </textarea>
                   </div>
                 </div>
