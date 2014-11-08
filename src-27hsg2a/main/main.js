@@ -225,12 +225,13 @@ angular.module('bts.controllers', [])
 
 .controller('SubmissionForm', ['$scope', function($scope) {
   $scope.master = {};
-  $scope.master.teiers = [];
+  $scope.master.tiers = [];
+  $scope.products = [
+      {'key':'1', 'value':'A'},
+      {'key':'2', 'value':'B'}
+    ];
     
   $scope.add = function() {
-    if(typeof $scope.submission['tiers'] == 'undefined') {
-      $scope.submission['tiers'] = [];
-    }
     var newItemNo = $scope.submission.tiers.length+1;
     console.log('SubmissionForm.add: ' + newItemNo)
     $scope.submission.tiers.push({
