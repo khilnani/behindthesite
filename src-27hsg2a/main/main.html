@@ -14,6 +14,7 @@
             <div class="col-sm-9">
               <input type="text" class="form-control" id="name" ng-model="submission.name" placeholder="Your Name" minlength="2" required>
               <span ng-show="form.name.$error.required" class="text-danger">Please do tell us your name.</span>
+              {{ form.name.$error.required }}
             </div>
           </div>
           <div class="form-group has-feedback">
@@ -71,7 +72,7 @@
             <button class="btn btn-primary pull-left" ng-click="add()">Add More</button>
             <div class="pull-right">
               <button class="btn btn-default" ng-click="reset()" ng-disabled="isUnchanged(submission)">Reset</button>
-              <button type="submit" class="btn btn-primary" ng-click="update(submission)" ng-disabled="form.$invalid || !form.$error">Submit</button>
+              <button type="submit" class="btn btn-primary" ng-click="update(submission)" ng-disabled="form.$invalid && !form.$error">Submit</button>
             </div>
         </div><!-- /.modal-footer -->
       </form>
