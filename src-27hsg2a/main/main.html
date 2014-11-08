@@ -1,7 +1,7 @@
 <div class="modal fade" id="SubmissionModal" tabindex="-1" role="dialog" aria-labelledby="Feedback Submission Modal" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <form class="form-horizontal" role="form" ng-controller="SubmissionForm" ng-submit="submit()">
+      <form class="form-horizontal" role="form" ng-controller="SubmissionForm">
         <div class="modal-header bg-darker">
           <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
             <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
@@ -63,7 +63,7 @@
         </div><!-- /.modal-body -->
         <div class="modal-footer bg-darker">
             <button class="btn btn-primary pull-left" ng-click="add()">Add More</button>
-            <button type="submit" class="btn btn-primary pull-right">Submit</button>
+            <button type="submit" class="btn btn-primary pull-right" ng-click="submit()">Submit</button>
         </div><!-- /.modal-footer -->
       </form>
     </div><!-- /.modal-content -->
