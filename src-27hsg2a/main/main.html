@@ -13,25 +13,29 @@
             <label class="col-sm-3 control-label" for="name">Name</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" id="name" ng-model="submission.name" placeholder="Your Name" minlength="2" required>
+              <span ng-show="SubmissionForm.name.$error.required" class="text-danger">Please do tell us your name.</span>
             </div>
           </div>
           <div class="form-group has-feedback">
             <label class="col-sm-3 control-label" for="email">Email</label>
             <div class="col-sm-9">
               <input type="email" class="form-control" id="email" ng-model="submission.email" placeholder="Your Email" required>
-              <span ng-show="form.email.$error.email" class="text-danger">This is not a valid email.</span>
+              <span ng-show="SubmissionForm.email.$error.email" class="text-danger">This is not a valid email.</span>
+              <span ng-show="SubmissionForm.email.$error.required" class="text-danger">Please tell us your email.</span>
             </div>
           </div>
           <div class="form-group has-feedback">
             <label class="col-sm-3 control-label" for="product">Product Name</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" id="product" ng-model="submission.product" placeholder="The Product" minlength="2" required>
+              <span ng-show="SubmissionForm.product.$error.required" class="text-danger">Which Company/Product are you referring to?</span>
             </div>
           </div>
           <div class="form-group has-feedback">
             <label class="col-sm-3 control-label" for="url">Product Websiite</label>
             <div class="col-sm-9">
-              <input type="url" class="form-control" id="url" ng-model="url" placeholder="Website URL" minlength="2" required>
+              <input type="url" class="form-control" id="url" ng-model="submission.url" placeholder="Website URL" minlength="2" required>
+              <span ng-show="SubmissionForm.url.$error.required" class="text-danger">They surely must have a website, right?</span>
             </div>
           </div>
           <div class="list-group">
@@ -67,7 +71,7 @@
             <button class="btn btn-primary pull-left" ng-click="add()">Add More</button>
             <div class="pull-right">
               <button class="btn btn-default" ng-click="reset()" ng-disabled="isUnchanged(submission)">Reset</button>
-              <button type="submit" class="btn btn-primary" ng-click="update(submission)" ng-disabled="form.$invalid || !form.$error || isUnchanged(submission)">Submit</button>
+              <button type="submit" class="btn btn-primary" ng-click="update(submission)" ng-disabled="SubmissionForm.$invalid || !SubmissionForm.$error">Submit</button>
             </div>
         </div><!-- /.modal-footer -->
       </form>
