@@ -239,7 +239,7 @@ angular.module('bts.controllers', [])
   };
 
   $scope.reset();
-}]);
+}])
 
 .controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', function ($scope, $timeout, Common, TaxonomySvc, StackSvc) {
 
