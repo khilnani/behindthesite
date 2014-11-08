@@ -23,7 +23,7 @@
     </p>
   </div>
   <div class="jumbotron">
-    <h4>Contribute</h4>
+    <h4>Contribute Information / Send Feedback</h4>
     <form class="form-horizontal" role="form" ng-controller="SubmissionForm">
       <div class="form-group">
         <label class="col-sm-2 control-label" for="name">Name</label>
@@ -55,7 +55,7 @@
           <p class="list-group-item-text">
           <div class="form-group has-feedback">
             <label class="col-sm-2 control-label" for="product">
-              Technology Used {{ tier.id }}
+              Technology {{ tier.id }}
             </label>
             <div class="col-sm-10">
               <select class="form-control" id="product" ng-model="tier.product" ng-options="item.value as item.key for item in products">
@@ -67,7 +67,7 @@
               <button class="btn btn-default btn-sm" ng-click="delete(tier.id)">Delete</button>
             </label>
             <div class="col-sm-10">
-              <textarea class="form-control" id="notes" rows="2" ng-model="tier.notes" placeholder="Usage notes" >
+              <textarea class="form-control" id="notes" rows="2" ng-model="tier.notes" placeholder="Usage notes, or unlisted Technology details" >
               </textarea>
             </div>
           </div>
