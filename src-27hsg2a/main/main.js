@@ -261,10 +261,6 @@ angular.module('bts.controllers', [])
   
   $scope.clear = function () {
     $scope.master = {};
-    $scope.master.name = "";
-    $scope.master.email = "";
-    $scope.master.product = "";
-    $scope.master.url = "";
     $scope.master.tiers = [];
   }
     
