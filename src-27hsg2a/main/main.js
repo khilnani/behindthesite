@@ -250,9 +250,9 @@ angular.module('bts.controllers', [])
     return angular.equals(submission, $scope.master);
   };
   
+  $scope.reset();
   $scope.add();
   $scope.update();
-  $scope.reset();
 }])
 
 .controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', function ($scope, $timeout, Common, TaxonomySvc, StackSvc) {
