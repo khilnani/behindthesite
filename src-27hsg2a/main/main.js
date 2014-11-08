@@ -306,10 +306,14 @@ angular.module('bts.controllers', [])
     }
     $scope.submission.tiers = newArr;
   };
-
+  
   $scope.update = function(submission) {
     $scope.master = angular.copy(submission);
-    console.log('SubmissionForm.update');
+  }
+
+  $scope.save = function(submission) {
+    $scope.master = angular.copy(submission);
+    console.log('SubmissionForm.save');
     console.log($scope.master);
     
     SubmitSvc.post( $scope.master, function (res) {
