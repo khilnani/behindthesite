@@ -62,6 +62,7 @@
                 </div>
                 <div class="form-group has-feedback">
                   <label class="col-sm-4 control-label" for="notes">
+                    <button ng-if="$last" class="btn btn-default pull-right btn-sm" ng-click="add()">Add Another</button>
                   </label>
                   <div class="col-sm-8">
                     <textarea class="form-control input-sm" name="notes" rows="2" ng-model="tier.notes" placeholder="Usage notes, or unlisted Technology details" ></textarea>
@@ -72,11 +73,8 @@
           </div>
         </div><!-- /.modal-body -->
         <div class="modal-footer bg-darker">
-            <button class="btn btn-primary pull-left" ng-click="add()">Add More</button>
-            <div class="pull-right">
-              <button class="btn btn-default" ng-click="reset()" ng-disabled="isUnchanged(submission)">Reset</button>
-              <button type="submit" class="btn btn-primary" ng-click="save(submission)" ng-disabled="!!SubmissionForm.$invalid">Submit</button>
-            </div>
+          <button class="btn btn-default pull-left" ng-click="reset()" ng-disabled="isUnchanged(submission)">Reset</button>
+          <button type="submit" class="btn btn-primary pull-right" ng-click="save(submission)" ng-disabled="!!SubmissionForm.$invalid">Submit</button>
         </div><!-- /.modal-footer -->
       </form>
     </div><!-- /.modal-content -->
@@ -294,6 +292,3 @@
     <button class="btn btn-default vcenter" ng-click="vm.delayedGetAdditionalData()">Loaded {{ vm.end }} of {{ vm.total() }}. Click for more.</button>
   </p>
 </div>
-
-
-
