@@ -259,7 +259,7 @@ angular.module('bts.controllers', [])
   
   $scope.submit = function() {
     console.log('SubmissionForm.submit');
-    console.log($scope.master);
+    console.log($scope.submission);
   };
   
   $scope.reset();
