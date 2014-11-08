@@ -304,6 +304,7 @@ angular.module('bts.controllers', [])
   
   $scope.submit = function() {
     alert('submit');
+    $scope.update($scope.submission);
   };
 
 }])
