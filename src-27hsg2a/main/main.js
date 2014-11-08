@@ -227,8 +227,8 @@ angular.module('bts.controllers', [])
   $scope.master = {};
   $scope.master.tiers = [];
   $scope.products = [
-      {'key':'1', 'value':'A'},
-      {'key':'2', 'value':'B'}
+      {'key':'A', 'value':'1'},
+      {'key':'B', 'value':'2'}
     ];
     
   $scope.add = function() {
