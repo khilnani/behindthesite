@@ -256,11 +256,6 @@ angular.module('bts.controllers', [])
   
   $scope.products = [];
   
-  $scope.$watch('submission.tiers', function (newVal, oldVal) {
-    console.log(newVal);
-    console.log(oldVal);
-  });
-  
   $scope.init = function () {
     console.log('SubmissionForm.init');
     $scope.clear();
