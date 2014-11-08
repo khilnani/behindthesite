@@ -232,9 +232,11 @@ angular.module('bts.controllers', [])
     
   $scope.add = function() {
     var newItemNo = $scope.master.tiers.length+1;
+    console.log('SubmissionForm.add: ' + newItemNo)
     $scope.master.tiers.push({
       'id': 'tier'+newItemNo
     });
+    $scope.reset();
   };
 
   $scope.update = function(submission) {
