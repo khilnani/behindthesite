@@ -225,18 +225,14 @@ angular.module('bts.controllers', [])
 
 .controller('SubmissionForm', ['$scope', function($scope) {
   $scope.master = {};
-  $scope.master.tiers = [
-    {
-      'id':'tier0'
-    }];
+  $scope.master.teiers = [];
     
   $scope.add = function() {
-    var newItemNo = $scope.master.tiers.length+1;
+    var newItemNo = $scope.submission.tiers.length+1;
     console.log('SubmissionForm.add: ' + newItemNo)
-    $scope.master.tiers.push({
-      'id': 'tier'+newItemNo
+    $scope.submission.tiers.push({
+      'id': newItemNo
     });
-    $scope.reset();
   };
 
   $scope.update = function(submission) {
