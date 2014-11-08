@@ -238,7 +238,7 @@ angular.module('bts.filters', [])
 
 angular.module('bts.controllers', [])
 
-.controller('SubmissionForm', ['$scope', '$timeout','ProductSvc', function($scope, ProductSvc) {
+.controller('SubmissionForm', ['$scope', '$timeout','ProductSvc', function($scope, $timeout, ProductSvc) {
   
   $scope.products = [];
   
