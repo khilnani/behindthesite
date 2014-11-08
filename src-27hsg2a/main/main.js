@@ -54,7 +54,8 @@ angular.module('bts.services', ['ngResource'])
 .factory('SubmitSvc', ['$resource', function($resource){
   return $resource('http://api.behindthesite.com/v1/submit/', {}, {
     post: {
-      method: 'GET',
+      method: 'POST',
+        responseType: 'text',
         transformResponse: function (data, headers) {
             if(data) {
               data = JSON.parse(data);
