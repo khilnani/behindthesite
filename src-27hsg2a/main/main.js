@@ -282,6 +282,9 @@ angular.module('bts.controllers', [])
         newArr.push( tiers[i] );
       }
     }
+    for(var i=0; i < newArr.length; i++) {
+      newArr[i].id = i+1;
+    }
     $scope.submission.tiers = newArr;
   };
 
