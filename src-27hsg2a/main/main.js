@@ -228,6 +228,9 @@ angular.module('bts.controllers', [])
   $scope.master.teiers = [];
     
   $scope.add = function() {
+    if(!$scope.submission.tiers) {
+      $scope.submission.tiers = [];
+    }
     var newItemNo = $scope.submission.tiers.length+1;
     console.log('SubmissionForm.add: ' + newItemNo)
     $scope.submission.tiers.push({
