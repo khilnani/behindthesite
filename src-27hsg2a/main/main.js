@@ -34,7 +34,7 @@ angular.module('bts.services', ['ngResource'])
           }
         }
     });
-  }]);
+  }])
   
 .factory('ProductSvc', ['$resource', function($resource){
   return $resource('http://api.behindthesite.com/v1/products/', {}, {
