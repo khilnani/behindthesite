@@ -12,43 +12,43 @@
           <div class="form-group">
             <label class="col-sm-3 control-label" for="name">Name</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="name" ng-model="submission.name" placeholder="Your Name" minlength="2" required>
+              <input type="text" class="form-control input-sm" name="name" ng-model="submission.name" placeholder="Your Name" minlength="2" required>
               <span ng-show="SubmissionForm.name.$error.required" class="text-danger help-block">Please do tell us your name.</span>
             </div>
           </div>
-          <div class="form-group has-feedback">
+          <div class="form-group">
             <label class="col-sm-3 control-label" for="email">Email</label>
             <div class="col-sm-9">
-              <input type="email" class="form-control" name="email" ng-model="submission.email" placeholder="Your Email" minlength="2" required>
+              <input type="email" class="form-control input-sm" name="email" ng-model="submission.email" placeholder="Your Email" minlength="2" required>
               <span ng-show="SubmissionForm.email.$error.email" class="text-danger help-block">This is not a valid email.</span>
               <span ng-show="SubmissionForm.email.$error.required" class="text-danger help-block">Please tell us your email.</span>
             </div>
           </div>
-          <div class="form-group has-feedback">
+          <div class="form-group">
             <label class="col-sm-3 control-label" for="product">Product Name</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="product" ng-model="submission.product" placeholder="The Product" minlength="2" required>
+              <input type="text" class="form-control input-sm" name="product" ng-model="submission.product" placeholder="The Product" minlength="2" required>
               <span ng-show="SubmissionForm.product.$error.required" class="text-danger help-block">Which Company/Product are you referring to?</span>
             </div>
           </div>
-          <div class="form-group has-feedback">
+          <div class="form-group">
             <label class="col-sm-3 control-label" for="url">Product Website</label>
             <div class="col-sm-9">
-              <input type="url" class="form-control" name="url" ng-model="submission.url" placeholder="Website URL" minlength="2" required>
+              <input type="url" class="form-control input-sm" name="url" ng-model="submission.url" placeholder="Website URL" minlength="2" required>
               <span ng-show="SubmissionForm.url.$error.url" class="text-danger help-block">Is that a valid url?</span>
               <span ng-show="SubmissionForm.url.$error.required" class="text-danger help-block">They surely must have a website, right?</span>
             </div>
           </div>
-          <div class="form-group has-feedback">
+          <div class="form-group">
             <label class="col-sm-3 control-label" for="comments">Comments</label>
             <div class="col-sm-9">
-            <textarea class="form-control" name="comments" rows="2" ng-model="submission.comments" placeholder="Comments" ></textarea>
+            <textarea class="form-control input-sm" name="comments" rows="2" ng-model="submission.comments" placeholder="Comments" ></textarea>
             </div>
           </div>
           <div class="list-group">
             <div class="list-group-item" ng-repeat="tier in submission.tiers">
               <p class="list-group-item-text">
-                <div class="form-group has-feedback">
+                <div class="form-group">
                   <label class="col-sm-3 control-label" for="product">
                     Technology {{ tier.id }}
                     <button class="btn btn-default btn-xs" ng-click="delete(tier.id)">
@@ -56,7 +56,7 @@
                     </button>
                   </label>
                   <div class="col-sm-9">
-                    <select class="form-control" name="product{{ $index }}" ng-model="tier.product" ng-options="item.value as item.key for item in products">
+                    <select class="form-control input-sm" name="id" ng-model="tier.product" ng-options="item.value as item.key for item in products">
                     </select>
                   </div>
                 </div>
@@ -64,7 +64,7 @@
                   <label class="col-sm-3 control-label" for="notes">
                   </label>
                   <div class="col-sm-9">
-                    <textarea class="form-control" name="notes" rows="2" ng-model="tier.notes" placeholder="Usage notes, or unlisted Technology details" ></textarea>
+                    <textarea class="form-control input-sm" name="notes" rows="2" ng-model="tier.notes" placeholder="Usage notes, or unlisted Technology details" ></textarea>
                   </div>
                 </div>
               </p>
