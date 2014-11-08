@@ -241,17 +241,18 @@ angular.module('bts.controllers', [])
 .controller('SubmissionForm', ['$scope', 'ProductSvc', function($scope, ProductSvc) {
   $scope.master = {};
   $scope.master.tiers = [];
+  $scope.products = [];
   
   ProductSvc.get(function(res) {
     console.log('ProductSvc.get');
     console.log(res);
+    for(var i=0; i < res.products.length; i++) {
+      $scope.products.push({
+        'value': res.products[i].id,
+        'key': res.products[i].name
+      });
+    }
   });
-  
-  $scope.products = [
-      {'key':'Select a Product', 'value':'11'},
-      {'key':'A', 'value':'1'},
-      {'key':'B', 'value':'2'}
-    ];
     
   $scope.add = function() {
     var newItemNo = $scope.submission.tiers.length+1;
