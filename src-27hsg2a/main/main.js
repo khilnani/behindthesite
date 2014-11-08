@@ -223,6 +223,24 @@ angular.module('bts.filters', [])
 
 angular.module('bts.controllers', [])
 
+.controller('SubmissionForm', ['$scope', function($scope) {
+  $scope.master = {};
+
+  $scope.update = function(submission) {
+    $scope.master = angular.copy(submission);
+  };
+
+  $scope.reset = function() {
+    $scope.submission = angular.copy($scope.master);
+  };
+
+  $scope.isUnchanged = function(submission) {
+    return angular.equals(submission, $scope.master);
+  };
+
+  $scope.reset();
+}]);
+
 .controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', function ($scope, $timeout, Common, TaxonomySvc, StackSvc) {
 
   var vm = this;
