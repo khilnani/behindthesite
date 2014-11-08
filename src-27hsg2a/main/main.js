@@ -305,11 +305,8 @@ angular.module('bts.controllers', [])
   
   
   $scope.submit = function() {
-    alert('submit: ' + $('SubmissionForm').valid() );
-    if( $('SubmissionForm').valid() ) {
-      $scope.update(s);  
-    }
-    
+    alert('submit');
+    $scope.update(s);  
   };
 
 }])
