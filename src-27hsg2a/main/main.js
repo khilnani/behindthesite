@@ -237,7 +237,7 @@ angular.module('bts.controllers', [])
     console.log('SubmissionForm.add: ' + newItemNo)
     $scope.submission.tiers.push({
       'id': newItemNo,
-      'product': -1
+      'product': '-1'
     });
   };
 
