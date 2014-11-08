@@ -225,6 +225,17 @@ angular.module('bts.controllers', [])
 
 .controller('SubmissionForm', ['$scope', function($scope) {
   $scope.master = {};
+  $scope.master.tiers = [
+    {
+      'id':'tier0'
+    }];
+    
+  $scope.add = function() {
+    var newItemNo = $scope.master.tiers.length+1;
+    $scope.master.tiers.push({
+      'id': 'tier'+newItemNo;
+    });
+  };
 
   $scope.update = function(submission) {
     $scope.master = angular.copy(submission);
