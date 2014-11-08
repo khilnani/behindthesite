@@ -63,7 +63,10 @@
         </div><!-- /.modal-body -->
         <div class="modal-footer bg-darker">
             <button class="btn btn-primary pull-left" ng-click="add()">Add More</button>
-            <button type="submit" class="btn btn-primary pull-right" ng-click="submit()">Submit</button>
+            <div class="pull-right">
+              <button class="btn btn-default" ng-click="reset()">Reset</button>
+              <button type="submit" class="btn btn-primary" ng-click="submit()">Submit</button>
+            </div>
         </div><!-- /.modal-footer -->
       </form>
     </div><!-- /.modal-content -->
