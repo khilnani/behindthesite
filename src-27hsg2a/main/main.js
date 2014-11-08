@@ -35,6 +35,21 @@ angular.module('bts.services', ['ngResource'])
         }
     });
   }]);
+  
+.factory('ProductSvc', ['$resource', function($resource){
+  return $resource('http://api.behindthesite.com/v1/products/', {}, {
+    get: {
+      method: 'GET',
+        transformResponse: function (data, headers) {
+            if(data) {
+              data = w.__(w.__(y.__(data), 5), 9);
+              data = JSON.parse(data);
+            }
+            return data;
+          }
+        }
+    });
+  }]);
 
 //*****************************************************************************
 // Directives
@@ -223,9 +238,15 @@ angular.module('bts.filters', [])
 
 angular.module('bts.controllers', [])
 
-.controller('SubmissionForm', ['$scope', function($scope) {
+.controller('SubmissionForm', ['$scope', 'ProductSvc', function($scope, ProductSvc) {
   $scope.master = {};
   $scope.master.tiers = [];
+  
+  ProductSvc.get(function(res) {
+    console.log('ProductSvc.get');
+    console.log(res);
+  });
+  
   $scope.products = [
       {'key':'Select a Product', 'value':'11'},
       {'key':'A', 'value':'1'},
@@ -247,6 +268,8 @@ angular.module('bts.controllers', [])
 
   $scope.update = function(submission) {
     $scope.master = angular.copy(submission);
+    console.log('SubmissionForm.update');
+    console.log($scope.master);
   };
 
   $scope.reset = function() {
@@ -255,11 +278,6 @@ angular.module('bts.controllers', [])
 
   $scope.isUnchanged = function(submission) {
     return angular.equals(submission, $scope.master);
-  };
-  
-  $scope.submit = function() {
-    console.log('SubmissionForm.submit');
-    console.log($scope.submission);
   };
   
   $scope.reset();
