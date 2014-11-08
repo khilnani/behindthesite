@@ -243,6 +243,8 @@ angular.module('bts.controllers', [])
 
   $scope.update = function(submission) {
     $scope.master = angular.copy(submission);
+    console.log('SubmissionForm.update');
+    console.log($scope.master);
   };
 
   $scope.reset = function() {
