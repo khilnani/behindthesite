@@ -59,7 +59,7 @@
           <button class="btn btn-primary pull-left" ng-click="add()">Add More</button>
           <button type="submit" class="btn btn-primary pull-right">Submit</button>
         </form>
-        </div>
+      </div><!-- /.modal-body -->
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
@@ -74,9 +74,9 @@
         &nbsp;
       </p>
       <p class="text-center text-muted align-top" id="p-feedback">
-        <a class="gh-btn" href="https://github.com/behindthesite/behindthesite/issues" target="_blank" title="Please submit feedback or corrections."><i class="fa fa-github fa-lg"></i>&nbsp;Contribute / Send Feedback</a>
+        <a class="gh-btn" href="#" data-toggle="modal" data-target="#SubmissionModal" title="Please submit feedback or corrections."><i class="fa fa-github fa-lg"></i>&nbsp;Contribute / Send Feedback</a>
         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#SubmissionModal">Launch demo modal</button>
+<button type="button" class="btn btn-primary btn-lg" >Launch demo modal</button>
       </p>
       <p class="text-center text-muted align-top">
         <a href="https://twitter.com/BehindTheSite" class="twitter-follow-button" data-show-count="false">Follow @behindthesite</a>
@@ -87,9 +87,10 @@
       </p>
       <p class="text-center text-muted align-top">
         <span class="text-bold-12">Made In DC <img class="align-inherit" src="images/dc_logo.png" width="15" height="15"/></span>
-      </div>
-    </p>
+      </p>
+    </div>
   </div>
+</div>
 <div class="row container-fluid">
   <script type="text/ng-template" id="hoverTmpl.html">
     <div class="popover" role="tooltip">
