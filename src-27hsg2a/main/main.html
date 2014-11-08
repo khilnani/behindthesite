@@ -2,7 +2,9 @@
   <div class="modal-dialog">
    <div class="modal-content">
      <div class="modal-header">
-       <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+       <button type="button" class="btn btn-primary btn-xs close" data-dismiss="modal">
+       <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+       </button>
         <h4 class="modal-title">Contribute Information / Send Feedback</h4>
       </div>
       <div class="modal-body">
@@ -56,8 +58,10 @@
               </p>
             </div>
           </div>
-          <button class="btn btn-primary pull-left" ng-click="add()">Add More</button>
-          <button type="submit" class="btn btn-primary pull-right">Submit</button>
+          <div class="form-group">
+            <button class="btn btn-primary pull-left" ng-click="add()">Add More</button>
+            <button type="submit" class="btn btn-primary pull-right">Submit</button>
+          </div>
         </form>
       </div><!-- /.modal-body -->
     </div><!-- /.modal-content -->
