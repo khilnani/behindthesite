@@ -52,7 +52,7 @@ angular.module('bts.services', ['ngResource'])
   }])
   
 .factory('SubmitSvc', ['$resource', function($resource){
-  return $resource('http://api.behindthesite.com/v1/submit/', {}, {
+  return $resource('http://api.behindthesite.com:8888/v1/submit/', {}, {
     post: {
       method: 'POST',
         transformResponse: function (data, headers) {
