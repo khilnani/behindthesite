@@ -1,3 +1,88 @@
+<div class="modal fade" id="SubmissionModal" tabindex="-1" role="dialog" aria-labelledby="Feedback Submission Modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form class="form-horizontal" role="form" ng-controller="SubmissionForm" name="SubmissionForm">
+        <div class="modal-header bg-darker">
+          <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title">Contribute / Send Feedback</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="name">Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control input-sm" name="name" ng-model="submission.name" placeholder="Your Name" minlength="2" required>
+              <span ng-show="SubmissionForm.name.$error.required" class="text-danger help-block">Please do tell us your name.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="email">Email</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control input-sm" name="email" ng-model="submission.email" placeholder="Your Email" minlength="2" required>
+              <span ng-show="SubmissionForm.email.$error.email" class="text-danger help-block">This is not a valid email.</span>
+              <span ng-show="SubmissionForm.email.$error.required" class="text-danger help-block">Please tell us your email.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="product">Product Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control input-sm" name="product" ng-model="submission.product" placeholder="The Product" minlength="2" required>
+              <span ng-show="SubmissionForm.product.$error.required" class="text-danger help-block">Which Company/Product are you referring to?</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="url">Product Website</label>
+            <div class="col-sm-9">
+              <input type="url" class="form-control input-sm" name="url" ng-model="submission.url" placeholder="Website URL" minlength="2" required>
+              <span ng-show="SubmissionForm.url.$error.url" class="text-danger help-block">Is that a valid url?</span>
+              <span ng-show="SubmissionForm.url.$error.required" class="text-danger help-block">They surely must have a website, right?</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="comments">Comments</label>
+            <div class="col-sm-9">
+            <textarea class="form-control input-sm" name="comments" rows="2" ng-model="submission.comments" placeholder="Comments" ></textarea>
+            </div>
+          </div>
+          <div class="list-group">
+            <div class="list-group-item" ng-repeat="tier in submission.tiers">
+              <p class="list-group-item-text">
+                <div class="form-group">
+                  <label class="col-sm-4 control-label" for="product">
+                    Technology {{ tier.id }}
+                    <button class="btn btn-default btn-xs" ng-click="delete(tier.id)">
+                      <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                  </label>
+                  <div class="col-sm-8">
+                    <select class="form-control input-sm" name="id" ng-model="tier.product" ng-options="item.value as item.key for item in products">
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group has-feedback">
+                  <label class="col-sm-4 control-label" for="notes">
+                  </label>
+                  <div class="col-sm-8">
+                    <textarea class="form-control input-sm" name="notes" rows="2" ng-model="tier.notes" placeholder="Usage notes, or unlisted Technology details" ></textarea>
+                  </div>
+                </div>
+              </p>
+            </div>
+          </div>
+        </div><!-- /.modal-body -->
+        <div class="modal-footer bg-darker">
+            <button class="btn btn-primary pull-left" ng-click="add()">Add More</button>
+            <div class="pull-right">
+              <button class="btn btn-default" ng-click="reset()" ng-disabled="isUnchanged(submission)">Reset</button>
+              <button type="submit" class="btn btn-primary" ng-click="save(submission)" ng-disabled="!!SubmissionForm.$invalid">Submit</button>
+            </div>
+        </div><!-- /.modal-footer -->
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <div class="row">
   <div class="jumbotron">
     <div class="row pad">
@@ -8,7 +93,7 @@
         &nbsp;
       </p>
       <p class="text-center text-muted align-top" id="p-feedback">
-        <a class="gh-btn" href="https://github.com/behindthesite/behindthesite/issues" target="_blank" title="Please submit feedback or corrections."><i class="fa fa-github fa-lg"></i>&nbsp;Contribute / Send Feedback</a>
+        <button type="button" class="gh-btn" data-toggle="modal" data-target="#SubmissionModal" title="Please submit feedback or corrections.">Contribute / Send Feedback</button>
       </p>
       <p class="text-center text-muted align-top">
         <a href="https://twitter.com/BehindTheSite" class="twitter-follow-button" data-show-count="false">Follow @behindthesite</a>
@@ -19,8 +104,8 @@
       </p>
       <p class="text-center text-muted align-top">
         <span class="text-bold-12">Made In DC <img class="align-inherit" src="images/dc_logo.png" width="15" height="15"/></span>
-      </div>
-    </p>
+      </p>
+    </div>
   </div>
 </div>
 <div class="row container-fluid">
