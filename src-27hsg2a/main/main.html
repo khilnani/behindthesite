@@ -50,7 +50,7 @@
                     </button>
                   </label>
                   <div class="col-sm-9">
-                    <select class="form-control" name="product" ng-model="tier.product" ng-options="item.value as item.key for item in products">
+                    <select class="form-control" name="product{{ $index }}" ng-model="tier.product" ng-options="item.value as item.key for item in products">
                     </select>
                   </div>
                 </div>
