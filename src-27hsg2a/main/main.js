@@ -290,6 +290,10 @@ angular.module('bts.controllers', [])
   $scope.isUnchanged = function(submission) {
     return angular.equals(submission, $scope.master);
   };
+  
+  $scope.submit = function() {
+    alert('submit');
+  };
 
 }])
 
