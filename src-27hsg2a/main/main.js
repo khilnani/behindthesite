@@ -257,7 +257,7 @@ angular.module('bts.controllers', [])
   $scope.products = [];
   
   ProductSvc.get(function(res) {
-    alert('get');
+    //alert('get');
     console.log('ProductSvc.get');
     //console.log(res);
     for(var i=0; i < res.products.length; i++) {
@@ -270,7 +270,7 @@ angular.module('bts.controllers', [])
     $scope.reset();
     $scope.add();
     $scope.update($scope.submission);
-    alert('done');
+    //alert('done');
   });
   
   $scope.clear = function () {
