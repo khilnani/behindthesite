@@ -253,7 +253,7 @@ angular.module('bts.filters', [])
 
 angular.module('bts.controllers', [])
 
-.controller('SubmissionForm', ['$scope','ProductSvc', function($scope, ProductSvc) {
+.controller('SubmissionForm', ['$scope', 'SubmitSvc', 'ProductSvc', function($scope, SubmitSvc, ProductSvc) {
   
   $scope.products = [];
   
