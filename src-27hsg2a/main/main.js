@@ -275,6 +275,14 @@ angular.module('bts.controllers', [])
 
   $scope.delete = function(id) {
     console.log('SubmissionForm.delete: ' + id);
+    var tiers = $scope.submission.tiers;
+    var newArr = [];
+    for(var i=0; i < tiers.length; i++) {
+      if( tiers[i].id != id ) {
+        newArr.push( tiers[i] );
+      }
+    }
+    $scope.submission.tiers = newArr;
   };
 
   $scope.update = function(submission) {
