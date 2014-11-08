@@ -304,6 +304,8 @@ angular.module('bts.controllers', [])
   
   $scope.submit = function() {
     alert('submit');
+    console.log('$scope.$valid: ' + $scope.$valid);
+    console.log('$scope.$error.required: ' + $scope.$error.required);
   };
 
 }])
