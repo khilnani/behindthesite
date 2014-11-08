@@ -62,7 +62,7 @@
                 Product {{ tier.id }}
               </label>
               <div class="col-sm-10">
-                <select class="form-control" id="product" ng-model="tier.product" ng-options="products"></select>
+                <select class="form-control" id="product" ng-model="tier.product" ng-options="product for (key , value) in products"></select>
               </div>
             </div>
             <div class="form-group has-feedback">
