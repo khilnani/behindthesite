@@ -55,7 +55,6 @@ angular.module('bts.services', ['ngResource'])
   return $resource('http://api.behindthesite.com/v1/submit/', {}, {
     post: {
       method: 'POST',
-        responseType: 'text',
         transformResponse: function (data, headers) {
             if(data) {
               data = JSON.parse(data);
@@ -308,7 +307,7 @@ angular.module('bts.controllers', [])
     console.log('SubmissionForm.update');
     console.log($scope.master);
     
-    SubmitSvc.save( $scope.master, function (res) {
+    SubmitSvc.post( $scope.master, function (res) {
       console.log('SubmissionForm.saved');
       console.log(res);
     });
