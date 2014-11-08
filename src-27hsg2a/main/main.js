@@ -256,6 +256,14 @@ angular.module('bts.controllers', [])
   
   $scope.products = [];
   
+  $scope.init = function () {
+    console.log('SubmissionForm.init');
+    $scope.clear();
+    $scope.reset();
+    $scope.add();
+    $scope.update($scope.submission);
+  }
+  
   ProductSvc.get(function(res) {
     //alert('get');
     console.log('ProductSvc.get');
@@ -266,10 +274,7 @@ angular.module('bts.controllers', [])
         'key': res.products[i].name
       });
     }
-    $scope.clear();
-    $scope.reset();
-    $scope.add();
-    $scope.update($scope.submission);
+    $scope.init();
     //alert('done');
   });
   
@@ -310,6 +315,8 @@ angular.module('bts.controllers', [])
     SubmitSvc.post( $scope.master, function (res) {
       console.log('SubmissionForm.saved');
       console.log(res);
+      $scope.init();
+      $('#SubmissionModal').modal('hide');
     });
   };
 
