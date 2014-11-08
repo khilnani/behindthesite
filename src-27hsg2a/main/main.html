@@ -66,8 +66,8 @@
         <div class="modal-footer bg-darker">
             <button class="btn btn-primary pull-left" ng-click="add()">Add More</button>
             <div class="pull-right">
-              <button class="btn btn-default" ng-click="reset()">Reset</button>
-              <button type="submit" class="btn btn-primary" ng-click="submit()">Submit</button>
+              <button class="btn btn-default" ng-click="reset()" ng-disabled="isUnchanged(submission)">Reset</button>
+              <button type="submit" class="btn btn-primary" ng-click="update(submission)" ng-disabled="form.$invalid || isUnchanged(submission)">Submit</button>
             </div>
         </div><!-- /.modal-footer -->
       </form>
