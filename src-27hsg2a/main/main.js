@@ -252,6 +252,10 @@ angular.module('bts.controllers', [])
           'key': res.products[i].name
         });
       }
+      $scope.clear();
+      $scope.reset();
+      $scope.add();
+      $scope.update();
     });
   }, 3000);
   
@@ -286,11 +290,7 @@ angular.module('bts.controllers', [])
   $scope.isUnchanged = function(submission) {
     return angular.equals(submission, $scope.master);
   };
-  
-  $scope.clear();
-  $scope.reset();
-  $scope.add();
-  $scope.update();
+
 }])
 
 .controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', function ($scope, $timeout, Common, TaxonomySvc, StackSvc) {
