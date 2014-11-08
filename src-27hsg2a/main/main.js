@@ -227,6 +227,7 @@ angular.module('bts.controllers', [])
   $scope.master = {};
   $scope.master.tiers = [];
   $scope.products = [
+      {'key':'Select a Product', 'value':'11'},
       {'key':'A', 'value':'1'},
       {'key':'B', 'value':'2'}
     ];
@@ -235,7 +236,8 @@ angular.module('bts.controllers', [])
     var newItemNo = $scope.submission.tiers.length+1;
     console.log('SubmissionForm.add: ' + newItemNo)
     $scope.submission.tiers.push({
-      'id': newItemNo
+      'id': newItemNo,
+      'product': -1
     });
   };
 
