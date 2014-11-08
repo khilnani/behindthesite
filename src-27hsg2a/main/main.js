@@ -233,7 +233,7 @@ angular.module('bts.controllers', [])
   $scope.add = function() {
     var newItemNo = $scope.master.tiers.length+1;
     $scope.master.tiers.push({
-      'id': 'tier'+newItemNo;
+      'id': 'tier'+newItemNo
     });
   };
 
