@@ -238,21 +238,27 @@ angular.module('bts.filters', [])
 
 angular.module('bts.controllers', [])
 
-.controller('SubmissionForm', ['$scope', 'ProductSvc', function($scope, ProductSvc) {
-  $scope.master = {};
-  $scope.master.tiers = [];
+.controller('SubmissionForm', ['$scope', '$timeout','ProductSvc', function($scope, ProductSvc) {
+  
   $scope.products = [];
   
-  ProductSvc.get(function(res) {
-    console.log('ProductSvc.get');
-    console.log(res);
-    for(var i=0; i < res.products.length; i++) {
-      $scope.products.push({
-        'value': res.products[i].id,
-        'key': res.products[i].name
-      });
-    }
-  });
+  $timeout(function () {
+    ProductSvc.get(function(res) {
+      console.log('ProductSvc.get');
+      //console.log(res);
+      for(var i=0; i < res.products.length; i++) {
+        $scope.products.push({
+          'value': res.products[i].id,
+          'key': res.products[i].name
+        });
+      }
+    });
+  }, 3000);
+  
+  $scope.clear = function () {
+    $scope.master = {};
+    $scope.master.tiers = [];
+  }
     
   $scope.add = function() {
     var newItemNo = $scope.submission.tiers.length+1;
@@ -281,6 +287,7 @@ angular.module('bts.controllers', [])
     return angular.equals(submission, $scope.master);
   };
   
+  $scope.clear();
   $scope.reset();
   $scope.add();
   $scope.update();
