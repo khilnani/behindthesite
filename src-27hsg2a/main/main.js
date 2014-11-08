@@ -241,7 +241,7 @@ angular.module('bts.controllers', [])
 .controller('SubmissionForm', ['$scope','ProductSvc', function($scope, ProductSvc) {
   
   $scope.products = [];
-  alert('SubmissionForm');
+  
   ProductSvc.get(function(res) {
     alert('get');
     console.log('ProductSvc.get');
