@@ -238,26 +238,25 @@ angular.module('bts.filters', [])
 
 angular.module('bts.controllers', [])
 
-.controller('SubmissionForm', ['$scope', '$timeout','ProductSvc', function($scope, $timeout, ProductSvc) {
+.controller('SubmissionForm', ['$scope','ProductSvc', function($scope, ProductSvc) {
   
   $scope.products = [];
-  
-  $timeout(function () {
-    ProductSvc.get(function(res) {
-      console.log('ProductSvc.get');
-      //console.log(res);
-      for(var i=0; i < res.products.length; i++) {
-        $scope.products.push({
-          'value': res.products[i].id,
-          'key': res.products[i].name
-        });
-      }
-      $scope.clear();
-      $scope.reset();
-      $scope.add();
-      $scope.update($scope.submission);
-    });
-  }, 3000);
+
+  ProductSvc.get(function(res) {
+    console.log('ProductSvc.get');
+    //console.log(res);
+    for(var i=0; i < res.products.length; i++) {
+      $scope.products.push({
+        'value': res.products[i].id,
+        'key': res.products[i].name
+      });
+    }
+    $scope.clear();
+    $scope.reset();
+    $scope.add();
+    $scope.update($scope.submission);
+    alert('done');
+  });
   
   $scope.clear = function () {
     $scope.master = {};
