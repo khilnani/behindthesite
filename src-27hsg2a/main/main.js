@@ -302,9 +302,14 @@ angular.module('bts.controllers', [])
     return angular.equals(submission, $scope.master);
   };
   
+  
+  
   $scope.submit = function() {
-    alert('submit');
-    $scope.update($scope.submission);
+    alert('submit: ' + $('SubmissionForm').valid() );
+    if( $('SubmissionForm').valid() ) {
+      $scope.update(s);  
+    }
+    
   };
 
 }])
