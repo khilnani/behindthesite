@@ -9,7 +9,6 @@ uglifyjs ../vendor/marked/marked.js \
   ../vendor/angular/angular.js \
   ../vendor/angular-resource/angular-resource.js \
   ../vendor/angular-route/angular-route.js \
-  ../vendor/angular-animate/angular-animate.js \
   ../vendor/angular-sanitize/angular-sanitize.js \
   ../vendor/angular-loading-bar/build/loading-bar.js \
   ../vendor/ngInfiniteScroll/build/ng-infinite-scroll.js \
