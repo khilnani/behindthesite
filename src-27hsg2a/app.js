@@ -71,12 +71,12 @@ bts.factory('Common', ['$location', function ($location) {
   // Environment
   function setupEnvironment (env) {
     if(env) {
-      c.ENV = env;
+      c.env = env;
     } else {
-      c.ENV = "production";
+      c.env = "production";
     }
     console.log('bts.Common.setupEnvironment ENV: ' + c.ENV);
-    if(c.ENV == "production") {
+    if(c.env == "production") {
       console.log('bts.run: ga');
       ga('create', 'UA-24322958-20', 'auto');
       ga('send', 'pageview');
