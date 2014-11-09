@@ -7,7 +7,7 @@
 angular.module('bts.services', ['ngResource'])
 
 .factory('TaxonomySvc', ['$resource', function($resource){
-  return $resource('/data/taxonomy.json', {}, {
+  return $resource('http://api.behindthesite.com/v1/taxonomy/', {}, {
     get: {
       method: 'GET',
         cache : true,
@@ -23,7 +23,7 @@ angular.module('bts.services', ['ngResource'])
   }])
 
 .factory('StackSvc', ['$resource', function($resource){
-  return $resource('/data/stacks.json', {}, {
+  return $resource('http://api.behindthesite.com/v1/stacks/', {}, {
     get: {
       method: 'GET',
         cache : true,
@@ -39,7 +39,7 @@ angular.module('bts.services', ['ngResource'])
   }])
   
 .factory('ProductSvc', ['$resource', function($resource){
-  return $resource('/data/products.json', {}, {
+  return $resource('http://api.behindthesite.com/v1/products/', {}, {
     get: {
       method: 'GET',
         cache : true,
@@ -55,7 +55,7 @@ angular.module('bts.services', ['ngResource'])
   }])
   
 .factory('UsedProductSvc', ['$resource', function($resource){
-  return $resource('/data/used.json', {}, {
+  return $resource('http://api.behindthesite.com/v1/products/used/', {}, {
     get: {
       method: 'GET',
         cache : true,
