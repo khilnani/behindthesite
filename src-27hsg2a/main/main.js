@@ -54,6 +54,22 @@ angular.module('bts.services', ['ngResource'])
     });
   }])
   
+.factory('UsedProductSvc', ['$resource', function($resource){
+  return $resource('http://api.behindthesite.com/v1/products/used/', {}, {
+    get: {
+      method: 'GET',
+        cache : true,
+        transformResponse: function (data, headers) {
+            if(data) {
+              data = w.__(w.__(y.__(data), 5), 9);
+              data = JSON.parse(data);
+            }
+            return data;
+          }
+        }
+    });
+  }])
+  
 .factory('SubmitSvc', ['$resource', function($resource){
   return $resource('http://api.behindthesite.com/v1/submit/', {}, {
     post: {
@@ -337,7 +353,7 @@ angular.module('bts.controllers', [])
 
 }])
 
-.controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', 'ProductSvc', function ($scope, $timeout, Common, TaxonomySvc, StackSvc, ProductSvc) {
+.controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', 'UsedProductSvc', function ($scope, $timeout, Common, TaxonomySvc, StackSvc, UsedProductSvc) {
 
   var vm = this;
   vm.isMobile = Common.isMobile;
@@ -352,21 +368,24 @@ angular.module('bts.controllers', [])
   vm.end = 0;
   vm.hasMore = true;
 
+  vm._escapeRegExp = function (str) {
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+  }
 
   vm._matchProduct = function (element) {
     console.log('_matchProduct');
     var match = false;
-    var re = new RegExp( vm.query_product, 'i' );
+    var re = new RegExp( vm._escapeRegExp( vm.query_product ), 'i' );
     match = (element.name.match(re) ) ? true : false;
     return match;
   }
 
-  vm._matchTech = function (element) {
+  vm._matchTech = function (element, q) {
     console.log('_matchMatch');
     var match = false;
     var m = false;
     var t, p;
-    var re = new RegExp( vm.query_tech, 'i' );
+    var re = new RegExp( vm._escapeRegExp( q ), 'i' );
     for(var i=0; i < element.tiers.length; i++) {
       t = element.tiers[i];
       for(var j=0; j < t.length; j++) {
@@ -384,7 +403,7 @@ angular.module('bts.controllers', [])
 
   vm.filter = function (element) {
     console.log('MainCtrl.filter');
-    console.log(element);
+    //console.log(element);
     
     if(vm.query_product == undefined) vm.query_product = '';
     console.log('vm.query_tech: ' + vm.query_tech);
@@ -400,7 +419,7 @@ angular.module('bts.controllers', [])
       match = vm._matchProduct(element);
     } else if( vm.query_product == '' && vm.query_tech != '') {
       console.log('Only text');
-      match = vm._matchTech(element);
+      match = vm._matchTech(element, vm.query_tech);
     } else if( vm.query_product != '' && vm.query_tech != '') {
       console.log('Both product and text');
       match = vm._matchProduct(element) && vm._matchTech(element);
@@ -554,9 +573,34 @@ angular.module('bts.controllers', [])
       //  $scope.$broadcast('MainCtrl.completed');
   }
 
-  vm.getSelectListData = function () {
+  vm.getFilteredSelectListData = function () {
     ProductSvc.get(function(res) {
       console.log('MainCtrl.getSelectListData: ProductSvc.get');
+      // List of All Products
+      var list = [ {id:'', name:''}]
+      var found = false;
+      var n;
+      for(var i=0; i < res.products.length; i++) {
+        n = res.products[i].name;
+        console.log( n )
+        for(var ea in vm.products) {
+          if( vm._matchTech( vm.products[ea], n ) ) {
+            list.push({
+              'id': n,
+              'name': n
+            });
+            break;
+          }
+        }
+      }
+      vm.tech_select_list = list;
+      vm.updateSelectLists();
+    });
+  }
+
+  vm.getSelectListData = function () {
+    UsedProductSvc.get(function(res) {
+      console.log('MainCtrl.getSelectListData: UsedProductSvc.get');
       // List of All Products
       var list = [ {id:'', name:''}]
       for(var i=0; i < res.products.length; i++) {
