@@ -40,8 +40,15 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .grey-on-dark {
   color: #ccc;
   border: 1px solid #555555;
-  background-color: #1c1e22;
+  background-color: #2c2e33;
   text-shadow:0 1px 0 #666666;
+}
+.affix {
+  top: 0px;
+  z-index: 1000;
+  color: #c8c8c8;
+  background: #1c1e22;
+  border-color: #333333;
 }
 .input-xs {
   height: 25px;
@@ -91,13 +98,6 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   position: absolute;
   top: 10px;
   right: 10px;
-}
-.affix {
-  top: 0px;
-  z-index: 1000;
-  color: #c8c8c8;
-  background-color: #1c1e22;
-  border-color: #333333; /* #808080; */
 }
 .popover {
   max-width: 500px;
