@@ -45,7 +45,7 @@ bts.config(['$routeProvider', '$locationProvider', '$http', function($routeProvi
   });
 }]);
 
-bts.factory('Common', ['$location', function ($location) {
+bts.factory('Common', ['$location', '$http', function ($location, $http) {
   console.log("bts.Common");
   
   var c = this;
@@ -70,7 +70,7 @@ bts.factory('Common', ['$location', function ($location) {
   
   // Environment
   function setupEnvironment (env) {
-    if(env) {
+    if (env) {
       c.env = env;
     } else {
       c.env = "production";
