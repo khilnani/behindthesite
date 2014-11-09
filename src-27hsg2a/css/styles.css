@@ -32,7 +32,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 }
 .pad {
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
 }
 .text-bold-12 {
   font-size: 12px;
