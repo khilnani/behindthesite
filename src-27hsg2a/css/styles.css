@@ -96,8 +96,8 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   top: 0px;
   z-index: 1000;
   color: #c8c8c8;
-  background: #808080;
-  border-color: #272b30;
+  background: #000;
+  border-color: #272b30; /* #808080; */
 }
 .popover {
   max-width: 500px;
