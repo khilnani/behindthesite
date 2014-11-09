@@ -93,9 +93,3 @@ bts.factory('Common', ['$location', '$http', function ($location, $http) {
   
   return c;
 }]);
-
-bts.run(['Common', function(Common) {
-  console.log('bts.run');
-  console.log('Common.isMobile: ' + Common.isMobile);
-  console.log('Common.env: ' + Common.env);
-}]);
