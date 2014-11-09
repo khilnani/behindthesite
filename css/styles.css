@@ -119,19 +119,6 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 #p-text-11 {
   font-size: 11px;
 }
-.rotate {
-  /* Safari */
-  -webkit-transform: rotate(45deg);
-  /* Firefox */
-  -moz-transform: rotate(45deg);
-  /* IE */
-  -ms-transform: rotate(45deg);
-  /* Opera */
-  -o-transform: rotate(45deg);
-  /* Internet Explorer */
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
-}
-
 /*
   http://spiffygif.com/?color=cccccc&lines=11&bgColor=272b30&radius=7&width=2&halo=false
 */
