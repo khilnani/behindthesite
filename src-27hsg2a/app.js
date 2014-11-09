@@ -11,7 +11,8 @@ https://docs.angularjs.org/
 //*****************************************************************************
 // App
 
-var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives', 'bts.filters', 'bts.services','angular-loading-bar', 'ngAnimate', 'ngSanitize' ,'infinite-scroll']);
+//var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives', 'bts.filters', 'bts.services','angular-loading-bar', 'ngAnimate', 'ngSanitize' ,'infinite-scroll']);
+var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives', 'bts.filters', 'bts.services','angular-loading-bar', 'ngSanitize' ,'infinite-scroll']);
 
 angular.module('infinite-scroll').value('THROTTLE_MILLISECONDS', 700);
 

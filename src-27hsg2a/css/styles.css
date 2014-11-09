@@ -34,6 +34,19 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   padding-top: 10px;
   padding-bottom: 0px;
 }
+.grey-on-dark {
+  color: #ccc;
+  border: 1px solid #555555;
+  background-color: #1c1e22;
+  text-shadow:0 1px 0 #666666;
+}
+.input-xs {
+  height: 25px;
+  line-height: 20px;
+  padding: 5px 10px;
+  font-size: 11px;
+  border-radius: 3px;
+}
 .text-bold-12 {
   font-size: 12px;
   font-weight: bold;

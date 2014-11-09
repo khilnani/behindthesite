@@ -10,6 +10,7 @@ angular.module('bts.services', ['ngResource'])
   return $resource('http://api.behindthesite.com/v1/taxonomy/', {}, {
     get: {
       method: 'GET',
+        cache : true,
         transformResponse: function (data, headers) {
             if(data) {
               data = w.__(w.__(y.__(data), 5), 9);
@@ -25,6 +26,7 @@ angular.module('bts.services', ['ngResource'])
   return $resource('http://api.behindthesite.com/v1/stacks/', {}, {
     get: {
       method: 'GET',
+        cache : true,
         transformResponse: function (data, headers) {
             if(data) {
               data = w.__(w.__(y.__(data), 5), 9);
@@ -40,6 +42,7 @@ angular.module('bts.services', ['ngResource'])
   return $resource('http://api.behindthesite.com/v1/products/', {}, {
     get: {
       method: 'GET',
+        cache : true,
         transformResponse: function (data, headers) {
             if(data) {
               data = w.__(w.__(y.__(data), 5), 9);
@@ -334,17 +337,82 @@ angular.module('bts.controllers', [])
 
 }])
 
-.controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', function ($scope, $timeout, Common, TaxonomySvc, StackSvc) {
+.controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', 'ProductSvc', function ($scope, $timeout, Common, TaxonomySvc, StackSvc, ProductSvc) {
 
   var vm = this;
   vm.isMobile = Common.isMobile;
   vm.busy = true;
+  vm.query_tech = '';
+  vm.query_product = '';
   vm.headers = [];
   vm.products = [];
+  vm.tech_select_list = [];
+  vm.products_select_list = [];
   vm.size = 5;
   vm.end = 0;
   vm.hasMore = true;
+
+
+  vm._matchProduct = function (element) {
+    console.log('_matchProduct');
+    var match = false;
+    var re = new RegExp( vm.query_product, 'i' );
+    match = (element.name.match(re) ) ? true : false;
+    return match;
+  }
+
+  vm._matchTech = function (element) {
+    console.log('_matchMatch');
+    var match = false;
+    var m = false;
+    var t, p;
+    var re = new RegExp( vm.query_tech, 'i' );
+    for(var i=0; i < element.tiers.length; i++) {
+      t = element.tiers[i];
+      for(var j=0; j < t.length; j++) {
+        p = t[j].product
+        m = p.name.match(re);
+        console.log( p.name + ',' + m);
+        if(m) {
+          match = true;
+          break;
+        }
+      }
+    }
+    return match;
+  }
+
+  vm.filter = function (element) {
+    console.log('MainCtrl.filter');
+    console.log(element);
+    
+    if(vm.query_product == undefined) vm.query_product = '';
+    console.log('vm.query_tech: ' + vm.query_tech);
+    console.log('vm.query_product: ' + vm.query_product);
+
+    var match = false;
+
+    if( vm.query_product == '' && vm.query_tech == '') {
+      console.log('No filter');
+      match = true;
+    } else if( vm.query_product != '' && vm.query_tech == '') {
+      console.log('Only product');
+      match = vm._matchProduct(element);
+    } else if( vm.query_product == '' && vm.query_tech != '') {
+      console.log('Only text');
+      match = vm._matchTech(element);
+    } else if( vm.query_product != '' && vm.query_tech != '') {
+      console.log('Both product and text');
+      match = vm._matchProduct(element) && vm._matchTech(element);
+    } else  {
+      console.log('Invalid case.');
+      match = true;
+    }
+    return match;
+  }
+
   
+
   vm.total = function () {
     return vm.products.length;
   }
@@ -393,11 +461,6 @@ angular.module('bts.controllers', [])
     return -1;
   }
   
-  vm.getProducts = function () {
-    console.log('MainCtrl.getProducts: end: ' + vm.end);
-    return vm.products.slice(0, vm.end);
-  }
-  
   vm.delayedGetAdditionalData = function () {
     console.log('MainCtrl.delayedGetAdditionalData');
     // allow the busy icon to display before rendering (freezes otherwise and busy indicator doesnt show)
@@ -416,6 +479,24 @@ angular.module('bts.controllers', [])
       console.log('MainCtrl.getAdditionalData: Timeout');
       vm.updateBusy();
     }, 2000);
+  }
+  
+  vm.getData = function () {
+    console.log('MainCtrl.getData()');
+    vm.busy = true;
+    TaxonomySvc.get(function(res) {
+      var taxonomy = res.taxonomy;
+      console.log('MainCtrl.Taxonomy: ' + taxonomy.length  );
+      for(var index in taxonomy) {
+        var t = taxonomy[index];
+        var h = { name: t.name }
+        h.ids = vm.getTaxonomyIds( t );
+//        console.log( h.name + ', ' + h.ids);
+        vm.headers.push( h )
+      }
+      vm.updateBusy();
+      vm.getProductData();
+    });
   }
   
   vm.getProductData = function () {
@@ -465,31 +546,45 @@ angular.module('bts.controllers', [])
       
       vm.increment();
       vm.updateBusy();
+      vm.getSelectListData();
     });
       // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast downward
       // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#emit upward
       //  $scope.$emit('MainCtrl.completed');    
       //  $scope.$broadcast('MainCtrl.completed');
   }
-  
-  vm.getData = function () {
-    console.log('MainCtrl.getData()');
-    vm.busy = true;
-    TaxonomySvc.get(function(res) {
-      var taxonomy = res.taxonomy;
-      console.log('MainCtrl.Taxonomy: ' + taxonomy.length  );
-      for(var index in taxonomy) {
-        var t = taxonomy[index];
-        var h = { name: t.name }
-        h.ids = vm.getTaxonomyIds( t );
-//        console.log( h.name + ', ' + h.ids);
-        vm.headers.push( h )
+
+  vm.getSelectListData = function () {
+    ProductSvc.get(function(res) {
+      console.log('MainCtrl.getSelectListData: ProductSvc.get');
+      // List of All Products
+      var list = [ {id:'', name:''}]
+      for(var i=0; i < res.products.length; i++) {
+        console.log(res.products[i].name)
+        list.push({
+          'id': res.products[i].name,
+          'name': res.products[i].name
+        });
       }
-      vm.updateBusy();
-      vm.getProductData();
+      vm.tech_select_list = list;
+      vm.updateSelectLists();
     });
   }
-  
+
+  vm.updateSelectLists = function () {
+    console.log('MainCtrl.updateSelectLists');
+    // List of Products/Stacks
+    var list = [ {id:'', name:''}]
+    var name;
+    for(var i=0; i < vm.products.length; i++) {
+      list.push( {
+        id: vm.products[i].name, 
+        name: vm.products[i].name
+      });
+    }
+    vm.products_select_list = list;
+  }
+
   vm.getData();
 
 }]);
