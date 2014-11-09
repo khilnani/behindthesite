@@ -33,7 +33,7 @@ bts.config(function($provide){
 
 // https://docs.angularjs.org/api/ngRoute/provider/$routeProvider
 // https://docs.angularjs.org/api/ng/service/$location
-bts.config(['$routeProvider', '$locationProvider', '$http', function($routeProvider, $locationProvider, $http) {
+bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(false);
   $routeProvider.when('/', {
     templateUrl: 'main/main.html',
