@@ -384,7 +384,7 @@ angular.module('bts.controllers', [])
   }
 
   vm._matchTech = function (element, q) {
-    console.log('_matchMatch');
+    console.log('_matchMatch: ' + q);
     var match = false;
     var m = false;
     var t, p;
@@ -426,7 +426,7 @@ angular.module('bts.controllers', [])
       match = vm._matchTech(element, vm.query_tech);
     } else if( vm.query_product != '' && vm.query_tech != '') {
       console.log('Both product and text');
-      match = vm._matchProduct(element) && vm._matchTech(element);
+      match = vm._matchProduct(element) && vm._matchTech(element, vm.query_tech);
     } else  {
       console.log('Invalid case.');
       match = true;
