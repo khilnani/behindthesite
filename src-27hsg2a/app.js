@@ -66,7 +66,7 @@ bts.factory('Common', ['$location', '$http', function ($location, $http) {
   if (isMobileOverride == 'false') {
     c.isMobile = false;
   }
-  console.log('bts.Common.isMobile: ' + isMobile + ' type: ' + typeof(isMobile));
+  console.log('bts.Common.isMobile: ' + c.isMobile + ' type: ' + typeof(c.isMobile));
   
   // Environment
   function setupEnvironment (env) {
