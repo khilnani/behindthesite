@@ -375,8 +375,11 @@ angular.module('bts.controllers', [])
   vm._matchProduct = function (element) {
     console.log('_matchProduct');
     var match = false;
-    var re = new RegExp( vm._escapeRegExp( vm.query_product ), 'i' );
-    match = (element.name.match(re) ) ? true : false;
+    //var re = new RegExp( vm._escapeRegExp( vm.query_product ), 'i' );
+    //match = (element.name.match(re) ) ? true : false;
+    if(element && element.name) {
+      match = (element.name.toLowerCase() == vm.query_product.toLowerCase());
+    }
     return match;
   }
 
@@ -385,12 +388,13 @@ angular.module('bts.controllers', [])
     var match = false;
     var m = false;
     var t, p;
-    var re = new RegExp( vm._escapeRegExp( q ), 'i' );
+    //var re = new RegExp( vm._escapeRegExp( q ), 'i' );
     for(var i=0; i < element.tiers.length; i++) {
       t = element.tiers[i];
       for(var j=0; j < t.length; j++) {
         p = t[j].product
-        m = p.name.match(re);
+        //m = p.name.match(re);
+        m = (p.name.toLowerCase() == q.toLowerCase());
         console.log( p.name + ',' + m);
         if(m) {
           match = true;
