@@ -241,10 +241,12 @@
                     <p class="list-group-item-text" ><span class="markdown" ng-bind-html="product.references"></span></p>
                   </div>
                 </div>
-                <button type="button" class="btn btn-xs btn-default" data-toggle="collapse" 
-                  data-target="#{{ ::product.name | ws }}" 
-                  data-parent="#accordion">Close</button>
-                <button type="button" class="btn btn-xs btn-default pull-right" ng-click="vm.backToTop((product.name | ws))">Back to Top</button>
+                <span class="pull-right">
+                  <button type="button" class="btn btn-xs btn-default" data-toggle="collapse" 
+                    data-target="#{{ ::product.name | ws }}" 
+                    data-parent="#accordion">Close</button>
+                  <button type="button" class="btn btn-xs btn-default" ng-click="vm.backToTop((product.name | ws))">Back to Top</button>
+                </span>
               </div>
             </div>
           </div>
