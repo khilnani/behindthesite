@@ -409,7 +409,7 @@ angular.module('bts.controllers', [])
     if (!vm.query_tech) {
         return $sce.trustAsHtml(text);
     }
-    return $sce.trustAsHtml(text.replace(new RegExp(vm.query_tech, 'gi'), '<span class="highlightedText">$&</span>'));
+    return $sce.trustAsHtml(text.replace(vm.query_tech, 'gi'), '<span class="highlightedText">$&</span>'));
   }
 
   vm.filter = function (element) {
