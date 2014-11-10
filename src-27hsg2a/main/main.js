@@ -263,6 +263,13 @@ angular.module('bts.filters', [])
       return input.toLowerCase().replace(/[^a-z_]/g, '_');
     }
   };
+})
+
+.filter('startFrom', function() {
+    return function(input, start) {
+        start = +start; //parse to int
+        return input.slice(start);
+    }
 });
 
 //*****************************************************************************
@@ -364,11 +371,38 @@ angular.module('bts.controllers', [])
   vm.products = [];
   vm.tech_select_list = [];
   vm.products_select_list = [];
-  vm.size = 5;
+  
+  vm.currentPage = 0;
+  vm.pageSize = 5;
   vm.end = 0;
+  
   vm.hasMore = true;
   
-  vm.sizes = [5,10,15,20];
+  vm.pageSize_select_list = [5,10,15,20];
+  
+  vm.total = function () {
+    return vm.products.length;
+  }
+  
+  vm.increment = function () {
+    vm.end = vm.end + vm.pageSize;
+    if(vm.end >= vm.products.length) {
+      vm.end = vm.products.length;
+      vm.hasMore = false;
+    }
+    console.log('MainCtrl.increment: ' + vm.end);
+  }
+  
+  vm.getFilteredProducts = function () {
+    // https://docs.angularjs.org/api/ng/filter/filter
+    return $filter('filter')($scope.data, vm.filter)
+  }
+  
+  vm.numberOfPages = function () {
+    var n = Math.ceil(vm.getFilteredProducts().length/vm.pageSize);
+    if(n == 0) n = 1;
+    return n;
+  }
 
   vm._escapeRegExp = function (str) {
     return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
@@ -441,21 +475,6 @@ angular.module('bts.controllers', [])
       match = true;
     }
     return match;
-  }
-
-  
-
-  vm.total = function () {
-    return vm.products.length;
-  }
-  
-  vm.increment = function () {
-    vm.end = vm.end + vm.size;
-    if(vm.end >= vm.products.length) {
-      vm.end = vm.products.length;
-      vm.hasMore = false;
-    }
-    console.log('MainCtrl.increment: ' + vm.end);
   }
   
   vm.backToTop = function (id) {
