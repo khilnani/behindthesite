@@ -246,7 +246,7 @@
                     Filter by Technology:  
                     <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
                     Page Size:
-                    <select class="form-control input-xs grey-on-dark" ng-model="vm.pageSize" id="pageSize" ng-options="item.id as item.name for item in vm.pageSize_select_list"></select>
+                    <select class="form-control input-xs grey-on-dark" ng-model="vm.pageSize" id="pageSize" ng-options="item as item for item in vm.pageSize_select_list"></select>
                   </form>
                 </span>
               </th>
