@@ -245,6 +245,8 @@
                     <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product" ng-options="item.id as item.name for item in vm.products_select_list"></select>
                     Filter by Technology:  
                     <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+                    Page Size:
+                    <select class="form-control input-xs grey-on-dark" ng-model="vm.pageSize" id="pageSize" ng-options="item.id as item.name for item in vm.pageSize_select_list"></select>
                   </form>
                 </span>
               </th>
@@ -255,7 +257,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="product in vm.products | filter:vm.filter | limitTo:vm.end">
+            <!-- <tr ng-repeat="product in vm.products | filter:vm.filter | limitTo:vm.end"> -->
+            <tr ng-repeat="product in vm.products | filter:vm.filter | startFrom:vm.currentPage*vm.pageSize | limitTo:vm.pageSize">
               <td>
                 <ul class="list-unstyled">
                   <li data-title="{{ ::product.name }}" 
