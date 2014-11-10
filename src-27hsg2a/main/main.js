@@ -353,7 +353,7 @@ angular.module('bts.controllers', [])
 
 }])
 
-.controller('MainCtrl', ['$scope', '$timeout', 'Common', 'TaxonomySvc', 'StackSvc', 'UsedProductSvc', function ($scope, $timeout, Common, TaxonomySvc, StackSvc, UsedProductSvc) {
+.controller('MainCtrl', ['$scope', '$timeout', '$sce', 'Common', 'TaxonomySvc', 'StackSvc', 'UsedProductSvc', function ($scope, $timeout, $sce, Common, TaxonomySvc, StackSvc, UsedProductSvc) {
 
   var vm = this;
   vm.isMobile = Common.isMobile;
@@ -403,6 +403,13 @@ angular.module('bts.controllers', [])
       }
     }
     return match;
+  }
+  
+  vm.highlight = function (text) {
+    if (!vm.query_tech) {
+        return $sce.trustAsHtml(text);
+    }
+    return $sce.trustAsHtml(text.replace(new RegExp(vm.query_tech, 'gi'), '<span class="highlightedText">$&</span>'));
   }
 
   vm.filter = function (element) {
