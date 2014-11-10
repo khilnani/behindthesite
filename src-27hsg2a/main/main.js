@@ -389,10 +389,12 @@ angular.module('bts.controllers', [])
   
   // pagination, page size loaded limited by infinitePageSize if greater, see pageLimit. use pageLimit in html ng-repeat
   vm.pageLimit = function () {
+    var ret = vm.pageSize
     if( vm.infinitePageSize < vm.pageSize ) {
-      return vm.infinitePageSize;
+      ret = vm.infinitePageSize;
     }
-    return vm.pageSize;
+    console.log('vm.pageLimit: ' + ret);
+    return ret;
   }
   
   // respect page size
