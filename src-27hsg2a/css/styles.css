@@ -102,7 +102,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   background-color: #1c1e22;
 }
 .highlightedText {
+  color: #1c1e22;
   background: yellow;
+  padding: 0 3px 0 3px;
 }
 .cursor {
   cursor: pointer;
