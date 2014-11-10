@@ -239,15 +239,15 @@
                 <span class="float-left">
                   <h4 class="title pad-right-10">BehindTheSite <sup><small>alpha</small></sup></h4>
                 </span>
-                <form class="form-inline pull-right" role="form">
-                  Product List: 
-                  <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product" ng-options="item.id as item.name for item in vm.products_select_list"></select>
-                  Filter by Technology:  
-                  <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
-                  
+                <span class="pull-right">
+                  <form class="form-inline" role="form">
+                    Product List: 
+                    <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product" ng-options="item.id as item.name for item in vm.products_select_list"></select>
+                    Filter by Technology:  
+                    <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+                  </form>
                   <i class="icon-cog"></i>
-                  
-                </form>
+                </span>
               </th>
             </tr>
             <tr>
