@@ -100,7 +100,7 @@ angular.module('bts.directives', [])
     ele.affix({
       offset: {
         top: function() { 
-          return  $('#main').offset().top - 70;
+          return  $('#main').offset().top - 80;
         }
       }
     })
