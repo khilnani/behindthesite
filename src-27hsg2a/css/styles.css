@@ -37,6 +37,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   padding-top: 10px;
   padding-bottom: 0px;
 }
+.pad-left-5 {
+  padding-left: 5px;
+}
 .pad-right-10 {
   padding-right: 10px;
 }
