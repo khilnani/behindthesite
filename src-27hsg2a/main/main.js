@@ -403,10 +403,10 @@ angular.module('bts.controllers', [])
     }
     return false;
   }
+  
+  // assumes called called vm.shouldIncrementInfiniteCount() already
   vm.incrementInfiniteCount = function () {
-    if( vm.shouldIncrementInfiniteCount() ) {
-      vm.infiniteCount = vm.infiniteCount + vm.infinitePageSize;  
-    }
+    vm.infiniteCount = vm.infiniteCount + vm.infinitePageSize;
     if(vm.infiniteCount >= vm.products.length) {
       vm.infiniteCount = vm.products.length;
       vm.hasMore = false;
@@ -556,9 +556,9 @@ angular.module('bts.controllers', [])
   vm._getAdditionalData = function () {
     vm.busy = true;
     vm.incrementInfiniteCount();
-    console.log('MainCtrl.getAdditionalData: ' + vm.infiniteCount);
+    console.log('MainCtrl._getAdditionalData: ' + vm.infiniteCount);
     $timeout(function () {
-      console.log('MainCtrl.getAdditionalData: Timeout');
+      console.log('MainCtrl._getAdditionalData: Timeout');
       vm.updateBusy();
     }, 2000);
   }
