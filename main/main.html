@@ -26,7 +26,7 @@
           <div class="form-group">
             <label class="col-sm-3 control-label" for="email">Email</label>
             <div class="col-sm-9">
-              <input type="email" class="form-control input-sm" name="email" ng-model="submission.email" placeholder="Your Email. We don't spam or sell email addresses." minlength="2">
+              <input type="email" class="form-control input-sm" name="email" ng-model="submission.email" placeholder="Your Email. We don't spam or sell emails." minlength="2">
               <span ng-show="SubmissionForm.email.$error.email" class="text-danger help-block">You might have a typo in your email address.</span>
               <span ng-show="SubmissionForm.email.$error.required" class="text-danger help-block">Please tell us your email. We don't spam or sell email addresses.</span>
             </div>
@@ -102,10 +102,11 @@
         More than 20 stacks added, and more being researched. Optimized for <em><a class="cursor" ng-click="vm.isMobile=false">Desktop</a></em> and <em><a class="cursor" ng-click="vm.isMobile=true">Mobile</a></em>.
       </small></small></p>
       <p class="text-center text-muted align-top"><small>
-        <a href="https://twitter.com/BehindTheSite" class="twitter-follow-button" data-show-count="false">Follow @behindthesite</a>
+      
+        <a href="https://twitter.com/BehindTheSite" class="twitter-follow-button" data-show-count = true>Follow @behindthesite</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       
-        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://behindthesite.com" data-via="BehindTheSite" data-count="none">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://behindthesite.com" data-via="BehindTheSite">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </small></p>
       <p class="text-center text-muted align-top" id="p-text-11">
