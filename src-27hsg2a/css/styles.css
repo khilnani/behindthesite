@@ -125,8 +125,8 @@ thead .grey-on-dark {
   background-color: #1c1e22;
 }
 .highlightedText {
-  color: #0c0e11;
-  background: #AEB404;
+  color: #000;
+  background: #29d; /*  #AEB404;  */
   padding: 0 3px 0 3px;
   border-radius: 3px;
 }
