@@ -395,7 +395,7 @@ angular.module('bts.controllers', [])
         p = t[j].product
         //m = p.name.match(re);
         m = (p.name.toLowerCase() == q.toLowerCase());
-        console.log( p.name + ',' + m);
+        //console.log( p.name + ',' + m);
         if(m) {
           match = true;
           break;
@@ -417,25 +417,25 @@ angular.module('bts.controllers', [])
     //console.log(element);
     
     if(vm.query_product == undefined) vm.query_product = '';
-    console.log('vm.query_tech: ' + vm.query_tech);
-    console.log('vm.query_product: ' + vm.query_product);
+    //console.log('vm.query_tech: ' + vm.query_tech);
+    //console.log('vm.query_product: ' + vm.query_product);
 
     var match = false;
 
     if( vm.query_product == '' && vm.query_tech == '') {
-      console.log('No filter');
+      //console.log('No filter');
       match = true;
     } else if( vm.query_product != '' && vm.query_tech == '') {
-      console.log('Only product');
+      //console.log('Only product');
       match = vm._matchProduct(element);
     } else if( vm.query_product == '' && vm.query_tech != '') {
-      console.log('Only text');
+      //console.log('Only text');
       match = vm._matchTech(element, vm.query_tech);
     } else if( vm.query_product != '' && vm.query_tech != '') {
       console.log('Both product and text');
       match = vm._matchProduct(element) && vm._matchTech(element, vm.query_tech);
     } else  {
-      console.log('Invalid case.');
+      //console.log('Invalid case.');
       match = true;
     }
     return match;
@@ -593,7 +593,7 @@ angular.module('bts.controllers', [])
       var n;
       for(var i=0; i < res.products.length; i++) {
         n = res.products[i].name;
-        console.log( n )
+        //console.log( n )
         for(var ea in vm.products) {
           if( vm._matchTech( vm.products[ea], n ) ) {
             list.push({
@@ -615,7 +615,7 @@ angular.module('bts.controllers', [])
       // List of All Products
       var list = [ {id:'', name:''}]
       for(var i=0; i < res.products.length; i++) {
-        console.log(res.products[i].name)
+        //console.log(res.products[i].name)
         list.push({
           'id': res.products[i].name,
           'name': res.products[i].name
