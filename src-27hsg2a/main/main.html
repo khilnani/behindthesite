@@ -362,7 +362,11 @@
 </div>
 <div class="row" ng-if="vm.isMobile && vm.hasMore && !vm.busy">
   <p class="text-center text-muted margin-bottom-40">
-    <button class="btn btn-default vcenter" ng-click="vm.getAdditionalData()">Loaded {{ vm.infiniteCount }} of {{ vm.total() }}. Click for more.</button>
+    <button class="btn btn-default vcenter" ng-click="vm.getAdditionalData()">
+    Loaded {{ vm.infiniteCount }} of {{ vm.total() }}  
+    <i class="fa fa-arrow-down"></i> 
+    Click for more
+    </button>
   </p>
 </div>
 <!--  Loading indicators END //-->
