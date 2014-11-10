@@ -26,7 +26,7 @@
             <label class="col-sm-3 control-label" for="email">Email</label>
             <div class="col-sm-9">
               <input type="email" class="form-control input-sm" name="email" ng-model="submission.email" placeholder="Your Email. We don't spam or sell email addresses." minlength="2">
-              <span ng-show="SubmissionForm.email.$error.email" class="text-danger help-block">You might have a typo in your email address?</span>
+              <span ng-show="SubmissionForm.email.$error.email" class="text-danger help-block">You might have a typo in your email address.</span>
               <span ng-show="SubmissionForm.email.$error.required" class="text-danger help-block">Please tell us your email. We don't spam or sell email addresses.</span>
             </div>
           </div>
@@ -41,7 +41,7 @@
             <label class="col-sm-3 control-label" for="url">Product Website</label>
             <div class="col-sm-9">
               <input type="url" class="form-control input-sm" name="url" ng-model="submission.url" placeholder="Surely, the product/company has a Website right?" minlength="2">
-              <span ng-show="SubmissionForm.url.$error.url" class="text-danger help-block">Is that a valid url?</span>
+              <span ng-show="SubmissionForm.url.$error.url" class="text-danger help-block">We're not sure thats a valid url.</span>
               <span ng-show="SubmissionForm.url.$error.required" class="text-danger help-block">Surely, the product/company has a Website right?</span>
             </div>
           </div>
