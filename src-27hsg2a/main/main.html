@@ -247,6 +247,10 @@
                     <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
                     Page Size:
                     <select class="form-control input-xs grey-on-dark" ng-model="vm.pageSize" id="pageSize" ng-options="item as item for item in vm.pageSize_select_list"></select>
+                    
+                    <button class="btn btn-default btn-xs" ng-disabled="vm.currentPage == 0" ng-click="vm.currentPage=vm.currentPage-1">Previous</button>
+                    {{vm.currentPage+1}}/{{vm.numberOfPages()}}
+                    <button class="btn btn-default btn-xs" ng-disabled="vm.currentPage >= getFilteredProducts().length/vm.pageSize - 1" ng-click="vm.currentPage=vm.currentPage+1">Next</button>
                   </form>
                 </span>
               </th>
