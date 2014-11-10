@@ -367,6 +367,8 @@ angular.module('bts.controllers', [])
   vm.size = 5;
   vm.end = 0;
   vm.hasMore = true;
+  
+  vm.sizes = [5,10,15,20];
 
   vm._escapeRegExp = function (str) {
     return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
