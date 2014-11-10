@@ -395,7 +395,7 @@ angular.module('bts.controllers', [])
   
   vm.getFilteredProducts = function () {
     // https://docs.angularjs.org/api/ng/filter/filter
-    return $filter('filter')($scope.data, vm.filter)
+    return $filter('filter')($scope.products, vm.filter)
   }
   
   vm.numberOfPages = function () {
