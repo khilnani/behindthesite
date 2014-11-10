@@ -374,7 +374,9 @@ angular.module('bts.controllers', [])
   
   vm.currentPage = 0;
   vm.pageSize = 5;
-  vm.end = 0;
+  
+  vm.infiniteCount = 0;
+  vm.infinitePageSize = 5;
   
   vm.hasMore = true;
   
@@ -384,13 +386,18 @@ angular.module('bts.controllers', [])
     return vm.products.length;
   }
   
-  vm.increment = function () {
-    vm.end = vm.end + vm.pageSize;
-    if(vm.end >= vm.products.length) {
-      vm.end = vm.products.length;
+  vm.shouldIncrementInfiniteCount = function () {
+    return (vm.infiniteCount + vm.infinitePageSize < vm.pageSize);
+  }
+  vm.incrementInfiniteCount = function () {
+    if( vm.shouldIncrementInfiniteCount() ) {
+      vm.infiniteCount = vm.infiniteCount + vm.infinitePageSize;  
+    }
+    if(vm.infiniteCount >= vm.products.length) {
+      vm.infiniteCount = vm.products.length;
       vm.hasMore = false;
     }
-    console.log('MainCtrl.increment: ' + vm.end);
+    console.log('MainCtrl.incrementInfiniteCount: ' + vm.infiniteCount);
   }
   
   vm.getFilteredProducts = function () {
@@ -512,20 +519,30 @@ angular.module('bts.controllers', [])
     return -1;
   }
   
-  vm.delayedGetAdditionalData = function () {
-    console.log('MainCtrl.delayedGetAdditionalData');
+  // will get additional data regardless of pagination
+  vm.getAdditionalData = function () {
+    console.log('MainCtrl.mobileGetAdditionalData');
     // allow the busy icon to display before rendering (freezes otherwise and busy indicator doesnt show)
     vm.busy = true;
     $timeout(function () {
-      console.log('MainCtrl.delayedGetAdditionalData: Timeout');
-      vm.getAdditionalData();
+      console.log('MainCtrl.mobileGetAdditionalData: Timeout');
+      vm._getAdditionalData();
     }, 500);
   }
   
-  vm.getAdditionalData = function () {
+  // inifite loading within pagination
+  vm.infiniteGetAdditionalData = function () {
+    console.log('MainCtrl.infiniteGetAdditionalData');
+    if( vm.shouldIncrementInfiniteCount() ) {
+      vm._getAdditionalData();
+    }
+  }
+  
+  // internal keep busy to prevent too many re-triggers
+  vm._getAdditionalData = function () {
     vm.busy = true;
-    vm.increment();
-    console.log('MainCtrl.getAdditionalData: ' + vm.end);
+    vm.incrementInfiniteCount();
+    console.log('MainCtrl.getAdditionalData: ' + vm.infiniteCount);
     $timeout(function () {
       console.log('MainCtrl.getAdditionalData: Timeout');
       vm.updateBusy();
@@ -595,7 +612,7 @@ angular.module('bts.controllers', [])
         vm.products.push( model )
       } 
       
-      vm.increment();
+      vm.incrementInfiniteCount();
       vm.updateBusy();
       vm.getSelectListData();
     });
