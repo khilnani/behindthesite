@@ -262,7 +262,7 @@
           </thead>
           <tbody>
             <!-- <tr ng-repeat="product in vm.products | filter:vm.filter | limitTo:vm.infiniteCount"> -->
-            <tr ng-repeat="product in vm.products | filter:vm.filter | startFrom:vm.currentPage*vm.pageSize | limitTo:vm.pageSize">
+            <tr ng-repeat="product in vm.products | filter:vm.filter | startFrom:vm.currentPage*vm.pageSize | limitTo:vm.pageLimit()">
               <td>
                 <ul class="list-unstyled">
                   <li data-title="{{ ::product.name }}" 
