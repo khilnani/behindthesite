@@ -105,6 +105,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   color: #1c1e22;
   background: #AEB404;
   padding: 0 3px 0 3px;
+  border-radius: 3px;
 }
 .cursor {
   cursor: pointer;
