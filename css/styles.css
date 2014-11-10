@@ -37,6 +37,12 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   padding-top: 10px;
   padding-bottom: 0px;
 }
+.pad-right-10 {
+  padding-right: 10px;
+}
+.pad-right-20 {
+  padding-right: 20px;
+}
 .grey-on-dark {
   color: #ccc;
   border: 1px solid #555555;
@@ -50,6 +56,12 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   color: #c8c8c8;
   background: #1c1e22;
   border-color: #aaaaaa;
+}
+.affix-top .title {
+  display: none;
+}
+.affix .title {
+  display: inline;
 }
 .affix .grey-on-dark {
   color: #ccc;
@@ -72,6 +84,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .shift-up-5 {
   position: relative;
   top: -5px;
+}
+.margin-bottom-0 {
+  margin-bottom: 0px;
 }
 .margin-bottom-20 {
   margin-bottom: 20px;
@@ -98,6 +113,12 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .bg-darker {
   background-color: #1c1e22;
 }
+.highlightedText {
+  color: #0c0e11;
+  background: #AEB404;
+  padding: 0 3px 0 3px;
+  border-radius: 3px;
+}
 .cursor {
   cursor: pointer;
   cursor: hand;
@@ -109,6 +130,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 }
 .popover {
   max-width: 500px;
+}
+.popover.top>.arrow:after {
+  border-top-color: #1c1e22;
 }
 .markdown {
   word-wrap: break-word;
