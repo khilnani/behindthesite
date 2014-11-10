@@ -280,7 +280,7 @@
                       data-notes="" 
                       product="product">
                     <span class="cursor">{{ product.name }}</span>
-                    <small class="text-muted pull-right">{{ (vm.currentPage-1)*vm.pageSize + $index + 1 }}/{{ vm.total() }}</span></small>
+                    <small class="text-muted pull-right">{{ vm.currentPage*vm.pageSize + $index + 1 }}/{{ vm.total() }}</span></small>
                   </li>
                   <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
                   <li popover="popover" ng-if='product.insight' data-title="Insight" data-content="{{ ::product.insight }}"><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
