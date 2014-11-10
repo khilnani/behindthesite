@@ -110,8 +110,8 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .popover {
   max-width: 500px;
 }
-.popover .arrow {
-  background-color: #1c1e22;
+.popover.top>.arrow:after {
+  border-top-color: #1c1e22;
 }
 .markdown {
   word-wrap: break-word;
