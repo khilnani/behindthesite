@@ -395,8 +395,13 @@ angular.module('bts.controllers', [])
     return vm.pageSize;
   }
   
+  // respect page size
+  // was return (vm.infiniteCount + vm.infinitePageSize < vm.pageSize);
   vm.shouldIncrementInfiniteCount = function () {
-    return (vm.infiniteCount + vm.infinitePageSize < vm.pageSize);
+    if (vm.pageLimit() < vm.pageSize) {
+      return true;
+    }
+    return false;
   }
   vm.incrementInfiniteCount = function () {
     if( vm.shouldIncrementInfiniteCount() ) {
