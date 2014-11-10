@@ -395,11 +395,11 @@ angular.module('bts.controllers', [])
   
   vm.getFilteredProducts = function () {
     // https://docs.angularjs.org/api/ng/filter/filter
-    return $filter('filter')($scope.products, vm.filter)
+    return $filter('filter')(vm.products, vm.filter);
   }
   
   vm.numberOfPages = function () {
-    var n = Math.ceil(vm.getFilteredProducts().length/vm.pageSize);
+    var n = Math.ceil( vm.getFilteredProducts().length / vm.pageSize);
     if(n == 0) n = 1;
     return n;
   }
