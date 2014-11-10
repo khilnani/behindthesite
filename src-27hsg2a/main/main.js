@@ -373,10 +373,11 @@ angular.module('bts.controllers', [])
   vm.products_select_list = [];
   
   vm.currentPage = 0;
-  vm.pageSize = 10;
+  // pagination, page size loaded limited by infinitePageSize if greater, see pageLimit. use pageLimit in html ng-repeat
+  vm.pageSize = 10;  
   
   vm.infiniteCount = 0;
-  vm.infinitePageSize = 5;
+  vm.infinitePageSize = 5; 
   
   vm.hasMore = true;
   
@@ -384,6 +385,14 @@ angular.module('bts.controllers', [])
   
   vm.total = function () {
     return vm.products.length;
+  }
+  
+  // pagination, page size loaded limited by infinitePageSize if greater, see pageLimit. use pageLimit in html ng-repeat
+  vm.pageLimit = function () {
+    if( vm.infinitePageSize < vm.pageSize ) {
+      return vm.infinitePageSize;
+    }
+    return vm.pageSize;
   }
   
   vm.shouldIncrementInfiniteCount = function () {
