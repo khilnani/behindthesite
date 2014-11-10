@@ -119,14 +119,14 @@
     </div>
   </script>
   <script type="text/ng-template" id="productHoverContentTmpl.html">
-      <p ng-show='categorypath != ""'><small>{{ categorypath.split('>').join(' | ') }}</small></p>
+      <p ng-show='categorypath != ""'><small>{{ ::categorypath.split('>').join(' | ') }}</small></p>
       <p>
-        <a ng-if='website' href="{{ website }}" target="_blank">Website</a> 
-        <a ng-if='twitter' href="{{ twitter }}" target="_blank">Twitter</a> 
-        <a ng-if='irc' href="{{ irc }}" target="_blank">Irc</a> 
-        <a ng-if='repo' href="{{ repo }}" target="_blank">Code</a> 
-        <a ng-if='issues' href="{{ issues }}" target="_blank">Issues</a> 
-        <a ng-if='docs' href="{{ docs }}" target="_blank">Docs</a> 
+        <a ng-if='website' href="{{ ::website }}" target="_blank">Website</a> 
+        <a ng-if='twitter' href="{{ ::twitter }}" target="_blank">Twitter</a> 
+        <a ng-if='irc' href="{{ ::irc }}" target="_blank">Irc</a> 
+        <a ng-if='repo' href="{{ ::repo }}" target="_blank">Code</a> 
+        <a ng-if='issues' href="{{ ::issues }}" target="_blank">Issues</a> 
+        <a ng-if='docs' href="{{ ::docs }}" target="_blank">Docs</a> 
         <a ng-if='blogs' href="{{ blogs }}" target="_blank">Blog</a> 
       </p> 
       <p ng-show='description != ""'><span class="markdown" ng-bind-html="description"></span></p>
@@ -135,15 +135,15 @@
   <script type="text/ng-template" id="productMobileTmpl.html">
     <h4 class="list-group-item-heading">{{ ea.product.name }}</h4>
     <p class="list-group-item-text" >
-      <p><small>{{ ea.category.full_path.split('>').slice(1).join(' | ') }}</small></p>
+      <p><small>{{ ::ea.category.full_path.split('>').slice(1).join(' | ') }}</small></p>
       <p><small>
-        <a ng-if='ea.product.website' href="{{ ea.product.website }}" target="_blank">Website</a> 
-        <a ng-if='ea.product.twitter' href="{{ ea.product.twitter }}" target="_blank">Twitter</a> 
-        <a ng-if='ea.product.irc' href="{{ ea.product.irc }}" target="_blank">Irc</a> 
-        <a ng-if='ea.product.repo' href="{{ ea.product.repo }}" target="_blank">Code</a> 
-        <a ng-if='ea.product.issues' href="{{ ea.product.issues }}" target="_blank">Issues</a> 
-        <a ng-if='ea.product.docs' href="{{ ea.product.docs }}" target="_blank">Docs</a> 
-        <a ng-if='ea.product.blogs' href="{{ ea.product.blogs }}" target="_blank">Blog</a> 
+        <a ng-if='ea.product.website' href="{{ ::ea.product.website }}" target="_blank">Website</a> 
+        <a ng-if='ea.product.twitter' href="{{ ::ea.product.twitter }}" target="_blank">Twitter</a> 
+        <a ng-if='ea.product.irc' href="{{ ::ea.product.irc }}" target="_blank">Irc</a> 
+        <a ng-if='ea.product.repo' href="{{ ::ea.product.repo }}" target="_blank">Code</a> 
+        <a ng-if='ea.product.issues' href="{{ ::ea.product.issues }}" target="_blank">Issues</a> 
+        <a ng-if='ea.product.docs' href="{{ ::ea.product.docs }}" target="_blank">Docs</a> 
+        <a ng-if='ea.product.blogs' href="{{ ::ea.product.blogs }}" target="_blank">Blog</a> 
       </small></p>
       <p class="hidden"><span class="markdown" ng-bind-html="ea.product.description"></span></p>
       <p class="text-muted" ng-if='ea.notes'><strong>Notes - </strong><em><span class="markdown" ng-bind-html="ea.notes"></span></em></p>
@@ -153,7 +153,7 @@
     <div id="main" class="col-xs-12">
       <div ng-if="vm.isMobile">
         <div id="accordion" class="panel-group"> 
-          <div id="{{ product.name | ws }}-panel" 
+          <div id="{{ ::product.name | ws }}-panel" 
               ng-repeat="product in vm.products | limitTo:vm.end" 
               class="panel panel-default" 
               collapse="collapse"> 
@@ -162,22 +162,22 @@
                 type="button" 
                 class="btn btn-xs btn-default" 
                 data-toggle="collapse" 
-                data-target="#{{ product.name | ws }}" 
-                data-parent="#accordion">{{ product.name }}</button><span class="text-muted pull-right"><em><small>{{ product.updated }}</small></em></span></h4>
+                data-target="#{{ ::product.name | ws }}" 
+                data-parent="#accordion">{{ ::product.name }}</button><span class="text-muted pull-right"><em><small>{{ ::product.updated }}</small></em></span></h4>
             </div>
-            <div id="{{ product.name | ws }}" class="panel-collapse collapse">
+            <div id="{{ ::product.name | ws }}" class="panel-collapse collapse">
               <div class="panel-body">
                 <div class="list-group">
                   <div class="list-group-item bg-darker">
                     <p class="list-group-item-text" >
                       <p><small>
-                        <a ng-if='product.website' href="{{ product.website }}" target="_blank">Website</a> 
-                        <a ng-if='product.twitter' href="{{ product.twitter }}" target="_blank">Twitter</a> 
-                        <a ng-if='product.irc' href="{{ product.irc }}" target="_blank">Irc</a> 
-                        <a ng-if='product.repo' href="{{ product.repo }}" target="_blank">Code</a> 
-                        <a ng-if='product.issues' href="{{ product.issues }}" target="_blank">Issues</a> 
-                        <a ng-if='product.docs' href="{{ product.docs }}" target="_blank">Docs</a> 
-                        <a ng-if='product.blogs' href="{{ product.blogs }}" target="_blank">Blog</a> 
+                        <a ng-if='product.website' href="{{ ::product.website }}" target="_blank">Website</a> 
+                        <a ng-if='product.twitter' href="{{ ::product.twitter }}" target="_blank">Twitter</a> 
+                        <a ng-if='product.irc' href="{{ ::product.irc }}" target="_blank">Irc</a> 
+                        <a ng-if='product.repo' href="{{ ::product.repo }}" target="_blank">Code</a> 
+                        <a ng-if='product.issues' href="{{ ::product.issues }}" target="_blank">Issues</a> 
+                        <a ng-if='product.docs' href="{{ ::product.docs }}" target="_blank">Docs</a> 
+                        <a ng-if='product.blogs' href="{{ ::product.blogs }}" target="_blank">Blog</a> 
                       </small></p>
                     </p>
                   </div>
@@ -191,22 +191,22 @@
                   </div>
                 </div>
                 <div ng-repeat="tier in product.tiers" ng-if="tier.length > 0">
-                  <h4 class="list-group-item-heading text-default">{{ tier.name }}</h3>
+                  <h4 class="list-group-item-heading text-default">{{ ::tier.name }}</h3>
                   <div class="list-group">
                     <div class="list-group-item bg-darker"
                         ng-repeat="ea in tier" 
-                        data-description="{{ ea.product.description }}" 
-                        data-title="{{ ea.product.name }}" 
-                        data-website="{{ ea.product.website }}" 
-                        data-twitter="{{ eaproduct.twitter }}" 
-                        data-irc="{{ ea.product.irc }}" 
-                        data-blogs="{{ ea.product.blogs }}" 
-                        data-repo="{{ ea.product.repo }}" 
-                        data-issues="{{ ea.product.issues }}" 
-                        data-docs="{{ ea.product.docs }}" 
-                        data-category="{{ ea.category.name }}" 
-                        data-categorypath="{{ ea.category.full_path }}" 
-                        data-notes="{{ ea.notes }}">
+                        data-description="{{ ::ea.product.description }}" 
+                        data-title="{{ ::ea.product.name }}" 
+                        data-website="{{ ::ea.product.website }}" 
+                        data-twitter="{{ ::ea.product.twitter }}" 
+                        data-irc="{{ ::ea.product.irc }}" 
+                        data-blogs="{{ ::ea.product.blogs }}" 
+                        data-repo="{{ ::ea.product.repo }}" 
+                        data-issues="{{ ::ea.product.issues }}" 
+                        data-docs="{{ ::ea.product.docs }}" 
+                        data-category="{{ ::ea.category.name }}" 
+                        data-categorypath="{{ ::ea.category.full_path }}" 
+                        data-notes="{{ ::ea.notes }}">
                           <span ng-include="'productMobileTmpl.html'"></span>
                     </div>
                   </div>
@@ -242,51 +242,51 @@
             </tr>
             <tr>
               <th>Products</th>
-              <th ng-repeat="h in vm.headers">{{ h.name }}</th>
+              <th ng-repeat="h in vm.headers">{{ ::h.name }}</th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="product in vm.products | filter:vm.filter | limitTo:vm.end">
               <td>
                 <ul class="list-unstyled">
-                  <li data-title="{{ product.name }}" 
-                      data-updated="{{ product.updated }}" 
-                      data-description="{{ product.description }}" 
-                      data-website="{{ product.website }}" 
-                      data-twitter="{{ product.twitter }}" 
-                      data-irc="{{ product.irc }}" 
-                      data-blogs="{{ product.blogs }}" 
-                      data-repo="{{ product.repo }}" 
-                      data-issues="{{ product.issues }}" 
-                      data-docs="{{ product.docs }}" 
-                      data-references="{{ ea.references }}"
-                      data-insight="{{ ea.insight }}"
-                      data-notes="{{ ea.notes }}" 
+                  <li data-title="{{ ::product.name }}" 
+                      data-updated="{{ ::product.updated }}" 
+                      data-description="{{ ::product.description }}" 
+                      data-website="{{ ::product.website }}" 
+                      data-twitter="{{ ::product.twitter }}" 
+                      data-irc="{{ ::product.irc }}" 
+                      data-blogs="{{ ::product.blogs }}" 
+                      data-repo="{{ ::product.repo }}" 
+                      data-issues="{{ ::product.issues }}" 
+                      data-docs="{{ ::product.docs }}" 
+                      data-references="{{ ::product.references }}"
+                      data-insight="{{ ::product.insight }}"
+                      data-notes="{{ ::product.notes }}" 
                       product="product">
                     <span class="cursor">{{ product.name }}</span>
                     <small class="text-muted pull-right">{{ $index+1 }}/{{ vm.total() }}</span></small>
                   </li>
                   <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
-                  <li popover="popover" ng-if='product.insight' data-title="Insight" data-content="{{ product.insight }}"><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
-                  <li popover="popover" ng-if='product.notes' data-title="Notes" data-content="{{ product.notes }}" ><span class="cursor">Notes <i class="fa fa-comment"></i></span></li>
-                  <li popover="popover" ng-if='product.references' data-title="References" data-content="{{ product.references }}"><span class="cursor">References <i class="fa fa-external-link"></i></li>
+                  <li popover="popover" ng-if='product.insight' data-title="Insight" data-content="{{ ::product.insight }}"><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
+                  <li popover="popover" ng-if='product.notes' data-title="Notes" data-content="{{ ::product.notes }}" ><span class="cursor">Notes <i class="fa fa-comment"></i></span></li>
+                  <li popover="popover" ng-if='product.references' data-title="References" data-content="{{ ::product.references }}"><span class="cursor">References <i class="fa fa-external-link"></i></li>
                 </ul>  
               </td>
               <td ng-repeat="tier in product.tiers">
                 <ul class="list-unstyled">
                   <li ng-repeat="ea in tier" 
-                      data-title="{{ ea.product.name }}" 
-                      data-description="{{ ea.product.description }}" 
-                      data-website="{{ ea.product.website }}" 
-                      data-twitter="{{ ea.product.twitter }}" 
-                      data-irc="{{ ea.product.irc }}" 
-                      data-blogs="{{ ea.product.blogs }}" 
-                      data-repo="{{ ea.product.repo }}" 
-                      data-issues="{{ ea.product.issues }}" 
-                      data-docs="{{ ea.product.docs }}" 
-                      data-category="{{ ea.category.name }}" 
-                      data-categorypath="{{ ea.category.full_path }}" 
-                      data-notes="{{ ea.notes }}" 
+                      data-title="{{ ::ea.product.name }}" 
+                      data-description="{{ ::ea.product.description }}" 
+                      data-website="{{ ::ea.product.website }}" 
+                      data-twitter="{{ ::ea.product.twitter }}" 
+                      data-irc="{{ ::ea.product.irc }}" 
+                      data-blogs="{{ ::ea.product.blogs }}" 
+                      data-repo="{{ ::ea.product.repo }}" 
+                      data-issues="{{ ::ea.product.issues }}" 
+                      data-docs="{{ ::ea.product.docs }}" 
+                      data-category="{{ ::ea.category.name }}" 
+                      data-categorypath="{{ ::ea.category.full_path }}" 
+                      data-notes="{{ ::ea.notes }}" 
                       product="product">
                     <span class="cursor" ng-bind-html="vm.highlight(ea.product.name)"></span></li>
                 </ul>
