@@ -373,7 +373,7 @@ angular.module('bts.controllers', [])
   vm.products_select_list = [];
   
   vm.currentPage = 0;
-  vm.pageSize = 5;
+  vm.pageSize = 10;
   
   vm.infiniteCount = 0;
   vm.infinitePageSize = 5;
