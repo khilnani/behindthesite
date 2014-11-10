@@ -17,32 +17,38 @@
             </div>
           </div>
           <div class="form-group">
+            <label class="col-sm-3 control-label" for="twitter">Twitter</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control input-sm" name="twitter" ng-model="submission.twitter" placeholder="A tweet to say thanks is the least we can do!" minlength="2">
+            </div>
+          </div>
+          <div class="form-group">
             <label class="col-sm-3 control-label" for="email">Email</label>
             <div class="col-sm-9">
-              <input type="email" class="form-control input-sm" name="email" ng-model="submission.email" placeholder="Your Email" minlength="2" required>
-              <span ng-show="SubmissionForm.email.$error.email" class="text-danger help-block">This is not a valid email.</span>
-              <span ng-show="SubmissionForm.email.$error.required" class="text-danger help-block">Please tell us your email.</span>
+              <input type="email" class="form-control input-sm" name="email" ng-model="submission.email" placeholder="Your Email. We don't spam or sell email addresses." minlength="2">
+              <span ng-show="SubmissionForm.email.$error.email" class="text-danger help-block">You might have a typo in your email address.</span>
+              <span ng-show="SubmissionForm.email.$error.required" class="text-danger help-block">Please tell us your email. We don't spam or sell email addresses.</span>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-3 control-label" for="product">Product Name</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control input-sm" name="product" ng-model="submission.product" placeholder="The Product" minlength="2" required>
+              <input type="text" class="form-control input-sm" name="product" ng-model="submission.product" placeholder="The Product you might have feedback or information on." minlength="2">
               <span ng-show="SubmissionForm.product.$error.required" class="text-danger help-block">Which Company/Product are you referring to?</span>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-3 control-label" for="url">Product Website</label>
             <div class="col-sm-9">
-              <input type="url" class="form-control input-sm" name="url" ng-model="submission.url" placeholder="Website URL" minlength="2" required>
-              <span ng-show="SubmissionForm.url.$error.url" class="text-danger help-block">Is that a valid url?</span>
-              <span ng-show="SubmissionForm.url.$error.required" class="text-danger help-block">They surely must have a website, right?</span>
+              <input type="url" class="form-control input-sm" name="url" ng-model="submission.url" placeholder="Surely, the product/company has a Website right?" minlength="2">
+              <span ng-show="SubmissionForm.url.$error.url" class="text-danger help-block">We're not sure thats a valid url.</span>
+              <span ng-show="SubmissionForm.url.$error.required" class="text-danger help-block">Surely, the product/company has a Website right?</span>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-3 control-label" for="comments">Comments</label>
             <div class="col-sm-9">
-            <textarea class="form-control input-sm" name="comments" rows="2" ng-model="submission.comments" placeholder="Comments" ></textarea>
+            <textarea class="form-control input-sm" name="comments" rows="2" ng-model="submission.comments" placeholder="Feedback, suggestions, comments, or technology information." ></textarea>
             </div>
           </div>
           <div class="list-group">
@@ -50,7 +56,7 @@
               <p class="list-group-item-text">
                 <div class="form-group">
                   <label class="col-sm-4 control-label" for="product">
-                    Technology {{ tier.id }}
+                    Technology
                     <button ng-if="!$first" class="btn btn-default btn-xs" ng-click="delete(tier.id)">
                       <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
@@ -229,14 +235,15 @@
             <tr>
               <th colspan="8">
                 <span class="float-left">
-                  <h5 class="title pad-right-10">BehindTheSite <sup><small>alpha</small></sup></h5>
-                  <span class="text-muted align-middle"><strong>Tip!</strong> - <em>Hover</em>, to quickly view details. <em>Click</em>, to make the popup stick.</span>
+                  <h4 class="title pad-right-10">BehindTheSite <sup><small>alpha</small></sup></h4>
                 </span>
                 <form class="form-inline pull-right" role="form">
                   Product List: 
                   <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product" ng-options="item.id as item.name for item in vm.products_select_list"></select>
                   Filter by Technology:  
                   <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+                  
+                  
                 </form>
               </th>
             </tr>
