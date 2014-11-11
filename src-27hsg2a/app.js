@@ -36,7 +36,7 @@ bts.config(function($provide){
 // https://docs.angularjs.org/api/ng/service/$location
 bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(false);
-  $routeProvider.when('/:selectedProduct', {
+  $routeProvider.when('/:selectedProduct?', {
     templateUrl: 'main/main.html',
     controller: 'MainCtrl',
     controllerAs: 'vm'
