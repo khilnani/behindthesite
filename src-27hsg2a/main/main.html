@@ -242,11 +242,12 @@
       <!--  Mobile START //-->
       <div ng-if="vm.isMobile">
         <div class="row pad-mobile-filter">
-          <span class="text-center">
-            {{ vm.query_product }}
-            {{ vm.query_tech }}
+          <span class="pull-left" ng-if="vm.query_product != '' || vm.query_tech != ''">
+            Filter: 
+            <span class="pad-left-5">{{ vm.query_product }}</span>
+            <span class="pad-left-5">{{ vm.query_tech }}</span>
           </span>
-          <a class="cursor pad-left-5 pull-right" data-toggle="modal" data-target="#FiltersModal"><i class="fa fa-cog fa-lg"></i></a>
+          <a class="cursor pull-right" data-toggle="modal" data-target="#FiltersModal"><i class="fa fa-cog fa-lg"></i></a>
         </div>
         <div id="accordion" class="panel-group"> 
           <div id="{{ ::product.name | ws }}-panel" 
