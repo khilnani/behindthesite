@@ -105,7 +105,11 @@
           <div class="form-group">
             <label class="col-sm-3 control-label" for="name">Page Size</label>
             <div class="col-sm-9">
-                <select class="form-control input-sm " ng-model="vm.pageSize" id="pageSize" ng-options="item as item for item in vm.pageSize_select_list"></select>
+                <select class="form-control input-sm " ng-model="vm.pageSize" id="pageSize">
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                </select>
             </div>
           </div>
         </div><!-- /.modal-body -->
