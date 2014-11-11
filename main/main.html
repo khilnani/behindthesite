@@ -178,7 +178,7 @@
     <p class="text-muted" ng-show='notes != ""'><strong>Notes - </strong><em><span class="markdown" ng-bind-html="notes"></span></em></p>
 </script>
 <script type="text/ng-template" id="productMobileTmpl.html">
-  <h4 class="list-group-item-heading">{{ ea.product.name }}</h4>
+  <h4 class="list-group-item-heading"><span ng-bind-html="vm.highlight(ea.product.name)"></span></h4>
   <p class="list-group-item-text" >
     <p><small>{{ ::ea.category.full_path.split('>').slice(1).join(' | ') }}</small></p>
     <p><small>
@@ -207,9 +207,21 @@
     
       <!--  Mobile START //-->
       <div ng-if="vm.isMobile">
+        <div class="row pad-mobile-filter">
+            <form role="form">
+              <div class="form-group">
+                <label class="control-label" for="query_product">Product</label>
+                <select class="form-control input-xs" name="query_product" ng-model="vm.query_product" ng-options="item.id as item.name for item in vm.products_select_list"></select>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="query_tech">Technology</label>
+                <select class="form-control input-xs" name="query_tech" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+              </div>
+            </form>
+        </div>
         <div id="accordion" class="panel-group"> 
           <div id="{{ ::product.name | ws }}-panel" 
-              ng-repeat="product in vm.products | limitTo:vm.infiniteCount" 
+              ng-repeat="product in filtered = (vm.products | filter:vm.filter | limitTo:vm.infiniteCount)" 
               class="panel panel-default" 
               collapse="collapse"> 
             <div class="panel-heading">
@@ -221,7 +233,7 @@
                 <span class="pull-right"><em><small>{{ ::product.updated }}</small></em></span>
               </h4>
             </div>
-            <div id="{{ ::product.name | ws }}" class="panel-collapse collapse">
+            <div id="{{ ::product.name | ws }}" class="panel-collapse collapse {{ ($first && filtered.length == 1) ? 'in' : '' }}">
               <div class="panel-body">
                 <div class="list-group">
                   <div class="list-group-item bg-darker">
@@ -402,10 +414,10 @@
 <div class="row" ng-if="vm.hasMore && vm.busy">
     <div class="spinner center-block margin-bottom-40"></div>
 </div>
-<div class="row" ng-if="vm.isMobile && vm.hasMore && !vm.busy">
+<div class="row" ng-if="vm.isMobile && vm.infiniteCount < vm.getFilteredProducts().length && !vm.busy">
   <p class="text-center text-muted margin-bottom-40">
     <button class="btn btn-default vcenter" ng-click="vm.getAdditionalData()">
-    Loaded {{ vm.infiniteCount }} / {{ vm.total() }}  
+    Loaded {{ vm.infiniteCount }} / {{ vm.getFilteredProducts().length }}  
     <i class="fa fa-arrow-down"></i> 
     Click for more
     </button>
