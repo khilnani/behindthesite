@@ -221,7 +221,7 @@
                 <span class="pull-right"><em><small>{{ ::product.updated }}</small></em></span>
               </h4>
             </div>
-            <div id="{{ ::product.name | ws }}" class="panel-collapse collapse">
+            <div id="{{ ::product.name | ws }}" class="panel-collapse collapse {{ $first ? 'in' : '' }}">
               <div class="panel-body">
                 <div class="list-group">
                   <div class="list-group-item bg-darker">
