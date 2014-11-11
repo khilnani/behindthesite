@@ -381,8 +381,6 @@ angular.module('bts.controllers', [])
   
   vm.hasMore = true;
   
-  vm.pageSize_select_list = [5,10,15,20];
-  
   vm.total = function () {
     return vm.products.length;
   }
