@@ -360,7 +360,15 @@ angular.module('bts.controllers', [])
 
 }])
 
-.controller('MainCtrl', ['$scope', '$routeParams', '$location', '$timeout', '$sce', '$filter', 'Common', 'TaxonomySvc', 'StackSvc', 'UsedProductSvc', function ($scope, $routeParams, $location, $timeout, $sce, $filter, Common, TaxonomySvc, StackSvc, UsedProductSvc) {
+.controller('MainCtrl', 
+  ['$scope', '$routeParams', '$location', '$timeout', 
+    '$sce', '$filter', 'Common', 'TaxonomySvc', 'StackSvc', 
+    'UsedProductSvc', 'DoNotReloadCurrentTemplate', 
+    function ($scope, $routeParams, $location, $timeout, 
+      $sce, $filter, Common, TaxonomySvc, StackSvc, 
+      UsedProductSvc, DoNotReloadCurrentTemplate) {
+        
+  DoNotReloadCurrentTemplate($scope);
 
   var vm = this;
   vm.isMobile = Common.isMobile;
