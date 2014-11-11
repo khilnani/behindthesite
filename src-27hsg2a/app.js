@@ -95,6 +95,6 @@ bts.factory('Common', ['$location', '$http', function ($location, $http) {
   return c;
 }]);
 
-bts.run(['"$location"', function($location) {
+bts.run(['$location', function($location) {
     console.log('$location.search():' + $location.search() );
 }]);
