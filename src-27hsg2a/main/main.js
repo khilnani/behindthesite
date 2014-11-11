@@ -382,8 +382,14 @@ angular.module('bts.controllers', [])
   vm.hasMore = true;
   
   console.log('$routeParams.selectedProduct:' + $routeParams.selectedProduct );
+  console.log('$routeParams.selectedTech:' + $routeParams.selectedTech );
+  
   if($routeParams.selectedProduct != undefined) {
     vm.query_product = $routeParams.selectedProduct;
+  }
+  
+  if($routeParams.selectedTech != undefined) {
+    vm.query_tech = $routeParams.selectedTech;
   }
   
   vm.total = function () {
