@@ -442,7 +442,7 @@ angular.module('bts.controllers', [])
   }
 
   vm._matchProduct = function (element) {
-    console.log('_matchProduct');
+    //console.log('_matchProduct');
     var match = false;
     //var re = new RegExp( vm._escapeRegExp( vm.query_product ), 'i' );
     //match = (element.name.match(re) ) ? true : false;
@@ -482,7 +482,7 @@ angular.module('bts.controllers', [])
   }
 
   vm.filter = function (element) {
-    console.log('MainCtrl.filter');
+    //console.log('MainCtrl.filter');
     //console.log(element);
     
     if(vm.query_product == undefined) vm.query_product = '';
