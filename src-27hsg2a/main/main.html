@@ -208,7 +208,7 @@
       <!--  Mobile START //-->
       <div ng-if="vm.isMobile">
         <div class="row pad-mobile-filter">
-            <form class="form-inline pull-right" role="form">
+            <form class="form-inline pull-right col-sm-12" role="form">
               <div class="form-group">
                 <label class="control-label" for="query_product">Product</label>
                 <select class="form-control input-xs grey-on-dark" name="query_product" ng-model="vm.query_product" ng-options="item.id as item.name for item in vm.products_select_list"></select>
