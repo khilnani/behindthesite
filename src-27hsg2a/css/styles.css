@@ -46,9 +46,8 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .pad-right-20 {
   padding-right: 20px;
 }
-.pad-left-right {
-  padding-left: 20px;
-  padding-right: 20px;
+.pad-mobile-filter {
+  padding: 0 20px 10px 20px;
 }
 .grey-on-dark {
   color: #ccc;
