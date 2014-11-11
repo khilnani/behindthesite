@@ -393,6 +393,9 @@ angular.module('bts.controllers', [])
     } else if( vm.query_product != '' && vm.query_tech != '') {
       // both
       $location.path('/highlight/' + vm.query_product + '/' + vm.query_tech);
+    } else if( vm.query_product == '' && vm.query_tech == '') {
+      // clear
+      $location.path('/');
     }
   }
   
