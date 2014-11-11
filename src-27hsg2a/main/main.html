@@ -211,17 +211,17 @@
             <form role="form">
               <div class="form-group">
                 <label class="control-label" for="query_product">Product</label>
-                <select class="form-control input-xs grey-on-dark" name="query_product" ng-model="vm.query_product" ng-options="item.id as item.name for item in vm.products_select_list"></select>
+                <select class="form-control input-xs" name="query_product" ng-model="vm.query_product" ng-options="item.id as item.name for item in vm.products_select_list"></select>
               </div>
               <div class="form-group">
                 <label class="control-label" for="query_tech">Technology</label>
-                <select class="form-control input-xs grey-on-dark" name="query_tech" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+                <select class="form-control input-xs" name="query_tech" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
               </div>
             </form>
         </div>
         <div id="accordion" class="panel-group"> 
           <div id="{{ ::product.name | ws }}-panel" 
-              ng-repeat="product in vm.products | filter:vm.filter | limitTo:vm.infiniteCount" 
+              ng-repeat="product in filtered = (vm.products | filter:vm.filter | limitTo:vm.infiniteCount)" 
               class="panel panel-default" 
               collapse="collapse"> 
             <div class="panel-heading">
@@ -233,7 +233,7 @@
                 <span class="pull-right"><em><small>{{ ::product.updated }}</small></em></span>
               </h4>
             </div>
-            <div id="{{ ::product.name | ws }}" class="panel-collapse collapse {{ $first ? 'in' : '' }}">
+            <div id="{{ ::product.name | ws }}" class="panel-collapse collapse {{ ($first && filtered.length == 1) ? 'in' : '' }}">
               <div class="panel-body">
                 <div class="list-group">
                   <div class="list-group-item bg-darker">
