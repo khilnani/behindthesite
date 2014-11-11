@@ -382,7 +382,7 @@ angular.module('bts.controllers', [])
   vm.hasMore = true;
   
   vm.onSelectionChange = function () {
-    console.log('vm.onSelectionChange: ' + vm.query_product ', ' + vm.query_tech);
+    console.log('vm.onSelectionChange: ' + vm.query_product + ', ' + vm.query_tech);
     
     if( vm.query_product != '' && vm.query_tech == '') {
       // only query_product  
