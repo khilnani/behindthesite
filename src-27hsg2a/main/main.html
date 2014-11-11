@@ -178,7 +178,7 @@
     <p class="text-muted" ng-show='notes != ""'><strong>Notes - </strong><em><span class="markdown" ng-bind-html="notes"></span></em></p>
 </script>
 <script type="text/ng-template" id="productMobileTmpl.html">
-  <h4 class="list-group-item-heading">{{ ea.product.name }}</h4>
+  <h4 class="list-group-item-heading"><span ng-bind-html="vm.highlight(ea.product.name)"></span></h4>
   <p class="list-group-item-text" >
     <p><small>{{ ::ea.category.full_path.split('>').slice(1).join(' | ') }}</small></p>
     <p><small>
