@@ -97,4 +97,4 @@ bts.factory('Common', ['$location', '$http', function ($location, $http) {
 
 bts.run(function($location) {
     console.log('$location.search():');
-);
+});
