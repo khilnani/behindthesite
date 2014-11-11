@@ -241,9 +241,9 @@
     
       <!--  Mobile START //-->
       <div ng-if="vm.isMobile">
-        <div class="row">
+        <div class="row pad-mobile-filter small">
           <span class="pull-left" ng-if="vm.query_product != '' || vm.query_tech != ''">
-            Filter: 
+            <strong>Filter: </strong>
             <span class="pad-left-5">{{ vm.query_product }}</span>
             <span class="pad-left-5">{{ vm.query_tech }}</span>
           </span>
