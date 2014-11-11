@@ -361,10 +361,7 @@ angular.module('bts.controllers', [])
 }])
 
 .controller('MainCtrl', 
-  ['$scope', '$routeParams', '$location', '$timeout', 
-    '$sce', '$filter', 'Common', 'TaxonomySvc', 'StackSvc', 
-    'UsedProductSvc', 'DoNotReloadCurrentTemplate', 
-    function ($scope, $routeParams, $location, $timeout, 
+  ['$scope', '$routeParams', '$location', '$timeout', '$sce', '$filter', 'Common', 'TaxonomySvc', 'StackSvc', 'UsedProductSvc', 'DoNotReloadCurrentTemplate', function ($scope, $routeParams, $location, $timeout, 
       $sce, $filter, Common, TaxonomySvc, StackSvc, 
       UsedProductSvc, DoNotReloadCurrentTemplate) {
         
