@@ -41,7 +41,7 @@ bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     controller: 'MainCtrl',
     controllerAs: 'vm'
   });
-  $routeProvider.when('/stack/:selectedProduct??', {
+  $routeProvider.when('/stack/:selectedProduct?', {
     templateUrl: 'main/main.html',
     controller: 'MainCtrl',
     controllerAs: 'vm'
