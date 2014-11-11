@@ -207,6 +207,15 @@
     
       <!--  Mobile START //-->
       <div ng-if="vm.isMobile">
+        <div>
+          <form class="form-inline" role="form">
+            Product: 
+            <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product" ng-options="item.id as item.name for item in vm.products_select_list"></select>
+            <span class="pad-left-5">Technology: </span>
+            <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+            <a class="cursor pad-left-5" data-toggle="modal" data-target="#SettingsModal"><i class="fa fa-cog fa-lg"></i></a>
+          </form>
+        </div>
         <div id="accordion" class="panel-group"> 
           <div id="{{ ::product.name | ws }}-panel" 
               ng-repeat="product in vm.products | filter:vm.filter | limitTo:vm.infiniteCount" 
