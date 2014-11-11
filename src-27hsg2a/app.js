@@ -36,25 +36,29 @@ bts.config(function($provide){
 // https://docs.angularjs.org/api/ng/service/$location
 bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(false);
-  $routeProvider.when('/:selectedProduct?', {
+  $routeProvider.when('/', {
     templateUrl: 'main/main.html',
     controller: 'MainCtrl',
-    controllerAs: 'vm'
+    controllerAs: 'vm',
+    reloadOnSearch: false
   });
   $routeProvider.when('/stack/:selectedProduct?', {
     templateUrl: 'main/main.html',
     controller: 'MainCtrl',
-    controllerAs: 'vm'
+    controllerAs: 'vm',
+    reloadOnSearch: false
   });
   $routeProvider.when('/tech/:selectedTech?', {
     templateUrl: 'main/main.html',
     controller: 'MainCtrl',
-    controllerAs: 'vm'
+    controllerAs: 'vm',
+    reloadOnSearch: false
   });
   $routeProvider.when('/highlight/:selectedProduct?/:selectedTech?', {
     templateUrl: 'main/main.html',
     controller: 'MainCtrl',
-    controllerAs: 'vm'
+    controllerAs: 'vm',
+    reloadOnSearch: false
   });
   $routeProvider.otherwise({
     redirectTo: '/'
