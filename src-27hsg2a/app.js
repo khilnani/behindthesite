@@ -96,5 +96,6 @@ bts.factory('Common', ['$location', '$http', function ($location, $http) {
 }]);
 
 bts.run(['$location', function($location) {
-    console.log('$location.search():' + $location.search() );
+    var mobile = $location.search().mobile;
+    console.log('$location.search():' +  mobile);
 }]);
