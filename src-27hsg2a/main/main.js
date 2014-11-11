@@ -360,7 +360,7 @@ angular.module('bts.controllers', [])
 
 }])
 
-.controller('MainCtrl', ['$scope', '$routeParams', '$timeout', '$sce', '$filter', 'Common', 'TaxonomySvc', 'StackSvc', 'UsedProductSvc', function ($scope, $routeParams, $timeout, $sce, $filter, Common, TaxonomySvc, StackSvc, UsedProductSvc) {
+.controller('MainCtrl', ['$scope', '$routeParams', '$location', '$timeout', '$sce', '$filter', 'Common', 'TaxonomySvc', 'StackSvc', 'UsedProductSvc', function ($scope, $routeParams, $location, $timeout, $sce, $filter, Common, TaxonomySvc, StackSvc, UsedProductSvc) {
 
   var vm = this;
   vm.isMobile = Common.isMobile;
@@ -380,6 +380,21 @@ angular.module('bts.controllers', [])
   vm.infinitePageSize = 5; 
   
   vm.hasMore = true;
+  
+  vm.onSelectionChange = function () {
+    console.log('vm.onSelectionChange: ' + vm.query_product ', ' + vm.query_tech);
+    
+    if( vm.query_product != '' && vm.query_tech == '') {
+      // only query_product  
+      $location.path('/stack/' + vm.query_product);
+    } else if( vm.query_product == '' && vm.query_tech != '') {
+      // only query_tech
+      $location.path('/tech/' + vm.query_tech);
+    } else if( vm.query_product != '' && vm.query_tech != '') {
+      // both
+      $location.path('/highlight/' + vm.query_product + '/' + vm.query_tech);
+    }
+  }
   
   vm.updateSelections = function () {
     console.log('$routeParams.selectedProduct:' + $routeParams.selectedProduct );
