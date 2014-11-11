@@ -207,8 +207,7 @@
     
       <!--  Mobile START //-->
       <div ng-if="vm.isMobile">
-        <div class="row">
-          <p>
+        <div class="row pad-left-right">
             <form class="form-inline pull-right" role="form">
               <div class="form-group">
                 <label class="control-label" for="query_product">Product</label>
@@ -219,7 +218,6 @@
                 <select class="form-control input-xs grey-on-dark" name="query_tech" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
               </div>
             </form>
-          </p>
         </div>
         <div id="accordion" class="panel-group"> 
           <div id="{{ ::product.name | ws }}-panel" 
