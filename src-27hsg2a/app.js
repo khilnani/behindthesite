@@ -125,6 +125,7 @@ bts.run(function() {
  */
 bts.factory('DoNotReloadCurrentTemplate', ['$route', function($route) {
   return function(scope) {
+    console.log('DoNotReloadCurrentTemplate');
     var lastRoute = $route.current;
     scope.$on('$locationChangeSuccess', function() {
       if (lastRoute.$$route.templateUrl === $route.current.$$route.templateUrl) {
