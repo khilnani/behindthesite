@@ -90,7 +90,7 @@
 
 
 
-<!--  Setting Form START //-->
+<!--  Setting Modal START //-->
 <div class="modal fade" id="SettingsModal" tabindex="-1" role="dialog" aria-labelledby="Settings Modal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -102,6 +102,7 @@
           <h4 class="modal-title"><i class="fa fa-cog fa-lg"></i> Settings</h4>
         </div>
         <div class="modal-body">
+        
           <div class="form-group">
             <label class="col-sm-3 control-label" for="name">Page Size</label>
             <div class="col-sm-9">
@@ -112,12 +113,49 @@
                 </select>
             </div>
           </div>
+          
         </div><!-- /.modal-body -->
       </form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<!--  Settings Form END //-->
+<!--  Settings Modal END //-->
+
+
+
+
+<!--  Filters Modal START //-->
+<div class="modal fade" id="FiltersModal" tabindex="-1" role="dialog" aria-labelledby="Filters Modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form class="form-horizontal" role="form">
+        <div class="modal-header bg-darker">
+          <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
+            <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title"><i class="fa fa-cog fa-lg"></i> Filters</h4>
+        </div>
+        <div class="modal-body">
+        
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="query_product">Product</label>
+            <div class="col-sm-9">
+            <select class="form-control input-sm" name="query_product" ng-model="vm.query_product" ng-options="item.id as item.name for item in vm.products_select_list"></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="query_tech">Technology</label>
+            <div class="col-sm-9">
+            <select class="form-control input-sm" name="query_tech" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+            </div>
+          </div>
+          
+        </div><!-- /.modal-body -->
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--  Filters Modal END //-->
 
 
 
@@ -207,17 +245,13 @@
     
       <!--  Mobile START //-->
       <div ng-if="vm.isMobile">
-        <div class="row pad-mobile-filter">
-            <form role="form">
-              <div class="form-group">
-                <label class="control-label" for="query_product">Product</label>
-                <select class="form-control input-xs" name="query_product" ng-model="vm.query_product" ng-options="item.id as item.name for item in vm.products_select_list"></select>
-              </div>
-              <div class="form-group">
-                <label class="control-label" for="query_tech">Technology</label>
-                <select class="form-control input-xs" name="query_tech" ng-model="vm.query_tech" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
-              </div>
-            </form>
+        <div class="row pad-mobile-filter small">
+          <span class="pull-left" ng-if="vm.query_product != '' || vm.query_tech != ''">
+            <strong>Filter: </strong>
+            <span class="pad-left-5">{{ vm.query_product }}</span>
+            <span class="pad-left-5">{{ vm.query_tech }}</span>
+          </span>
+          <a class="cursor pull-right" data-toggle="modal" data-target="#FiltersModal"><i class="fa fa-cog fa-lg"></i></a>
         </div>
         <div id="accordion" class="panel-group"> 
           <div id="{{ ::product.name | ws }}-panel" 
