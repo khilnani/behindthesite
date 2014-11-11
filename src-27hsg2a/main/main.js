@@ -405,6 +405,9 @@ angular.module('bts.controllers', [])
       // clear
       $location.path('/');
     }
+    
+    // reset to page 1
+    vm.currentPage = 0;
   }
   
   vm.updateSelections = function () {
@@ -416,6 +419,22 @@ angular.module('bts.controllers', [])
     if($routeParams.selectedTech != undefined) {
       vm.query_tech = $routeParams.selectedTech;
     }    
+  }
+  
+  vm.disablePrev = function () {
+    return (vm.currentPage == 0);
+  }
+  
+  vm.disableNext = function () {
+    return (vm.currentPage+1) == vm.numberOfPages();
+  }
+  
+  vm.nextPage = function () {
+    vm.currentPage = vm.currentPage+1
+  }
+  
+  vm.prevPage = function () {
+    vm.currentPage = vm.currentPage-1;
   }
   
   vm.total = function () {
