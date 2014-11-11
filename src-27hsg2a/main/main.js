@@ -362,8 +362,6 @@ angular.module('bts.controllers', [])
 
 .controller('MainCtrl', ['$scope', '$routeParams', '$timeout', '$sce', '$filter', 'Common', 'TaxonomySvc', 'StackSvc', 'UsedProductSvc', function ($scope, $routeParams, $timeout, $sce, $filter, Common, TaxonomySvc, StackSvc, UsedProductSvc) {
 
-  console.log('$routeParams.selectedProduct:' + $routeParams.selectedProduct );
-
   var vm = this;
   vm.isMobile = Common.isMobile;
   vm.busy = true;
@@ -382,6 +380,11 @@ angular.module('bts.controllers', [])
   vm.infinitePageSize = 5; 
   
   vm.hasMore = true;
+  
+  console.log('$routeParams.selectedProduct:' + $routeParams.selectedProduct );
+  if($routeParams.selectedProduct != undefined) {
+    vm.query_product = $routeParams.selectedProduct;
+  }
   
   vm.total = function () {
     return vm.products.length;
