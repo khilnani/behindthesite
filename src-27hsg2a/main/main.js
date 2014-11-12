@@ -724,6 +724,9 @@ angular.module('bts.controllers', [])
       if(a.id = '') {
         return -1;
       }
+      if(b.id = '') {
+        return 1;
+      }
       if (a.name.toLowerCase() > b.name.toLowerCase()) {
         return 1;
       }
