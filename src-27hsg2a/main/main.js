@@ -737,7 +737,12 @@ angular.module('bts.controllers', [])
       return 0
     });
     vm.products_select_list = list;
-    vm.updateSelections();
+    
+    $timeout(function () {
+      console.log('MainCtrl.updateSelections: Timeout');
+      vm.updateSelections();
+    }, 500);
+    
   }
 
   vm.getData();
