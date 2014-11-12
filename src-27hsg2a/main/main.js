@@ -704,15 +704,6 @@ angular.module('bts.controllers', [])
           'name': res.products[i].name
         });
       }
-      list = list.sort(function (a, b) {
-        if (a.name.toLowerCase() > b.name.toLowerCase()) {
-          return 1;
-        }
-        if (a.name.toLowerCase() < b.name.toLowerCase()) {
-          return -1;
-        }
-        return 0
-      });
       vm.tech_select_list = list;
       vm.updateSelectLists();
     });
@@ -729,6 +720,15 @@ angular.module('bts.controllers', [])
         name: vm.products[i].name
       });
     }
+    list = list.sort(function (a, b) {
+      if (a.name.toLowerCase() > b.name.toLowerCase()) {
+        return 1;
+      }
+      if (a.name.toLowerCase() < b.name.toLowerCase()) {
+        return -1;
+      }
+      return 0
+    });
     vm.products_select_list = list;
     
     vm.updateSelections();
