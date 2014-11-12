@@ -710,7 +710,15 @@ angular.module('bts.controllers', [])
           }
         }
       }
-      list.sort();
+      list = list.sort(function (a, b) {
+        if (a.name > b.name) {
+          return 1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
+        return 0
+      });
       vm.tech_select_list = list;
       vm.updateSelectLists();
     });
