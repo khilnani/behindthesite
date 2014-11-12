@@ -740,7 +740,6 @@ angular.module('bts.controllers', [])
     vm.updateSelections();
   }
 
-  vm.updateSelections();
   vm.getData();
 
 }]);
