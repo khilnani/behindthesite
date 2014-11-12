@@ -696,7 +696,7 @@ angular.module('bts.controllers', [])
     UsedProductSvc.get(function(res) {
       console.log('MainCtrl.getSelectListData: UsedProductSvc.get');
       // List of All Products
-      var list = [ {id:'', name:''}]
+      var list = [ {id:'', name:'Select a Technology'}]
       for(var i=0; i < res.products.length; i++) {
         //console.log(res.products[i].name)
         list.push({
@@ -712,7 +712,7 @@ angular.module('bts.controllers', [])
   vm.updateSelectLists = function () {
     console.log('MainCtrl.updateSelectLists');
     // List of Products/Stacks
-    var list = [ {id:'', name:''}]
+    var list = [ {id:'', name:'Select a Product'}]
     var name;
     for(var i=0; i < vm.products.length; i++) {
       list.push( {
@@ -731,7 +731,11 @@ angular.module('bts.controllers', [])
     });
     vm.products_select_list = list;
     
-    vm.updateSelections();
+    $timeout(function () {
+      console.log('MainCtrl.updateSelectLists: Timeout');
+      vm.updateSelections();
+    }, 500);
+    
   }
 
   vm.updateSelections();
