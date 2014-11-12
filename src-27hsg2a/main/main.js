@@ -690,40 +690,6 @@ angular.module('bts.controllers', [])
       //  $scope.$broadcast('MainCtrl.completed');
   }
 
-  vm.getFilteredSelectListData = function () {
-    ProductSvc.get(function(res) {
-      console.log('MainCtrl.getSelectListData: ProductSvc.get');
-      // List of All Products
-      var list = [ {id:'', name:''}]
-      var found = false;
-      var n;
-      for(var i=0; i < res.products.length; i++) {
-        n = res.products[i].name;
-        //console.log( n )
-        for(var ea in vm.products) {
-          if( vm._matchTech( vm.products[ea], n ) ) {
-            list.push({
-              'id': n,
-              'name': n
-            });
-            break;
-          }
-        }
-      }
-      list = list.sort(function (a, b) {
-        if (a.name > b.name) {
-          return 1;
-        }
-        if (a.name < b.name) {
-          return -1;
-        }
-        return 0
-      });
-      vm.tech_select_list = list;
-      vm.updateSelectLists();
-    });
-  }
-
   vm.getSelectListData = function () {
     UsedProductSvc.get(function(res) {
       console.log('MainCtrl.getSelectListData: UsedProductSvc.get');
@@ -736,6 +702,15 @@ angular.module('bts.controllers', [])
           'name': res.products[i].name
         });
       }
+      list = list.sort(function (a, b) {
+        if (a.name > b.name) {
+          return 1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
+        return 0
+      });
       vm.tech_select_list = list;
       vm.updateSelectLists();
     });
