@@ -721,6 +721,9 @@ angular.module('bts.controllers', [])
       });
     }
     list = list.sort(function (a, b) {
+      if(a.id = '') {
+        return -1;
+      }
       if (a.name.toLowerCase() > b.name.toLowerCase()) {
         return 1;
       }
