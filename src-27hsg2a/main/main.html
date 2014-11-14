@@ -152,7 +152,7 @@
           
         </div><!-- /.modal-body -->
         <div class="modal-footer bg-darker">
-          <button class="btn btn-default pull-left" ng-click="vm.query_product = vm.query_tech = ''">Reset</button>
+          <button class="btn btn-default pull-left" ng-click="vm.clearSelections()">Reset</button>
         </div><!-- /.modal-footer -->
       </form>
     </div><!-- /.modal-content -->
@@ -352,7 +352,7 @@
                     <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
                     <span class="pad-left-5">Technology: </span>
                     <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
-                    <button class="btn btn-default btn-xs" ng-click="vm.query_product = vm.query_tech = ''">Reset</button>
+                    <button class="btn btn-default btn-xs" ng-click="vm.clearSelections()">Reset</button>
                     <a class="cursor pad-left-10" data-toggle="modal" data-target="#SettingsModal"><i class="fa fa-cog fa-lg"></i></a>
                   </form>
                 </span>
