@@ -410,6 +410,7 @@ angular.module('bts.controllers', [])
   vm.clearSelections = function () {
     vm.query_tech = '';
     vm.query_product = '';
+    vm.onSelectionChange();
   }
   
   vm.updateSelections = function () {
