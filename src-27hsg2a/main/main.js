@@ -407,6 +407,11 @@ angular.module('bts.controllers', [])
     vm.currentPage = 0;
   }
   
+  vm.clearSelections = function () {
+    vm.query_tech = '';
+    vm.query_product = '';
+  }
+  
   vm.updateSelections = function () {
     console.log('$routeParams.selectedProduct:' + $routeParams.selectedProduct );
     console.log('$routeParams.selectedTech:' + $routeParams.selectedTech );
