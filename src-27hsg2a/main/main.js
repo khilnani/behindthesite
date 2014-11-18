@@ -90,7 +90,7 @@ angular.module('bts.services', ['ngResource'])
 
 angular.module('bts.directives', [])
 
-.directive('affix', ['$templateCache', function ($templateCache) {
+.directive('affix', function () {
   console.log('affix')
   return function(scope, element, attrs) {
     var ele = angular.element(element);
@@ -124,7 +124,7 @@ angular.module('bts.directives', [])
       })
     });
   };
-}])
+})
 
 .directive('collapse', function () {
   console.log('collapse')
@@ -140,7 +140,7 @@ angular.module('bts.directives', [])
   };
 })
 
-.directive('popover', ['$templateCache', '$compile', function ($templateCache, $compile) {
+.directive('popover', ['$templateCache', function ($templateCache) {
   console.log('popover')
   return function(scope, element, attrs) {
     //console.log(attrs);
@@ -149,19 +149,18 @@ angular.module('bts.directives', [])
 
     var tmpl = $templateCache.get('hoverTmpl.html')
 
-    var popupConfig = {
-      html: true,
-      title: attrs.title,
-      content: attrs.content,
-      placement: 'top',
-      template: tmpl,
-      trigger: 'manual'
-    };
-
     span.data('state', 'hover');
-    span.popover(popupConfig);
     span.on('mouseenter', function (e) { 
       if (span.data('state') === 'hover') {
+        var popupConfig = {
+          html: true,
+          title: attrs.title,
+          content: attrs.content,
+          placement: 'top',
+          template: tmpl,
+          trigger: 'manual'
+        };
+        span.popover(popupConfig);
         span.popover('show');
       }
     });
@@ -189,7 +188,7 @@ angular.module('bts.directives', [])
   };
 }])
 
-.directive('product', ['$templateCache', '$compile', function ($templateCache, $compile) {
+.directive('product', ['$templateCache', function ($templateCache) {
   console.log('product')
   return function(scope, element, attrs) {
 //    console.log(attrs);
@@ -197,33 +196,21 @@ angular.module('bts.directives', [])
     var span = ele.find('span');
 
     var tmpl = $templateCache.get('hoverTmpl.html')
-    scope.website = attrs.website;
-    scope.twitter = attrs.twitter;
-    scope.irc = attrs.irc;
-    scope.blogs = attrs.blogs;
-    scope.description = attrs.description;
-    scope.repo = attrs.repo;
-    scope.issues = attrs.issues;
-    scope.docs = attrs.docs;
-    scope.category = attrs.category;
-    scope.categorypath = attrs.categorypath;
-    scope.notes = attrs.notes;
-    // https://docs.angularjs.org/api/ng/service/$compile
-    var contentHtml = $compile($templateCache.get('productHoverContentTmpl.html'))(scope);
-
-    var popupConfig = {
-      html: true,
-      title: attrs.title,
-      content: contentHtml,
-      placement: 'top',
-      template: tmpl,
-      trigger: 'manual'
-    };
 
     span.data('state', 'hover');
-    span.popover(popupConfig);
     span.on('mouseenter', function (e) { 
       if (span.data('state') === 'hover') {
+        var contentHtml = $('#' + attrs.divid).html();
+        //console.log(attrs.divid + ": " + contentHtml);
+        var popupConfig = {
+          html: true,
+          title: attrs.title,
+          content: contentHtml,
+          placement: 'top',
+          template: tmpl,
+          trigger: 'manual'
+        };
+        span.popover(popupConfig);
         span.popover('show');
       }
     });
@@ -382,7 +369,7 @@ angular.module('bts.controllers', [])
   vm.pageSize = 10;  
   
   vm.infiniteCount = 0;
-  vm.infinitePageSize = 5; 
+  vm.infinitePageSize = 5;
   
   vm.hasMore = true;
   
