@@ -58,6 +58,21 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .pad-mobile-filter {
   padding: 0 20px 10px 20px;
 }
+.margin-top-10 {
+  margin-top: 10px;
+}
+.margin-bottom-0 {
+  margin-bottom: 0px;
+}
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+.margin-bottom-40 {
+  margin-bottom: 40px;
+}
 .grey-on-dark {
   color: #ccc;
   border: 1px solid #555555;
@@ -107,15 +122,6 @@ thead .grey-on-dark {
 .shift-up-5 {
   position: relative;
   top: -5px;
-}
-.margin-bottom-0 {
-  margin-bottom: 0px;
-}
-.margin-bottom-20 {
-  margin-bottom: 20px;
-}
-.margin-bottom-40 {
-  margin-bottom: 40px;
 }
 .vcenter {
     display: inline-block;
