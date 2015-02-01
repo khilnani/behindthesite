@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Words" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="uxS-ZC-A0C">
+                                <rect key="frame" x="160" y="28" width="280" height="55"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="center" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovf-8R-DVt">
+                                <rect key="frame" x="190" y="100" width="220" height="30"/>
+                                <color key="backgroundColor" red="0.52619475959999995" green="0.45519754210000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Next Word (Double tap)">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextWord:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ztk-Fn-hnK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="center" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rr9-sF-Mfa">
+                                <rect key="frame" x="190" y="138" width="220" height="30"/>
+                                <color key="backgroundColor" red="0.52619475959999995" green="0.45519754210000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Show Definition (Swipe up)">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showDefn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="puQ-KM-QwW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Definitions" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="d1K-5Q-Cop">
+                                <rect key="frame" x="160" y="184" width="280" height="322"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uxS-ZC-A0C" secondAttribute="trailing" constant="20" id="2Zp-0s-dj9"/>
+                            <constraint firstItem="Ovf-8R-DVt" firstAttribute="top" secondItem="uxS-ZC-A0C" secondAttribute="bottom" constant="20" id="4e6-w1-Yr7"/>
+                            <constraint firstItem="d1K-5Q-Cop" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="ClR-g9-CBZ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="d1K-5Q-Cop" secondAttribute="bottom" constant="20" id="GD0-Wc-aDU"/>
+                            <constraint firstItem="uxS-ZC-A0C" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="Ukp-Xn-igl"/>
+                            <constraint firstItem="d1K-5Q-Cop" firstAttribute="top" secondItem="rr9-sF-Mfa" secondAttribute="bottom" constant="20" id="VZ7-MT-DRl"/>
+                            <constraint firstAttribute="trailing" secondItem="d1K-5Q-Cop" secondAttribute="trailing" constant="20" id="Z6x-Th-1go"/>
+                            <constraint firstAttribute="centerX" secondItem="Ovf-8R-DVt" secondAttribute="centerX" id="ZKt-Dv-azj"/>
+                            <constraint firstAttribute="centerX" secondItem="rr9-sF-Mfa" secondAttribute="centerX" id="ai3-lv-cew"/>
+                            <constraint firstAttribute="centerX" secondItem="d1K-5Q-Cop" secondAttribute="centerX" id="eEg-X7-JV4"/>
+                            <constraint firstAttribute="centerX" secondItem="uxS-ZC-A0C" secondAttribute="centerX" id="he9-OX-ytW"/>
+                            <constraint firstItem="uxS-ZC-A0C" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="o5h-2U-gLP"/>
+                            <constraint firstItem="rr9-sF-Mfa" firstAttribute="top" secondItem="Ovf-8R-DVt" secondAttribute="bottom" constant="10" id="siJ-Dg-HLa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dButton" destination="rr9-sF-Mfa" id="v2c-IA-N3R"/>
+                        <outlet property="dLabel" destination="d1K-5Q-Cop" id="e21-3q-OnA"/>
+                        <outlet property="nButton" destination="Ovf-8R-DVt" id="L7q-T7-dwK"/>
+                        <outlet property="wLabel" destination="uxS-ZC-A0C" id="Itc-7y-5L5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
