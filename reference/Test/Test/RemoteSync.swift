@@ -13,8 +13,8 @@ class RemoteSync: NSObject {
     var data = NSMutableData()
     
     func connect() {
-        var url =  NSURL.URLWithString("http://behindthesite.com/data/test.json")
-        var request = NSURLRequest(URL: url)
+        var url =  NSURL(string:"http://behindthesite.com/data/test.json")
+        var request = NSURLRequest(URL: url!)
         var conn = NSURLConnection(request: request, delegate: self, startImmediately: true)
     }
     
