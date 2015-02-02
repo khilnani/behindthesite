@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9E2CAB91198EA49F00E40FFC /* RemoteSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2CAB90198EA49F00E40FFC /* RemoteSync.swift */; };
-		9E2CAB93198EA97400E40FFC /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2CAB92198EA97400E40FFC /* JSON.swift */; };
 		9E8303F0198DEC8F00E206E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8303EF198DEC8F00E206E5 /* AppDelegate.swift */; };
 		9E8303F2198DEC8F00E206E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8303F1198DEC8F00E206E5 /* ViewController.swift */; };
 		9E8303F5198DEC8F00E206E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E8303F3198DEC8F00E206E5 /* Main.storyboard */; };
@@ -16,6 +15,7 @@
 		9E830403198DEC8F00E206E5 /* TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E830402198DEC8F00E206E5 /* TestTests.swift */; };
 		9ECD86A5198E735800F9E0D4 /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECD86A4198E735800F9E0D4 /* WordModel.swift */; };
 		9ECD86A6198E745300F9E0D4 /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECD86A4198E735800F9E0D4 /* WordModel.swift */; };
+		CA07D0B51A7F36F400EF958E /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2CAB92198EA97400E40FFC /* JSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,7 +221,7 @@
 			files = (
 				9E2CAB91198EA49F00E40FFC /* RemoteSync.swift in Sources */,
 				9ECD86A5198E735800F9E0D4 /* WordModel.swift in Sources */,
-				9E2CAB93198EA97400E40FFC /* JSON.swift in Sources */,
+				CA07D0B51A7F36F400EF958E /* JSON.swift in Sources */,
 				9E8303F2198DEC8F00E206E5 /* ViewController.swift in Sources */,
 				9E8303F0198DEC8F00E206E5 /* AppDelegate.swift in Sources */,
 			);

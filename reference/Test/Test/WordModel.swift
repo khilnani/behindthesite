@@ -13,6 +13,7 @@ class WordModel {
     var words: [String] = []
     var defns: [String] = []
     var workingIndex:Int = 0
+    var loaded:Bool = false
     
     var random: (String,String) {
         get {
@@ -46,6 +47,7 @@ class WordModel {
     }
     
     func inc() {
+        if !loaded { load() }
         if ++workingIndex >= words.count {
             workingIndex = 0
         }
@@ -55,13 +57,16 @@ class WordModel {
         return min + Int(arc4random_uniform(UInt32(max - min + 1)))
     }
     
-    init() {
-        let jsonData = JSON.fromURL("http://behindthesite.com/data/test.json")
+    func load() {
+        let jsonData = JSON.init(url:"http://behindthesite.com/data/test.json")
+        NSLog("jsonData: " + jsonData.toString(pretty: true))
         
-        for (i,v) in jsonData {
+        for (i,v) in jsonData.generate() {
             words.append( v["word"].asString! )
             defns.append( v["defn"].asString! )
         }
+        
+        loaded = true
     }
     
 

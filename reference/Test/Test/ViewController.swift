@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var dButton : UIButton!
         
     let words = WordModel()
+    
                             
     override func viewDidLoad() {
         super.viewDidLoad()
