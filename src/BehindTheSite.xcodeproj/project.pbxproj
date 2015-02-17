@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E16E4891A92ECB20057A025 /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E16E4881A92ECB20057A025 /* CompanyViewController.swift */; };
+		9E16E48B1A92EDEA0057A025 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E16E48A1A92EDEA0057A025 /* NavigationViewController.swift */; };
 		9EE19F841A92E0EC008F7A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE19F831A92E0EC008F7A18 /* AppDelegate.swift */; };
 		9EE19F871A92E0EC008F7A18 /* BehindTheSite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9EE19F851A92E0EC008F7A18 /* BehindTheSite.xcdatamodeld */; };
-		9EE19F891A92E0EC008F7A18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE19F881A92E0EC008F7A18 /* ViewController.swift */; };
 		9EE19F8C1A92E0EC008F7A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE19F8A1A92E0EC008F7A18 /* Main.storyboard */; };
 		9EE19F8E1A92E0EC008F7A18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE19F8D1A92E0EC008F7A18 /* Images.xcassets */; };
-		9EE19F911A92E0EC008F7A18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EE19F8F1A92E0EC008F7A18 /* LaunchScreen.xib */; };
 		9EE19F9D1A92E0EC008F7A18 /* BehindTheSiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE19F9C1A92E0EC008F7A18 /* BehindTheSiteTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,14 +27,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E16E4881A92ECB20057A025 /* CompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyViewController.swift; sourceTree = "<group>"; };
+		9E16E48A1A92EDEA0057A025 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		9EE19F7E1A92E0EC008F7A18 /* BehindTheSite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BehindTheSite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE19F821A92E0EC008F7A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EE19F831A92E0EC008F7A18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EE19F861A92E0EC008F7A18 /* BehindTheSite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BehindTheSite.xcdatamodel; sourceTree = "<group>"; };
-		9EE19F881A92E0EC008F7A18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9EE19F8B1A92E0EC008F7A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9EE19F8D1A92E0EC008F7A18 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9EE19F901A92E0EC008F7A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9EE19F961A92E0EC008F7A18 /* BehindTheSiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BehindTheSiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE19F9B1A92E0EC008F7A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EE19F9C1A92E0EC008F7A18 /* BehindTheSiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehindTheSiteTests.swift; sourceTree = "<group>"; };
@@ -80,12 +80,12 @@
 			isa = PBXGroup;
 			children = (
 				9EE19F831A92E0EC008F7A18 /* AppDelegate.swift */,
-				9EE19F881A92E0EC008F7A18 /* ViewController.swift */,
 				9EE19F8A1A92E0EC008F7A18 /* Main.storyboard */,
 				9EE19F8D1A92E0EC008F7A18 /* Images.xcassets */,
-				9EE19F8F1A92E0EC008F7A18 /* LaunchScreen.xib */,
 				9EE19F851A92E0EC008F7A18 /* BehindTheSite.xcdatamodeld */,
 				9EE19F811A92E0EC008F7A18 /* Supporting Files */,
+				9E16E4881A92ECB20057A025 /* CompanyViewController.swift */,
+				9E16E48A1A92EDEA0057A025 /* NavigationViewController.swift */,
 			);
 			path = BehindTheSite;
 			sourceTree = "<group>";
@@ -196,7 +196,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EE19F8C1A92E0EC008F7A18 /* Main.storyboard in Resources */,
-				9EE19F911A92E0EC008F7A18 /* LaunchScreen.xib in Resources */,
 				9EE19F8E1A92E0EC008F7A18 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,7 +214,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EE19F891A92E0EC008F7A18 /* ViewController.swift in Sources */,
+				9E16E48B1A92EDEA0057A025 /* NavigationViewController.swift in Sources */,
+				9E16E4891A92ECB20057A025 /* CompanyViewController.swift in Sources */,
 				9EE19F871A92E0EC008F7A18 /* BehindTheSite.xcdatamodeld in Sources */,
 				9EE19F841A92E0EC008F7A18 /* AppDelegate.swift in Sources */,
 			);
@@ -246,14 +246,6 @@
 				9EE19F8B1A92E0EC008F7A18 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9EE19F8F1A92E0EC008F7A18 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9EE19F901A92E0EC008F7A18 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -411,6 +403,7 @@
 				9EE19FA21A92E0EC008F7A18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9EE19FA31A92E0EC008F7A18 /* Build configuration list for PBXNativeTarget "BehindTheSiteTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +412,7 @@
 				9EE19FA51A92E0EC008F7A18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
