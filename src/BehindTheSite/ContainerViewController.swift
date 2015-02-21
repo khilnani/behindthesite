@@ -16,7 +16,7 @@ enum SlideOutState :Int {
 }
 
 
-class ContainerViewController: UIViewController, CenterViewControllerDelegate {
+class ContainerViewController: UIViewController, UIGestureRecognizerDelegate, CenterViewControllerDelegate {
     
     var centerNavigationController: UINavigationController!
     var centerViewController: CenterViewController!
@@ -46,6 +46,10 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate {
         addChildViewController(centerNavigationController)
         
         centerNavigationController.didMoveToParentViewController(self)
+        
+        // MARK: Gesture recognizer
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
+        centerNavigationController.view.addGestureRecognizer(panGestureRecognizer)
     }
     
     // MARK: CenterViewController delegate methods
@@ -70,6 +74,17 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate {
         animateSidePanel(.RightPanelExpanded, shouldExpand: notAlreadyExpanded)
     }
     
+    func collapseSidePanels() {
+        switch (currentState) {
+        case .RightPanelExpanded:
+            toggleNavigationPanel()
+        case .LeftPanelExpanded:
+            toggleSettingsPanel()
+        default:
+            break
+        }
+    }
+    
     func addNavigationPanelViewController() {
         if (navigationPanelViewController == nil) {
             navigationPanelViewController = UIStoryboard.navigationPanelViewController()
@@ -91,6 +106,7 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate {
     }
     
     func addSidePanelController(panelViewController: UIViewController) {
+        
         view.insertSubview(panelViewController.view, atIndex: 0)
         
         addChildViewController(panelViewController)
@@ -139,6 +155,34 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate {
     // MARK: Gesture recognizer
     
     func handlePanGesture(recognizer: UIPanGestureRecognizer) {
+        let gestureIsDraggingFromLeftToRight = (recognizer.velocityInView(view).x > 0)
+        
+        switch(recognizer.state) {
+        case .Began:
+            if (currentState == .BothCollapsed) {
+                if (gestureIsDraggingFromLeftToRight) {
+                    addNavigationPanelViewController()
+                } else {
+                    addSettingsPanelViewController()
+                }
+                
+                showShadowForCenterViewController(true)
+            }
+        case .Changed:
+            recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
+            recognizer.setTranslation(CGPointZero, inView: view)
+        case .Ended:
+            if (navigationPanelViewController != nil) {
+                // animate the side panel open or closed based on whether the view has moved more or less than halfway
+                let hasMovedGreaterThanHalfway = recognizer.view!.center.x > view.bounds.size.width
+                animateSidePanel(.LeftPanelExpanded, shouldExpand: hasMovedGreaterThanHalfway)
+            } else if (settingsPanelViewController != nil) {
+                let hasMovedGreaterThanHalfway = recognizer.view!.center.x < 0
+                animateSidePanel(.RightPanelExpanded, shouldExpand: hasMovedGreaterThanHalfway)
+            }
+        default:
+            break
+        }
     }
 }
 

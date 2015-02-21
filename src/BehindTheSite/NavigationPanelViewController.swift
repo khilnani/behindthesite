@@ -30,7 +30,8 @@ class NavigationPanelViewController : UIViewController {
     
     func refreshView(centerViewController: CenterViewController) {
         println("refreshView: NavigationPanelViewController")
-        centerViewController.displayItem()
+        delegate = centerViewController
+        delegate!.displayItem()
     }
     
 }

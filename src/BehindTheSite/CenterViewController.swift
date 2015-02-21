@@ -30,6 +30,10 @@ class CenterViewController : UIViewController {
     
     func displayItem() {
         println("displayItem: CenterViewController")
+        
+        
+        
+        delegate?.collapseSidePanels?()
     }
     
     override func viewDidAppear(animated: Bool) {
