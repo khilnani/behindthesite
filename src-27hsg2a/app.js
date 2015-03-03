@@ -11,25 +11,25 @@ https://docs.angularjs.org/
 //*****************************************************************************
 // Utilities
 
-function trackEvent(product, technology) {
+var window.Utils = {};
+
+Utils.trackEvent = function (product, technology) {
     console.log('trackEvent: ' + product + ', ' + technology);
-    
     var title_pre = "BehindTheSite | "
     
     if( product != '' && technology == '') {
       // only product  
-      _gaq.push(['_trackEvent', 'Product', product]);
       document.title = title_pre + product;
+      _gaq.push(['_trackEvent', 'Product', product]);
     } else if( product == '' && technology != '') {
       // only tech
-      _gaq.push(['_trackEvent', 'Technology', technology]);
       document.title = title_pre + technology;
+      _gaq.push(['_trackEvent', 'Technology', technology]);
     } else if( product != '' && technology != '') {
       // both
+      document.title = title_pre + product + " " + technology;
       _gaq.push(['_trackEvent', 'Product', product]);
       _gaq.push(['_trackEvent', 'Technology', technology]);
-      document.title = title_pre + product + " " + technology;
-
     } else if( product == '' && technology == '') {
       // none
       document.title = title_pre + "A log of technology stacks";
