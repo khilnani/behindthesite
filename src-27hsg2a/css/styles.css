@@ -131,7 +131,7 @@ thead .grey-on-dark {
 .title {
   font-family: 'Signika', sans-serif;
   font-style: italic;
-  color: #fff;
+  _color: #fff;
 }
 .text-strong {
   font-weight: bold;
