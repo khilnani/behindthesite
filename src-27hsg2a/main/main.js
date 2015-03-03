@@ -1,11 +1,13 @@
 
 function trackEvent(product, technology) {
+    console.log('trackEvent: ' + product + ', ' + technology);
+    
     if( product != '' && technology == '') {
       // only product  
       _gaq.push(['_trackEvent', 'Product', product]);
     } else if( product == '' && technology != '') {
       // only tech
-      _gaq.push(['_trackEvent', 'Technology', vm.query_tech]);
+      _gaq.push(['_trackEvent', 'Technology', technology]);
     } else if( product != '' && technology != '') {
       // both
       _gaq.push(['_trackEvent', 'Product', product]);
@@ -460,11 +462,11 @@ angular.module('bts.controllers', [])
   // pagination, page size loaded limited by infinitePageSize if greater, see pageLimit. use pageLimit in html ng-repeat
   vm.pageLimit = function () {
     var ret = vm.pageSize;
-    console.log('vm.pageLimit: PRE vm.infinitePageSize: ' + vm.infiniteCount + " < " + vm.pageSize);
+    //console.log('vm.pageLimit: PRE vm.infinitePageSize: ' + vm.infiniteCount + " < " + vm.pageSize);
     if( vm.infiniteCount < vm.pageSize ) {
       ret = vm.infiniteCount;
     }
-    console.log('vm.pageLimit: POST: ' + ret);
+    //console.log('vm.pageLimit: POST: ' + ret);
     return ret;
   }
   
