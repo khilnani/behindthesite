@@ -167,7 +167,7 @@ thead .grey-on-dark {
   max-width: 500px;
 }
 .popover.top>.arrow:after {
-  border-top-color: #1c1e22;
+  _border-top-color: #1c1e22;
 }
 .markdown {
   word-wrap: break-word;
