@@ -1,24 +1,3 @@
-
-function trackEvent(product, technology) {
-    console.log('trackEvent: ' + product + ', ' + technology);
-    
-    if( product != '' && technology == '') {
-      // only product  
-      _gaq.push(['_trackEvent', 'Product', product]);
-    } else if( product == '' && technology != '') {
-      // only tech
-      _gaq.push(['_trackEvent', 'Technology', technology]);
-    } else if( product != '' && technology != '') {
-      // both
-      _gaq.push(['_trackEvent', 'Product', product]);
-      _gaq.push(['_trackEvent', 'Technology', technology]);
-
-    } else if( product == '' && technology == '') {
-      // none
-    }
-}
-
-
 //*****************************************************************************
 // Services
 // https://docs.angularjs.org/api/ngResource/service/$resource
