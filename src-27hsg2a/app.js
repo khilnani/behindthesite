@@ -9,6 +9,35 @@ https://docs.angularjs.org/
 */
 
 //*****************************************************************************
+// Utilities
+
+function trackEvent(product, technology) {
+    console.log('trackEvent: ' + product + ', ' + technology);
+    
+    var title_pre = "BehindTheSite | "
+    
+    if( product != '' && technology == '') {
+      // only product  
+      _gaq.push(['_trackEvent', 'Product', product]);
+      document.title = title_pre + product;
+    } else if( product == '' && technology != '') {
+      // only tech
+      _gaq.push(['_trackEvent', 'Technology', technology]);
+      document.title = title_pre + technology;
+    } else if( product != '' && technology != '') {
+      // both
+      _gaq.push(['_trackEvent', 'Product', product]);
+      _gaq.push(['_trackEvent', 'Technology', technology]);
+      document.title = title_pre + product + " " + technology;
+
+    } else if( product == '' && technology == '') {
+      // none
+      document.title = title_pre + "A log of technology stacks";
+    }
+    
+}
+
+//*****************************************************************************
 // App
 
 //var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives', 'bts.filters', 'bts.services','angular-loading-bar', 'ngAnimate', 'ngSanitize' ,'infinite-scroll']);
