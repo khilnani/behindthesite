@@ -1,4 +1,21 @@
 
+function trackEvent(product, technology) {
+    if( product != '' && technology == '') {
+      // only product  
+      _gaq.push(['_trackEvent', 'Product', product]);
+    } else if( product == '' && technology != '') {
+      // only tech
+      _gaq.push(['_trackEvent', 'Technology', vm.query_tech]);
+    } else if( product != '' && technology != '') {
+      // both
+      _gaq.push(['_trackEvent', 'Product', product]);
+      _gaq.push(['_trackEvent', 'Technology', technology]);
+
+    } else if( product == '' && technology == '') {
+      // none
+    }
+}
+
 
 //*****************************************************************************
 // Services
@@ -376,6 +393,9 @@ angular.module('bts.controllers', [])
   vm.onSelectionChange = function () {
     console.log('vm.onSelectionChange: ' + vm.query_product + ', ' + vm.query_tech);
     
+    // Only called on user changed selection
+    trackEvent(vm.query_product, vm.query_tech);
+    
     if( vm.query_product != '' && vm.query_tech == '') {
       // only query_product  
       $location.path('/stack/' + vm.query_product);
@@ -412,6 +432,9 @@ angular.module('bts.controllers', [])
       $routeParams.selectedTech = "";
     } 
     vm.query_tech = $routeParams.selectedTech;
+    
+    // only called on page load
+    trackEvent(vm.query_product, vm.query_tech);
   }
   
   vm.disablePrev = function () {
