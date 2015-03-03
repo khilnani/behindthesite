@@ -11,9 +11,7 @@ https://docs.angularjs.org/
 //*****************************************************************************
 // Utilities
 
-var window.Utils = {};
-
-Utils.trackEvent = function (product, technology) {
+function trackEvent (product, technology) {
     console.log('trackEvent: ' + product + ', ' + technology);
     var title_pre = "BehindTheSite | "
     
