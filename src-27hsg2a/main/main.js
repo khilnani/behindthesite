@@ -375,7 +375,7 @@ angular.module('bts.controllers', [])
     console.log('vm.onSelectionChange: ' + vm.query_product + ', ' + vm.query_tech);
     
     // Only called on user changed selection
-    trackEvent(vm.query_product, vm.query_tech);
+    Utils.trackEvent(vm.query_product, vm.query_tech);
     
     if( vm.query_product != '' && vm.query_tech == '') {
       // only query_product  
@@ -415,7 +415,7 @@ angular.module('bts.controllers', [])
     vm.query_tech = $routeParams.selectedTech;
     
     // only called on page load
-    trackEvent(vm.query_product, vm.query_tech);
+    Utils.trackEvent(vm.query_product, vm.query_tech);
   }
   
   vm.disablePrev = function () {
