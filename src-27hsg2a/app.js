@@ -25,7 +25,7 @@ function trackEvent (product, technology) {
       _gaq.push(['_trackEvent', 'Technology', technology]);
     } else if( product != '' && technology != '') {
       // both
-      document.title = title_pre + product + " " + technology;
+      document.title = title_pre + product + " and " + technology;
       _gaq.push(['_trackEvent', 'Product', product]);
       _gaq.push(['_trackEvent', 'Technology', technology]);
     } else if( product == '' && technology == '') {
