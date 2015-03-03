@@ -116,6 +116,8 @@ bts.factory('Common', ['$location', '$http', function ($location, $http) {
 
 bts.run(function() {
     console.log('run()');
+    
+    _trackEvent('home', 'load');
 });
 
 /**
