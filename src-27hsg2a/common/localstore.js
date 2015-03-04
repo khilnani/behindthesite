@@ -1,4 +1,4 @@
-var localstore = {
+var Localstore = {
 //--------------------------------------------------
 
   get: function (key, subkey) {
