@@ -2,7 +2,7 @@ var localstore = {
 //--------------------------------------------------
 
   get: function (key, subkey) {
-    log.debug('Localstore.get(): ', arguments );
+    Logger.debug('Localstore.get(): ', arguments );
     
     var data = undefined;
     try {
@@ -11,12 +11,12 @@ var localstore = {
     if(data && typeof(subkey) != 'undefined') {
       data =  data[subkey];
     }
-    //log.traceObj(data);
+    //Logger.traceObj(data);
     return data;
   },
   
   set: function (key, subkeyOrVal, val) {
-    log.debug('Localstore.set(): ', arguments );
+    Logger.debug('Localstore.set(): ', arguments );
     
     if(arguments.length == 2) {
       if(subkeyOrVal)
