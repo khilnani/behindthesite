@@ -374,7 +374,7 @@ angular.module('bts.controllers', [])
   
   vm.onThemeChange = function () {
     themeLink = $('#theme-link')
-    themeLink.attr('href',vm.theme);
+    themeLink.attr('href', '/vendor/bootswatch/' + vm.theme + '/bootstrap.min.css');
   }
   
   vm.onSelectionChange = function () {
