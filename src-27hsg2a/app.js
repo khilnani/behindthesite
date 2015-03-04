@@ -144,6 +144,7 @@ bts.factory('Common', ['$location', '$http', function ($location, $http) {
 bts.run(function() {
     console.log('run()');
     _gaq.push(['_trackEvent', 'Home', 'Default']);
+    Logger.setLogLevel(6);
 });
 
 /**
