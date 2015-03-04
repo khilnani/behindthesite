@@ -15,6 +15,7 @@ uglifyjs ../vendor/marked/marked.js \
   common/base64.enc.js \
   common/logger.js \
   common/localstore.js \
+  common/utils.js \
   app.js \
   main/main.enc.js \
   -o ../js/min.js \
