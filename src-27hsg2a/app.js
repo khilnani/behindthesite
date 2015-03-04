@@ -118,6 +118,7 @@ bts.run(function() {
     _gaq.push(['_trackEvent', 'Home', 'Default']);
 
     var logLevel = Localstore.get('loglevel');
+    console.log('logLevel: ' + logLevel);
     if(!logLevel) {
         Logger.setLogLevel(6);
     }
