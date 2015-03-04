@@ -355,7 +355,7 @@ angular.module('bts.controllers', [])
   var vm = this;
   vm.isMobile = Common.isMobile;
   vm.busy = true;
-  vm.theme = Localstore.get('theme');
+  vm.theme = '';
   vm.query_tech = '';
   vm.query_product = '';
   vm.headers = [];
@@ -751,11 +751,13 @@ angular.module('bts.controllers', [])
   
   vm.init = function () {
     Logger.event('MainCtrl.init()')
+    
+    vm.theme = Localstore.get('theme');
     if(!vm.theme) {
       vm.theme = 'slate';
       Localstore.set('theme', vm.theme);
-      vm.onThemeChange();
     }
+    vm.onThemeChange();
     
     vm.getData();
   }
