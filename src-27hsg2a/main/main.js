@@ -754,7 +754,7 @@ angular.module('bts.controllers', [])
     
     vm.theme = Localstore.get('theme');
     if(!vm.theme) {
-      vm.theme = 'slate';
+      vm.theme = 'yeti';
       Localstore.set('theme', vm.theme);
     }
     vm.onThemeChange();
