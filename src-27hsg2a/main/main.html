@@ -244,7 +244,7 @@
                 <div class="list-group">
                   <div class="list-group-item bg-darker">
                     <p class="list-group-item-text" >
-                      <p><small>
+                      <p>
                         <a ng-if='product.website' href="{{ ::product.website }}" target="_blank">Website</a> 
                         <a ng-if='product.twitter' href="{{ ::product.twitter }}" target="_blank">Twitter</a> 
                         <a ng-if='product.irc' href="{{ ::product.irc }}" target="_blank">Irc</a> 
@@ -252,7 +252,7 @@
                         <a ng-if='product.issues' href="{{ ::product.issues }}" target="_blank">Issues</a> 
                         <a ng-if='product.docs' href="{{ ::product.docs }}" target="_blank">Docs</a> 
                         <a ng-if='product.blogs' href="{{ ::product.blogs }}" target="_blank">Blog</a> 
-                      </small></p>
+                      </p>
                     </p>
                   </div>
                   <div class="list-group-item bg-darker" ng-if='product.insight'>
@@ -283,8 +283,8 @@
                         data-notes="{{ ::ea.notes }}">
                       <h4 class="list-group-item-heading"><span ng-bind-html="vm.highlight(ea.product.name)"></span></h4>
                       <p class="list-group-item-text" >
-                        <p><small>{{ ::ea.category.full_path.split('>').slice(1).join(' | ') }}</small></p>
-                        <p><small>
+                        <p>{{ ::ea.category.full_path.split('>').slice(1).join(' | ') }}</p>
+                        <p>
                           <a ng-if='ea.product.website' href="{{ ::ea.product.website }}" target="_blank">Website</a> 
                           <a ng-if='ea.product.twitter' href="{{ ::ea.product.twitter }}" target="_blank">Twitter</a> 
                           <a ng-if='ea.product.irc' href="{{ ::ea.product.irc }}" target="_blank">Irc</a> 
@@ -292,7 +292,7 @@
                           <a ng-if='ea.product.issues' href="{{ ::ea.product.issues }}" target="_blank">Issues</a> 
                           <a ng-if='ea.product.docs' href="{{ ::ea.product.docs }}" target="_blank">Docs</a> 
                           <a ng-if='ea.product.blogs' href="{{ ::ea.product.blogs }}" target="_blank">Blog</a> 
-                        </small></p>
+                        </p>
                         <p class="hidden"><span class="markdown" ng-bind-html="ea.product.description"></span></p>
                         <p class="text-muted" ng-if='ea.notes'><strong>Notes - </strong><em><span class="markdown" ng-bind-html="ea.notes"></span></em></p>
                       </p>
