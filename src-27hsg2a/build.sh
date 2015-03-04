@@ -13,6 +13,8 @@ uglifyjs ../vendor/marked/marked.js \
   ../vendor/angular-loading-bar/build/loading-bar.js \
   ../vendor/ngInfiniteScroll/build/ng-infinite-scroll.js \
   common/base64.enc.js \
+  common/logger.js \
+  common/localstore.js \
   app.js \
   main/main.enc.js \
   -o ../js/min.js \
