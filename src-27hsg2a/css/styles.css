@@ -186,14 +186,7 @@ thead .grey-on-dark {
 #p-text-11 {
   font-size: 11px;
 }
-/*
-  http://spiffygif.com/?color=cccccc&lines=11&bgColor=272b30&radius=7&width=2&halo=false
-*/
-.spinner {
-  background-image: url("../images/spiffygif_30x30.gif");
-  width: 30px;
-  height: 30px;
-}
+
 /* 
   github buttons
 */
