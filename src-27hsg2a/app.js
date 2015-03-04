@@ -119,9 +119,8 @@ bts.run(function() {
 
     var logLevel = Localstore.get('loglevel');
     if(!logLevel) {
-        logLevel = defaultLoglevel;
+        Logger.setLogLevel(6);
     }
-    Logger.setLogLevel(logLevel);
     
     Logger.info('run()');
 });
