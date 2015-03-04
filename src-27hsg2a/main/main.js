@@ -355,7 +355,7 @@ angular.module('bts.controllers', [])
   var vm = this;
   vm.isMobile = Common.isMobile;
   vm.busy = true;
-  vm.theme = ''
+  vm.theme = 'slate'
   vm.query_tech = '';
   vm.query_product = '';
   vm.headers = [];
@@ -405,6 +405,9 @@ angular.module('bts.controllers', [])
     vm.query_tech = '';
     vm.query_product = '';
     vm.onSelectionChange();
+    
+    vm.theme = 'slate';
+    vm.onThemeChange()
   }
   
   vm.updateSelections = function () {
