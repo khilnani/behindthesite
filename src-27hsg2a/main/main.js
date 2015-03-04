@@ -355,6 +355,7 @@ angular.module('bts.controllers', [])
   var vm = this;
   vm.isMobile = Common.isMobile;
   vm.busy = true;
+  vm.theme = ''
   vm.query_tech = '';
   vm.query_product = '';
   vm.headers = [];
@@ -370,6 +371,11 @@ angular.module('bts.controllers', [])
   vm.infinitePageSize = 5;
   
   vm.hasMore = true;
+  
+  vm.onThemeChange = function () {
+    themeLink = $('#theme-link')
+    themeLink.attr('href',vm.theme);
+  }
   
   vm.onSelectionChange = function () {
     console.log('vm.onSelectionChange: ' + vm.query_product + ', ' + vm.query_tech);
