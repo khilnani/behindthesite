@@ -117,7 +117,7 @@ bts.factory('Common', ['$location', '$http', function ($location, $http) {
 bts.run(function() {
     _gaq.push(['_trackEvent', 'Home', 'Default']);
 
-    var defaultLogLevel = 6;
+    var defaultLogLevel = 3;
     var logLevel = Localstore.get('loglevel');
     console.log('logLevel: ' + logLevel);
     if(!logLevel) {
