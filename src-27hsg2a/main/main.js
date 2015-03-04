@@ -89,7 +89,7 @@ angular.module('bts.services', ['ngResource'])
 angular.module('bts.directives', [])
 
 .directive('affix', function () {
-  console.log('affix')
+  Logger.info('affix')
   return function(scope, element, attrs) {
     var ele = angular.element(element);
 
@@ -104,7 +104,7 @@ angular.module('bts.directives', [])
     })
 
     ele.on('affix.bs.affix', function (e) {
-      console.log('affix.prior');
+      Logger.info('affix.prior');
 
       var ths = ele.find('th');
       ths.each(function(i) { 
@@ -114,23 +114,23 @@ angular.module('bts.directives', [])
     });
 
     ele.on('affixed.bs.affix', function (e) {
-      console.log('affix.post');
+      Logger.info('affix.post');
       var ths = ele.find('th');
       ths.each(function(i) {
         $(this).width(scope.affix_widths[i]);
-        //console.log(scope.affix_widths[i])
+        //Logger.debug(scope.affix_widths[i])
       })
     });
   };
 })
 
 .directive('collapse', function () {
-  console.log('collapse')
+  Logger.info('collapse')
   return function(scope, element, attrs) {
     var ele = angular.element(element);
 
     ele.on('shown.bs.collapse', function (e) {
-      console.log('shown.bs.collapse');
+      Logger.debug('shown.bs.collapse');
       $('html, body').animate({
         scrollTop: ele.offset().top
       }, 500);
@@ -139,9 +139,9 @@ angular.module('bts.directives', [])
 })
 
 .directive('popover', ['$templateCache', function ($templateCache) {
-  console.log('popover')
+  Logger.info('popover')
   return function(scope, element, attrs) {
-    //console.log(attrs);
+    //Logger.debug(attrs);
     var ele = angular.element(element);
     var span = ele.find('span');
 
@@ -187,9 +187,9 @@ angular.module('bts.directives', [])
 }])
 
 .directive('product', ['$templateCache', function ($templateCache) {
-  console.log('product')
+  Logger.info('product')
   return function(scope, element, attrs) {
-//    console.log(attrs);
+//    Logger.debug(attrs);
     var ele = angular.element(element);
     var span = ele.find('span');
 
@@ -199,7 +199,7 @@ angular.module('bts.directives', [])
     span.on('mouseenter', function (e) { 
       if (span.data('state') === 'hover') {
         var contentHtml = $('#' + attrs.divid).html();
-        //console.log(attrs.divid + ": " + contentHtml);
+        //Logger.debug(attrs.divid + ": " + contentHtml);
         var popupConfig = {
           html: true,
           title: attrs.title,
@@ -268,7 +268,7 @@ angular.module('bts.controllers', [])
   $scope.products = [];
   
   $scope.init = function () {
-    console.log('SubmissionForm.init');
+    Logger.info('SubmissionForm.init');
     $scope.clear();
     $scope.reset();
     $scope.add();
@@ -277,8 +277,8 @@ angular.module('bts.controllers', [])
   
   ProductSvc.get(function(res) {
     //alert('get');
-    console.log('ProductSvc.get');
-    //console.log(res);
+    Logger.info('ProductSvc.get');
+    Logger.debug(res);
     for(var i=0; i < res.products.length; i++) {
       $scope.products.push({
         'value': res.products[i].id,
@@ -296,7 +296,7 @@ angular.module('bts.controllers', [])
     
   $scope.add = function() {
     var newItemNo = $scope.submission.tiers.length+1;
-    console.log('SubmissionForm.add: ' + newItemNo)
+    Logger.debug('SubmissionForm.add: ' + newItemNo)
     $scope.submission.tiers.push({
       'id': newItemNo,
       'product': '-1'
@@ -304,7 +304,7 @@ angular.module('bts.controllers', [])
   };
 
   $scope.delete = function(id) {
-    console.log('SubmissionForm.delete: ' + id);
+    Logger.info('SubmissionForm.delete: ' + id);
     var tiers = $scope.submission.tiers;
     var newArr = [];
     for(var i=0; i < tiers.length; i++) {
@@ -324,12 +324,12 @@ angular.module('bts.controllers', [])
 
   $scope.save = function(submission) {
     $scope.master = angular.copy(submission);
-    console.log('SubmissionForm.save');
-    console.log($scope.master);
+    Logger.info('SubmissionForm.save');
+    Logger.debug($scope.master);
     
     SubmitSvc.post( $scope.master, function (res) {
-      console.log('SubmissionForm.saved');
-      console.log(res);
+      Logger.info('SubmissionForm.saved');
+      Logger.debug(res);
       $scope.init();
       $('#SubmissionModal').modal('hide');
     });
@@ -379,7 +379,7 @@ angular.module('bts.controllers', [])
   }
   
   vm.onSelectionChange = function () {
-    console.log('vm.onSelectionChange: ' + vm.query_product + ', ' + vm.query_tech);
+    Logger.info('vm.onSelectionChange: ' + vm.query_product + ', ' + vm.query_tech);
     
     // Only called on user changed selection
     trackEvent(vm.query_product, vm.query_tech);
@@ -409,8 +409,8 @@ angular.module('bts.controllers', [])
   }
   
   vm.updateSelections = function () {
-    console.log('$routeParams.selectedProduct:' + $routeParams.selectedProduct );
-    console.log('$routeParams.selectedTech:' + $routeParams.selectedTech );
+    Logger.info('$routeParams.selectedProduct:' + $routeParams.selectedProduct );
+    Logger.info('$routeParams.selectedTech:' + $routeParams.selectedTech );
     if($routeParams.selectedProduct == undefined) {
       $routeParams.selectedProduct = "";
     }
@@ -448,11 +448,11 @@ angular.module('bts.controllers', [])
   // pagination, page size loaded limited by infinitePageSize if greater, see pageLimit. use pageLimit in html ng-repeat
   vm.pageLimit = function () {
     var ret = vm.pageSize;
-    //console.log('vm.pageLimit: PRE vm.infinitePageSize: ' + vm.infiniteCount + " < " + vm.pageSize);
+    Logger.debug('vm.pageLimit: PRE vm.infinitePageSize: ' + vm.infiniteCount + " < " + vm.pageSize);
     if( vm.infiniteCount < vm.pageSize ) {
       ret = vm.infiniteCount;
     }
-    //console.log('vm.pageLimit: POST: ' + ret);
+    Logger.debug('vm.pageLimit: POST: ' + ret);
     return ret;
   }
   
@@ -472,7 +472,7 @@ angular.module('bts.controllers', [])
       vm.infiniteCount = vm.products.length;
       vm.hasMore = false;
     }
-    console.log('MainCtrl.incrementInfiniteCount: ' + vm.infiniteCount);
+    Logger.info('MainCtrl.incrementInfiniteCount: ' + vm.infiniteCount);
   }
   
   vm.getFilteredProducts = function () {
@@ -491,7 +491,7 @@ angular.module('bts.controllers', [])
   }
 
   vm._matchProduct = function (element) {
-    //console.log('_matchProduct');
+    Logger.debug('_matchProduct');
     var match = false;
     //var re = new RegExp( vm._escapeRegExp( vm.query_product ), 'i' );
     //match = (element.name.match(re) ) ? true : false;
@@ -502,7 +502,7 @@ angular.module('bts.controllers', [])
   }
 
   vm._matchTech = function (element, q) {
-    //console.log('_matchMatch: ' + q);
+    Logger.debug('_matchMatch: ' + q);
     var match = false;
     var m = false;
     var t, p;
@@ -513,7 +513,7 @@ angular.module('bts.controllers', [])
         p = t[j].product
         //m = p.name.match(re);
         m = (p.name.toLowerCase() == q.toLowerCase());
-        //console.log( p.name + ',' + m);
+        Logger.debug( p.name + ',' + m);
         if(m) {
           match = true;
           break;
@@ -531,36 +531,36 @@ angular.module('bts.controllers', [])
   }
 
   vm.filter = function (element) {
-    //console.log('MainCtrl.filter');
-    //console.log(element);
+    Logger.trace('MainCtrl.filter');
+    Logger.trace(element);
     
     if(vm.query_product == undefined) vm.query_product = '';
-    //console.log('vm.query_tech: ' + vm.query_tech);
-    //console.log('vm.query_product: ' + vm.query_product);
+    Logger.trace('vm.query_tech: ' + vm.query_tech);
+    Logger.trace('vm.query_product: ' + vm.query_product);
 
     var match = false;
 
     if( vm.query_product == '' && vm.query_tech == '') {
-      //console.log('No filter');
+      Logger.trace('No filter');
       match = true;
     } else if( vm.query_product != '' && vm.query_tech == '') {
-      //console.log('Only product');
+      Logger.trace('Only product');
       match = vm._matchProduct(element);
     } else if( vm.query_product == '' && vm.query_tech != '') {
-      //console.log('Only text');
+      Logger.trace('Only text');
       match = vm._matchTech(element, vm.query_tech);
     } else if( vm.query_product != '' && vm.query_tech != '') {
-      //console.log('Both product and text');
+      Logger.trace('Both product and text');
       match = vm._matchProduct(element) && vm._matchTech(element, vm.query_tech);
     } else  {
-      //console.log('Invalid case.');
+      Logger.trace('Invalid case.');
       match = true;
     }
     return match;
   }
   
   vm.backToTop = function (id) {
-    console.log('MainCtrl.backToTop: ' + id);
+    Logger.info('MainCtrl.backToTop: ' + id);
     $('html, body').animate({
       scrollTop: $('#' + id + '-panel').offset().top
     }, 500);
@@ -568,7 +568,7 @@ angular.module('bts.controllers', [])
   
   vm.updateBusy = function () {
     vm.busy = false;
-    console.log('MainCtrl.updateBusy: ' + vm.busy);
+    Logger.info('MainCtrl.updateBusy: ' + vm.busy);
   }
 
   vm.getTaxonomyIds = function (taxonomy) {
@@ -583,9 +583,9 @@ angular.module('bts.controllers', [])
 
   vm.findHeaderIndex = function (tier) {
     var id = tier.category.id;
-//    console.log('Searching for: ' + id + ' ' + typeof(id) );
+//    Logger.trace('Searching for: ' + id + ' ' + typeof(id) );
     for(var i in vm.headers) {
-//      console.log('In: ' + vm.headers[i].ids);
+//      Logger.trace('In: ' + vm.headers[i].ids);
       var index = $.inArray(id, vm.headers[i].ids);
       if(index > -1) {
         return i;
@@ -596,18 +596,18 @@ angular.module('bts.controllers', [])
   
   // will get additional data regardless of pagination
   vm.getAdditionalData = function () {
-    console.log('MainCtrl.mobileGetAdditionalData');
+    Logger.info('MainCtrl.mobileGetAdditionalData');
     // allow the busy icon to display before rendering (freezes otherwise and busy indicator doesnt show)
     vm.busy = true;
     $timeout(function () {
-      console.log('MainCtrl.mobileGetAdditionalData: Timeout');
+      Logger.info('MainCtrl.mobileGetAdditionalData: Timeout');
       vm._getAdditionalData();
     }, 500);
   }
   
   // inifite loading within pagination
   vm.infiniteGetAdditionalData = function () {
-    console.log('MainCtrl.infiniteGetAdditionalData');
+    Logger.info('MainCtrl.infiniteGetAdditionalData');
     if( vm.shouldIncrementInfiniteCount() ) {
       vm._getAdditionalData();
     }
@@ -617,24 +617,24 @@ angular.module('bts.controllers', [])
   vm._getAdditionalData = function () {
     vm.busy = true;
     vm.incrementInfiniteCount();
-    console.log('MainCtrl._getAdditionalData: ' + vm.infiniteCount);
+    Logger.debug('MainCtrl._getAdditionalData: ' + vm.infiniteCount);
     $timeout(function () {
-      console.log('MainCtrl._getAdditionalData: Timeout');
+      Logger.debug('MainCtrl._getAdditionalData: Timeout');
       vm.updateBusy();
     }, 2000);
   }
   
   vm.getData = function () {
-    console.log('MainCtrl.getData()');
+    Logger.info('MainCtrl.getData()');
     vm.busy = true;
     TaxonomySvc.get(function(res) {
       var taxonomy = res.taxonomy;
-      console.log('MainCtrl.Taxonomy: ' + taxonomy.length  );
+      Logger.info('MainCtrl.Taxonomy: ' + taxonomy.length  );
       for(var index in taxonomy) {
         var t = taxonomy[index];
         var h = { name: t.name }
         h.ids = vm.getTaxonomyIds( t );
-//        console.log( h.name + ', ' + h.ids);
+        Logger.debug( h.name + ', ' + h.ids);
         vm.headers.push( h )
       }
       vm.updateBusy();
@@ -643,11 +643,11 @@ angular.module('bts.controllers', [])
   }
   
   vm.getProductData = function () {
-    console.log('MainCtrl.getProductData');
+    Logger.info('MainCtrl.getProductData');
     vm.busy = true;
     StackSvc.get(function(res) {
       var products = res.products;
-      console.log('MainCtrl.Products: ' + products.length  );
+      Logger.info('MainCtrl.Products: ' + products.length  );
       for(var index in products) {
         var product = products[index];
         var model = { 
@@ -678,12 +678,12 @@ angular.module('bts.controllers', [])
           if(tiers[tier].notes) {
             tiers[tier].notes = marked( tiers[tier].notes );
           }
-//          console.log('index: ' + index);
-//          console.log(tiers[tier].product);
+//          Logger.trace('index: ' + index);
+//          Logger.trace(tiers[tier].product);
           model.tiers[index].push( tiers[tier] )
         }
-//        console.log( i.name );
-//        console.log( i.tiers );
+//        Logger.trace( i.name );
+//        Logger.trace( i.tiers );
         vm.products.push( model )
       } 
       
@@ -699,11 +699,11 @@ angular.module('bts.controllers', [])
 
   vm.getSelectListData = function () {
     UsedProductSvc.get(function(res) {
-      console.log('MainCtrl.getSelectListData: UsedProductSvc.get');
+      Logger.info('MainCtrl.getSelectListData: UsedProductSvc.get');
       // List of All Products
       var list = [ {id:'', name:''}]
       for(var i=0; i < res.products.length; i++) {
-        //console.log(res.products[i].name)
+        Logger.debug(res.products[i].name)
         list.push({
           'id': res.products[i].name,
           'name': res.products[i].name
@@ -715,7 +715,7 @@ angular.module('bts.controllers', [])
   }
 
   vm.updateSelectLists = function () {
-    console.log('MainCtrl.updateSelectLists');
+    Logger.info('MainCtrl.updateSelectLists');
     // List of Products/Stacks
     var list = [ {id:'', name:''}]
     var name;
@@ -743,7 +743,7 @@ angular.module('bts.controllers', [])
     vm.products_select_list = list;
     
     $timeout(function () {
-      console.log('MainCtrl.updateSelections: Timeout');
+      Logger.info('MainCtrl.updateSelections: Timeout');
       vm.updateSelections();
     }, 500);
     
