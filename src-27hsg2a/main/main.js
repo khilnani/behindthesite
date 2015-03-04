@@ -356,10 +356,6 @@ angular.module('bts.controllers', [])
   vm.isMobile = Common.isMobile;
   vm.busy = true;
   vm.theme = Localstore.get('theme');
-  if(!vm.theme) {
-    vm.theme = 'slate';
-    Localstore.set('theme', vm.theme);
-  }
   vm.query_tech = '';
   vm.query_product = '';
   vm.headers = [];
@@ -752,7 +748,18 @@ angular.module('bts.controllers', [])
     }, 500);
     
   }
+  
+  vm.init = function () {
+    Logger.event('MainCtrl.init()')
+    if(!vm.theme) {
+      vm.theme = 'slate';
+      Localstore.set('theme', vm.theme);
+      vm.onThemeChange();
+    }
+    
+    vm.getData();
+  }
 
-  vm.getData();
+  vm.init();
 
 }]);
