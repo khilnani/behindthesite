@@ -114,6 +114,19 @@
             </div>
           </div>
           
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="theme">Theme</label>
+            <div class="col-sm-9">
+                <select class="form-control input-sm " ng-model="vm.theme" ng-change="vm.onThemeChange()" id="theme">
+                  <option value="slate">Slate</option>
+                  <option value="yeti">Yeti</option>
+                  <option value="spacelab">Spacelab</option>
+                  <option value="flatly">Flatly</option>
+                  <option value="sandstone">Sandstone</option>
+                </select>
+            </div>
+          </div>
+          
         </div><!-- /.modal-body -->
       </form>
     </div><!-- /.modal-content -->
