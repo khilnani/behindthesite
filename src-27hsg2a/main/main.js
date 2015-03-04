@@ -89,7 +89,7 @@ angular.module('bts.services', ['ngResource'])
 angular.module('bts.directives', [])
 
 .directive('affix', function () {
-  Logger.info('affix')
+  Logger.debug('affix')
   return function(scope, element, attrs) {
     var ele = angular.element(element);
 
@@ -104,7 +104,7 @@ angular.module('bts.directives', [])
     })
 
     ele.on('affix.bs.affix', function (e) {
-      Logger.info('affix.prior');
+      Logger.debug('affix.prior');
 
       var ths = ele.find('th');
       ths.each(function(i) { 
@@ -114,7 +114,7 @@ angular.module('bts.directives', [])
     });
 
     ele.on('affixed.bs.affix', function (e) {
-      Logger.info('affix.post');
+      Logger.debug('affix.post');
       var ths = ele.find('th');
       ths.each(function(i) {
         $(this).width(scope.affix_widths[i]);
@@ -607,7 +607,7 @@ angular.module('bts.controllers', [])
   
   // inifite loading within pagination
   vm.infiniteGetAdditionalData = function () {
-    Logger.info('MainCtrl.infiniteGetAdditionalData');
+    Logger.debug('MainCtrl.infiniteGetAdditionalData');
     if( vm.shouldIncrementInfiniteCount() ) {
       vm._getAdditionalData();
     }
