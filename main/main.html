@@ -328,7 +328,7 @@
                           <a ng-if='ea.product.blogs' href="{{ ::ea.product.blogs }}" target="_blank">Blog</a> 
                         </p>
                         <p class="hidden"><span class="markdown" ng-bind-html="ea.product.description"></span></p>
-                        <p class="xtext-muted" ng-if='ea.notes'><strong>Notes - </strong><em><span class="markdown" ng-bind-html="ea.notes"></span></em></p>
+                        <p ng-if='ea.notes'><strong>Notes - </strong><em><span class="markdown" ng-bind-html="ea.notes"></span></em></p>
                       </p>
                     </div>
                   </div>
@@ -437,7 +437,7 @@
                           <a ng-if='ea.product.blogs' href="{{ ::ea.product.blogs }}" target="_blank">Blog</a> 
                         </p> 
                         <p ng-show='ea.product.description != ""'><span class="markdown" ng-bind-html="ea.product.description"></span></p>
-                        <div class="text-muted" ng-if='ea.notes'>
+                        <div ng-if='ea.notes'>
                           <p><strong>Notes - </strong></p>
                           <em><span class="markdown" ng-bind-html="ea.notes"></span></em>
                         </div>
