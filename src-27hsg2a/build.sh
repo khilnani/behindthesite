@@ -17,7 +17,7 @@ uglifyjs ../vendor/marked/marked.js \
   common/localstore.js \
   common/utils.js \
   app.js \
-  main/main.enc.js \
+  main/main.js \
   -o ../js/min.js \
   --preamble "/* ####### $(date +"%Y-%m-%d %T %Z") ####### */" \
   -c 'drop_console=true,drop_debugger=true,keep_fargs=true' -m -r '$'
