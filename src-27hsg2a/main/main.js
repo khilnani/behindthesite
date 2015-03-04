@@ -405,9 +405,6 @@ angular.module('bts.controllers', [])
     vm.query_tech = '';
     vm.query_product = '';
     vm.onSelectionChange();
-    
-    vm.theme = 'slate';
-    vm.onThemeChange()
   }
   
   vm.updateSelections = function () {
