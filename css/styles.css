@@ -74,26 +74,26 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   margin-bottom: 40px;
 }
 .grey-on-dark {
-  color: #ccc;
-  border: 1px solid #555555;
-  background-color: #1c1e22;
-  text-shadow:0 1px 0 #666666;
+  _color: #ccc;
+  _border: 1px solid #555555;
+  _background-color: #1c1e22;
+  _text-shadow:0 1px 0 #666666;
 }
 tfoot {
-  color: #c8c8c8;
-  background: #1c1e22;
-  border-color: #aaaaaa;
+  _color: #c8c8c8;
+  _background: #1c1e22;
+  _border-color: #aaaaaa;
 }
 thead {
-  color: #c8c8c8;
-  background: #1c1e22;
-  border-color: #aaaaaa;
+  _color: #c8c8c8;
+  _background: #1c1e22;
+  _border-color: #aaaaaa;
 }
 thead .grey-on-dark {
-  color: #ccc;
-  border: 1px solid #555555;
-  background-color: #2c2e33;
-  text-shadow:0 1px 0 #666666;
+  _color: #ccc;
+  _border: 1px solid #555555;
+  _background-color: #2c2e33;
+  _text-shadow:0 1px 0 #666666;
 }
 .affix {
   top: 0px;
@@ -128,19 +128,22 @@ thead .grey-on-dark {
     vertical-align: middle;
     float: none;
 }
+.list-center {
+  text-align:center;
+}
 .title {
   font-family: 'Signika', sans-serif;
   font-style: italic;
-  color: #fff;
+  _color: #fff;
 }
 .text-strong {
   font-weight: bold;
 }
 .bg-dark {
-  background-color: #272b30;
+  _background-color: #272b30;
 }
 .bg-darker {
-  background-color: #1c1e22;
+  _background-color: #1c1e22;
 }
 .highlightText {
   color: #8BC3E9;
@@ -167,7 +170,7 @@ thead .grey-on-dark {
   max-width: 500px;
 }
 .popover.top>.arrow:after {
-  border-top-color: #1c1e22;
+  _border-top-color: #1c1e22;
 }
 .markdown {
   word-wrap: break-word;
@@ -186,14 +189,7 @@ thead .grey-on-dark {
 #p-text-11 {
   font-size: 11px;
 }
-/*
-  http://spiffygif.com/?color=cccccc&lines=11&bgColor=272b30&radius=7&width=2&halo=false
-*/
-.spinner {
-  background-image: url("../images/spiffygif_30x30.gif");
-  width: 30px;
-  height: 30px;
-}
+
 /* 
   github buttons
 */

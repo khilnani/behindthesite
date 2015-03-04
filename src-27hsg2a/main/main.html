@@ -124,6 +124,7 @@
                   <option value="flatly">Flatly</option>
                   <option value="sandstone">Sandstone</option>
                 </select>
+                <span class="pull-right"><small><em>Thanks <a href="http://bootswatch.com/" target="_blank">BootSwatch</a>!</em></small></span>
             </div>
           </div>
           
@@ -137,8 +138,8 @@
 
 
 
-<!--  Filters Modal MOBILE ONLY START //-->
-<div class="modal fade" id="FiltersModal" tabindex="-1" role="dialog" aria-labelledby="Filters Modal" aria-hidden="true">
+<!--  MobileSettings Modal MOBILE ONLY START //-->
+<div class="modal fade" id="MobileSettingsModal" tabindex="-1" role="dialog" aria-labelledby="Mobile Settings Modal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <form class="form-horizontal" role="form">
@@ -146,7 +147,7 @@
           <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
             <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Close</span>
           </button>
-          <h4 class="modal-title"><i class="fa fa-cog fa-lg"></i> Filters</h4>
+          <h4 class="modal-title"><i class="fa fa-cog fa-lg"></i> Settings</h4>
         </div>
         <div class="modal-body">
         
@@ -174,18 +175,20 @@
                   <option value="flatly">Flatly</option>
                   <option value="sandstone">Sandstone</option>
                 </select>
+                <span class="pull-right"><small><em>Thanks <a href="http://bootswatch.com/" target="_blank">BootSwatch</a>!</em></small></span>
             </div>
           </div>
           
         </div><!-- /.modal-body -->
         <div class="modal-footer bg-darker">
-          <button class="btn btn-default pull-right" ng-click="vm.clearSelections()">Reset</button>
+          <button class="btn btn-default pull-left" ng-click="vm.clearSelections()">Reset</button>
+          <button class="btn btn-primary pull-right" data-dismiss="modal">Close</button>
         </div><!-- /.modal-footer -->
       </form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<!--  Filters Modal END //-->
+<!--  MobileSettings Modal END //-->
 
 
 
@@ -196,10 +199,14 @@
       <h2 class="title text-center">BehindTheSite</h2>
       <p class="text-center"><small>A log of web technology stacks.</small></p>
       <p class="hidden-xs text-center align-top"><small><small>
-        More than 500 Products & Technologies catalogued. Each with links to Documentation, Dev Blogs, Repositories, Bug Trackers, Twitter and more.
-        <br/>
-        Optimized for <em><a class="cursor" ng-click="vm.isMobile=false">Desktop</a></em> and <em><a class="cursor" ng-click="vm.isMobile=true">Mobile</a></em>.
-      </small></small></p>
+            More than 500 Products & Technologies catalogued. 
+            Each with links to Documentation, Blogs, Repositories, Bug Trackers, Twitter and more. 
+            <br/>
+            Optimized for <em><a class="cursor" ng-click="vm.isMobile=false">Desktop</a></em> and <em><a class="cursor" ng-click="vm.isMobile=true">Mobile</a></em>.
+        </small></small></p>
+        <p class="text-center align-top"><small><small><small>
+              <em><strong>Tip!</strong> - Change themes and filter content via <i class="fa fa-cog fa-lg"></i></em>
+        </small></small></small></p>
       <p class="text-center align-top"><small>
       
         <a href="https://twitter.com/BehindTheSite" class="twitter-follow-button" data-show-count = true>Follow @behindthesite</a>
@@ -250,7 +257,7 @@
             <span class="pad-left-5">{{ vm.query_product }}</span>
             <span class="pad-left-5">{{ vm.query_tech }}</span>
           </span>
-          <button class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#FiltersModal"><i class="fa fa-cog fa-lg"></i></button>
+          <button class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#MobileSettingsModal"><i class="fa fa-cog fa-lg"></i></button>
         </div>
         <div id="accordion" class="panel-group"> 
           <div id="{{ ::product.name | ws }}-panel" 
@@ -321,7 +328,7 @@
                           <a ng-if='ea.product.blogs' href="{{ ::ea.product.blogs }}" target="_blank">Blog</a> 
                         </p>
                         <p class="hidden"><span class="markdown" ng-bind-html="ea.product.description"></span></p>
-                        <p class="text-muted" ng-if='ea.notes'><strong>Notes - </strong><em><span class="markdown" ng-bind-html="ea.notes"></span></em></p>
+                        <p class="xtext-muted" ng-if='ea.notes'><strong>Notes - </strong><em><span class="markdown" ng-bind-html="ea.notes"></span></em></p>
                       </p>
                     </div>
                   </div>
