@@ -1,6 +1,6 @@
 
 function trackEvent (product, technology) {
-    console.log('trackEvent: ' + product + ', ' + technology);
+    Logger.info('trackEvent: ' + product + ', ' + technology);
     var title_pre = "BehindTheSite | "
     
     if( product != '' && technology == '') {
