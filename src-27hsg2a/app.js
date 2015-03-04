@@ -115,6 +115,14 @@ bts.factory('Common', ['$location', '$http', function ($location, $http) {
 }]);
 
 bts.run(function() {
+    _gaq.push(['_trackEvent', 'Home', 'Default']);
+
+    var logLevel = Localstore.get('loglevel');
+    if(!logLevel) {
+        logLevel = defaultLoglevel;
+    }
+    Logger.setLogLevel(logLevel);
+    
     Logger.info('run()');
 });
 
