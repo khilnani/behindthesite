@@ -355,7 +355,8 @@ angular.module('bts.controllers', [])
   var vm = this;
   vm.isMobile = Common.isMobile;
   vm.busy = true;
-  vm.theme = 'slate'
+  vm.theme = localstore.get('theme');
+  if(!vm.theme) theme = 'slate';
   vm.query_tech = '';
   vm.query_product = '';
   vm.headers = [];
@@ -375,6 +376,7 @@ angular.module('bts.controllers', [])
   vm.onThemeChange = function () {
     themeLink = $('#theme-link')
     themeLink.attr('href', '/vendor/bootswatch/' + vm.theme + '/bootstrap.min.css');
+    localstore.set('theme', vm.theme);
   }
   
   vm.onSelectionChange = function () {
