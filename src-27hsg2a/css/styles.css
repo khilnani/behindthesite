@@ -222,6 +222,6 @@ thead .grey-on-dark {
 }
 
 #filter-product-typeahead {
-  max-height: 150px;
-  overflow-y: auto;
+  _max-height: 150px;
+  _overflow-y: auto;
 }
