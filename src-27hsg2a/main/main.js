@@ -655,11 +655,11 @@ angular.module('bts.controllers', [])
         vm.headers.push( h )
       }
       vm.updateBusy();
-      vm.getStacks(0, vm.pageSize);
+      vm.getStacks(0, vm.pageSize, vm.getSelectListData;
     });
   }
   
-  vm.getStacks = function (start, count) {
+  vm.getStacks = function (start, count, callback) {
     Logger.info('MainCtrl.getStacks: ' + arguments);
     vm.busy = true;
     StackSvc.get({start: start, count: count}, function(res) {
@@ -707,7 +707,8 @@ angular.module('bts.controllers', [])
       
       vm.incrementInfiniteCount();
       vm.updateBusy();
-      vm.getSelectListData();
+      callback();
+      
     });
       // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast downward
       // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#emit upward
