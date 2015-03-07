@@ -220,3 +220,7 @@ thead .grey-on-dark {
   color: #000;
   text-decoration: none;
 }
+
+.scroll-container {
+  display: inline;
+}
