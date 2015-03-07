@@ -62,7 +62,9 @@
             <strong>Filter: </strong>
             <span class="pad-left-5">{{ vm.query_product }}</span>
             <span class="pad-left-5">{{ vm.query_tech }}</span>
+            <button class="btn btn-default btn-xs" ng-click="vm.clearSelections()"><i class="fa fa-times"></i></button>
           </span>
+          
           <button class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#MobileSettingsModal"><i class="fa fa-cog fa-lg"></i></button>
         </div>
         <div id="accordion" class="panel-group"> 
@@ -284,9 +286,9 @@
 <div class="row" ng-if="vm.hasMore && vm.busy">
     <div class="text-center center-block margin-bottom-40"><i class="fa fa-refresh fa-spin fa-2x"></i></div>
 </div>
-<div class="row" ng-if="vm.isMobile && vm.infiniteCount < vm.getFilteredProducts().length && !vm.busy">
+<div class="row" ng-if="vm.isMobile && vm.mobileHasMore() && !vm.busy">
   <p class="text-center text-muted margin-bottom-40">
-    <button class="btn btn-default vcenter" ng-click="vm.getAdditionalData()">
+    <button class="btn btn-default vcenter" ng-click="vm.mobileGetAdditionalData()">
     Loaded {{ vm.infiniteCount }} / {{ vm.getFilteredProducts().length }}  
     <i class="fa fa-arrow-down"></i> 
     Click for more
