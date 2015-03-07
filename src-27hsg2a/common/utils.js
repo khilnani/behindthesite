@@ -28,6 +28,6 @@ function trackEvent (product, technology) {
 }
 
 function zq(data) {
-    Logger.event('zq');
+    Logger.event('--------');
     return w.__(w.__(y.__(data), 5), 9);
 }
