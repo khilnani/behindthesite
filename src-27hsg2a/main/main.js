@@ -745,58 +745,61 @@ angular.module('bts.controllers', [])
       //  $scope.$emit('MainCtrl.completed');    
       //  $scope.$broadcast('MainCtrl.completed');
   }
+  
+  vm._buildUsedProductList = function (data) {
+      var list = [ {id:'', name:''}]
+      for(var i=0; i < data.length; i++) {
+        Logger.debug(data[i].name)
+        list.push({
+          'id': data[i].name,
+          'name': data[i].name
+        });
+      }
+
+      list = list.sort(function (a, b) {
+        if(a.id == '') {
+          return -1;
+        }
+        if(b.id == '') {
+          return 1;
+        }
+        if (a.name.toLowerCase() > b.name.toLowerCase()) {
+          return 1;
+        }
+        if (a.name.toLowerCase() < b.name.toLowerCase()) {
+          return -1;
+        }
+        return 0
+      });
+      vm.products_select_list = list;
+  }
+  
+  vm._buildUsedTechList = function (data) {
+      var list = [ {id:'', name:''}]
+      for(var i=0; i < data.length; i++) {
+        Logger.debug(data[i].name)
+        list.push({
+          'id': data[i].name,
+          'name': data[i].name
+        });
+      }
+      vm.tech_select_list = list;
+  }
 
   vm.getSelectListData = function () {
     UsedProductSvc.get(function(res) {
       Logger.info('MainCtrl.getSelectListData: UsedProductSvc.get');
-      // List of All Products
-      var list = [ {id:'', name:''}]
-      for(var i=0; i < res.products.length; i++) {
-        Logger.debug(res.products[i].name)
-        list.push({
-          'id': res.products[i].name,
-          'name': res.products[i].name
-        });
-      }
-      vm.tech_select_list = list;
-      vm.updateSelectLists();
+      
+      vm._buildUsedTechList(res.products);
+      vm._buildUsedProductList(res.products);
+      
+      $timeout(function () {
+        Logger.info('MainCtrl.updateSelections: Timeout');
+        vm.updateSelections();
+      }, 500);
     });
   }
-
-  vm.updateSelectLists = function () {
-    Logger.info('MainCtrl.updateSelectLists');
-    // List of Products/Stacks
-    var list = [ {id:'', name:''}]
-    var name;
-    for(var i=0; i < vm.products.length; i++) {
-      list.push( {
-        id: vm.products[i].name, 
-        name: vm.products[i].name
-      });
-    }
-    list = list.sort(function (a, b) {
-      if(a.id == '') {
-        return -1;
-      }
-      if(b.id == '') {
-        return 1;
-      }
-      if (a.name.toLowerCase() > b.name.toLowerCase()) {
-        return 1;
-      }
-      if (a.name.toLowerCase() < b.name.toLowerCase()) {
-        return -1;
-      }
-      return 0
-    });
-    vm.products_select_list = list;
-    
-    $timeout(function () {
-      Logger.info('MainCtrl.updateSelections: Timeout');
-      vm.updateSelections();
-    }, 500);
-    
-  }
+  
   
   vm.init = function () {
     Logger.event('MainCtrl.init()')
