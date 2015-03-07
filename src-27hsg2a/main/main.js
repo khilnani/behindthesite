@@ -381,10 +381,10 @@ angular.module('bts.controllers', [])
     Localstore.set('theme', vm.theme);
   }
   
+  // Only called on user changed selection
   vm.onSelectionChange = function () {
     Logger.info('vm.onSelectionChange: ' + vm.query_product + ', ' + vm.query_tech);
     
-    // Only called on user changed selection
     trackEvent(vm.query_product, vm.query_tech);
     
     if( vm.query_product != '' && vm.query_tech == '') {
@@ -400,9 +400,10 @@ angular.module('bts.controllers', [])
       // clear
       $location.path('/');
     }
-    
     // reset to page 1
     vm.currentPage = 0;
+    // get all data to enable complete filtering
+    vm.getStacks(vm.products.length, 10000);
   }
   
   vm.clearSelections = function () {
@@ -411,6 +412,7 @@ angular.module('bts.controllers', [])
     vm.onSelectionChange();
   }
   
+  // only called on page load
   vm.updateSelections = function () {
     Logger.info('$routeParams.selectedProduct:' + $routeParams.selectedProduct );
     Logger.info('$routeParams.selectedTech:' + $routeParams.selectedTech );
@@ -424,8 +426,10 @@ angular.module('bts.controllers', [])
     } 
     vm.query_tech = $routeParams.selectedTech;
     
-    // only called on page load
     trackEvent(vm.query_product, vm.query_tech);
+    
+    // get all data to enable complete filtering
+    vm.getStacks(vm.products.length, 10000);
   }
   
   vm.getFilteredProducts = function () {
