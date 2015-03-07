@@ -272,6 +272,7 @@ angular.module('bts.controllers', [])
   }
   
   $scope.getData = function () {
+    Logger.info('SubmissionForm.getData');
     ProductSvc.get(function(res) {
       //alert('get');
       Logger.info('ProductSvc.get');
@@ -288,6 +289,7 @@ angular.module('bts.controllers', [])
   }
   
   $scope.invalid = function () {
+    Logger.info('SubmissionForm.invalid');
     $scope.getData();
     return $scope.$invalid;
   }
