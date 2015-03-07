@@ -220,3 +220,8 @@ thead .grey-on-dark {
   color: #000;
   text-decoration: none;
 }
+
+#filter-product-typeahead {
+  max-height: 150px;
+  overflow-y: auto;
+}
