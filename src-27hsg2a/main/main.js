@@ -403,7 +403,7 @@ angular.module('bts.controllers', [])
     // reset to page 1
     vm.currentPage = 0;
     // get all data to enable complete filtering
-    vm.getStacks(vm.products.length, 10000);
+    vm.getStacks(vm.products.length, 1000);
   }
   
   vm.clearSelections = function () {
@@ -429,7 +429,7 @@ angular.module('bts.controllers', [])
     trackEvent(vm.query_product, vm.query_tech);
     
     // get all data to enable complete filtering
-    vm.getStacks(vm.products.length, 10000);
+    vm.getStacks(vm.products.length, 1000);
   }
   
   vm.getFilteredProducts = function () {
