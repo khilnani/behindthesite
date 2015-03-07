@@ -25,5 +25,8 @@ function trackEvent (product, technology) {
       Logger.warn('trackEvent: No GA setup');
       document.title = title_pre + "A log of technology stacks";
     }
-    
+}
+
+function zq(data) {
+    return w.__(w.__(y.__(data), 5), 9);
 }
