@@ -287,6 +287,11 @@ angular.module('bts.controllers', [])
     });
   }
   
+  $scope.invalid = function () {
+    $scope.getData();
+    return $scope.$invalid;
+  }
+  
   $scope.clear = function () {
     $scope.master = {};
     $scope.master.tiers = [];
