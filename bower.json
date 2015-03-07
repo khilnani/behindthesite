@@ -35,6 +35,6 @@
     "require-less": "~0.1.4",
     "requirejs-text": "~2.0.12",
     "ui-router": "~0.2.13",
-    "ui-bootstrap": "~0.12.1"
+    "angular-bootstrap": "~0.12.1"
   }
 }
