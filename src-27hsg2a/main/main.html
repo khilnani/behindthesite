@@ -299,10 +299,10 @@
 
 
 <!--  Feedback / SubmissionModal Form START //-->
-<div class="modal fade" id="SubmissionModal" tabindex="-1" role="dialog" aria-labelledby="Feedback Submission Modal" aria-hidden="true">
+<div class="modal fade" id="SubmissionModal" tabindex="-1" role="dialog" aria-labelledby="Feedback Submission Modal" aria-hidden="true" ng-controller="SubmissionForm">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <form class="form-horizontal" role="form" ng-controller="SubmissionForm" name="SubmissionForm" ng-init="getData()">
+      <form class="form-horizontal" role="form" name="SubmissionForm">
         <div class="modal-header bg-darker">
           <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
             <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Close</span>
