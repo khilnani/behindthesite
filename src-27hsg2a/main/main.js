@@ -343,7 +343,7 @@ angular.module('bts.controllers', [])
     return angular.equals(submission, $scope.master);
   };
   
-  $scope.init();
+  $scope.getData();
 
 }])
 
