@@ -380,8 +380,11 @@
         </div><!-- /.modal-body -->
         <div class="modal-footer bg-darker">
           <button class="btn btn-default pull-left" ng-click="reset()" ng-disabled="isUnchanged(submission)">Reset</button>
-          <button type="submit" class="btn btn-primary pull-right" ng-click="save(submission)" ng-disabled="!!SubmissionForm.canSubmit()">Submit</button>
+          <button type="submit" class="btn btn-primary pull-right" ng-click="save(submission)" ng-disabled="!!SubmissionForm.$invalid">Submit</button>
         </div><!-- /.modal-footer -->
+        <div ng-if="getData()">
+          Loaded.
+        </div>
       </form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
