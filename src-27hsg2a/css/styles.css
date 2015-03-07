@@ -221,7 +221,7 @@ thead .grey-on-dark {
   text-decoration: none;
 }
 
-#filter-product-typeahead {
-  _max-height: 150px;
-  _overflow-y: auto;
+.scroll-container {
+  max-height: 400px;
+  overflow-y: auto;
 }
