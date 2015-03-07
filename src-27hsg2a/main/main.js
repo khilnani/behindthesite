@@ -480,6 +480,9 @@ angular.module('bts.controllers', [])
   
   vm.getTotal = function () {
     Logger.debug('vm.getTotal: ' + vm.total);
+    if(vm.isFiltering()) {
+      return vm.getFilteredProducts().length;
+    }
     return vm.total;
   }
   
