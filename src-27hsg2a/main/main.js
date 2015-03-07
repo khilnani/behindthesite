@@ -663,7 +663,7 @@ angular.module('bts.controllers', [])
   
   vm.getStacks = function (start, count, callback) {
     Logger.info('MainCtrl.getStacks: ' + arguments);
-    if( vm.getProducts().length <= start) {
+    if( vm.products.length <= start) {
       vm.busy = true;
       StackSvc.get({start: start, count: count}, function(res) {
         var products = res.products;
