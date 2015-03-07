@@ -369,6 +369,7 @@ angular.module('bts.controllers', [])
   // pagination, page size loaded limited by infinitePageSize if greater, see pageLimit. use pageLimit in html ng-repeat
   vm.pageSize = 10;  
   vm.total = 0;
+  vm.isFiltering = false;
   
   vm.infiniteCount = 0;
   vm.infinitePageSize = 5;
@@ -390,15 +391,19 @@ angular.module('bts.controllers', [])
     if( vm.query_product != '' && vm.query_tech == '') {
       // only query_product  
       $location.path('/stack/' + vm.query_product);
+      vm.isFiltering = true;
     } else if( vm.query_product == '' && vm.query_tech != '') {
       // only query_tech
       $location.path('/tech/' + vm.query_tech);
+      vm.isFiltering = true;
     } else if( vm.query_product != '' && vm.query_tech != '') {
       // both
       $location.path('/highlight/' + vm.query_product + '/' + vm.query_tech);
+      vm.isFiltering = true;
     } else if( vm.query_product == '' && vm.query_tech == '') {
       // clear
       $location.path('/');
+      vm.isFiltering = false;
     }
     
     // reset to page 1
@@ -424,6 +429,12 @@ angular.module('bts.controllers', [])
     } 
     vm.query_tech = $routeParams.selectedTech;
     
+    if(vm.query_product or vm.query_tech) {
+      vm.isFiltering = true;
+    } else {
+      vm.isFiltering = false;
+    }
+    
     // only called on page load
     trackEvent(vm.query_product, vm.query_tech);
   }
@@ -445,7 +456,7 @@ angular.module('bts.controllers', [])
   }
   
   vm.getTotal = function () {
-    Logger.info('vm.getTotal' + vm.total);
+    Logger.info('vm.getTotal: ' + vm.total);
     return vm.total;
   }
   
@@ -485,7 +496,11 @@ angular.module('bts.controllers', [])
   }
   
   vm.numberOfPages = function () {
-    var n = Math.ceil( vm.getFilteredProducts().length / vm.pageSize);
+    Logger.info('MainCtrl.numberOfPages: isFiltering: ' + vm.isFiltering);
+    var n = vm.total / vm.pageSize
+    if(vm.isFiltering) {
+      n = Math.ceil( vm.getFilteredProducts().length / vm.pageSize);
+    }
     if(n == 0) n = 1;
     return n;
   }
