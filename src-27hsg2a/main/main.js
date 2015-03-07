@@ -416,6 +416,13 @@ angular.module('bts.controllers', [])
     vm.onSelectionChange();
   }
   
+  vm._isFiltering = function () {
+    if(vm.query_product || vm.query_tech) {
+      return true;
+    }
+    return false;
+  }
+  
   vm.updateSelections = function () {
     Logger.info('$routeParams.selectedProduct:' + $routeParams.selectedProduct );
     Logger.info('$routeParams.selectedTech:' + $routeParams.selectedTech );
@@ -428,12 +435,6 @@ angular.module('bts.controllers', [])
       $routeParams.selectedTech = "";
     } 
     vm.query_tech = $routeParams.selectedTech;
-    
-    if(vm.query_product || vm.query_tech) {
-      vm.isFiltering = true;
-    } else {
-      vm.isFiltering = false;
-    }
     
     // only called on page load
     trackEvent(vm.query_product, vm.query_tech);
@@ -497,12 +498,13 @@ angular.module('bts.controllers', [])
   
   vm.numberOfPages = function () {
     Logger.info('MainCtrl.numberOfPages: isFiltering: ' + vm.isFiltering);
-    var n = vm.total / vm.pageSize
-    if(vm.isFiltering) {
-      n = Math.ceil( vm.getFilteredProducts().length / vm.pageSize);
+    var numPages = vm.total / vm.pageSize;
+    if(vm._isFiltering()) {
+      numPages = vm.getFilteredProducts().length / vm.pageSize;
     }
-    if(n == 0) n = 1;
-    return n;
+    numPages = Math.ceil(numPages)
+    if(numPages == 0) numPages = 1;
+    return numPages;
   }
 
   vm._escapeRegExp = function (str) {
