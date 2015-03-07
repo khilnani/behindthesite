@@ -286,12 +286,7 @@ angular.module('bts.controllers', [])
       $scope.init();
       //alert('done');
     });
-  }
-  
-  $scope.canSubmit = function () {
-    Logger.info('SubmissionForm.canSubmit');
-    $scope.getData();
-    return $scope.$invalid;
+    return true;
   }
   
   $scope.clear = function () {
