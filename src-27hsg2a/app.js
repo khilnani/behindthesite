@@ -149,7 +149,7 @@ var substringMatcher = function(strs) {
   };
 };
  
-var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+window.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
   'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
   'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
   'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
@@ -168,7 +168,7 @@ $('#product-typeahead .typeahead').typeahead({
 {
   name: 'states',
   displayKey: 'value',
-  source: substringMatcher(states)
+  source: substringMatcher(window.states)
 });
 
 });
