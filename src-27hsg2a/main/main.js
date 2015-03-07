@@ -748,40 +748,44 @@ angular.module('bts.controllers', [])
   
   vm._buildUsedProductList = function (data) {
       var list = [ {id:'', name:''}]
-      for(var i=0; i < data.length; i++) {
-        Logger.debug(data[i].name)
-        list.push({
-          'id': data[i].name,
-          'name': data[i].name
+      if(data) {
+        for(var i=0; i < data.length; i++) {
+          Logger.debug(data[i].name)
+          list.push({
+            'id': data[i].name,
+            'name': data[i].name
+          });
+        }
+  
+        list = list.sort(function (a, b) {
+          if(a.id == '') {
+            return -1;
+          }
+          if(b.id == '') {
+            return 1;
+          }
+          if (a.name.toLowerCase() > b.name.toLowerCase()) {
+            return 1;
+          }
+          if (a.name.toLowerCase() < b.name.toLowerCase()) {
+            return -1;
+          }
+          return 0
         });
       }
-
-      list = list.sort(function (a, b) {
-        if(a.id == '') {
-          return -1;
-        }
-        if(b.id == '') {
-          return 1;
-        }
-        if (a.name.toLowerCase() > b.name.toLowerCase()) {
-          return 1;
-        }
-        if (a.name.toLowerCase() < b.name.toLowerCase()) {
-          return -1;
-        }
-        return 0
-      });
       vm.products_select_list = list;
   }
   
   vm._buildUsedTechList = function (data) {
       var list = [ {id:'', name:''}]
-      for(var i=0; i < data.length; i++) {
-        Logger.debug(data[i].name)
-        list.push({
-          'id': data[i].name,
-          'name': data[i].name
-        });
+      if(data) {
+        for(var i=0; i < data.length; i++) {
+          Logger.debug(data[i].name)
+          list.push({
+            'id': data[i].name,
+            'name': data[i].name
+          });
+        }
       }
       vm.tech_select_list = list;
   }
@@ -790,7 +794,7 @@ angular.module('bts.controllers', [])
     UsedProductSvc.get(function(res) {
       Logger.info('MainCtrl.getSelectListData: UsedProductSvc.get');
       
-      vm._buildUsedTechList(res.products);
+      vm._buildUsedTechList(res.technologies);
       vm._buildUsedProductList(res.products);
       
       $timeout(function () {
