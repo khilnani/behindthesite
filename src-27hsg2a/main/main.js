@@ -429,7 +429,7 @@ angular.module('bts.controllers', [])
     } 
     vm.query_tech = $routeParams.selectedTech;
     
-    if(vm.query_product or vm.query_tech) {
+    if(vm.query_product || vm.query_tech) {
       vm.isFiltering = true;
     } else {
       vm.isFiltering = false;
