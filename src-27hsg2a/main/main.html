@@ -175,11 +175,15 @@
                   <form class="form-inline" role="form">
                     Product: 
                     <!-- <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product"  ng-options="item.id as item.name for item in vm.products_select_list"></select> //-->
-                    <input class="form-control input-xs grey-on-dark" type="text" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" typeahead="item.id as item.name for item in vm.products_select_list" typeahead-min-length="0">
+                    <div class="scroll-container">
+                      <input class="form-control input-xs grey-on-dark" type="text" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" typeahead="item.id as item.name for item in vm.products_select_list" typeahead-min-length="0">
+                    </div>
                     <input id="filter-product-typeahead" class="form-control input-xs grey-on-dark typeahead" type="text" placeholder="Product Stacks">
                     <span class="pad-left-5">Technology: </span>
                     <!-- <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select> //-->
-                    <input class="form-control input-xs grey-on-dark" type="text" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" typeahead="item.id as item.name for item in vm.tech_select_list | filter:$viewValue" typeahead-min-length="0">                    
+                    <div class="scroll-container">
+                      <input class="form-control input-xs grey-on-dark" type="text" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" typeahead="item.id as item.name for item in vm.tech_select_list | filter:$viewValue" typeahead-min-length="0">
+                    </div>
                     <button class="btn btn-default btn-xs" ng-click="vm.clearSelections()">Reset</button>
                     <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#SettingsModal"><i class="fa fa-cog fa-lg"></i></button>
                   </form>
