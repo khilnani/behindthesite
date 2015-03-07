@@ -621,15 +621,24 @@ angular.module('bts.controllers', [])
     return -1;
   }
   
-  // will get additional data regardless of pagination
-  vm.getAdditionalData = function () {
+  vm.mobileHasMore = function () {
+    if(vm.isFiltering) {
+      return vm.infiniteCount < vm.getFilteredProducts().length ;
+    }
+    return vm.infiniteCount < vm.total;
+  }
+  
+  // mobile only, user click, will get additional data regardless of pagination
+  vm.mobileGetAdditionalData = function () {
     Logger.info('MainCtrl.mobileGetAdditionalData');
-    // allow the busy icon to display before rendering (freezes otherwise and busy indicator doesnt show)
-    vm.busy = true;
-    $timeout(function () {
-      Logger.info('MainCtrl.mobileGetAdditionalData: Timeout');
-      vm._getAdditionalData();
-    }, 500);
+      vm.getStacks(vm.products.length, vm.pageSize, function() {
+      // allow the busy icon to display before rendering (freezes otherwise and busy indicator doesnt show)
+      vm.busy = true;
+      $timeout(function () {
+        Logger.info('MainCtrl.mobileGetAdditionalData: Timeout');
+        vm._getAdditionalData();
+      }, 500);
+    });
   }
   
   // inifite loading within pagination
