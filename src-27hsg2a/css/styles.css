@@ -222,6 +222,10 @@ thead .grey-on-dark {
 }
 
 .scroll-container {
+  display: inline;
+}
+
+.scroll-container .dropdown-menu {
   max-height: 400px;
   overflow-y: auto;
 }
