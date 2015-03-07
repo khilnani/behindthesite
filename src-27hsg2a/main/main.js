@@ -271,19 +271,21 @@ angular.module('bts.controllers', [])
     $scope.update($scope.submission);
   }
   
-  ProductSvc.get(function(res) {
-    //alert('get');
-    Logger.info('ProductSvc.get');
-    Logger.debug(res);
-    for(var i=0; i < res.products.length; i++) {
-      $scope.products.push({
-        'value': res.products[i].id,
-        'key': res.products[i].name
-      });
-    }
-    $scope.init();
-    //alert('done');
-  });
+  $scope.getData = function () {
+    ProductSvc.get(function(res) {
+      //alert('get');
+      Logger.info('ProductSvc.get');
+      Logger.debug(res);
+      for(var i=0; i < res.products.length; i++) {
+        $scope.products.push({
+          'value': res.products[i].id,
+          'key': res.products[i].name
+        });
+      }
+      $scope.init();
+      //alert('done');
+    });
+  }
   
   $scope.clear = function () {
     $scope.master = {};
