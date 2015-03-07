@@ -298,7 +298,7 @@
 
 
 
-<!--  Feedback Form START //-->
+<!--  Feedback / SubmissionModal Form START //-->
 <div class="modal fade" id="SubmissionModal" tabindex="-1" role="dialog" aria-labelledby="Feedback Submission Modal" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -380,7 +380,7 @@
         </div><!-- /.modal-body -->
         <div class="modal-footer bg-darker">
           <button class="btn btn-default pull-left" ng-click="reset()" ng-disabled="isUnchanged(submission)">Reset</button>
-          <button type="submit" class="btn btn-primary pull-right" ng-click="save(submission)" ng-disabled="!!SubmissionForm.$invalid">Submit</button>
+          <button type="submit" class="btn btn-primary pull-right" ng-click="save(submission)" ng-disabled="!!SubmissionForm.invalid()">Submit</button>
         </div><!-- /.modal-footer -->
       </form>
     </div><!-- /.modal-content -->
