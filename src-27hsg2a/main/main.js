@@ -288,8 +288,8 @@ angular.module('bts.controllers', [])
     });
   }
   
-  $scope.invalid = function () {
-    Logger.info('SubmissionForm.invalid');
+  $scope.canSubmit = function () {
+    Logger.info('SubmissionForm.canSubmit');
     $scope.getData();
     return $scope.$invalid;
   }
