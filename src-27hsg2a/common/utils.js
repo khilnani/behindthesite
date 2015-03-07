@@ -22,7 +22,7 @@ function trackEvent (product, technology) {
         document.title = title_pre + "A log of technology stacks";
       }
     } catch(e) {
-      Logger.warn('trackEvent: No GA setup);
+      Logger.warn('trackEvent: No GA setup');
       document.title = title_pre + "A log of technology stacks";
     }
     
