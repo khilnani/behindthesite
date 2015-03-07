@@ -1,197 +1,3 @@
-<!--  Feedback Form START //-->
-<div class="modal fade" id="SubmissionModal" tabindex="-1" role="dialog" aria-labelledby="Feedback Submission Modal" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <form class="form-horizontal" role="form" ng-controller="SubmissionForm" name="SubmissionForm">
-        <div class="modal-header bg-darker">
-          <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
-            <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Close</span>
-          </button>
-          <h4 class="modal-title"><i class="fa fa-paper-plane fa-lg"></i> Add a Stack</h4>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="name">Name</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control input-sm" name="name" ng-model="submission.name" placeholder="Your Name" minlength="2" required>
-              <span ng-show="SubmissionForm.name.$error.required" class="text-danger help-block">Please do tell us your name.</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="twitter">Twitter</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control input-sm" name="twitter" ng-model="submission.twitter" placeholder="A tweet to say thanks is the least we can do!" minlength="2">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="email">Email</label>
-            <div class="col-sm-9">
-              <input type="email" class="form-control input-sm" name="email" ng-model="submission.email" placeholder="Your Email. We don't spam or sell emails." minlength="2">
-              <span ng-show="SubmissionForm.email.$error.email" class="text-danger help-block">You might have a typo in your email address.</span>
-              <span ng-show="SubmissionForm.email.$error.required" class="text-danger help-block">Please tell us your email. We don't spam or sell email addresses.</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="product">Product Name</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control input-sm" name="product" ng-model="submission.product" placeholder="The Product you might have feedback, or information on." minlength="2">
-              <span ng-show="SubmissionForm.product.$error.required" class="text-danger help-block">Which Company/Product are you referring to?</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="url">Product Website</label>
-            <div class="col-sm-9">
-              <input type="url" class="form-control input-sm" name="url" ng-model="submission.url" placeholder="Surely, the product/company has a Website right?" minlength="2">
-              <span ng-show="SubmissionForm.url.$error.url" class="text-danger help-block">We're not sure thats a valid url.</span>
-              <span ng-show="SubmissionForm.url.$error.required" class="text-danger help-block">Surely, the product/company has a Website right?</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="comments">Comments</label>
-            <div class="col-sm-9">
-            <textarea class="form-control input-sm" name="comments" rows="2" ng-model="submission.comments" placeholder="Feedback, suggestions, comments, or technology information." ></textarea>
-            </div>
-          </div>
-          <div class="list-group">
-            <div class="list-group-item" ng-repeat="tier in submission.tiers">
-              <p class="list-group-item-text">
-                <div class="form-group">
-                  <label class="col-sm-4 control-label" for="product">
-                    Technology
-                    <button ng-if="!$first" class="btn btn-default btn-xs" ng-click="delete(tier.id)">
-                      <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Delete</span>
-                    </button>
-                  </label>
-                  <div class="col-sm-8">
-                    <select class="form-control input-sm" name="id" ng-model="tier.product" ng-options="item.value as item.key for item in products"></select>
-                  </div>
-                </div>
-                <div class="form-group has-feedback">
-                  <label class="col-sm-4 control-label" for="notes">
-                    <button ng-if="$last" class="btn btn-default pull-right btn-sm" ng-click="add()">Add Another</button>
-                  </label>
-                  <div class="col-sm-8">
-                    <textarea class="form-control input-sm" name="notes" rows="2" ng-model="tier.notes" placeholder="Usage notes, or unlisted Technology details" ></textarea>
-                  </div>
-                </div>
-              </p>
-            </div>
-          </div>
-        </div><!-- /.modal-body -->
-        <div class="modal-footer bg-darker">
-          <button class="btn btn-default pull-left" ng-click="reset()" ng-disabled="isUnchanged(submission)">Reset</button>
-          <button type="submit" class="btn btn-primary pull-right" ng-click="save(submission)" ng-disabled="!!SubmissionForm.$invalid">Submit</button>
-        </div><!-- /.modal-footer -->
-      </form>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!--  Feedback Form END //-->
-
-
-
-<!--  Setting Modal START //-->
-<div class="modal fade" id="SettingsModal" tabindex="-1" role="dialog" aria-labelledby="Settings Modal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form class="form-horizontal" role="form">
-        <div class="modal-header bg-darker">
-          <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
-            <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Close</span>
-          </button>
-          <h4 class="modal-title"><i class="fa fa-cog fa-lg"></i> Settings</h4>
-        </div>
-        <div class="modal-body">
-        
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="name">Page Size</label>
-            <div class="col-sm-9">
-                <select class="form-control input-sm " ng-model="vm.pageSize" id="pageSize">
-                  <option value="5">5</option>
-                  <option value="10">10</option>
-                  <option value="15">15</option>
-                </select>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="theme">Theme</label>
-            <div class="col-sm-9">
-                <select class="form-control input-sm " ng-model="vm.theme" ng-change="vm.onThemeChange()" id="theme">
-                  <option value="slate">Slate</option>
-                  <option value="yeti">Yeti</option>
-                  <option value="spacelab">Spacelab</option>
-                  <option value="flatly">Flatly</option>
-                  <option value="sandstone">Sandstone</option>
-                </select>
-                <span class="pull-right"><small><em>Thanks <a href="http://bootswatch.com/" target="_blank">BootSwatch</a>!</em></small></span>
-            </div>
-          </div>
-          
-        </div><!-- /.modal-body -->
-      </form>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!--  Settings Modal END //-->
-
-
-
-
-<!--  MobileSettings Modal MOBILE ONLY START //-->
-<div class="modal fade" id="MobileSettingsModal" tabindex="-1" role="dialog" aria-labelledby="Mobile Settings Modal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form class="form-horizontal" role="form">
-        <div class="modal-header bg-darker">
-          <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
-            <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Close</span>
-          </button>
-          <h4 class="modal-title"><i class="fa fa-cog fa-lg"></i> Settings</h4>
-        </div>
-        <div class="modal-body">
-        
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="query_product">Product</label>
-            <div class="col-sm-9">
-            <select class="form-control input-sm" name="query_product" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="query_tech">Technology</label>
-            <div class="col-sm-9">
-            <select class="form-control input-sm" name="query_tech" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="theme">Theme</label>
-            <div class="col-sm-9">
-                <select class="form-control input-sm " ng-model="vm.theme" ng-change="vm.onThemeChange()" id="theme">
-                  <option value="slate">Slate</option>
-                  <option value="yeti">Yeti</option>
-                  <option value="spacelab">Spacelab</option>
-                  <option value="flatly">Flatly</option>
-                  <option value="sandstone">Sandstone</option>
-                </select>
-                <span class="pull-right"><small><em>Thanks <a href="http://bootswatch.com/" target="_blank">BootSwatch</a>!</em></small></span>
-            </div>
-          </div>
-          
-        </div><!-- /.modal-body -->
-        <div class="modal-footer bg-darker">
-          <button class="btn btn-default pull-left" ng-click="vm.clearSelections()">Reset</button>
-          <button class="btn btn-primary pull-right" data-dismiss="modal">Close</button>
-        </div><!-- /.modal-footer -->
-      </form>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!--  MobileSettings Modal END //-->
-
-
-
 <!--  Banner START //-->
 <div class="row">
   <div class="jumbotron">
@@ -411,7 +217,7 @@
                         <p class="margin-top-10" ng-show='product.description != ""'><span class="markdown" ng-bind-html="product.description"></span></p>
                       </div>
                     <span class="cursor">{{ product.name }}</span>
-                    <small class="text-muted pull-right">{{ vm.currentPage*vm.pageSize + $index + 1 }}/{{ vm.total() }}</span></small>
+                    <small class="text-muted pull-right">{{ vm.currentPage*vm.pageSize + $index + 1 }}/{{ vm.getTotal() }}</span></small>
                   </li>
                   <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
                   <li popover="popover" ng-if='product.insight' data-title="Insight" data-content="{{ ::product.insight }}"><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
@@ -488,3 +294,201 @@
   </p>
 </div>
 <!--  Loading indicators END //-->
+
+
+
+
+<!--  Feedback / SubmissionModal Form START //-->
+<div class="modal fade" id="SubmissionModal" tabindex="-1" role="dialog" aria-labelledby="Feedback Submission Modal" aria-hidden="true" ng-controller="SubmissionForm">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form class="form-horizontal" role="form" name="SubmissionForm">
+        <div class="modal-header bg-darker">
+          <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
+            <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title"><i class="fa fa-paper-plane fa-lg"></i> Add a Stack</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="name">Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control input-sm" name="name" ng-model="submission.name" placeholder="Your Name" minlength="2" required>
+              <span ng-show="SubmissionForm.name.$error.required" class="text-danger help-block">Please do tell us your name.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="twitter">Twitter</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control input-sm" name="twitter" ng-model="submission.twitter" placeholder="A tweet to say thanks is the least we can do!" minlength="2">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="email">Email</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control input-sm" name="email" ng-model="submission.email" placeholder="Your Email. We don't spam or sell emails." minlength="2">
+              <span ng-show="SubmissionForm.email.$error.email" class="text-danger help-block">You might have a typo in your email address.</span>
+              <span ng-show="SubmissionForm.email.$error.required" class="text-danger help-block">Please tell us your email. We don't spam or sell email addresses.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="product">Product Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control input-sm" name="product" ng-model="submission.product" placeholder="The Product you might have feedback, or information on." minlength="2">
+              <span ng-show="SubmissionForm.product.$error.required" class="text-danger help-block">Which Company/Product are you referring to?</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="url">Product Website</label>
+            <div class="col-sm-9">
+              <input type="url" class="form-control input-sm" name="url" ng-model="submission.url" placeholder="Surely, the product/company has a Website right?" minlength="2">
+              <span ng-show="SubmissionForm.url.$error.url" class="text-danger help-block">We're not sure thats a valid url.</span>
+              <span ng-show="SubmissionForm.url.$error.required" class="text-danger help-block">Surely, the product/company has a Website right?</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="comments">Comments</label>
+            <div class="col-sm-9">
+            <textarea class="form-control input-sm" name="comments" rows="2" ng-model="submission.comments" placeholder="Feedback, suggestions, comments, or technology information." ></textarea>
+            </div>
+          </div>
+          <div class="list-group">
+            <div class="list-group-item" ng-repeat="tier in submission.tiers">
+              <p class="list-group-item-text">
+                <div class="form-group">
+                  <label class="col-sm-4 control-label" for="product">
+                    Technology
+                    <button ng-if="!$first" class="btn btn-default btn-xs" ng-click="delete(tier.id)">
+                      <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Delete</span>
+                    </button>
+                  </label>
+                  <div class="col-sm-8">
+                    <select class="form-control input-sm" name="id" ng-model="tier.product" ng-options="item.value as item.key for item in products"></select>
+                  </div>
+                </div>
+                <div class="form-group has-feedback">
+                  <label class="col-sm-4 control-label" for="notes">
+                    <button ng-if="$last" class="btn btn-default pull-right btn-sm" ng-click="add()">Add Another</button>
+                  </label>
+                  <div class="col-sm-8">
+                    <textarea class="form-control input-sm" name="notes" rows="2" ng-model="tier.notes" placeholder="Usage notes, or unlisted Technology details" ></textarea>
+                  </div>
+                </div>
+              </p>
+            </div>
+          </div>
+        </div><!-- /.modal-body -->
+        <div class="modal-footer bg-darker">
+          <button class="btn btn-default pull-left" ng-click="reset()" ng-disabled="isUnchanged(submission)">Reset</button>
+          <button type="submit" class="btn btn-primary pull-right" ng-click="save(submission)" ng-disabled="!!SubmissionForm.$invalid">Submit</button>
+        </div><!-- /.modal-footer -->
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--  Feedback Form END //-->
+
+
+
+<!--  Setting Modal START //-->
+<div class="modal fade" id="SettingsModal" tabindex="-1" role="dialog" aria-labelledby="Settings Modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form class="form-horizontal" role="form">
+        <div class="modal-header bg-darker">
+          <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
+            <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title"><i class="fa fa-cog fa-lg"></i> Settings</h4>
+        </div>
+        <div class="modal-body">
+        
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="name">Page Size</label>
+            <div class="col-sm-9">
+                <select class="form-control input-sm " ng-model="vm.pageSize" id="pageSize">
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="theme">Theme</label>
+            <div class="col-sm-9">
+                <select class="form-control input-sm " ng-model="vm.theme" ng-change="vm.onThemeChange()" id="theme">
+                  <option value="slate">Slate</option>
+                  <option value="yeti">Yeti</option>
+                  <option value="spacelab">Spacelab</option>
+                  <option value="flatly">Flatly</option>
+                  <option value="sandstone">Sandstone</option>
+                </select>
+                <span class="pull-right"><small><em>Thanks <a href="http://bootswatch.com/" target="_blank">BootSwatch</a>!</em></small></span>
+            </div>
+          </div>
+          
+        </div><!-- /.modal-body -->
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--  Settings Modal END //-->
+
+
+
+
+<!--  MobileSettings Modal MOBILE ONLY START //-->
+<div class="modal fade" id="MobileSettingsModal" tabindex="-1" role="dialog" aria-labelledby="Mobile Settings Modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form class="form-horizontal" role="form">
+        <div class="modal-header bg-darker">
+          <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
+            <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title"><i class="fa fa-cog fa-lg"></i> Settings</h4>
+        </div>
+        <div class="modal-body">
+        
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="query_product">Product</label>
+            <div class="col-sm-9">
+            <select class="form-control input-sm" name="query_product" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="query_tech">Technology</label>
+            <div class="col-sm-9">
+            <select class="form-control input-sm" name="query_tech" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="theme">Theme</label>
+            <div class="col-sm-9">
+                <select class="form-control input-sm " ng-model="vm.theme" ng-change="vm.onThemeChange()" id="theme">
+                  <option value="slate">Slate</option>
+                  <option value="yeti">Yeti</option>
+                  <option value="spacelab">Spacelab</option>
+                  <option value="flatly">Flatly</option>
+                  <option value="sandstone">Sandstone</option>
+                </select>
+                <span class="pull-right"><small><em>Thanks <a href="http://bootswatch.com/" target="_blank">BootSwatch</a>!</em></small></span>
+            </div>
+          </div>
+          
+        </div><!-- /.modal-body -->
+        <div class="modal-footer bg-darker">
+          <button class="btn btn-default pull-left" ng-click="vm.clearSelections()">Reset</button>
+          <button class="btn btn-primary pull-right" data-dismiss="modal">Close</button>
+        </div><!-- /.modal-footer -->
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--  MobileSettings Modal END //-->
+
+
+
