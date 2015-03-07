@@ -368,6 +368,7 @@ angular.module('bts.controllers', [])
   vm.currentPage = 0;
   // pagination, page size loaded limited by infinitePageSize if greater, see pageLimit. use pageLimit in html ng-repeat
   vm.pageSize = 10;  
+  vm.total = 0;
   
   vm.infiniteCount = 0;
   vm.infinitePageSize = 5;
@@ -640,16 +641,16 @@ angular.module('bts.controllers', [])
         vm.headers.push( h )
       }
       vm.updateBusy();
-      vm.getStacks();
+      vm.getStacks(0, vm.pageSize);
     });
   }
   
-  vm.getStacks = function () {
-    Logger.info('MainCtrl.getStacks');
+  vm.getStacks = function (start, count) {
+    Logger.info('MainCtrl.getStacks: ' + arguments);
     vm.busy = true;
-    StackSvc.get(function(res) {
+    StackSvc.get({start: start, count: count}, function(res) {
       var products = res.products;
-      Logger.info('MainCtrl.Products: ' + products.length  );
+      Logger.info('MainCtrl.Products: ' + products.length  + '  total: ' + res.total + '   count: ' + res.count);
       for(var index in products) {
         var product = products[index];
         var model = { 
