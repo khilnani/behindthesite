@@ -444,7 +444,7 @@ angular.module('bts.controllers', [])
     vm.currentPage = vm.currentPage-1;
   }
   
-  vm.total = function () {
+  vm.getTotal = function () {
     return vm.total;
   }
   
