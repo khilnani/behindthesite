@@ -655,7 +655,7 @@ angular.module('bts.controllers', [])
         vm.headers.push( h )
       }
       vm.updateBusy();
-      vm.getStacks(0, vm.pageSize, vm.getSelectListData;
+      vm.getStacks(0, vm.pageSize, vm.getSelectListData);
     });
   }
   
