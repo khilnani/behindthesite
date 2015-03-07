@@ -11,8 +11,7 @@ angular.module('bts.services', ['ngResource'])
         cache : true,
         transformResponse: function (data, headers) {
             if(data) {
-              data = w.__(w.__(y.__(data), 5), 9);
-              data = JSON.parse(data);
+              data = JSON.parse(zq(data));
             }
             return data;
           }
@@ -27,8 +26,7 @@ angular.module('bts.services', ['ngResource'])
         cache : true,
         transformResponse: function (data, headers) {
             if(data) {
-              data = w.__(w.__(y.__(data), 5), 9);
-              data = JSON.parse(data);
+              data = JSON.parse(zq(data));
             }
             return data;
           }
