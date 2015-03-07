@@ -445,6 +445,7 @@ angular.module('bts.controllers', [])
   }
   
   vm.getTotal = function () {
+    Logger.info('vm.getTotal' + vm.total);
     return vm.total;
   }
   
