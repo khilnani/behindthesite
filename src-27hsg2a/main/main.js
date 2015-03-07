@@ -445,7 +445,7 @@ angular.module('bts.controllers', [])
   }
   
   vm.total = function () {
-    return vm.products.length;
+    return vm.total;
   }
   
   // pagination, page size loaded limited by infinitePageSize if greater, see pageLimit. use pageLimit in html ng-repeat
@@ -651,6 +651,7 @@ angular.module('bts.controllers', [])
     StackSvc.get({start: start, count: count}, function(res) {
       var products = res.products;
       Logger.info('MainCtrl.Products: ' + products.length  + '  total: ' + res.total + '   count: ' + res.count);
+      vm.total = parseInt(res.total);
       for(var index in products) {
         var product = products[index];
         var model = { 
