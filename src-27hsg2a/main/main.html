@@ -176,7 +176,7 @@
                     Product: 
                     <!-- <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product"  ng-options="item.id as item.name for item in vm.products_select_list"></select> //-->
                     <input class="form-control input-xs grey-on-dark" type="text" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" typeahead="item.id as item.name for item in vm.products_select_list" typeahead-min-length="0">
-                    <input id="product-typeahead" class="form-control input-xs grey-on-dark typeahead" type="text" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" placeholder="Product Stacks">
+                    <input id="productTypeahead" class="form-control input-xs grey-on-dark typeahead" type="text" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" placeholder="Product Stacks">
                     <span class="pad-left-5">Technology: </span>
                     <!-- <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select> //-->
                     <input class="form-control input-xs grey-on-dark" type="text" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" typeahead="item.id as item.name for item in vm.tech_select_list | filter:$viewValue" typeahead-min-length="0">                    
