@@ -428,13 +428,28 @@ angular.module('bts.controllers', [])
     trackEvent(vm.query_product, vm.query_tech);
   }
   
+  vm.getFilteredProducts = function () {
+    // https://docs.angularjs.org/api/ng/filter/filter
+    return $filter('filter')(vm.products, vm.filter);
+  }
+  
   vm.isFiltering = function () {
     var retVal = false;
     if(vm.query_product || vm.query_tech) {
       retVal = true;
     }
-    Logger.info('MainCtrl.isFiltering: ' + retVal);
+    Logger.debug('MainCtrl.isFiltering: ' + retVal);
     return retVal;
+  }
+  
+  vm.numberOfPages = function () {
+    var numPages = vm.total / vm.pageSize;
+    if(vm.isFiltering()) {
+      numPages = vm.getFilteredProducts().length / vm.pageSize;
+    }
+    numPages = Math.ceil(numPages)
+    if(numPages == 0) numPages = 1;
+    return numPages;
   }
   
   vm.disablePrev = function () {
@@ -486,21 +501,6 @@ angular.module('bts.controllers', [])
       vm.hasMore = false;
     }
     Logger.info('MainCtrl.incrementInfiniteCount: ' + vm.infiniteCount);
-  }
-  
-  vm.getFilteredProducts = function () {
-    // https://docs.angularjs.org/api/ng/filter/filter
-    return $filter('filter')(vm.products, vm.filter);
-  }
-  
-  vm.numberOfPages = function () {
-    var numPages = vm.total / vm.pageSize;
-    if(vm.isFiltering()) {
-      numPages = vm.getFilteredProducts().length / vm.pageSize;
-    }
-    numPages = Math.ceil(numPages)
-    if(numPages == 0) numPages = 1;
-    return numPages;
   }
 
   vm._escapeRegExp = function (str) {
