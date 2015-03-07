@@ -819,17 +819,5 @@ angular.module('bts.controllers', [])
   }
 
   vm.init();
-  
-$('#filter-product-typeahead').typeahead({ 
-    minLength:1 
-  }, { 
-    source: 
-      function (query, cb) {
-        cb(['nik']); 
-      } 
-  });
-  
-  
-  
 
 }]);
