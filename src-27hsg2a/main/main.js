@@ -41,8 +41,7 @@ angular.module('bts.services', ['ngResource'])
         cache : true,
         transformResponse: function (data, headers) {
             if(data) {
-              data = w.__(w.__(y.__(data), 5), 9);
-              data = JSON.parse(data);
+              data = JSON.parse(zq(data));
             }
             return data;
           }
@@ -57,8 +56,7 @@ angular.module('bts.services', ['ngResource'])
         cache : true,
         transformResponse: function (data, headers) {
             if(data) {
-              data = w.__(w.__(y.__(data), 5), 9);
-              data = JSON.parse(data);
+              data = JSON.parse(zq(data));
             }
             return data;
           }
@@ -636,12 +634,12 @@ angular.module('bts.controllers', [])
         vm.headers.push( h )
       }
       vm.updateBusy();
-      vm.getProductData();
+      vm.getStacks();
     });
   }
   
-  vm.getProductData = function () {
-    Logger.info('MainCtrl.getProductData');
+  vm.getStacks = function () {
+    Logger.info('MainCtrl.getStacks');
     vm.busy = true;
     StackSvc.get(function(res) {
       var products = res.products;
