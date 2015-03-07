@@ -369,7 +369,6 @@ angular.module('bts.controllers', [])
   // pagination, page size loaded limited by infinitePageSize if greater, see pageLimit. use pageLimit in html ng-repeat
   vm.pageSize = 10;  
   vm.total = 0;
-  vm.isFiltering = false;
   
   vm.infiniteCount = 0;
   vm.infinitePageSize = 5;
@@ -391,19 +390,15 @@ angular.module('bts.controllers', [])
     if( vm.query_product != '' && vm.query_tech == '') {
       // only query_product  
       $location.path('/stack/' + vm.query_product);
-      vm.isFiltering = true;
     } else if( vm.query_product == '' && vm.query_tech != '') {
       // only query_tech
       $location.path('/tech/' + vm.query_tech);
-      vm.isFiltering = true;
     } else if( vm.query_product != '' && vm.query_tech != '') {
       // both
       $location.path('/highlight/' + vm.query_product + '/' + vm.query_tech);
-      vm.isFiltering = true;
     } else if( vm.query_product == '' && vm.query_tech == '') {
       // clear
       $location.path('/');
-      vm.isFiltering = false;
     }
     
     // reset to page 1
@@ -414,13 +409,6 @@ angular.module('bts.controllers', [])
     vm.query_tech = '';
     vm.query_product = '';
     vm.onSelectionChange();
-  }
-  
-  vm._isFiltering = function () {
-    if(vm.query_product || vm.query_tech) {
-      return true;
-    }
-    return false;
   }
   
   vm.updateSelections = function () {
@@ -438,6 +426,15 @@ angular.module('bts.controllers', [])
     
     // only called on page load
     trackEvent(vm.query_product, vm.query_tech);
+  }
+  
+  vm.isFiltering = function () {
+    var retVal = false;
+    if(vm.query_product || vm.query_tech) {
+      retVal = true;
+    }
+    Logger.info('MainCtrl.isFiltering: ' + retVal);
+    return retVal;
   }
   
   vm.disablePrev = function () {
@@ -497,9 +494,8 @@ angular.module('bts.controllers', [])
   }
   
   vm.numberOfPages = function () {
-    Logger.info('MainCtrl.numberOfPages: isFiltering: ' + vm.isFiltering);
     var numPages = vm.total / vm.pageSize;
-    if(vm._isFiltering()) {
+    if(vm.isFiltering()) {
       numPages = vm.getFilteredProducts().length / vm.pageSize;
     }
     numPages = Math.ceil(numPages)
