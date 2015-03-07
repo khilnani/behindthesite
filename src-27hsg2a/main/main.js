@@ -707,15 +707,19 @@ angular.module('bts.controllers', [])
   //        Logger.trace( i.tiers );
           vm.products.push( model )
         } 
-      }
       
-      vm.incrementInfiniteCount();
+        vm.incrementInfiniteCount();
+        vm.updateBusy();
+        if(callback) {
+          callback();
+        }
+      });
+    } else {
       vm.updateBusy();
       if(callback) {
         callback();
       }
-      
-    });
+    }
       // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast downward
       // https://docs.angularjs.org/api/ng/type/$rootScope.Scope#emit upward
       //  $scope.$emit('MainCtrl.completed');    
