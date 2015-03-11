@@ -98,12 +98,10 @@ bts.factory('Common', ['$location', '$http', function ($location, $http) {
     Logger.info('bts.Common.setupEnvironment ENV: ' + c.env);
     if(c.env == "production") {
       Logger.info('bts.run: ga');
-      ga('create', 'UA-24322958-20', 'auto');
-      ga('send', 'pageview');
     }
   }
   
-  $http.get('env.json')
+    $http.get('/data/stacks.json')
   .success(function(data, status, headers, config){
     setupEnvironment(data.env);
   })
