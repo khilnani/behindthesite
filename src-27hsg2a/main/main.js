@@ -1,3 +1,55 @@
+//var j = ['/data/taxonomy.json', '/data/stacks.json', '/data/products.json', '/data/used.json']
+/*
+var _0xa913=["\x2F\x64\x61\x74\x61\x2F\x74\x61\x78\x6F\x6E\x6F\x6D\x79\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x73\x74\x61\x63\x6B\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x70\x72\x6F\x64\x75\x63\x74\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x75\x73\x65\x64\x2E\x6A\x73\x6F\x6E"];var j=[_0xa913[0],_0xa913[1],_0xa913[2],_0xa913[3]];
+
+var TaxonomyHttp = {
+  get: function(cb, $http) {
+    $http.get(_0xa913[0])
+    .success(function(data, status, headers, config){
+      cb(JSON.parse(zq(data.data)));
+    });
+  }
+};
+
+var StackHttp = {
+  get: function(params, cb, $http) {
+    if(params.start == 0) {
+      $http.get(_0xa913[1])
+      .success(function(data, status, headers, config){
+        cb(JSON.parse(zq(data.data)));
+      });
+    } else {
+      cb();
+    }
+  }
+};
+
+var ProductHttp = {
+  get: function(cb, $http) {
+    $http.get(_0xa913[2])
+    .success(function(data, status, headers, config){
+      cb(JSON.parse(zq(data.data)));
+    });
+  }
+};
+
+var UsedProductHttp = {
+  get: function(cb, $http) {
+    $http.get(_0xa913[3])
+    .success(function(data, status, headers, config){
+      cb(JSON.parse(zq(data.data)));
+    });
+  }
+};
+*/
+
+var _0xe04d=["\x2F\x64\x61\x74\x61\x2F\x74\x61\x78\x6F\x6E\x6F\x6D\x79\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x73\x74\x61\x63\x6B\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x70\x72\x6F\x64\x75\x63\x74\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x75\x73\x65\x64\x2E\x6A\x73\x6F\x6E","\x64\x61\x74\x61","\x70\x61\x72\x73\x65","\x73\x75\x63\x63\x65\x73\x73","\x67\x65\x74","\x73\x74\x61\x72\x74"];
+var _0xa913=[_0xe04d[0],_0xe04d[1],_0xe04d[2],_0xe04d[3]];var j=[_0xa913[0],_0xa913[1],_0xa913[2],_0xa913[3]];
+var TaxonomyHttp={get:function(cb,$http){$http[_0xe04d[7]](_0xa913[0])[_0xe04d[6]](function(data,status,headers,config){cb(JSON[_0xe04d[5]](zq(data[_0xe04d[4]])))})}};
+var StackHttp={get:function(params,cb,$http){if(params[_0xe04d[8]]==0){$http[_0xe04d[7]](_0xa913[1])[_0xe04d[6]](function(data,status,headers,config){cb(JSON[_0xe04d[5]](zq(data[_0xe04d[4]])))})}else {cb()}}};
+var ProductHttp={get:function(cb,$http){$http[_0xe04d[7]](_0xa913[2])[_0xe04d[6]](function(data,status,headers,config){cb(JSON[_0xe04d[5]](zq(data[_0xe04d[4]])))})}};
+var UsedProductHttp={get:function(cb,$http){$http[_0xe04d[7]](_0xa913[3])[_0xe04d[6]](function(data,status,headers,config){cb(JSON[_0xe04d[5]](zq(data[_0xe04d[4]])))})}};
+
 //*****************************************************************************
 // Services
 // https://docs.angularjs.org/api/ngResource/service/$resource
