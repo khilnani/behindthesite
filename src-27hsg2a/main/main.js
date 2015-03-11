@@ -19,7 +19,7 @@ var StackHttp = {
         cb(JSON.parse(zq(data.data)));
       });
     } else {
-      cb({products: []});
+      cb();
     }
   }
 };
@@ -726,47 +726,49 @@ angular.module('bts.controllers', [])
     if( vm.products.length <= start) {
       vm.busy = true;
       StackHttp.get({start: start, count: count}, function(res) {
-        var products = res.products;
-        Logger.info('MainCtrl.Products: ' + products.length  + '  total: ' + res.total + '   count: ' + res.count);
-        vm.total = parseInt(res.total);
-        for(var index in products) {
-          var product = products[index];
-          var model = { 
-            name: product.name,
-            website: product.website,
-            description: product.description,
-            twitter: product.twitter,
-            facebook: product.facebook,
-            irc: product.irc,
-            blogs: product.blogs,
-            repo: product.repo,
-            issues: product.issues,
-            docs: product.docs,
-            updated: product.stack.updated,
-            insight: marked( product.stack.insight ),
-            notes: marked( product.stack.notes ),
-            references: marked( product.stack.references )
-          };
-          model.company = product.company;
-          model.tiers = [];
-          for(var header in vm.headers) {
-            model.tiers[header] = [];
-            model.tiers[header].name = vm.headers[header].name;
-          }
-          var tiers = product.stack.tiers;
-          for(var tier in tiers) {
-            var index = vm.findHeaderIndex( tiers[tier] );
-            if(tiers[tier].notes) {
-              tiers[tier].notes = marked( tiers[tier].notes );
+        if(res) {
+          var products = res.products;
+          Logger.info('MainCtrl.Products: ' + products.length  + '  total: ' + res.total + '   count: ' + res.count);
+          vm.total = parseInt(res.total);
+          for(var index in products) {
+            var product = products[index];
+            var model = { 
+              name: product.name,
+              website: product.website,
+              description: product.description,
+              twitter: product.twitter,
+              facebook: product.facebook,
+              irc: product.irc,
+              blogs: product.blogs,
+              repo: product.repo,
+              issues: product.issues,
+              docs: product.docs,
+              updated: product.stack.updated,
+              insight: marked( product.stack.insight ),
+              notes: marked( product.stack.notes ),
+              references: marked( product.stack.references )
+            };
+            model.company = product.company;
+            model.tiers = [];
+            for(var header in vm.headers) {
+              model.tiers[header] = [];
+              model.tiers[header].name = vm.headers[header].name;
             }
-  //          Logger.trace('index: ' + index);
-  //          Logger.trace(tiers[tier].product);
-            model.tiers[index].push( tiers[tier] )
-          }
-  //        Logger.trace( i.name );
-  //        Logger.trace( i.tiers );
-          vm.products.push( model )
-        } 
+            var tiers = product.stack.tiers;
+            for(var tier in tiers) {
+              var index = vm.findHeaderIndex( tiers[tier] );
+              if(tiers[tier].notes) {
+                tiers[tier].notes = marked( tiers[tier].notes );
+              }
+    //          Logger.trace('index: ' + index);
+    //          Logger.trace(tiers[tier].product);
+              model.tiers[index].push( tiers[tier] )
+            }
+    //        Logger.trace( i.name );
+    //        Logger.trace( i.tiers );
+            vm.products.push( model )
+          } 
+        }
       
         vm.incrementInfiniteCount();
         vm.updateBusy();
