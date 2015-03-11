@@ -2,6 +2,42 @@
 // Services
 // https://docs.angularjs.org/api/ngResource/service/$resource
 
+var TaxonomyHttp = {
+  get: function(cb, $http) {
+    $http.get('/data/taxonomy.json')
+    .success(function(data, status, headers, config){
+      cb(JSON.parse(zq(data)));
+    });
+  }
+};
+
+var StackHttp = {
+  get: function(params, cb, $http) {
+    $http.get('/data/stacks.json')
+    .success(function(data, status, headers, config){
+      cb(JSON.parse(zq(data)));
+    });
+  }
+};
+
+var ProductHttp = {
+  get: function(cb, $http) {
+    $http.get('/data/products.json')
+    .success(function(data, status, headers, config){
+      cb(JSON.parse(zq(data)));
+    });
+  }
+};
+
+var UsedProductHttp = {
+  get: function(cb, $http) {
+    $http.get('/data/used.json')
+    .success(function(data, status, headers, config){
+      cb(JSON.parse(zq(data)));
+    });
+  }
+};
+
 angular.module('bts.services', ['ngResource'])
 
 .factory('TaxonomySvc', ['$resource', function($resource){
@@ -259,7 +295,7 @@ angular.module('bts.filters', [])
 
 angular.module('bts.controllers', [])
 
-.controller('SubmissionForm', ['$scope', 'SubmitSvc', 'ProductSvc', function($scope, SubmitSvc, ProductSvc) {
+.controller('SubmissionForm', ['$scope', '$http', 'SubmitSvc', 'ProductSvc', function($scope, $http, SubmitSvc, ProductSvc) {
   
   $scope.products = [];
   
@@ -273,7 +309,7 @@ angular.module('bts.controllers', [])
   
   $scope.getData = function () {
     Logger.info('SubmissionForm.getData');
-    ProductSvc.get(function(res) {
+    ProductHttp.get(function(res) {
       //alert('get');
       Logger.info('ProductSvc.get');
       Logger.debug(res);
@@ -285,7 +321,7 @@ angular.module('bts.controllers', [])
       }
       $scope.init();
       //alert('done');
-    });
+    }, $http);
     return true;
   }
   
@@ -348,8 +384,8 @@ angular.module('bts.controllers', [])
 }])
 
 .controller('MainCtrl', 
-  ['$scope', '$routeParams', '$location', '$timeout', '$sce', '$filter', 'Common', 'TaxonomySvc', 'StackSvc', 'UsedProductSvc', 'DoNotReloadCurrentTemplate', function ($scope, $routeParams, $location, $timeout, 
-      $sce, $filter, Common, TaxonomySvc, StackSvc, 
+  ['$scope', '$routeParams', '$location', '$timeout', '$sce', '$filter', '$http, 'Common', 'TaxonomySvc', 'StackSvc', 'UsedProductSvc', 'DoNotReloadCurrentTemplate', function ($scope, $routeParams, $location, $timeout, 
+      $sce, $filter, $http, Common, TaxonomySvc, StackSvc, 
       UsedProductSvc, DoNotReloadCurrentTemplate) {
         
   DoNotReloadCurrentTemplate($scope);
@@ -666,7 +702,7 @@ angular.module('bts.controllers', [])
   vm.getData = function () {
     Logger.info('MainCtrl.getData()');
     vm.busy = true;
-    TaxonomySvc.get(function(res) {
+    TaxonomyHttp.get(function(res) {
       var taxonomy = res.taxonomy;
       Logger.info('MainCtrl.Taxonomy: ' + taxonomy.length  );
       for(var index in taxonomy) {
@@ -678,14 +714,14 @@ angular.module('bts.controllers', [])
       }
       vm.updateBusy();
       vm.getStacks(0, vm.pageSize, vm.getSelectListData);
-    });
+    }, $http);
   }
   
   vm.getStacks = function (start, count, callback) {
     Logger.info('MainCtrl.getStacks: ' + arguments);
     if( vm.products.length <= start) {
       vm.busy = true;
-      StackSvc.get({start: start, count: count}, function(res) {
+      StackHttp.get({start: start, count: count}, function(res) {
         var products = res.products;
         Logger.info('MainCtrl.Products: ' + products.length  + '  total: ' + res.total + '   count: ' + res.count);
         vm.total = parseInt(res.total);
@@ -733,7 +769,7 @@ angular.module('bts.controllers', [])
         if(callback) {
           callback();
         }
-      });
+      }, $http);
     } else {
       vm.updateBusy();
       if(callback) {
@@ -791,7 +827,7 @@ angular.module('bts.controllers', [])
   }
 
   vm.getSelectListData = function () {
-    UsedProductSvc.get(function(res) {
+    UsedProductHttp.get(function(res) {
       Logger.info('MainCtrl.getSelectListData: UsedProductSvc.get');
       
       vm._buildUsedTechList(res.technologies);
@@ -801,7 +837,7 @@ angular.module('bts.controllers', [])
         Logger.info('MainCtrl.updateSelections: Timeout');
         vm.updateSelections();
       }, 500);
-    });
+    }, $http);
   }
   
   
