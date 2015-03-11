@@ -2,46 +2,6 @@
 // Services
 // https://docs.angularjs.org/api/ngResource/service/$resource
 
-var TaxonomyHttp = {
-  get: function(cb, $http) {
-    $http.get('/data/taxonomy.json')
-    .success(function(data, status, headers, config){
-      cb(JSON.parse(zq(data.data)));
-    });
-  }
-};
-
-var StackHttp = {
-  get: function(params, cb, $http) {
-    if(params.start == 0) {
-      $http.get('/data/stacks.json')
-      .success(function(data, status, headers, config){
-        cb(JSON.parse(zq(data.data)));
-      });
-    } else {
-      cb();
-    }
-  }
-};
-
-var ProductHttp = {
-  get: function(cb, $http) {
-    $http.get('/data/products.json')
-    .success(function(data, status, headers, config){
-      cb(JSON.parse(zq(data.data)));
-    });
-  }
-};
-
-var UsedProductHttp = {
-  get: function(cb, $http) {
-    $http.get('/data/used.json')
-    .success(function(data, status, headers, config){
-      cb(JSON.parse(zq(data.data)));
-    });
-  }
-};
-
 angular.module('bts.services', ['ngResource'])
 
 .factory('TaxonomySvc', ['$resource', function($resource){
