@@ -101,7 +101,7 @@ bts.factory('Common', ['$location', '$http', function ($location, $http) {
     }
   }
   
-    $http.get('/data/stacks.json')
+  $http.get('env.json')
   .success(function(data, status, headers, config){
     setupEnvironment(data.env);
   })
