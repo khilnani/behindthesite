@@ -13,10 +13,14 @@ var TaxonomyHttp = {
 
 var StackHttp = {
   get: function(params, cb, $http) {
-    $http.get('/data/stacks.json')
-    .success(function(data, status, headers, config){
-      cb(JSON.parse(zq(data.data)));
-    });
+    if(params.start == 0) {
+      $http.get('/data/stacks.json')
+      .success(function(data, status, headers, config){
+        cb(JSON.parse(zq(data.data)));
+      });
+    } else {
+      cb({products: []});
+    }
   }
 };
 
