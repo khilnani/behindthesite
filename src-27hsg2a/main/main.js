@@ -4,36 +4,36 @@
 
 var TaxonomyHttp = {
   get: function(cb, $http) {
-    $http.get('/data/taxonomy.txt')
+    $http.get('/data/taxonomy.json')
     .success(function(data, status, headers, config){
-      cb(JSON.parse(zq(data)));
+      cb(JSON.parse(zq(data.data)));
     });
   }
 };
 
 var StackHttp = {
   get: function(params, cb, $http) {
-    $http.get('/data/stacks.txt')
+    $http.get('/data/stacks.json')
     .success(function(data, status, headers, config){
-      cb(JSON.parse(zq(data)));
+      cb(JSON.parse(zq(data.data)));
     });
   }
 };
 
 var ProductHttp = {
   get: function(cb, $http) {
-    $http.get('/data/products.txt')
+    $http.get('/data/products.json')
     .success(function(data, status, headers, config){
-      cb(JSON.parse(zq(data)));
+      cb(JSON.parse(zq(data.data)));
     });
   }
 };
 
 var UsedProductHttp = {
   get: function(cb, $http) {
-    $http.get('/data/used.txt')
+    $http.get('/data/used.json')
     .success(function(data, status, headers, config){
-      cb(JSON.parse(zq(data)));
+      cb(JSON.parse(zq(data.data)));
     });
   }
 };
