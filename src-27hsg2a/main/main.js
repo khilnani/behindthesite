@@ -2,7 +2,7 @@
 /*
 var _0xa913=["\x2F\x64\x61\x74\x61\x2F\x74\x61\x78\x6F\x6E\x6F\x6D\x79\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x73\x74\x61\x63\x6B\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x70\x72\x6F\x64\x75\x63\x74\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x75\x73\x65\x64\x2E\x6A\x73\x6F\x6E"];var j=[_0xa913[0],_0xa913[1],_0xa913[2],_0xa913[3]];
 
-var TaxonomyHttp = {
+var j1 = {
   get: function(cb, $http) {
     $http.get(_0xa913[0])
     .success(function(data, status, headers, config){
@@ -11,7 +11,7 @@ var TaxonomyHttp = {
   }
 };
 
-var StackHttp = {
+var h5 = {
   get: function(params, cb, $http) {
     if(params.start == 0) {
       $http.get(_0xa913[1])
@@ -24,7 +24,7 @@ var StackHttp = {
   }
 };
 
-var ProductHttp = {
+var p13 = {
   get: function(cb, $http) {
     $http.get(_0xa913[2])
     .success(function(data, status, headers, config){
@@ -33,7 +33,7 @@ var ProductHttp = {
   }
 };
 
-var UsedProductHttp = {
+var q3 = {
   get: function(cb, $http) {
     $http.get(_0xa913[3])
     .success(function(data, status, headers, config){
@@ -45,10 +45,10 @@ var UsedProductHttp = {
 
 var _0xe04d=["\x2F\x64\x61\x74\x61\x2F\x74\x61\x78\x6F\x6E\x6F\x6D\x79\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x73\x74\x61\x63\x6B\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x70\x72\x6F\x64\x75\x63\x74\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x75\x73\x65\x64\x2E\x6A\x73\x6F\x6E","\x64\x61\x74\x61","\x70\x61\x72\x73\x65","\x73\x75\x63\x63\x65\x73\x73","\x67\x65\x74","\x73\x74\x61\x72\x74"];
 var _0xa913=[_0xe04d[0],_0xe04d[1],_0xe04d[2],_0xe04d[3]];var j=[_0xa913[0],_0xa913[1],_0xa913[2],_0xa913[3]];
-var TaxonomyHttp={get:function(cb,$http){$http[_0xe04d[7]](_0xa913[0])[_0xe04d[6]](function(data,status,headers,config){cb(JSON[_0xe04d[5]](zq(data[_0xe04d[4]])))})}};
-var StackHttp={get:function(params,cb,$http){if(params[_0xe04d[8]]==0){$http[_0xe04d[7]](_0xa913[1])[_0xe04d[6]](function(data,status,headers,config){cb(JSON[_0xe04d[5]](zq(data[_0xe04d[4]])))})}else {cb()}}};
-var ProductHttp={get:function(cb,$http){$http[_0xe04d[7]](_0xa913[2])[_0xe04d[6]](function(data,status,headers,config){cb(JSON[_0xe04d[5]](zq(data[_0xe04d[4]])))})}};
-var UsedProductHttp={get:function(cb,$http){$http[_0xe04d[7]](_0xa913[3])[_0xe04d[6]](function(data,status,headers,config){cb(JSON[_0xe04d[5]](zq(data[_0xe04d[4]])))})}};
+var j1={get:function(cb,$http){$http[_0xe04d[7]](_0xa913[0])[_0xe04d[6]](function(data,status,headers,config){cb(JSON[_0xe04d[5]](zq(data[_0xe04d[4]])))})}};
+var h5={get:function(params,cb,$http){if(params[_0xe04d[8]]==0){$http[_0xe04d[7]](_0xa913[1])[_0xe04d[6]](function(data,status,headers,config){cb(JSON[_0xe04d[5]](zq(data[_0xe04d[4]])))})}else {cb()}}};
+var p13={get:function(cb,$http){$http[_0xe04d[7]](_0xa913[2])[_0xe04d[6]](function(data,status,headers,config){cb(JSON[_0xe04d[5]](zq(data[_0xe04d[4]])))})}};
+var q3={get:function(cb,$http){$http[_0xe04d[7]](_0xa913[3])[_0xe04d[6]](function(data,status,headers,config){cb(JSON[_0xe04d[5]](zq(data[_0xe04d[4]])))})}};
 
 //*****************************************************************************
 // Services
@@ -325,7 +325,7 @@ angular.module('bts.controllers', [])
   
   $scope.getData = function () {
     Logger.info('SubmissionForm.getData');
-    ProductHttp.get(function(res) {
+    p13.get(function(res) {
       //alert('get');
       Logger.info('ProductSvc.get');
       Logger.debug(res);
@@ -718,7 +718,7 @@ angular.module('bts.controllers', [])
   vm.getData = function () {
     Logger.info('MainCtrl.getData()');
     vm.busy = true;
-    TaxonomyHttp.get(function(res) {
+    j1.get(function(res) {
       var taxonomy = res.taxonomy;
       Logger.info('MainCtrl.Taxonomy: ' + taxonomy.length  );
       for(var index in taxonomy) {
@@ -737,7 +737,7 @@ angular.module('bts.controllers', [])
     Logger.info('MainCtrl.getStacks: ' + arguments);
     if( vm.products.length <= start) {
       vm.busy = true;
-      StackHttp.get({start: start, count: count}, function(res) {
+      h5.get({start: start, count: count}, function(res) {
         if(res) {
           var products = res.products;
           Logger.info('MainCtrl.Products: ' + products.length  + '  total: ' + res.total + '   count: ' + res.count);
@@ -845,7 +845,7 @@ angular.module('bts.controllers', [])
   }
 
   vm.getSelectListData = function () {
-    UsedProductHttp.get(function(res) {
+    q3.get(function(res) {
       Logger.info('MainCtrl.getSelectListData: UsedProductSvc.get');
       
       vm._buildUsedTechList(res.technologies);
