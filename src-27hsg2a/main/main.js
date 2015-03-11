@@ -4,7 +4,7 @@
 
 var TaxonomyHttp = {
   get: function(cb, $http) {
-    $http.get('/data/taxonomy.json')
+    $http.get('/data/taxonomy.txt')
     .success(function(data, status, headers, config){
       cb(JSON.parse(zq(data)));
     });
@@ -13,7 +13,7 @@ var TaxonomyHttp = {
 
 var StackHttp = {
   get: function(params, cb, $http) {
-    $http.get('/data/stacks.json')
+    $http.get('/data/stacks.txt')
     .success(function(data, status, headers, config){
       cb(JSON.parse(zq(data)));
     });
@@ -22,7 +22,7 @@ var StackHttp = {
 
 var ProductHttp = {
   get: function(cb, $http) {
-    $http.get('/data/products.json')
+    $http.get('/data/products.txt')
     .success(function(data, status, headers, config){
       cb(JSON.parse(zq(data)));
     });
@@ -31,7 +31,7 @@ var ProductHttp = {
 
 var UsedProductHttp = {
   get: function(cb, $http) {
-    $http.get('/data/used.json')
+    $http.get('/data/used.txt')
     .success(function(data, status, headers, config){
       cb(JSON.parse(zq(data)));
     });
