@@ -429,7 +429,7 @@ angular.module('bts.controllers', [])
   
   vm.onThemeChange = function () {
     themeLink = $('#theme-link')
-    themeLink.attr('href', '/vendor/bootswatch/' + vm.theme + '/bootstrap.min.css');
+    themeLink.attr('href', '../vendor/bootswatch/' + vm.theme + '/bootstrap.min.css');
     Localstore.set('theme', vm.theme);
   }
   

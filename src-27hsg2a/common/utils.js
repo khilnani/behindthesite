@@ -26,8 +26,3 @@ function trackEvent (product, technology) {
       document.title = title_pre + "A log of technology stacks";
     }
 }
-
-function zq(data) {
-    Logger.event('--------');
-    return w.__(w.__(y.__(data), 5), 9);
-}
