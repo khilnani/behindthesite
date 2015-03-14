@@ -1,5 +1,8 @@
 <!--  Banner START //-->
 <div class="row">
+  
+  <button ng-if="vm.isMobile" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#MobileSettingsModal"><i class="fa fa-cog fa-lg"></i></button>
+  
   <div class="jumbotron">
     <div class="row pad">
       <h2 class="title text-center">BehindTheSite</h2>
@@ -9,10 +12,10 @@
             Each with links to Documentation, Blogs, Repositories, Bug Trackers, Twitter and more. 
             <br/>
             Optimized for <em><a class="cursor" ng-click="vm.isMobile=false">Desktop</a></em> and <em><a class="cursor" ng-click="vm.isMobile=true">Mobile</a></em>.
-        </small></small></p>
-        <p class="text-center align-top"><small><small><small>
+      </small></small></p>
+      <p class="hidden-xs text-center align-top"><small><small><small>
               <em><strong>Tip!</strong> - Change themes and filter content via <i class="fa fa-cog fa-lg"></i></em>
-        </small></small></small></p>
+      </small></small></small></p>
       <p class="text-center align-top"><small>
       
         <a href="https://twitter.com/BehindTheSite" class="twitter-follow-button" data-show-count = true>Follow @behindthesite</a>
@@ -24,7 +27,7 @@
       <p class="text-center align-top" id="p-text-11">
         <button type="button" class="white-btn" data-toggle="modal" data-target="#SubmissionModal" title="Please submit feedback, or new information."><i class="fa fa-paper-plane"></i> Add a Technology Stack</button>
       </p>
-      <p class="text-center text-primary align-top">
+      <p class="hidden-xs text-center text-primary align-top">
         <span class="text-bold-12">Made In DC <img class="align-inherit" src="images/dc_logo.png" width="15" height="15"/></span>
       </p>
     </div>
@@ -70,22 +73,28 @@
           </span>
           //-->
 
-          <div class="row pull-left">
-              <span class="form-inline">
-                Product:<br/>
-                <select class="input-xs" name="query_product" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
-                <button ng-if="vm.query_product != ''" class="btn btn-default btn-xs" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
-              </span>
+          <div class="row-fluid">
+
+            <div class="form-group">
+              <label class="control-label">Product</label>
+              <div class="input-group ">
+                  <select class="form-control input-sm" name="query_product" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
+                  <span class="input-group-btn">
+                    <button type="button" ng-disabled="vm.query_product == ''" class="btn btn-default btn-sm" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
+                  </span>
+              </div>
             </div>
-            <div class="col-xs-6">
-              <span class="form-inline">
-                Technology:<br/>
-                <select class="input-xs" name="query_tech" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
-                <button ng-if="vm.query_tech != ''"class="btn btn-default btn-xs" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
-              </span>
+            
+            <div class="form-group">
+              <label class="control-label">Technology</label>
+              <div class="input-group ">
+                  <select class="form-control input-sm" name="query_tech" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+                  <span class="input-group-btn">
+                    <button type="button" ng-disabled="vm.query_tech == ''" class="btn btn-default btn-sm" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
+                  </span>
+              </div>
             </div>
-          </div>
-          <!-- <button class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#MobileSettingsModal"><i class="fa fa-cog fa-lg"></i></button> -->
+
         </div>
         
         <div id="accordion" class="panel-group"> 
