@@ -97,7 +97,7 @@ thead .grey-on-dark {
 }
 .affix {
   top: 0px;
-  padding-top: 10px;
+  padding-top: 0px;
   z-index: 1000;
 }
 .affix-top .title {
@@ -221,6 +221,11 @@ thead .grey-on-dark {
   text-decoration: none;
 }
 
-.scroll-container {
-  display: inline;
+
+.dropdown-menu li>a {
+  height: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+  cursor: pointer;
+  cursor: hand;
 }

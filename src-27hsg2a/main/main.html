@@ -57,16 +57,37 @@
     
       <!--  Mobile START //-->
       <div ng-if="vm.isMobile">
+        
         <div class="row pad-mobile-filter small">
+          <!--
           <span class="pull-left" ng-if="vm.query_product != '' || vm.query_tech != ''">
             <strong>Filter: </strong>
             <span class="pad-left-5">{{ vm.query_product }}</span>
+            <button ng-if="vm.query_product != ''" class="btn btn-default btn-xs" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
+            
             <span class="pad-left-5">{{ vm.query_tech }}</span>
-            <button class="btn btn-default btn-xs" ng-click="vm.clearSelections()"><i class="fa fa-times"></i></button>
+            <button ng-if="vm.query_tech != ''"class="btn btn-default btn-xs" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
           </span>
-          
-          <button class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#MobileSettingsModal"><i class="fa fa-cog fa-lg"></i></button>
+          //-->
+
+          <div class="row pull-left">
+              <span class="form-inline">
+                Product:<br/>
+                <select class="input-xs" name="query_product" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
+                <button ng-if="vm.query_product != ''" class="btn btn-default btn-xs" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
+              </span>
+            </div>
+            <div class="col-xs-6">
+              <span class="form-inline">
+                Technology:<br/>
+                <select class="input-xs" name="query_tech" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+                <button ng-if="vm.query_tech != ''"class="btn btn-default btn-xs" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
+              </span>
+            </div>
+          </div>
+          <!-- <button class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#MobileSettingsModal"><i class="fa fa-cog fa-lg"></i></button> -->
         </div>
+        
         <div id="accordion" class="panel-group"> 
           <div id="{{ ::product.name | ws }}-panel" 
               ng-repeat="product in filtered = (vm.products | filter:vm.filter | limitTo:vm.infiniteCount)" 
@@ -174,9 +195,15 @@
                 <span class="pull-right">
                   <form class="form-inline" role="form">
                     Product: 
-                    <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product"  ng-options="item.id as item.name for item in vm.products_select_list"></select>
+                    <!-- <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product"  ng-options="item.id as item.name for item in vm.products_select_list"></select> //-->
+                    <input class="form-control input-xs grey-on-dark" type="text" placeholder="Product" ng-model="vm.query_product_typeahead" typeahead-focus="" typeahead-on-select="vm.setQueryProduct ($item, $model, $label)" typeahead="item.id as item.name for item in vm.products_select_list | filter:focusFilter($viewValue) | limitTo:40"/>
+                    <button class="btn btn-default btn-xs" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
+                    
                     <span class="pad-left-5">Technology: </span>
-                    <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+                    <!-- <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select> //-->
+                    <input class="form-control input-xs grey-on-dark" type="text" placeholder="Technology" ng-model="vm.query_tech_typeahead" typeahead-focus="" typeahead-on-select="vm.setQueryTech ($item, $model, $label)" typeahead="item.id as item.name for item in vm.tech_select_list | filter:focusFilter($viewValue) | limitTo:40"/>
+                    <button class="btn btn-default btn-xs" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
+
                     <button class="btn btn-default btn-xs" ng-click="vm.clearSelections()">Reset</button>
                     <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#SettingsModal"><i class="fa fa-cog fa-lg"></i></button>
                   </form>

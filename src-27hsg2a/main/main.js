@@ -400,18 +400,21 @@ angular.module('bts.controllers', [])
 }])
 
 .controller('MainCtrl', 
-  ['$scope', '$routeParams', '$location', '$timeout', '$sce', '$filter', '$http', 'Common', 'TaxonomySvc', 'StackSvc', 'UsedProductSvc', 'DoNotReloadCurrentTemplate', function ($scope, $routeParams, $location, $timeout, 
-      $sce, $filter, $http, Common, TaxonomySvc, StackSvc, 
-      UsedProductSvc, DoNotReloadCurrentTemplate) {
+  ['$scope', '$routeParams', '$location', '$timeout', '$sce', '$filter', '$http', 'Common', 'ConfigSvc', 'TaxonomySvc', 'StackSvc', 'UsedProductSvc', 'DoNotReloadCurrentTemplate', function ($scope, $routeParams, $location, $timeout, 
+      $sce, $filter, $http, Common, ConfigSvc, TaxonomySvc, StackSvc, UsedProductSvc, DoNotReloadCurrentTemplate) {
         
   DoNotReloadCurrentTemplate($scope);
 
   var vm = this;
+  
+  vm.env = undefined;
   vm.isMobile = Common.isMobile;
   vm.busy = true;
   vm.theme = '';
   vm.query_tech = '';
+  vm.query_tech_typeahead = '';
   vm.query_product = '';
+  vm.query_product_typeahead = '';
   vm.headers = [];
   vm.products = [];
   vm.tech_select_list = [];
@@ -429,8 +432,20 @@ angular.module('bts.controllers', [])
   
   vm.onThemeChange = function () {
     themeLink = $('#theme-link')
-    themeLink.attr('href', '../vendor/bootswatch/' + vm.theme + '/bootstrap.min.css');
+    themeLink.attr('href', vm.env.vendor + 'vendor/bootswatch/' + vm.theme + '/bootstrap.min.css');
     Localstore.set('theme', vm.theme);
+  }
+
+  vm.setQueryProduct = function ($item, $model, $label) {
+    Logger.info('vm.setQueryProduct: ' + JSON.stringify($item) + ', ' + $label);
+    vm.query_product = vm.query_product_typeahead = $label;
+    vm.onSelectionChange();
+  }
+
+  vm.setQueryTech = function ($item, $model, $label) {
+    Logger.info('vm.setQueryTech: ' + JSON.stringify($item) + ', ' + $label);
+    vm.query_tech = vm.query_tech_typeahead = $label;
+    vm.onSelectionChange();
   }
   
   // Only called on user changed selection
@@ -460,9 +475,26 @@ angular.module('bts.controllers', [])
     }
   }
   
+  vm.clearProduct = function () {
+    vm.query_product = '';
+    vm.query_product_typeahead = ' ';
+    
+    vm.onSelectionChange();
+  }
+  
+  vm.clearTech = function () {
+    vm.query_tech = '';
+    vm.query_tech_typeahead = ' ';
+    
+    vm.onSelectionChange();
+  }
+  
   vm.clearSelections = function () {
     vm.query_tech = '';
+    vm.query_tech_typeahead = ' ';
     vm.query_product = '';
+    vm.query_product_typeahead = ' ';
+    
     vm.onSelectionChange();
   }
   
@@ -478,7 +510,9 @@ angular.module('bts.controllers', [])
     if($routeParams.selectedTech == undefined) {
       $routeParams.selectedTech = "";
     } 
+    
     vm.query_tech = $routeParams.selectedTech;
+    vm.query_tech_typeahead = $routeParams.selectedTech;
     
     trackEvent(vm.query_product, vm.query_tech);
     
@@ -867,9 +901,16 @@ angular.module('bts.controllers', [])
       vm.theme = 'yeti';
       Localstore.set('theme', vm.theme);
     }
-    vm.onThemeChange();
     
-    vm.getData();
+    ConfigSvc.get(function(data) {
+      Logger.info('MainCtrl.ConfigSvc');
+      
+      vm.env = data;
+      vm.onThemeChange();  
+      vm.getData();
+
+    });
+    
   }
 
   vm.init();

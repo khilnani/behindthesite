@@ -17,7 +17,7 @@ function zq(data) {
 // App
 
 //var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives', 'bts.filters', 'bts.services','angular-loading-bar', 'ngAnimate', 'ngSanitize' ,'infinite-scroll', 'ui.bootstrap']);
-var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives', 'bts.filters', 'bts.services','angular-loading-bar', 'ngSanitize' ,'infinite-scroll']);
+var bts = angular.module('bts', ['ngRoute', 'bts.controllers', 'bts.directives', 'bts.filters', 'bts.services','angular-loading-bar', 'ngSanitize' ,'infinite-scroll', 'ui.bootstrap', 'ngResource']);
 
 angular.module('infinite-scroll').value('THROTTLE_MILLISECONDS', 700);
 
@@ -70,7 +70,17 @@ bts.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   });
 }]);
 
-bts.factory('Common', ['$location', '$http', function ($location, $http) {
+
+bts.factory('ConfigSvc', ['$resource', function($resource){
+  return $resource('env.json', {}, {
+    get: {
+      method: 'GET',
+        cache : true
+      }
+    });
+  }]);
+
+bts.factory('Common', ['$location', '$http', 'ConfigSvc', function ($location, $http, ConfigSvc) {
   Logger.info("bts.Common");
   
   var c = this;
@@ -93,25 +103,20 @@ bts.factory('Common', ['$location', '$http', function ($location, $http) {
   }
   Logger.info('bts.Common.isMobile: ' + c.isMobile + ' type: ' + typeof(c.isMobile));
   
+  
   // Environment
-  function setupEnvironment (env) {
-    if (env) {
-      c.env = env;
-    } else {
-      c.env = "production";
+  ConfigSvc.get(function(data) {
+    Logger.info('Common.ConfigSvc');
+    
+    if(data && data.env) {
+      c.env = data.env;
     }
-    Logger.info('bts.Common.setupEnvironment ENV: ' + c.env);
+    
+    Logger.info('bts.Common.setupEnvironment ConfigSvc ENV: ' + c.env);
     if(c.env == "production") {
       Logger.info('bts.run: ga');
     }
-  }
-  
-  $http.get('env.json')
-  .success(function(data, status, headers, config){
-    setupEnvironment(data.env);
-  })
-  .error(function (data, status, headers, config) {
-    setupEnvironment();
+
   });
   
   return c;

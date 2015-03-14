@@ -174,9 +174,12 @@
                 <span class="pull-right">
                   <form class="form-inline" role="form">
                     Product: 
-                    <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product"  ng-options="item.id as item.name for item in vm.products_select_list"></select>
+                    <!-- <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product"  ng-options="item.id as item.name for item in vm.products_select_list"></select> //-->
+                    <input class="form-control input-xs grey-on-dark" type="text" placeholder="Product" ng-model="vm.query_product_typeahead" typeahead-focus="" typeahead-on-select="vm.setQueryProduct ($item, $model, $label)" typeahead="item.id as item.name for item in vm.products_select_list | filter:focusFilter($viewValue) | limitTo:40"/>
                     <span class="pad-left-5">Technology: </span>
-                    <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+                    <!-- <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select> //-->
+                    <input class="form-control input-xs grey-on-dark" type="text" placeholder="Technology" ng-model="vm.query_tech_typeahead" typeahead-focus="" typeahead-on-select="vm.setQueryTech ($item, $model, $label)" typeahead="item.id as item.name for item in vm.tech_select_list | filter:focusFilter($viewValue) | limitTo:40"/>
+
                     <button class="btn btn-default btn-xs" ng-click="vm.clearSelections()">Reset</button>
                     <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#SettingsModal"><i class="fa fa-cog fa-lg"></i></button>
                   </form>
