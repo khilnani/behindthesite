@@ -938,10 +938,15 @@ angular.module('bts.controllers', [])
       
       vm.env = data;
       
-      vm.theme = Localstore.get('theme');
-      if(!vm.theme) {
+      if(vm.env.force_theme) {
         vm.theme = vm.env.theme;
         Localstore.set('theme', vm.theme);
+      } else {
+        vm.theme = Localstore.get('theme');
+        if(!vm.theme) {
+          vm.theme = vm.env.theme;
+          Localstore.set('theme', vm.theme);
+        }
       }
       
       vm.onThemeChange();  
