@@ -33,7 +33,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .align-inherit {
   vertical-align: inherit;
 }
-.pad {
+.pad-top-10 {
   padding-top: 10px;
   padding-bottom: 0px;
 }
@@ -56,6 +56,7 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
   padding-right: 20px;
 }
 .pad-mobile-filter {
+  margin-top:-10px;
   padding: 0 20px 10px 20px;
 }
 .margin-top-10 {
