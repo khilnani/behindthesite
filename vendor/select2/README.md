@@ -1,0 +1,2 @@
+- https://select2.github.io/
+- https://github.com/select2/select2/tree/4.0.0-rc.1
