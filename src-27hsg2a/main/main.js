@@ -933,16 +933,17 @@ angular.module('bts.controllers', [])
   vm.init = function () {
     Logger.event('MainCtrl.init()')
     
-    vm.theme = Localstore.get('theme');
-    if(!vm.theme) {
-      vm.theme = 'yeti';
-      Localstore.set('theme', vm.theme);
-    }
-    
     ConfigSvc.get(function(data) {
       Logger.info('MainCtrl.ConfigSvc');
       
       vm.env = data;
+      
+      vm.theme = Localstore.get('theme');
+      if(!vm.theme) {
+        vm.theme = vm.env.theme;
+        Localstore.set('theme', vm.theme);
+      }
+      
       vm.onThemeChange();  
       vm.getData();
 
