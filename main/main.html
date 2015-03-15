@@ -3,7 +3,7 @@
   
   <button ng-if="vm.isMobile" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#MobileSettingsModal"><i class="fa fa-cog fa-lg"></i></button>
   
-  <div class="jumbotron">
+  <div class="jumbotron margin-bottom-20">
     <div class="row">
       <h2 class="title text-center">BehindTheSite</h2>
       <p class="text-center"><small>A log of web technology stacks.</small></p>
@@ -61,7 +61,7 @@
       <!--  Mobile START //-->
       <div ng-if="vm.isMobile">
         
-        <div class="row pad-mobile-filter small">
+        <div id="header" class="bg-primary row pad-mobile-filter small" affix="affix">
           <!--
           <span class="pull-left" ng-if="vm.query_product != '' || vm.query_tech != ''">
             <strong>Filter: </strong>
@@ -75,8 +75,11 @@
 
           <div class="row">
 
-            <div class="col-xs-6 form-group">
-              <label class="control-label">Product</label>
+            <div class="col-xs-6 form-group pad-left-0">
+              <label class="control-label">
+                <span ng-if="vm.query_product == ''">Product</span>
+                <span ng-if="vm.query_product != ''" class="nowrap">{{ vm.query_product }}</span>
+              </label>
               <div class="input-group ">
                   <select class="form-control input-sm" name="query_product" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
                   <span class="input-group-btn">
@@ -85,16 +88,20 @@
               </div>
             </div>
             
-            <div class="col-xs-6 form-group">
-              <label class="control-label">Technology</label>
+            <div class="col-xs-6 form-group pad-left-0 pad-right-10">
+              <label class="control-label">
+                <span ng-if="vm.query_tech == ''">Technology</span>
+                <span ng-if="vm.query_tech != ''" class="nowrap">{{ vm.query_tech }}</span>
+              </label>
               <div class="input-group ">
                   <select class="form-control input-sm" name="query_tech" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
                   <span class="input-group-btn">
                     <button type="button" ng-disabled="vm.query_tech == ''" class="btn btn-default btn-sm" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.backToTop()"><i class="fa fa-arrow-up"></i></button>
                   </span>
               </div>
             </div>
-            
+
           </div>
 
         </div>
@@ -545,6 +552,5 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!--  MobileSettings Modal END //-->
-
 
 
