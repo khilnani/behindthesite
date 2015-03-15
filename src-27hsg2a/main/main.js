@@ -720,7 +720,7 @@ angular.module('bts.controllers', [])
       pos = $('#' + id + '-panel').offset().top;
     }
     $('html, body').animate({
-      scrollTop: pos; 
+      scrollTop: pos
     }, 500);
   }
   
