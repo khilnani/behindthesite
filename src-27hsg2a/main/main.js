@@ -215,7 +215,7 @@ angular.module('bts.directives', [])
     var ele = angular.element(element);
 
     ele.on('shown.bs.collapse', function (e) {
-      var pos = ele.offset().top - $('#header').height();
+      var pos = ele.offset().top - $('#header').height() - 35; // panel header ht+padding
       Logger.info('shown.bs.collapse: ' + pos );
       $('html, body').animate({
         scrollTop: pos
