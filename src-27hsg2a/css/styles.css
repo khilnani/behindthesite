@@ -226,6 +226,10 @@ thead .grey-on-dark {
   text-decoration: none;
 }
 
+.nowrap {
+  white-space: nowrap; 
+  overflow: hidden;
+}
 
 .dropdown-menu li>a {
   _height: 20px;
