@@ -106,7 +106,7 @@
 
         </div>
         
-        <div id="accordion" class="panel-group"> 
+        <div id="accordion" class="panel-group margin-top-10"> 
           <div id="{{ ::product.name | ws }}-panel" 
               ng-repeat="product in filtered = (vm.products | filter:vm.filter | limitTo:vm.infiniteCount)" 
               class="panel panel-default" 
