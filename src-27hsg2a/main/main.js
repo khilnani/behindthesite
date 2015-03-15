@@ -215,7 +215,7 @@ angular.module('bts.directives', [])
     var ele = angular.element(element);
 
     ele.on('shown.bs.collapse', function (e) {
-      var pos = ele.offset().top - $('#header').height();
+      var pos = ele.offset().top + $('#header').offset().top + $('#header').height();
       Logger.info('shown.bs.collapse: ' + pos );
       $('html, body').animate({
         scrollTop: pos
@@ -716,7 +716,7 @@ angular.module('bts.controllers', [])
   
   vm.backToTop = function (id) {
     Logger.info('MainCtrl.backToTop: ' + id);
-    var pos = $('#main').offset().top;;
+    var pos = $('#main').offset().top;
     if(id) {
       pos = $('#' + id + '-panel').offset().top;
     }
