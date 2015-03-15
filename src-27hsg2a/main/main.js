@@ -219,7 +219,7 @@ angular.module('bts.directives', [])
       Logger.info('shown.bs.collapse: ' + ele.offset().top);
       Logger.info('shown.bs.collapse: ' + $('#header').height);
       $('html, body').animate({
-        scrollTop: pos;
+        scrollTop: pos
       }, 500);
     });
   };
