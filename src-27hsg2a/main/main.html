@@ -76,7 +76,7 @@
           <div class="row">
 
             <div class="col-xs-5 form-group">
-              <label class="control-label">Product</label>
+              <label class="control-label">{{ ::vm.query_product }}</label>
               <div class="input-group ">
                   <select class="form-control input-sm" name="query_product" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
                   <span class="input-group-btn">
@@ -86,12 +86,11 @@
             </div>
             
             <div class="col-xs-5 form-group">
-              <label class="control-label">Technology</label>
+              <label class="control-label">{{ ::vm.query_tech }}</label>
               <div class="input-group ">
                   <select class="form-control input-sm" name="query_tech" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
                   <span class="input-group-btn">
                     <button type="button" ng-disabled="vm.query_tech == ''" class="btn btn-default btn-sm" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
-                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.backToTop()"><i class="fa fa-arrow-up"></i></button>
                   </span>
               </div>
             </div>
