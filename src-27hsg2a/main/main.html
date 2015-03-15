@@ -213,7 +213,7 @@
                           <!-- <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product"  ng-options="item.id as item.name for item in vm.products_select_list"></select> //-->
                           <input class="form-control input-sm grey-on-dark" type="text" placeholder="Product" ng-model="vm.query_product_typeahead" typeahead-focus="" typeahead-on-select="vm.setQueryProduct ($item, $model, $label)" typeahead="item.id as item.name for item in vm.products_select_list | filter:focusFilter($viewValue) | limitTo:40"/>
                           <span class="input-group-btn">
-                            <button type="button" ng-disabled="vm.query_product == ''" class="btn btn-default btn-xs" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
+                            <button type="button" ng-disabled="vm.query_product == ''" class="btn btn-default btn-sm" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
                           </span>
                       </div>
                     </div>
@@ -222,9 +222,11 @@
                       <label class="control-label">Technology</label>
                       <div class="input-group ">
                           <!-- <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select> //-->
-                          <input class="form-control input-xs grey-on-dark" type="text" placeholder="Technology" ng-model="vm.query_tech_typeahead" typeahead-focus="" typeahead-on-select="vm.setQueryTech ($item, $model, $label)" typeahead="item.id as item.name for item in vm.tech_select_list | filter:focusFilter($viewValue) | limitTo:40"/>
+                          <input class="form-control input-sm grey-on-dark" type="text" placeholder="Technology" ng-model="vm.query_tech_typeahead" typeahead-focus="" typeahead-on-select="vm.setQueryTech ($item, $model, $label)" typeahead="item.id as item.name for item in vm.tech_select_list | filter:focusFilter($viewValue) | limitTo:40"/>
                           <span class="input-group-btn">
-                            <button type="button" ng-disabled="vm.query_tech == ''" class="btn btn-default btn-xs" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
+                            <button type="button" ng-disabled="vm.query_tech == ''" class="btn btn-default btn-sm" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-default btn-sm" ng-click="vm.clearSelections()">Reset</button>
+                            <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#SettingsModal"><i class="fa fa-cog fa-lg"></i></button>
                           </span>
                       </div>
                     </div>
