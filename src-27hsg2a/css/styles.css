@@ -106,9 +106,8 @@ thead .grey-on-dark {
 }
 .affix .title {
   display: inline;
+  font-size: 18px;
 }
-
-
 .input-xs {
   height: 25px;
   line-height: 20px;
