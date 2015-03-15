@@ -543,6 +543,7 @@ angular.module('bts.controllers', [])
       $routeParams.selectedProduct = "";
     }
     vm.query_product = $routeParams.selectedProduct;
+    vm.query_product_typeahead = $routeParams.selectedProduct;
   
     if($routeParams.selectedTech == undefined) {
       $routeParams.selectedTech = "";
