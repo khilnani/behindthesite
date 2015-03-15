@@ -215,9 +215,11 @@ angular.module('bts.directives', [])
     var ele = angular.element(element);
 
     ele.on('shown.bs.collapse', function (e) {
-      Logger.debug('shown.bs.collapse');
+      var pos = ele.offset().top + $('#header').height;
+      Logger.info('shown.bs.collapse: ' + ele.offset().top);
+      Logger.info('shown.bs.collapse: ' + $('#header').height);
       $('html, body').animate({
-        scrollTop: ele.offset().top + $('#header').height
+        scrollTop: pos;
       }, 500);
     });
   };
