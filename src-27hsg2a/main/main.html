@@ -75,7 +75,7 @@
 
           <div class="row">
 
-            <div class="col-xs-6 form-group">
+            <div class="col-xs-5 form-group">
               <label class="control-label">Product</label>
               <div class="input-group ">
                   <select class="form-control input-sm" name="query_product" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
@@ -85,7 +85,7 @@
               </div>
             </div>
             
-            <div class="col-xs-6 form-group">
+            <div class="col-xs-5 form-group">
               <label class="control-label">Technology</label>
               <div class="input-group ">
                   <select class="form-control input-sm" name="query_tech" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
@@ -94,6 +94,10 @@
                     <button type="button" class="btn btn-default btn-sm" ng-click="vm.backToTop()"><i class="fa fa-arrow-up"></i></button>
                   </span>
               </div>
+            </div>
+            
+            <div class="col-xs-2 form-group">
+              <button type="button" class="btn btn-default btn-sm" ng-click="vm.backToTop()"><i class="fa fa-arrow-up"></i></button>
             </div>
             
           </div>
