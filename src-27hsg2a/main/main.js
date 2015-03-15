@@ -209,11 +209,12 @@ angular.module('bts.directives', [])
   };
 })
 
+/*
+// has issues w/affix
 .directive('collapse', function () {
-  Logger.info('collapse')
+  Logger.info('collapse');
   return function(scope, element, attrs) {
     var ele = angular.element(element);
-
     ele.on('shown.bs.collapse', function (e) {
       var pos = ele.offset().top - $('#header').height() - 35; // panel header ht+padding
       Logger.info('shown.bs.collapse: ' + pos );
@@ -223,6 +224,7 @@ angular.module('bts.directives', [])
     });
   };
 })
+*/
 
 .directive('popover', ['$templateCache', function ($templateCache) {
   Logger.info('popover')
