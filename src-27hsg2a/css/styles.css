@@ -229,7 +229,7 @@ thead .grey-on-dark {
 
 
 .dropdown-menu li>a {
-  height: 20px;
+  _height: 20px;
   padding-top: 0;
   padding-bottom: 0;
   cursor: pointer;
