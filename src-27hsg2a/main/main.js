@@ -715,7 +715,7 @@ angular.module('bts.controllers', [])
   
   vm.backToTop = function (id) {
     Logger.info('MainCtrl.backToTop: ' + id);
-    var pos = 0;
+    var pos = $('#main').offset().top;;
     if(id) {
       pos = $('#' + id + '-panel').offset().top;
     }
