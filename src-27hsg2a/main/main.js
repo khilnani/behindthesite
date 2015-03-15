@@ -463,7 +463,7 @@ angular.module('bts.controllers', [])
   vm.total = 0;
   
   vm.infiniteCount = 0;
-  vm.infinitePageSize = 5;
+  vm.infinitePageSize = 10;
   
   vm.hasMore = true;
   
