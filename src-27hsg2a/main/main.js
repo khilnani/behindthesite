@@ -322,6 +322,56 @@ angular.module('bts.directives', [])
       });        
     });
   };
+}])
+
+
+.directive('productdetail', ['$templateCache', function ($templateCache) {
+  Logger.info('product')
+  return function(scope, element, attrs) {
+//    Logger.debug(attrs);
+    var ele = angular.element(element);
+
+    var tmpl = $templateCache.get('hoverTmpl.html')
+
+    ele.data('state', 'hover');
+    ele.on('mouseenter', function (e) { 
+      if (ele.data('state') === 'hover') {
+        var contentHtml = $('#' + attrs.divid).html();
+        //Logger.debug(attrs.divid + ": " + contentHtml);
+        var popupConfig = {
+          html: true,
+          title: attrs.title,
+          content: contentHtml,
+          placement: 'top',
+          template: tmpl,
+          trigger: 'manual'
+        };
+        ele.popover(popupConfig);
+        ele.popover('show');
+      }
+    });
+    ele.on('mouseleave', function (e) { 
+      if (ele.data('state') === 'hover') {
+        ele.popover('hide');
+      }
+    });
+    ele.on('click', function (e) { 
+      if (ele.data('state') === 'hover') {
+          ele.data('state', 'pinned');
+      } else {
+          ele.data('state', 'hover');
+          ele.popover('hide');
+      }
+    });
+
+    ele.on('shown.bs.popover', function () {
+      $("a[href^='http']").attr("target","_blank");
+      ele.find('.close-btn').click( function () {
+        ele.data('state', 'hover');
+        ele.popover('hide');
+      });        
+    });
+  };
 }]);
 
 //*****************************************************************************
