@@ -281,7 +281,7 @@ angular.module('bts.directives', [])
     var ele = angular.element(element);
     var span = ele.find('span');
 
-    var tmpl = $templateCache.get('hoverTmpl.html')
+    var tmpl = $templateCache.get('hoverTmpl.html');
 
     span.data('state', 'hover');
     span.on('mouseenter', function (e) { 
@@ -333,6 +333,22 @@ angular.module('bts.directives', [])
 
     ele.on('click', function (e) { 
       Logger.info('productdetail: ' + attrs.product);
+            
+      var tmpl = $templateCache.get('hoverTmpl.html');
+      
+      var contentHtml = $templateCache.get('productDetailTmpl');
+    
+      var popupConfig = {
+        html: true,
+        title: attrs.product,
+        content: 'contentHtml'hi'',
+        placement: 'top',
+        template: tmpl,
+        trigger: 'manual'
+      };
+      ele.popover(popupConfig);
+      ele.popover('show');
+      
     });
   };
 }]);
