@@ -330,6 +330,13 @@ angular.module('bts.directives', [])
   return function(scope, element, attrs) {
 //    Logger.debug(attrs);
     var ele = angular.element(element);
+    
+    ele.on('shown.bs.popover', function () {
+      $("a[href^='http']").attr("target","_blank");
+      ele.find('.close-btn').click( function () {
+        ele.popover('hide');
+      });        
+    });
 
     ele.on('click', function (e) { 
       Logger.info('productdetail: ' + attrs.product);
@@ -341,14 +348,14 @@ angular.module('bts.directives', [])
       var popupConfig = {
         html: true,
         title: attrs.product,
-        content: 'hi',
+        content: contentHtml,
         placement: 'top',
         template: tmpl,
         trigger: 'manual'
       };
       ele.popover(popupConfig);
       ele.popover('show');
-      
+
     });
   };
 }]);
