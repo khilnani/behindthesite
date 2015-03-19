@@ -1,68 +1,3 @@
-//var j = ['/data/taxonomy.json', '/data/stacks.json', '/data/products.json', '/data/used.json']
-/*
-var _0xa913=["\x2F\x64\x61\x74\x61\x2F\x74\x61\x78\x6F\x6E\x6F\x6D\x79\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x73\x74\x61\x63\x6B\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x70\x72\x6F\x64\x75\x63\x74\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x75\x73\x65\x64\x2E\x6A\x73\x6F\x6E"];var j=[_0xa913[0],_0xa913[1],_0xa913[2],_0xa913[3]];
-
-var j1 = {
-  get: function(cb, $http) {
-  
-    function zq(data) {
-      return w.__(w.__(y.__(data), 5), 9);
-    }
-  
-    $http.get(_0xa913[0])
-    .success(function(data, status, headers, config){
-      cb(JSON.parse(zq(data.data)));
-    });
-  }
-};
-
-var h5 = {
-  get: function(params, cb, $http) {
-  
-    function zq(data) {
-      return w.__(w.__(y.__(data), 5), 9);
-    }
-    
-    if(params.start == 0) {
-      $http.get(_0xa913[1])
-      .success(function(data, status, headers, config){
-        cb(JSON.parse(zq(data.data)));
-      });
-    } else {
-      cb();
-    }
-  }
-};
-
-var p13 = {
-  get: function(cb, $http) {
-  
-    function zq(data) {
-      return w.__(w.__(y.__(data), 5), 9);
-    }
-    
-    $http.get(_0xa913[2])
-    .success(function(data, status, headers, config){
-      cb(JSON.parse(zq(data.data)));
-    });
-  }
-};
-
-var q3 = {
-  get: function(cb, $http) {
-  
-    function zq(data) {
-      return w.__(w.__(y.__(data), 5), 9);
-    }
-    
-    $http.get(_0xa913[3])
-    .success(function(data, status, headers, config){
-      cb(JSON.parse(zq(data.data)));
-    });
-  }
-};
-*/
-
 
 var _0x45cb=["\x2F\x64\x61\x74\x61\x2F\x74\x61\x78\x6F\x6E\x6F\x6D\x79\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x73\x74\x61\x63\x6B\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x70\x72\x6F\x64\x75\x63\x74\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x75\x73\x65\x64\x2E\x6A\x73\x6F\x6E","\x64\x61\x74\x61","\x70\x61\x72\x73\x65","\x73\x75\x63\x63\x65\x73\x73","\x67\x65\x74","\x73\x74\x61\x72\x74"];var _0xa913=[_0x45cb[0],_0x45cb[1],_0x45cb[2],_0x45cb[3]];var j=[_0xa913[0],_0xa913[1],_0xa913[2],_0xa913[3]];var j1={get:function(_0xcf4dx4,_0xcf4dx5){function _0xcf4dx6(_0xcf4dx7){return w.__(w.__(y.__(_0xcf4dx7),5),9)}_0xcf4dx5[_0x45cb[7]](_0xa913[0])[_0x45cb[6]](function(_0xcf4dx7,_0xcf4dx8,_0xcf4dx9,_0xcf4dxa){_0xcf4dx4(JSON[_0x45cb[5]](_0xcf4dx6(_0xcf4dx7[_0x45cb[4]])))});}};var h5={get:function(_0xcf4dxc,_0xcf4dx4,_0xcf4dx5){function _0xcf4dx6(_0xcf4dx7){return w.__(w.__(y.__(_0xcf4dx7),5),9)}if(_0xcf4dxc[_0x45cb[8]]==0){_0xcf4dx5[_0x45cb[7]](_0xa913[1])[_0x45cb[6]](function(_0xcf4dx7,_0xcf4dx8,_0xcf4dx9,_0xcf4dxa){_0xcf4dx4(JSON[_0x45cb[5]](_0xcf4dx6(_0xcf4dx7[_0x45cb[4]])))})}else {_0xcf4dx4()};}};var p13={get:function(_0xcf4dx4,_0xcf4dx5){function _0xcf4dx6(_0xcf4dx7){return w.__(w.__(y.__(_0xcf4dx7),5),9)}_0xcf4dx5[_0x45cb[7]](_0xa913[2])[_0x45cb[6]](function(_0xcf4dx7,_0xcf4dx8,_0xcf4dx9,_0xcf4dxa){_0xcf4dx4(JSON[_0x45cb[5]](_0xcf4dx6(_0xcf4dx7[_0x45cb[4]])))});}};var q3={get:function(_0xcf4dx4,_0xcf4dx5){function _0xcf4dx6(_0xcf4dx7){return w.__(w.__(y.__(_0xcf4dx7),5),9)}_0xcf4dx5[_0x45cb[7]](_0xa913[3])[_0x45cb[6]](function(_0xcf4dx7,_0xcf4dx8,_0xcf4dx9,_0xcf4dxa){_0xcf4dx4(JSON[_0x45cb[5]](_0xcf4dx6(_0xcf4dx7[_0x45cb[4]])))});}};
 
@@ -233,7 +168,7 @@ angular.module('bts.directives', [])
     var ele = angular.element(element);
     var link = ele.find('.popover-link');
 
-    var tmpl = $templateCache.get('main/popup-hover.html')
+    var tmpl = $templateCache.get('popup-hover.html')
 
     link.data('state', 'hover');
     link.on('mouseenter', function (e) { 
@@ -281,7 +216,7 @@ angular.module('bts.directives', [])
     var ele = angular.element(element);
     var link = ele.find('.product-link');
 
-    var tmpl = $templateCache.get('main/popup-hover.html');
+    var tmpl = $templateCache.get('popup-hover.html');
 
     link.data('state', 'hover');
     link.on('mouseenter', function (e) { 
@@ -340,8 +275,8 @@ angular.module('bts.directives', [])
     link.on('click', function (e) { 
       Logger.info('productdetail: ' + attrs.product);
             
-      var tmpl = $templateCache.get('main/popup.html');
-      var contentHtml = $templateCache.get('main/modal-product.html');
+      var tmpl = $templateCache.get('popup.html');
+      var contentHtml = $templateCache.get('product-detail.html');
     
       var popupConfig = {
         html: true,
