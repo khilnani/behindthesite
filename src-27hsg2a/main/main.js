@@ -233,7 +233,7 @@ angular.module('bts.directives', [])
     var ele = angular.element(element);
     var link = ele.find('.popover-link');
 
-    var tmpl = $templateCache.get('hoverTmpl.html')
+    var tmpl = $templateCache.get('main/popup-hover.html')
 
     link.data('state', 'hover');
     link.on('mouseenter', function (e) { 
@@ -281,7 +281,7 @@ angular.module('bts.directives', [])
     var ele = angular.element(element);
     var link = ele.find('.product-link');
 
-    var tmpl = $templateCache.get('hoverTmpl.html');
+    var tmpl = $templateCache.get('main/popup-hover.html');
 
     link.data('state', 'hover');
     link.on('mouseenter', function (e) { 
@@ -340,8 +340,8 @@ angular.module('bts.directives', [])
     link.on('click', function (e) { 
       Logger.info('productdetail: ' + attrs.product);
             
-      var tmpl = $templateCache.get('popupTmpl.html');
-      var contentHtml = $templateCache.get('productDetailTmpl.html');
+      var tmpl = $templateCache.get('main/popup.html');
+      var contentHtml = $templateCache.get('main/modal-product.html');
     
       var popupConfig = {
         html: true,
