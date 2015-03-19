@@ -284,7 +284,8 @@
               </td>
               <td ng-repeat="tier in product.tiers">
                 <ul class="list-unstyled">
-                  <li ng-repeat="ea in tier" 
+                  <li ng-repeat="ea in tier">
+                    <span 
                       data-title="{{ ea.product.name }}"
                       data-divid="{{ product.name | ws }}-{{ ea.product.name | ws }}-hover-content"
                       product="product">
@@ -305,7 +306,8 @@
                           <em><span class="markdown" ng-bind-html="ea.notes"></span></em>
                         </div>
                       </div>
-                    <span class="cursor" ng-bind-html="vm.highlight(ea.product.name)"></span>
+                      <span class="cursor" ng-bind-html="vm.highlight(ea.product.name)"></span>
+                    </span>
                     <span class="cursor" ng-click="vm.setQueryTech({}, {}, ea.product.name)"><i class="fa fa-angle-right"></i></span>
                   </li>
                 </ul>
