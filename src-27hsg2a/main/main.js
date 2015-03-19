@@ -332,7 +332,6 @@ angular.module('bts.directives', [])
     var ele = angular.element(element);
     
     ele.on('shown.bs.popover', function () {
-      $("a[href^='http']").attr("target","_blank");
       ele.find('.close-btn').click( function () {
         ele.popover('hide');
       });        
@@ -342,7 +341,6 @@ angular.module('bts.directives', [])
       Logger.info('productdetail: ' + attrs.product);
             
       var tmpl = $templateCache.get('hoverTmpl.html');
-      
       var contentHtml = $templateCache.get('productDetailTmpl');
     
       var popupConfig = {
