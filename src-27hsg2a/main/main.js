@@ -522,6 +522,13 @@ angular.module('bts.controllers', [])
     vm.onSelectionChange();
   }
   
+  vm.setQuery = function (product, tech) {
+    Logger.info('vm.setQuery: ' + JSON.stringify(product) + ', ' + JSON.stringify(tech));
+    vm.query_product = vm.query_product_typeahead = product;
+    vm.query_tech = vm.query_tech_typeahead = tech;
+    vm.onSelectionChange();
+  }
+  
   // Only called on user changed selection
   vm.onSelectionChange = function () {
     Logger.info('vm.onSelectionChange: ' + vm.query_product + ', ' + vm.query_tech);
