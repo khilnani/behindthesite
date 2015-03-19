@@ -341,7 +341,7 @@ angular.module('bts.directives', [])
       var popupConfig = {
         html: true,
         title: attrs.product,
-        content: 'contentHtml'hi'',
+        content: 'hi',
         placement: 'top',
         template: tmpl,
         trigger: 'manual'
