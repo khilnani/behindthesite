@@ -275,7 +275,7 @@
                         <p class="margin-top-10" ng-show='product.description != ""'><span class="markdown" ng-bind-html="product.description"></span></p>
                       </div>
                     <span class="cursor">{{ product.name }}</span>
-                    <span class="cursor" data-custom-tooltip="View a single page view of details in a popup"><i class="fa fa-search"></i></span>
+                    <a class="cursor" data-custom-tooltip="View a single page view of details in a popup"><i class="fa fa-search"></i></a>
                     <small class="text-muted pull-right">{{ vm.currentPage*vm.pageSize + $index + 1 }}/{{ vm.getTotal() }}</span></small>
                   </li>
                   <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
