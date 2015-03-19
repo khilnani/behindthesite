@@ -64,6 +64,9 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .pad-mobile-filter {
   padding: 10px 20px 0px 20px;
 }
+.pad-bottom-0 {
+  padding-bottom: 0px;
+}
 .margin-top-10 {
   margin-top: 10px;
 }
@@ -238,3 +241,4 @@ thead .grey-on-dark {
   cursor: pointer;
   cursor: hand;
 }
+
