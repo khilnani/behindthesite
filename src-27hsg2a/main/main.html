@@ -161,7 +161,10 @@
                         data-category="{{ ::ea.category.name }}" 
                         data-categorypath="{{ ::ea.category.full_path }}" 
                         data-notes="{{ ::ea.notes }}">
-                      <h4 class="list-group-item-heading"><span ng-bind-html="vm.highlight(ea.product.name)"></span></h4>
+                      <h4 class="list-group-item-heading">
+                        <span ng-bind-html="vm.highlight(ea.product.name)"></span>
+                        <a class="cursor" ng-click="vm.setQueryTech({}, {}, ea.product.name)" data-custom-tooltip="Search for {{ ::ea.product.name }}"><i class="fa fa-angle-double-right"></i></a>
+                      </h4>
                       <p class="list-group-item-text" >
                         <p>{{ ::ea.category.full_path.split('>').slice(1).join(' | ') }}</p>
                         <p>
@@ -308,7 +311,7 @@
                       </div>
                       <span class="cursor" ng-bind-html="vm.highlight(ea.product.name)"></span>
                     </span>
-                    <a class="cursor" ng-click="vm.setQueryTech({}, {}, ea.product.name)" data-custom-tooltip="Search for {{ ::ea.product.name }}"><i class="fa fa-angle-right"></i></a>
+                    <a class="cursor" ng-click="vm.setQueryTech({}, {}, ea.product.name)" data-custom-tooltip="Search for {{ ::ea.product.name }}"><i class="fa fa-angle-double-right"></i></a>
                   </li>
                 </ul>
               </td>
