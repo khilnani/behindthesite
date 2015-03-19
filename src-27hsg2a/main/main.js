@@ -231,13 +231,13 @@ angular.module('bts.directives', [])
   return function(scope, element, attrs) {
     //Logger.debug(attrs);
     var ele = angular.element(element);
-    var span = ele.find('span');
+    var link = ele.find('.popover-link');
 
     var tmpl = $templateCache.get('hoverTmpl.html')
 
-    span.data('state', 'hover');
-    span.on('mouseenter', function (e) { 
-      if (span.data('state') === 'hover') {
+    link.data('state', 'hover');
+    link.on('mouseenter', function (e) { 
+      if (link.data('state') === 'hover') {
         var popupConfig = {
           html: true,
           title: attrs.title,
@@ -246,29 +246,29 @@ angular.module('bts.directives', [])
           template: tmpl,
           trigger: 'manual'
         };
-        span.popover(popupConfig);
-        span.popover('show');
+        link.popover(popupConfig);
+        link.popover('show');
       }
     });
-    span.on('mouseleave', function (e) { 
-      if (span.data('state') === 'hover') {
-        span.popover('hide');
+    link.on('mouseleave', function (e) { 
+      if (link.data('state') === 'hover') {
+        link.popover('hide');
       }
     });
-    span.on('click', function (e) { 
-      if (span.data('state') === 'hover') {
-          span.data('state', 'pinned');
+    link.on('click', function (e) { 
+      if (link.data('state') === 'hover') {
+          link.data('state', 'pinned');
       } else {
-          span.data('state', 'hover');
-          span.popover('hide');
+          link.data('state', 'hover');
+          link.popover('hide');
       }
     });
 
     ele.on('shown.bs.popover', function () {
       $("a[href^='http']").attr("target","_blank");
       ele.find('.close-btn').click( function () {
-        span.data('state', 'hover');
-        span.popover('hide');
+        link.data('state', 'hover');
+        link.popover('hide');
       });        
     });
   };
@@ -279,13 +279,13 @@ angular.module('bts.directives', [])
   return function(scope, element, attrs) {
 //    Logger.debug(attrs);
     var ele = angular.element(element);
-    var span = ele.find('span');
+    var link = ele.find('.product-link');
 
     var tmpl = $templateCache.get('hoverTmpl.html');
 
-    span.data('state', 'hover');
-    span.on('mouseenter', function (e) { 
-      if (span.data('state') === 'hover') {
+    link.data('state', 'hover');
+    link.on('mouseenter', function (e) { 
+      if (link.data('state') === 'hover') {
         var contentHtml = $('#' + attrs.divid).html();
         //Logger.debug(attrs.divid + ": " + contentHtml);
         var popupConfig = {
@@ -296,29 +296,28 @@ angular.module('bts.directives', [])
           template: tmpl,
           trigger: 'manual'
         };
-        span.popover(popupConfig);
-        span.popover('show');
+        link.popover(popupConfig);
+        link.popover('show');
       }
     });
-    span.on('mouseleave', function (e) { 
-      if (span.data('state') === 'hover') {
-        span.popover('hide');
+    link.on('mouseleave', function (e) { 
+      if (link.data('state') === 'hover') {
+        link.popover('hide');
       }
     });
-    span.on('click', function (e) { 
-      if (span.data('state') === 'hover') {
-          span.data('state', 'pinned');
+    link.on('click', function (e) { 
+      if (link.data('state') === 'hover') {
+          link.data('state', 'pinned');
       } else {
-          span.data('state', 'hover');
-          span.popover('hide');
+          link.data('state', 'hover');
+          link.popover('hide');
       }
     });
 
     ele.on('shown.bs.popover', function () {
-      $("a[href^='http']").attr("target","_blank");
       ele.find('.close-btn').click( function () {
-        span.data('state', 'hover');
-        span.popover('hide');
+        link.data('state', 'hover');
+        link.popover('hide');
       });        
     });
   };
@@ -330,18 +329,19 @@ angular.module('bts.directives', [])
   return function(scope, element, attrs) {
 //    Logger.debug(attrs);
     var ele = angular.element(element);
+    var link = ele.find('.product-detail-link');
     
     ele.on('shown.bs.popover', function () {
       ele.find('.close-btn').click( function () {
-        ele.popover('hide');
+        link.popover('hide');
       });        
     });
 
-    ele.on('click', function (e) { 
+    link.on('click', function (e) { 
       Logger.info('productdetail: ' + attrs.product);
             
-      var tmpl = $templateCache.get('hoverTmpl.html');
-      var contentHtml = $templateCache.get('productDetailTmpl');
+      var tmpl = $templateCache.get('popupTmpl.html');
+      var contentHtml = $templateCache.get('productDetailTmpl.html');
     
       var popupConfig = {
         html: true,
@@ -351,8 +351,8 @@ angular.module('bts.directives', [])
         template: tmpl,
         trigger: 'manual'
       };
-      ele.popover(popupConfig);
-      ele.popover('show');
+      link.popover(popupConfig);
+      link.popover('show');
 
     });
   };

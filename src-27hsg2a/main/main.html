@@ -47,6 +47,15 @@
   </div>
 </script>
 
+<script type="text/ng-template" id="popupTmpl.html">
+  <div class="popover bg-darker" role="tooltip">
+    <!-- <div class="arrow"></div> //-->
+    <span class="close-btn cursor glyphicon glyphicon-remove"></span>
+    <h1 class="popover-title text-strong"></h1>
+    <div class="popover-content markdown"></div>
+  </div>
+</script>
+
 <script type="text/ng-template" id="productDetailTmpl.html">
   <div>hi</div>
 </script>
@@ -278,17 +287,16 @@
                         </p> 
                         <p class="margin-top-10" ng-show='product.description != ""'><span class="markdown" ng-bind-html="product.description"></span></p>
                       </div>
-                    <span class="cursor">{{ product.name }}</span>
-                    <i class="fa fa-search cursor"
-                      data-custom-tooltip="View a detailed view in a popup" 
-                      productdetail="productdetail"
-                      data-product="{{ ::product.name }}"></i>
+                    <span class="cursor product-link">{{ product.name }}</span>
+                    <span productdetail="productdetail" data-product="{{ ::product.name }}">
+                      <a class="product-detail-link" data-custom-tooltip="View a detailed view in a popup"><i class="fa fa-search cursor"></i></a>
+                    </span>
                     <small class="text-muted pull-right">{{ vm.currentPage*vm.pageSize + $index + 1 }}/{{ vm.getTotal() }}</span></small>
                   </li>
                   <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
-                  <li popover="popover" ng-if='product.insight' data-title="Insight" data-content="{{ ::product.insight }}"><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
-                  <li popover="popover" ng-if='product.notes' data-title="Notes" data-content="{{ ::product.notes }}" ><span class="cursor">Notes <i class="fa fa-comment"></i></span></li>
-                  <li popover="popover" ng-if='product.references' data-title="References" data-content="{{ ::product.references }}"><span class="cursor">References <i class="fa fa-external-link"></i></li>
+                  <li popover="popover" ng-if='product.insight' data-title="Insight" data-content="{{ ::product.insight }}"><span class="cursor popover-link">Insight <i class="fa fa-graduation-cap"></i></span></li>
+                  <li popover="popover" ng-if='product.notes' data-title="Notes" data-content="{{ ::product.notes }}" ><span class="cursor popover-link">Notes <i class="fa fa-comment"></i></span></li>
+                  <li popover="popover" ng-if='product.references' data-title="References" data-content="{{ ::product.references }}"><span class="cursor popover-link">References <i class="fa fa-external-link"></i></li>
                   
                 </ul>  
               </td>
@@ -316,7 +324,7 @@
                           <em><span class="markdown" ng-bind-html="ea.notes"></span></em>
                         </div>
                       </div>
-                      <span class="cursor" ng-bind-html="vm.highlight(ea.product.name)"></span>
+                      <span class="cursor product-link" ng-bind-html="vm.highlight(ea.product.name)"></span>
                     </span>
                     <a class="cursor" ng-click="vm.setQueryProductTech('', ea.product.name)" data-custom-tooltip="Search for {{ ::ea.product.name }}"><i class="fa fa-angle-double-right"></i></a>
                   </li>
