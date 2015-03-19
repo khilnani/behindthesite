@@ -46,6 +46,10 @@
     <div class="text-center align-bottom "><small>Click the link to keep the popup open.</small></div>
   </div>
 </script>
+
+<script type="text/ng-template" id="productDetailTmpl.html">
+  <div>hi</div>
+</script>
 <!--  Templates END //-->
 
 
@@ -275,6 +279,10 @@
                         <p class="margin-top-10" ng-show='product.description != ""'><span class="markdown" ng-bind-html="product.description"></span></p>
                       </div>
                     <span class="cursor">{{ product.name }}</span>
+                    <i class="fa fa-search cursor"
+                      data-custom-tooltip="View a detailed view in a popup" 
+                      productdetail="productdetail"
+                      data-product="{{ ::product.name }}"></i>
                     <small class="text-muted pull-right">{{ vm.currentPage*vm.pageSize + $index + 1 }}/{{ vm.getTotal() }}</span></small>
                   </li>
                   <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
@@ -310,7 +318,7 @@
                       </div>
                       <span class="cursor" ng-bind-html="vm.highlight(ea.product.name)"></span>
                     </span>
-                    <a class="cursor" ng-click="vm.setQueryTech({}, {}, ea.product.name)" data-custom-tooltip="Search for {{ ::ea.product.name }}"><i class="fa fa-angle-double-right"></i></a>
+                    <a class="cursor" ng-click="vm.setQueryProductTech('', ea.product.name)" data-custom-tooltip="Search for {{ ::ea.product.name }}"><i class="fa fa-angle-double-right"></i></a>
                   </li>
                 </ul>
               </td>
