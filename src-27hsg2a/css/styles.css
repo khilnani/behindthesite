@@ -250,7 +250,7 @@ a:hover {
   position: relative;
 }
 
-a[data-custom-tooltip]:hover:after {
+*[data-custom-tooltip]:hover:after {
   content: attr(data-custom-tooltip);
   padding: 4px 8px;
   color: #ccc;
