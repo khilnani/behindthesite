@@ -246,6 +246,10 @@ thead .grey-on-dark {
   cursor: hand;
 }
 
+a:hover {
+  position: relative;
+}
+
 a[title]:hover:after {
   content: attr(title);
   padding: 4px 8px;
