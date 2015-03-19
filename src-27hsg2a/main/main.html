@@ -163,7 +163,7 @@
                         data-notes="{{ ::ea.notes }}">
                       <h4 class="list-group-item-heading">
                         <span ng-bind-html="vm.highlight(ea.product.name)"></span>
-                        <a class="cursor" ng-click="vm.setQueryTech({}, {}, ea.product.name)"><i class="fa fa-angle-double-right"></i></a>
+                        <a class="cursor" ng-click="vm.setQueryProductTech('', ea.product.name)"><i class="fa fa-angle-double-right"></i></a>
                       </h4>
                       <p class="list-group-item-text" >
                         <p>{{ ::ea.category.full_path.split('>').slice(1).join(' | ') }}</p>
