@@ -275,7 +275,7 @@
                         <p class="margin-top-10" ng-show='product.description != ""'><span class="markdown" ng-bind-html="product.description"></span></p>
                       </div>
                     <span class="cursor">{{ product.name }}</span>
-                    <i class="fa fa-search"></i>
+                    <i popover="popover" ng-if='product.insight' data-title="Insight" data-content="{{ ::product.insight }}" class="fa fa-search"></i>
                     <small class="text-muted pull-right">{{ vm.currentPage*vm.pageSize + $index + 1 }}/{{ vm.getTotal() }}</span></small>
                   </li>
                   <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
