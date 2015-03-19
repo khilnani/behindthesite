@@ -39,7 +39,7 @@
 <!--  Templates START //-->
 <script type="text/ng-template" id="hoverTmpl.html">
   <div class="popover bg-darker" role="tooltip">
-    <div class="arrow"></div>
+    <!-- <div class="arrow"></div> //-->
     <span class="close-btn cursor glyphicon glyphicon-remove"></span>
     <h1 class="popover-title text-strong"></h1>
     <div class="popover-content markdown"></div>
@@ -278,11 +278,13 @@
                   <li popover="popover" ng-if='product.insight' data-title="Insight" data-content="{{ ::product.insight }}"><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
                   <li popover="popover" ng-if='product.notes' data-title="Notes" data-content="{{ ::product.notes }}" ><span class="cursor">Notes <i class="fa fa-comment"></i></span></li>
                   <li popover="popover" ng-if='product.references' data-title="References" data-content="{{ ::product.references }}"><span class="cursor">References <i class="fa fa-external-link"></i></li>
+                  
                 </ul>  
               </td>
               <td ng-repeat="tier in product.tiers">
                 <ul class="list-unstyled">
-                  <li ng-repeat="ea in tier" 
+                  <li ng-repeat="ea in tier">
+                    <span 
                       data-title="{{ ea.product.name }}"
                       data-divid="{{ product.name | ws }}-{{ ea.product.name | ws }}-hover-content"
                       product="product">
@@ -303,7 +305,10 @@
                           <em><span class="markdown" ng-bind-html="ea.notes"></span></em>
                         </div>
                       </div>
-                    <span class="cursor" ng-bind-html="vm.highlight(ea.product.name)"></span></li>
+                      <span class="cursor" ng-bind-html="vm.highlight(ea.product.name)"></span>
+                    </span>
+                    <a class="cursor" ng-click="vm.setQueryTech({}, {}, ea.product.name)" data-custom-tooltip="Search for {{ ::ea.product.name }}"><i class="fa fa-angle-right"></i></a>
+                  </li>
                 </ul>
               </td>
             </tr>
