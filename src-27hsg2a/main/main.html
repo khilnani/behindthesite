@@ -308,7 +308,7 @@
                       </div>
                       <span class="cursor" ng-bind-html="vm.highlight(ea.product.name)"></span>
                     </span>
-                    <span class="cursor" ng-click="vm.setQueryTech({}, {}, ea.product.name)"><i class="fa fa-angle-right"></i></span>
+                    <span class="cursor" ng-click="vm.setQueryTech({}, {}, ea.product.name)" data-toggle="tooltip" data-placement="top" title="Click to search other sites using {{ ::ea.product.name }}"><i class="fa fa-angle-right"></i></span>
                   </li>
                 </ul>
               </td>
