@@ -250,8 +250,8 @@ a:hover {
   position: relative;
 }
 
-a[title]:hover:after {
-  content: attr(title);
+a[data-tooltip]:hover:after {
+  content: attr(data-tooltip);
   padding: 4px 8px;
   color: #ccc;
   font-size: 11px;
