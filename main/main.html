@@ -1,52 +1,34 @@
-<!--  Banner START //-->
-<div class="row">
-  
-  <button ng-if="vm.isMobile" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#MobileSettingsModal"><i class="fa fa-cog fa-lg"></i></button>
-  
-  <div class="jumbotron margin-bottom-20">
-    <div class="row">
-      <h2 class="title text-center">BehindTheSite</h2>
-      <p class="text-center"><small>A log of web technology stacks.</small></p>
-      <p class="hidden-xs text-center align-top pad-left-right-10p"><small><small>
-            More than 550 Products & Technologies catalogued. 
-            Each with links to Documentation, Blogs, Source Code, Bug Trackers, Twitter and more. 
-            Optimized for <em><a class="cursor" ng-click="vm.isMobile=false">Desktop</a></em> and <em><a class="cursor" ng-click="vm.isMobile=true">Mobile</a></em>.
-      </small></small></p>
-      <p class="hidden-xs text-center align-top"><small><small><small>
-              <em><strong>Tip!</strong> - Change themes and filter content via <i class="fa fa-cog fa-lg"></i></em>
-      </small></small></small></p>
-      <p class="text-center align-top"><small>
-      
-        <a href="https://twitter.com/BehindTheSite" class="twitter-follow-button" data-show-count = true>Follow @behindthesite</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-      
-        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://behindthesite.com" data-via="BehindTheSite">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-      </small></p>
-      <p class="text-center align-top" id="p-text-11">
-        <button type="button" class="white-btn" data-toggle="modal" data-target="#SubmissionModal" title="Please submit feedback, or new information."><i class="fa fa-paper-plane"></i> Add a Technology Stack</button>
-      </p>
-      <p class="hidden-xs text-center text-primary align-top">
-        <span class="text-bold-12">Made In DC <img class="align-inherit" src="images/dc_logo.png" width="15" height="15"/></span>
-      </p>
-    </div>
-  </div>
-</div>
-<!--  Banner END //-->
-
-
-
 <!--  Templates START //-->
-<script type="text/ng-template" id="hoverTmpl.html">
+
+<script type="text/ng-template" id="popup-hover.html">
+    <div class="popover bg-darker" role="tooltip">
+      <!-- <div class="arrow"></div> //-->
+      <span class="close-btn cursor glyphicon glyphicon-remove"></span>
+      <h1 class="popover-title text-strong"></h1>
+      <div class="popover-content markdown"></div>
+      <div class="text-center align-bottom "><small>Click the link to keep the popup open.</small></div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="popup.html">
   <div class="popover bg-darker" role="tooltip">
     <!-- <div class="arrow"></div> //-->
     <span class="close-btn cursor glyphicon glyphicon-remove"></span>
     <h1 class="popover-title text-strong"></h1>
     <div class="popover-content markdown"></div>
-    <div class="text-center align-bottom "><small>Click the link to keep the popup open.</small></div>
   </div>
 </script>
+
+<script type="text/ng-template" id="product-detail.html">
+  <div>hi</div>
+</script>
 <!--  Templates END //-->
+
+<!--  Banner START //-->
+<div class="row"
+  ng-include="'main/banner.html'">
+</div>
+<!--  Banner END //-->
 
 
 
@@ -55,281 +37,22 @@
   <div class="row">
     <div id="main" class="col-xs-12">
     
-    
-    
       <!--  Mobile START //-->
-      <div ng-if="vm.isMobile">
-        
-        <div id="header" class="bg-primary row pad-mobile-filter small" affix="affix">
-          <!--
-          <span class="pull-left" ng-if="vm.query_product != '' || vm.query_tech != ''">
-            <strong>Filter: </strong>
-            <span class="pad-left-5">{{ vm.query_product }}</span>
-            <button ng-if="vm.query_product != ''" class="btn btn-default btn-xs" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
-            
-            <span class="pad-left-5">{{ vm.query_tech }}</span>
-            <button ng-if="vm.query_tech != ''"class="btn btn-default btn-xs" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
-          </span>
-          //-->
-
-          <div class="row">
-
-            <div class="col-xs-6 form-group pad-left-0">
-              <label class="control-label">
-                <span ng-if="vm.query_product == ''">The sites</span>
-                <span ng-if="vm.query_product != ''" class="nowrap">'{{ vm.query_product }}'</span>
-              </label>
-              <div class="input-group ">
-                  <select class="form-control input-sm" name="query_product" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
-                  <span class="input-group-btn">
-                    <button type="button" ng-disabled="vm.query_product == ''" class="btn btn-default btn-sm" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
-                  </span>
-              </div>
-            </div>
-            
-            <div class="col-xs-6 form-group pad-left-0 pad-right-10">
-              <label class="control-label">
-                <span ng-if="vm.query_tech == ''">Technologies</span>
-                <span ng-if="vm.query_tech != ''" class="nowrap">'{{ vm.query_tech }}'</span>
-              </label>
-              <div class="input-group ">
-                  <select class="form-control input-sm" name="query_tech" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
-                  <span class="input-group-btn">
-                    <button type="button" ng-disabled="vm.query_tech == ''" class="btn btn-default btn-sm" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
-                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.backToTop()"><i class="fa fa-arrow-up"></i></button>
-                  </span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-        
-        <div id="accordion" class="panel-group margin-top-10"> 
-          <div id="{{ ::product.name | ws }}-panel" 
-              ng-repeat="product in filtered = (vm.products | filter:vm.filter | limitTo:vm.infiniteCount)" 
-              class="panel panel-default" 
-              collapse="collapse"> 
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <button type="button" class="btn btn-xs btn-default" 
-                  data-toggle="collapse" 
-                  data-target="#{{ ::product.name | ws }}" 
-                  data-parent="#accordion">{{ ::product.name }}</button>
-                <span class="pull-right"><em><small>{{ ::product.updated }}</small></em></span>
-              </h4>
-            </div>
-            <div id="{{ ::product.name | ws }}" class="panel-collapse collapse {{ ($first && filtered.length == 1) ? 'in' : '' }}">
-              <div class="panel-body">
-                <div class="list-group">
-                  <div class="list-group-item bg-darker">
-                    <p class="list-group-item-text" >
-                      <p>
-                        <a ng-if='product.website' href="{{ ::product.website }}" target="_blank">Website</a> 
-                        <a ng-if='product.twitter' href="{{ ::product.twitter }}" target="_blank">Twitter</a> 
-                        <a ng-if='product.irc' href="{{ ::product.irc }}" target="_blank">Irc</a> 
-                        <a ng-if='product.repo' href="{{ ::product.repo }}" target="_blank">Code</a> 
-                        <a ng-if='product.issues' href="{{ ::product.issues }}" target="_blank">Issues</a> 
-                        <a ng-if='product.docs' href="{{ ::product.docs }}" target="_blank">Docs</a> 
-                        <a ng-if='product.blogs' href="{{ ::product.blogs }}" target="_blank">Blog</a> 
-                      </p>
-                    </p>
-                  </div>
-                  <div class="list-group-item bg-darker" ng-if='product.insight'>
-                    <h4 class="list-group-item-heading">Insight <i class="fa fa-graduation-cap"></i></h4>
-                    <p class="list-group-item-text" ><span class="markdown" ng-bind-html="product.insight"></span></p>
-                  </div>
-                  <div class="list-group-item bg-darker" ng-if='product.notes'>
-                    <h4 class="list-group-item-heading">Notes <i class="fa fa-comment"></i></h4>
-                    <p class="list-group-item-text" ><span class="markdown" ng-bind-html="product.notes"></span></p>
-                  </div>
-                </div>
-                <div ng-repeat="tier in product.tiers" ng-if="tier.length > 0">
-                  <h4 class="list-group-item-heading text-default">{{ ::tier.name }}</h3>
-                  <div class="list-group">
-                    <div class="list-group-item bg-darker"
-                        ng-repeat="ea in tier" 
-                        data-description="{{ ::ea.product.description }}" 
-                        data-title="{{ ::ea.product.name }}" 
-                        data-website="{{ ::ea.product.website }}" 
-                        data-twitter="{{ ::ea.product.twitter }}" 
-                        data-irc="{{ ::ea.product.irc }}" 
-                        data-blogs="{{ ::ea.product.blogs }}" 
-                        data-repo="{{ ::ea.product.repo }}" 
-                        data-issues="{{ ::ea.product.issues }}" 
-                        data-docs="{{ ::ea.product.docs }}" 
-                        data-category="{{ ::ea.category.name }}" 
-                        data-categorypath="{{ ::ea.category.full_path }}" 
-                        data-notes="{{ ::ea.notes }}">
-                      <h4 class="list-group-item-heading">
-                        <span ng-bind-html="vm.highlight(ea.product.name)"></span>
-                        <a class="cursor" ng-click="vm.setQueryProductTech('', ea.product.name)"><i class="fa fa-angle-double-right"></i></a>
-                      </h4>
-                      <p class="list-group-item-text" >
-                        <p>{{ ::ea.category.full_path.split('>').slice(1).join(' | ') }}</p>
-                        <p>
-                          <a ng-if='ea.product.website' href="{{ ::ea.product.website }}" target="_blank">Website</a> 
-                          <a ng-if='ea.product.twitter' href="{{ ::ea.product.twitter }}" target="_blank">Twitter</a> 
-                          <a ng-if='ea.product.irc' href="{{ ::ea.product.irc }}" target="_blank">Irc</a> 
-                          <a ng-if='ea.product.repo' href="{{ ::ea.product.repo }}" target="_blank">Code</a> 
-                          <a ng-if='ea.product.issues' href="{{ ::ea.product.issues }}" target="_blank">Issues</a> 
-                          <a ng-if='ea.product.docs' href="{{ ::ea.product.docs }}" target="_blank">Docs</a> 
-                          <a ng-if='ea.product.blogs' href="{{ ::ea.product.blogs }}" target="_blank">Blog</a> 
-                        </p>
-                        <p class="hidden"><span class="markdown" ng-bind-html="ea.product.description"></span></p>
-                        <p ng-if='ea.notes'><strong>Notes - </strong><em><span class="markdown" ng-bind-html="ea.notes"></span></em></p>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <h4 class="list-group-item-heading text-default" ng-if='product.references'>References <i class="fa fa-external-link"></i></h3>
-                <div class="list-group" ng-if='product.references'>
-                  <div class="list-group-item bg-darker">
-                    <p class="list-group-item-text" ><span class="markdown" ng-bind-html="product.references"></span></p>
-                  </div>
-                </div>
-                <span class="pull-right">
-                  <button type="button" class="btn btn-xs btn-default" data-toggle="collapse" 
-                    data-target="#{{ ::product.name | ws }}" 
-                    data-parent="#accordion"><i class="fa fa-compress"></i> Close</button>
-                  <button type="button" class="btn btn-xs btn-default" ng-click="vm.backToTop((product.name | ws))"><i class="fa fa-arrow-up"></i> Back to Top</button>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div ng-if="vm.isMobile"
+        ng-include="'main/mobile.html'">
       </div>
       <!--  Mobile END //-->
       
-      
-      
       <!--  Desktop START //-->
-      <div ng-if="!vm.isMobile" infinite-scroll="vm.infiniteGetAdditionalData()" infinite-scroll-disabled='vm.busy' infinite-scroll-distance="0" infinite-scroll-immediate-check="false">
-        <table id="main-table" class="table table-striped table-bordered table-condensed small">
-          <thead class="bg-primary" affix="affix"> 
-            <tr>
-              <th colspan="8">
-                <form class="form-inline" role="form">
-                  
-                  <div class="col-xs-2 pull-left pad-left-0">
-                    <span class="title">BehindTheSite</span>
-                  </div>
+      <div ng-if="!vm.isMobile" 
+        infinite-scroll="vm.infiniteGetAdditionalData()" 
+        infinite-scroll-disabled='vm.busy' 
+        infinite-scroll-distance="0" 
+        infinite-scroll-immediate-check="false"
+        ng-include="'main/desktop.html'">>
 
-                  <div class="col-xs-10 form-group pull-right text-right pad-right-0 margin-bottom-0">
-                    <label class="hidden-xs control-label">The Sites: </label>
-                    <div class="input-group ">
-                        <!-- <select class="form-control input-xs grey-on-dark" ng-model="vm.query_product"  ng-options="item.id as item.name for item in vm.products_select_list"></select> //-->
-                        <input class="form-control input-xs grey-on-dark" type="text" placeholder="Pick a site" ng-model="vm.query_product_typeahead" typeahead-focus="" typeahead-on-select="vm.setQueryProduct ($item, $model, $label)" typeahead="item.id as item.name for item in vm.products_select_list | filter:focusFilter($viewValue) | limitTo:40"/>
-                        <span class="input-group-btn">
-                          <button type="button" ng-disabled="vm.query_product == ''" class="btn btn-default btn-xs" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
-                        </span>
-                    </div>
-                    <label class="hidden-xs control-label pad-left-5">Technologies: </label>
-                    <div class="input-group ">
-                        <!-- <select class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select> //-->
-                        <input class="form-control input-xs grey-on-dark" type="text" placeholder="Pick a technology" ng-model="vm.query_tech_typeahead" typeahead-focus="" typeahead-on-select="vm.setQueryTech ($item, $model, $label)" typeahead="item.id as item.name for item in vm.tech_select_list | filter:focusFilter($viewValue) | limitTo:40"/>
-                        <span class="input-group-btn">
-                          <button type="button" ng-disabled="vm.query_tech == ''" class="btn btn-default btn-xs" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
-                          <button class="btn btn-default btn-xs" ng-click="vm.clearSelections()">Reset</button>
-                          <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#SettingsModal"><i class="fa fa-cog fa-lg"></i></button>
-                        </span>
-                    </div>
-                  </div>
-                  
-                </form>
-              </th>
-            </tr>
-            <tr>
-              <th colspan="8" class="text-center">
-              <form class="form-inline" role="form">
-                <button class="btn btn-default btn-xs pull-left" ng-disabled="vm.disablePrev()" ng-click="vm.prevPage()"><i class="fa fa-chevron-left"></i> Previous</button>
-                Page: {{vm.currentPage+1}}/{{vm.numberOfPages()}}
-                <button class="btn btn-default btn-xs pull-right" ng-disabled="vm.disableNext()" ng-click="vm.nextPage()">Next <i class="fa fa-chevron-right"></i></button>
-                
-              </form>
-              </th>
-            </tr>
-            <tr>
-              <th>The Sites</th>
-              <th ng-repeat="h in vm.headers">{{ ::h.name }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr ng-repeat="product in vm.products | filter:vm.filter | limitTo:vm.infiniteCount"> -->
-            <tr ng-repeat="product in vm.products | filter:vm.filter | startFrom:vm.currentPage*vm.pageSize | limitTo:vm.pageLimit() track by product.name">
-              <td>
-                <ul class="list-unstyled">
-                  <li data-title="{{ ::product.name }}"
-                      data-divid="{{ product.name | ws }}-hover-content"
-                      product="product">
-                      <div style="display: none;" id="{{ product.name | ws }}-hover-content">
-                        <p>
-                          <a ng-if='product.website' href="{{ ::product.website }}" target="_blank">Website</a> 
-                          <a ng-if='product.twitter' href="{{ ::product.twitter }}" target="_blank">Twitter</a> 
-                          <a ng-if='product.irc' href="{{ ::product.irc }}" target="_blank">Irc</a> 
-                          <a ng-if='product.repo' href="{{ ::product.repo }}" target="_blank">Code</a> 
-                          <a ng-if='product.issues' href="{{ ::product.issues }}" target="_blank">Issues</a> 
-                          <a ng-if='product.docs' href="{{ ::product.docs }}" target="_blank">Docs</a> 
-                          <a ng-if='product.blogs' href="{{ ::product.blogs }}" target="_blank">Blog</a> 
-                        </p> 
-                        <p class="margin-top-10" ng-show='product.description != ""'><span class="markdown" ng-bind-html="product.description"></span></p>
-                      </div>
-                    <span class="cursor">{{ product.name }}</span>
-                    <small class="text-muted pull-right">{{ vm.currentPage*vm.pageSize + $index + 1 }}/{{ vm.getTotal() }}</span></small>
-                  </li>
-                  <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
-                  <li popover="popover" ng-if='product.insight' data-title="Insight" data-content="{{ ::product.insight }}"><span class="cursor">Insight <i class="fa fa-graduation-cap"></i></span></li>
-                  <li popover="popover" ng-if='product.notes' data-title="Notes" data-content="{{ ::product.notes }}" ><span class="cursor">Notes <i class="fa fa-comment"></i></span></li>
-                  <li popover="popover" ng-if='product.references' data-title="References" data-content="{{ ::product.references }}"><span class="cursor">References <i class="fa fa-external-link"></i></li>
-                  
-                </ul>  
-              </td>
-              <td ng-repeat="tier in product.tiers">
-                <ul class="list-unstyled">
-                  <li ng-repeat="ea in tier">
-                    <span 
-                      data-title="{{ ea.product.name }}"
-                      data-divid="{{ product.name | ws }}-{{ ea.product.name | ws }}-hover-content"
-                      product="product">
-                      <div style="display: none;" id="{{ product.name | ws }}-{{ ea.product.name | ws }}-hover-content">
-                        <p ng-show='ea.category.full_path != ""'><small>{{ ::ea.category.full_path.split('>').join(' | ') }}</small></p>
-                        <p>
-                          <a ng-if='ea.product.website' href="{{ ::ea.product.website }}" target="_blank">Website</a> 
-                          <a ng-if='ea.product.twitter' href="{{ ::ea.product.twitter }}" target="_blank">Twitter</a> 
-                          <a ng-if='ea.product.irc' href="{{ ::ea.product.irc }}" target="_blank">Irc</a> 
-                          <a ng-if='ea.product.repo' href="{{ ::ea.product.repo }}" target="_blank">Code</a> 
-                          <a ng-if='ea.product.issues' href="{{ ::ea.product.issues }}" target="_blank">Issues</a> 
-                          <a ng-if='ea.product.docs' href="{{ ::ea.product.docs }}" target="_blank">Docs</a> 
-                          <a ng-if='ea.product.blogs' href="{{ ::ea.product.blogs }}" target="_blank">Blog</a> 
-                        </p> 
-                        <p ng-show='ea.product.description != ""'><span class="markdown" ng-bind-html="ea.product.description"></span></p>
-                        <div ng-if='ea.notes'>
-                          <p><strong>Notes - </strong></p>
-                          <em><span class="markdown" ng-bind-html="ea.notes"></span></em>
-                        </div>
-                      </div>
-                      <span class="cursor" ng-bind-html="vm.highlight(ea.product.name)"></span>
-                    </span>
-                    <a class="cursor" ng-click="vm.setQueryProductTech('', ea.product.name)" data-custom-tooltip="Search for {{ ::ea.product.name }}"><i class="fa fa-angle-double-right"></i></a>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-          <tfoot class="bg-primary">
-            <tr>
-              <th colspan="8" class="text-center">
-                <button class="btn btn-default btn-xs pull-left" ng-disabled="vm.disablePrev()" ng-click="vm.prevPage()"><i class="fa fa-chevron-left"></i> Previous</button>
-                Page: {{vm.currentPage+1}}/{{vm.numberOfPages()}}
-                <button class="btn btn-default btn-xs pull-right" ng-disabled="vm.disableNext()" ng-click="vm.nextPage()">Next <i class="fa fa-chevron-right"></i></button>
-              </th>
-            </tr>
-          </tfoot>
-        </table>
       </div>
       <!--  Desktop END //-->
-      
-      
       
     </div>
   </div>
@@ -364,139 +87,27 @@
 
 
 <!--  Feedback / SubmissionModal Form START //-->
-<div class="modal fade" id="SubmissionModal" tabindex="-1" role="dialog" aria-labelledby="Feedback Submission Modal" aria-hidden="true" ng-controller="SubmissionForm">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <form class="form-horizontal" role="form" name="SubmissionForm">
-        <div class="modal-header bg-darker">
-          <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
-            <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Close</span>
-          </button>
-          <h4 class="modal-title"><i class="fa fa-paper-plane fa-lg"></i> Add a Stack</h4>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="name">Name</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control input-sm" name="name" ng-model="submission.name" placeholder="Your Name" minlength="2" required>
-              <span ng-show="SubmissionForm.name.$error.required" class="text-danger help-block">Please do tell us your name.</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="twitter">Twitter</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control input-sm" name="twitter" ng-model="submission.twitter" placeholder="A tweet to say thanks is the least we can do!" minlength="2">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="email">Email</label>
-            <div class="col-sm-9">
-              <input type="email" class="form-control input-sm" name="email" ng-model="submission.email" placeholder="Your Email. We don't spam or sell emails." minlength="2">
-              <span ng-show="SubmissionForm.email.$error.email" class="text-danger help-block">You might have a typo in your email address.</span>
-              <span ng-show="SubmissionForm.email.$error.required" class="text-danger help-block">Please tell us your email. We don't spam or sell email addresses.</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="product">The Site</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control input-sm" name="product" ng-model="submission.product" placeholder="The web enabled product or service you might have feedback on." minlength="2">
-              <span ng-show="SubmissionForm.product.$error.required" class="text-danger help-block">The web enabled company/product are you referring to</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="url">The Site's Url</label>
-            <div class="col-sm-9">
-              <input type="url" class="form-control input-sm" name="url" ng-model="submission.url" placeholder="Surely, the product/company has a website right?" minlength="2">
-              <span ng-show="SubmissionForm.url.$error.url" class="text-danger help-block">We're not sure thats a valid url.</span>
-              <span ng-show="SubmissionForm.url.$error.required" class="text-danger help-block">Surely, the site/product has a website right?</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="comments">Comments</label>
-            <div class="col-sm-9">
-            <textarea class="form-control input-sm" name="comments" rows="2" ng-model="submission.comments" placeholder="Feedback, suggestions, comments, or technology information." ></textarea>
-            </div>
-          </div>
-          <div class="list-group">
-            <div class="list-group-item" ng-repeat="tier in submission.tiers">
-              <p class="list-group-item-text">
-                <div class="form-group">
-                  <label class="col-sm-4 control-label" for="product">
-                    Technology
-                    <button ng-if="!$first" class="btn btn-default btn-xs" ng-click="delete(tier.id)">
-                      <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Delete</span>
-                    </button>
-                  </label>
-                  <div class="col-sm-8">
-                    <select class="form-control input-sm" name="id" ng-model="tier.product" ng-options="item.value as item.key for item in products"></select>
-                  </div>
-                </div>
-                <div class="form-group has-feedback">
-                  <label class="col-sm-4 control-label" for="notes">
-                    <button ng-if="$last" class="btn btn-default pull-right btn-sm" ng-click="add()">Add Another</button>
-                  </label>
-                  <div class="col-sm-8">
-                    <textarea class="form-control input-sm" name="notes" rows="2" ng-model="tier.notes" placeholder="Usage notes, or unlisted Technology details" ></textarea>
-                  </div>
-                </div>
-              </p>
-            </div>
-          </div>
-        </div><!-- /.modal-body -->
-        <div class="modal-footer bg-darker">
-          <button class="btn btn-default pull-left" ng-click="reset()" ng-disabled="isUnchanged(submission)">Reset</button>
-          <button type="submit" class="btn btn-primary pull-right" ng-click="save(submission)" ng-disabled="!!SubmissionForm.$invalid">Submit</button>
-        </div><!-- /.modal-footer -->
-      </form>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
+<div class="modal fade" 
+  id="SubmissionModal" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="Feedback Submission Modal" 
+  aria-hidden="true" 
+  ng-controller="SubmissionForm"
+  ng-include="'main/modal-submit.html'">
 </div><!-- /.modal -->
 <!--  Feedback Form END //-->
 
 
 
 <!--  Setting Modal START //-->
-<div class="modal fade" id="SettingsModal" tabindex="-1" role="dialog" aria-labelledby="Settings Modal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form class="form-horizontal" role="form">
-        <div class="modal-header bg-darker">
-          <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
-            <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Close</span>
-          </button>
-          <h4 class="modal-title"><i class="fa fa-cog fa-lg"></i> Settings</h4>
-        </div>
-        <div class="modal-body">
-        
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="name">Page Size</label>
-            <div class="col-sm-9">
-                <select class="form-control input-sm " ng-model="vm.pageSize" id="pageSize">
-                  <option value="5">5</option>
-                  <option value="10">10</option>
-                  <option value="15">15</option>
-                </select>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="theme">Theme</label>
-            <div class="col-sm-9">
-                <select class="form-control input-sm " ng-model="vm.theme" ng-change="vm.onThemeChange()" id="theme">
-                  <option value="slate">Slate</option>
-                  <option value="yeti">Yeti</option>
-                  <option value="spacelab">Spacelab</option>
-                  <option value="flatly">Flatly</option>
-                  <!-- <option value="sandstone">Sandstone</option> //-->
-                </select>
-                <span class="pull-right"><small><em>Thanks <a href="http://bootswatch.com/" target="_blank">BootSwatch</a>!</em></small></span>
-            </div>
-          </div>
-          
-        </div><!-- /.modal-body -->
-      </form>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
+<div class="modal fade" 
+  id="SettingsModal" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="Settings Modal" 
+  aria-hidden="true"
+  ng-include="'main/modal-desktop-settings.html'">
 </div><!-- /.modal -->
 <!--  Settings Modal END //-->
 
@@ -504,54 +115,13 @@
 
 
 <!--  MobileSettings Modal MOBILE ONLY START //-->
-<div class="modal fade" id="MobileSettingsModal" tabindex="-1" role="dialog" aria-labelledby="Mobile Settings Modal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form class="form-horizontal" role="form">
-        <div class="modal-header bg-darker">
-          <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">
-            <span aria-hidden="true" class="glyphicon glyphicon-remove"> <span class="sr-only">Close</span>
-          </button>
-          <h4 class="modal-title"><i class="fa fa-cog fa-lg"></i> Settings</h4>
-        </div>
-        <div class="modal-body">
-        
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="query_product">The Sites</label>
-            <div class="col-sm-9">
-            <select class="form-control input-sm" name="query_product" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="query_tech">Technologies</label>
-            <div class="col-sm-9">
-            <select class="form-control input-sm" name="query_tech" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="theme">Theme</label>
-            <div class="col-sm-9">
-                <select class="form-control input-sm " ng-model="vm.theme" ng-change="vm.onThemeChange()" id="theme">
-                  <option value="slate">Slate</option>
-                  <option value="yeti">Yeti</option>
-                  <option value="spacelab">Spacelab</option>
-                  <option value="flatly">Flatly</option>
-                  <option value="sandstone">Sandstone</option>
-                </select>
-                <span class="pull-right"><small><em>Thanks <a href="http://bootswatch.com/" target="_blank">BootSwatch</a>!</em></small></span>
-            </div>
-          </div>
-          
-        </div><!-- /.modal-body -->
-        <div class="modal-footer bg-darker">
-          <button class="btn btn-default pull-left" ng-click="vm.clearSelections()">Reset</button>
-          <button class="btn btn-primary pull-right" data-dismiss="modal">Close</button>
-        </div><!-- /.modal-footer -->
-      </form>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
+<div class="modal fade" 
+  id="MobileSettingsModal" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="Mobile Settings Modal" 
+  aria-hidden="true"
+  ng-include="'main/modal-mobile-settings.html'">
 </div><!-- /.modal -->
 <!--  MobileSettings Modal END //-->
 

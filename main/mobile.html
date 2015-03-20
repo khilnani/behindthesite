@@ -1,0 +1,138 @@
+        <div id="header" class="bg-primary row pad-mobile-filter small" affix="affix">
+          <!--
+          <span class="pull-left" ng-if="vm.query_product != '' || vm.query_tech != ''">
+            <strong>Filter: </strong>
+            <span class="pad-left-5">{{ vm.query_product }}</span>
+            <button ng-if="vm.query_product != ''" class="btn btn-default btn-xs" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
+            
+            <span class="pad-left-5">{{ vm.query_tech }}</span>
+            <button ng-if="vm.query_tech != ''"class="btn btn-default btn-xs" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
+          </span>
+          //-->
+
+          <div class="row">
+
+            <div class="col-xs-6 form-group pad-left-0">
+              <label class="control-label">
+                <span ng-if="vm.query_product == ''">The sites</span>
+                <span ng-if="vm.query_product != ''" class="nowrap">'{{ vm.query_product }}'</span>
+              </label>
+              <div class="input-group ">
+                  <select class="form-control input-sm" name="query_product" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
+                  <span class="input-group-btn">
+                    <button type="button" ng-disabled="vm.query_product == ''" class="btn btn-default btn-sm" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
+                  </span>
+              </div>
+            </div>
+            
+            <div class="col-xs-6 form-group pad-left-0 pad-right-10">
+              <label class="control-label">
+                <span ng-if="vm.query_tech == ''">Technologies</span>
+                <span ng-if="vm.query_tech != ''" class="nowrap">'{{ vm.query_tech }}'</span>
+              </label>
+              <div class="input-group ">
+                  <select class="form-control input-sm" name="query_tech" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
+                  <span class="input-group-btn">
+                    <button type="button" ng-disabled="vm.query_tech == ''" class="btn btn-default btn-sm" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.backToTop()"><i class="fa fa-arrow-up"></i></button>
+                  </span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        
+        <div id="accordion" class="panel-group margin-top-10"> 
+          <div id="{{ ::product.name | ws }}-panel" 
+              ng-repeat="product in filtered = (vm.products | filter:vm.filter | limitTo:vm.infiniteCount)" 
+              class="panel panel-default" 
+              collapse="collapse"> 
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <button type="button" class="btn btn-xs btn-default" 
+                  data-toggle="collapse" 
+                  data-target="#{{ ::product.name | ws }}" 
+                  data-parent="#accordion">{{ ::product.name }}</button>
+                <span class="pull-right"><em><small>{{ ::product.updated }}</small></em></span>
+              </h4>
+            </div>
+            <div id="{{ ::product.name | ws }}" class="panel-collapse collapse {{ ($first && filtered.length == 1) ? 'in' : '' }}">
+              <div class="panel-body">
+                <div class="list-group">
+                  <div class="list-group-item bg-darker">
+                    <p class="list-group-item-text" >
+                      <p>
+                        <a ng-if='product.website' href="{{ ::product.website }}" target="_blank">Website</a> 
+                        <a ng-if='product.twitter' href="{{ ::product.twitter }}" target="_blank">Twitter</a> 
+                        <a ng-if='product.irc' href="{{ ::product.irc }}" target="_blank">Irc</a> 
+                        <a ng-if='product.repo' href="{{ ::product.repo }}" target="_blank">Code</a> 
+                        <a ng-if='product.issues' href="{{ ::product.issues }}" target="_blank">Issues</a> 
+                        <a ng-if='product.docs' href="{{ ::product.docs }}" target="_blank">Docs</a> 
+                        <a ng-if='product.blogs' href="{{ ::product.blogs }}" target="_blank">Blog</a> 
+                      </p>
+                    </p>
+                  </div>
+                  <div class="list-group-item bg-darker" ng-if='product.insight'>
+                    <h4 class="list-group-item-heading">Insight <i class="fa fa-graduation-cap"></i></h4>
+                    <p class="list-group-item-text" ><span class="markdown" ng-bind-html="product.insight"></span></p>
+                  </div>
+                  <div class="list-group-item bg-darker" ng-if='product.notes'>
+                    <h4 class="list-group-item-heading">Notes <i class="fa fa-comment"></i></h4>
+                    <p class="list-group-item-text" ><span class="markdown" ng-bind-html="product.notes"></span></p>
+                  </div>
+                </div>
+                <div ng-repeat="tier in product.tiers" ng-if="tier.length > 0">
+                  <h4 class="list-group-item-heading text-default">{{ ::tier.name }}</h3>
+                  <div class="list-group">
+                    <div class="list-group-item bg-darker"
+                        ng-repeat="ea in tier" 
+                        data-description="{{ ::ea.product.description }}" 
+                        data-title="{{ ::ea.product.name }}" 
+                        data-website="{{ ::ea.product.website }}" 
+                        data-twitter="{{ ::ea.product.twitter }}" 
+                        data-irc="{{ ::ea.product.irc }}" 
+                        data-blogs="{{ ::ea.product.blogs }}" 
+                        data-repo="{{ ::ea.product.repo }}" 
+                        data-issues="{{ ::ea.product.issues }}" 
+                        data-docs="{{ ::ea.product.docs }}" 
+                        data-category="{{ ::ea.category.name }}" 
+                        data-categorypath="{{ ::ea.category.full_path }}" 
+                        data-notes="{{ ::ea.notes }}">
+                      <h4 class="list-group-item-heading">
+                        <span ng-bind-html="vm.highlight(ea.product.name)"></span>
+                        <a class="cursor" ng-click="vm.setQueryProductTech('', ea.product.name)"><i class="fa fa-angle-double-right"></i></a>
+                      </h4>
+                      <p class="list-group-item-text" >
+                        <p>{{ ::ea.category.full_path.split('>').slice(1).join(' | ') }}</p>
+                        <p>
+                          <a ng-if='ea.product.website' href="{{ ::ea.product.website }}" target="_blank">Website</a> 
+                          <a ng-if='ea.product.twitter' href="{{ ::ea.product.twitter }}" target="_blank">Twitter</a> 
+                          <a ng-if='ea.product.irc' href="{{ ::ea.product.irc }}" target="_blank">Irc</a> 
+                          <a ng-if='ea.product.repo' href="{{ ::ea.product.repo }}" target="_blank">Code</a> 
+                          <a ng-if='ea.product.issues' href="{{ ::ea.product.issues }}" target="_blank">Issues</a> 
+                          <a ng-if='ea.product.docs' href="{{ ::ea.product.docs }}" target="_blank">Docs</a> 
+                          <a ng-if='ea.product.blogs' href="{{ ::ea.product.blogs }}" target="_blank">Blog</a> 
+                        </p>
+                        <p class="hidden"><span class="markdown" ng-bind-html="ea.product.description"></span></p>
+                        <p ng-if='ea.notes'><strong>Notes - </strong><em><span class="markdown" ng-bind-html="ea.notes"></span></em></p>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <h4 class="list-group-item-heading text-default" ng-if='product.references'>References <i class="fa fa-external-link"></i></h3>
+                <div class="list-group" ng-if='product.references'>
+                  <div class="list-group-item bg-darker">
+                    <p class="list-group-item-text" ><span class="markdown" ng-bind-html="product.references"></span></p>
+                  </div>
+                </div>
+                <span class="pull-right">
+                  <button type="button" class="btn btn-xs btn-default" data-toggle="collapse" 
+                    data-target="#{{ ::product.name | ws }}" 
+                    data-parent="#accordion"><i class="fa fa-compress"></i> Close</button>
+                  <button type="button" class="btn btn-xs btn-default" ng-click="vm.backToTop((product.name | ws))"><i class="fa fa-arrow-up"></i> Back to Top</button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>

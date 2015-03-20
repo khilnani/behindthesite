@@ -1,0 +1,30 @@
+  <button ng-if="vm.isMobile" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#MobileSettingsModal"><i class="fa fa-cog fa-lg"></i></button>
+  
+  <div class="jumbotron margin-bottom-20">
+    <div class="row">
+      <h2 class="title text-center">BehindTheSite</h2>
+      <p class="text-center"><small>A log of web technology stacks.</small></p>
+      <p class="hidden-xs text-center align-top pad-left-right-10p"><small><small>
+            More than 550 Products & Technologies catalogued. 
+            Each with links to Documentation, Blogs, Source Code, Bug Trackers, Twitter and more. 
+            Optimized for <em><a class="cursor" ng-click="vm.isMobile=false">Desktop</a></em> and <em><a class="cursor" ng-click="vm.isMobile=true">Mobile</a></em>.
+      </small></small></p>
+      <p class="hidden-xs text-center align-top"><small><small><small>
+              <em><strong>Tip!</strong> - Change themes and filter content via <i class="fa fa-cog fa-lg"></i></em>
+      </small></small></small></p>
+      <p class="text-center align-top"><small>
+      
+        <a href="https://twitter.com/BehindTheSite" class="twitter-follow-button" data-show-count = true>Follow @behindthesite</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://behindthesite.com" data-via="BehindTheSite">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </small></p>
+      <p class="text-center align-top" id="p-text-11">
+        <button type="button" class="white-btn" data-toggle="modal" data-target="#SubmissionModal" title="Please submit feedback, or new information."><i class="fa fa-paper-plane"></i> Add a Technology Stack</button>
+      </p>
+      <p class="hidden-xs text-center text-primary align-top">
+        <span class="text-bold-12">Made In DC <img class="align-inherit" src="images/dc_logo.png" width="15" height="15"/></span>
+      </p>
+    </div>
+  </div>
