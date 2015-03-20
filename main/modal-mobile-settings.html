@@ -8,7 +8,7 @@
           <h4 class="modal-title"><i class="fa fa-cog fa-lg"></i> Settings</h4>
         </div>
         <div class="modal-body">
-        
+        <!--
           <div class="form-group">
             <label class="col-sm-3 control-label" for="query_product">The Sites</label>
             <div class="col-sm-9">
@@ -22,7 +22,19 @@
             <select class="form-control input-sm" name="query_tech" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
             </div>
           </div>
-          
+          //-->
+
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="name">Page Size</label>
+            <div class="col-sm-9">
+                <select class="form-control input-sm " ng-model="vm.pageSize" id="pageSize">
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                </select>
+            </div>
+          </div>
+
           <div class="form-group">
             <label class="col-sm-3 control-label" for="theme">Theme</label>
             <div class="col-sm-9">
@@ -33,7 +45,7 @@
                   <option value="flatly">Flatly</option>
                   <option value="sandstone">Sandstone</option>
                 </select>
-                <span class="pull-right"><small><em>Thanks <a href="http://bootswatch.com/" target="_blank">BootSwatch</a>!</em></small></span>
+                <span class="pull-right"><small><em>Thanks <a href="http://bootswatch.com/" target="_blank">BootSwatch</a> !</em></small></span>
             </div>
           </div>
           
