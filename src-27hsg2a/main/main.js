@@ -168,7 +168,7 @@ angular.module('bts.directives', [])
     var ele = angular.element(element);
     var link = ele.find('.infopopup-link');
 
-    var tmpl = $templateCache.get('popup-hover.html')
+    var tmpl = $templateCache.get('main/popup-hover.html')
 
     link.data('state', 'hover');
     link.on('mouseenter', function (e) { 
@@ -216,7 +216,7 @@ angular.module('bts.directives', [])
     var ele = angular.element(element);
     var link = ele.find('.product-link');
 
-    var tmpl = $templateCache.get('popup-hover.html');
+    var tmpl = $templateCache.get('main/popup-hover.html');
 
     link.data('state', 'hover');
     link.on('mouseenter', function (e) { 
@@ -276,8 +276,8 @@ angular.module('bts.directives', [])
     link.on('click', function (e) { 
       Logger.info('productdetail: ' + attrs.product);
             
-      var tmpl = $templateCache.get('popup.html');
-      var contentHtml = $templateCache.get('product-detail.html');
+      var tmpl = $templateCache.get('main/popup.html');
+      var contentHtml = $templateCache.get('main/modal-product-detail.html'); //$('#product-detail-tmpl').html();
     
       var popupConfig = {
         html: true,

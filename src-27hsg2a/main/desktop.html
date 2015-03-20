@@ -88,7 +88,7 @@
                       data-title="{{ ea.product.name }}"
                       data-divid="{{ product.name | ws }}-{{ ea.product.name | ws }}-hover-content"
                       product="product">
-                      <div style="display: none;" id="{{ product.name | ws }}-{{ ea.product.name | ws }}-hover-content">
+                      <div class="display-none" id="{{ product.name | ws }}-{{ ea.product.name | ws }}-hover-content">
                         <p ng-show='ea.category.full_path != ""'><small>{{ ::ea.category.full_path.split('>').join(' | ') }}</small></p>
                         <p>
                           <a ng-if='ea.product.website' href="{{ ::ea.product.website }}" target="_blank">Website</a> 
