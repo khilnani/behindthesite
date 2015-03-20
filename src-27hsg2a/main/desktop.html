@@ -18,6 +18,7 @@
                           <button type="button" ng-disabled="vm.query_product == ''" class="btn btn-default btn-xs" ng-click="vm.clearProduct()"><i class="fa fa-times"></i></button>
                         </span>
                     </div>
+                    <br ng-if="vm.isMobileTabletDevice"/>
                     <label class="hidden-xs control-label pad-left-5">Technologies: </label>
                     <div class="input-group ">
                         <select ng-if="vm.isMobileTabletDevice" class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
