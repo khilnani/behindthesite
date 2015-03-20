@@ -20,7 +20,7 @@
                     </div>
                     <label class="hidden-xs control-label pad-left-5">Technologies: </label>
                     <div class="input-group ">
-                        <select ng-if="vm.isMobileDevice" class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select> //-->
+                        <select ng-if="vm.isMobileDevice" class="form-control input-xs grey-on-dark" ng-model="vm.query_tech" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.tech_select_list"></select>
                         <input ng-if="!vm.isMobileDevice" class="form-control input-xs grey-on-dark" type="text" placeholder="Pick a technology" ng-model="vm.query_tech_typeahead" typeahead-focus="" typeahead-on-select="vm.setQueryTech ($item, $model, $label)" typeahead="item.id as item.name for item in vm.tech_select_list | filter:focusFilter($viewValue) | limitTo:40"/>
                         <span class="input-group-btn">
                           <button type="button" ng-disabled="vm.query_tech == ''" class="btn btn-default btn-xs" ng-click="vm.clearTech()"><i class="fa fa-times"></i></button>
