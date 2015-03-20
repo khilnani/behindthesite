@@ -421,6 +421,7 @@ angular.module('bts.controllers', [])
   
   vm.env = undefined;
   vm.isMobile = Common.isMobile;
+  vm.isMobileDevice = Common.isMobileDevice;
   vm.busy = true;
   vm.theme = '';
   vm.query_tech = '';

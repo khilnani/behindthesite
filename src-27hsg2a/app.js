@@ -90,6 +90,7 @@ bts.factory('Common', ['$location', '$http', 'ConfigSvc', function ($location, $
   var isMobileOverride = ($location.search()).mobile;
   Logger.debug('bts.Common.isMobileOverride: ' + isMobileOverride);
   c.isMobile = isMobileCheck();
+  c.isMobileDevice = isMobileCheck();
   if (isMobileOverride == 'true') {
     c.isMobile = true;
   }
