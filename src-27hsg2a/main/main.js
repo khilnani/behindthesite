@@ -192,6 +192,7 @@ angular.module('bts.directives', [])
     });
     link.on('click', function (e) { 
       if (link.data('state') === 'hover') {
+          $("a[href^='http']").attr("target","_blank");
           link.data('state', 'pinned');
           // already visible, no need to show again
       } else {
@@ -242,6 +243,7 @@ angular.module('bts.directives', [])
     });
     link.on('click', function (e) { 
       if (link.data('state') === 'hover') {
+          $("a[href^='http']").attr("target","_blank");
           link.data('state', 'pinned');
           // already visible, no need to show again
       } else {
