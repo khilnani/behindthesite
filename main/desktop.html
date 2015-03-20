@@ -68,11 +68,13 @@
                         <p class="margin-top-10" ng-show='product.description != ""'><span class="markdown" ng-bind-html="product.description"></span></p>
                       </div>
                     <span class="cursor product-link">{{ product.name }}</span>
+                    
                     <!--
                     <span productdetail="productdetail" data-product="{{ ::product.name }}">
                       <a class="product-detail-link" data-custom-tooltip="View a detailed view in a popup"><i class="fa fa-search cursor"></i></a>
                     </span>
                     //-->
+                    
                     <small class="text-muted pull-right">{{ vm.currentPage*vm.pageSize + $index + 1 }}/{{ vm.getTotal() }}</small>
                   </li>
                   <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
@@ -88,7 +90,7 @@
                       data-title="{{ ea.product.name }}"
                       data-divid="{{ product.name | ws }}-{{ ea.product.name | ws }}-hover-content"
                       product="product">
-                      <div style="display: none;" id="{{ product.name | ws }}-{{ ea.product.name | ws }}-hover-content">
+                      <div class="display-none" id="{{ product.name | ws }}-{{ ea.product.name | ws }}-hover-content">
                         <p ng-show='ea.category.full_path != ""'><small>{{ ::ea.category.full_path.split('>').join(' | ') }}</small></p>
                         <p>
                           <a ng-if='ea.product.website' href="{{ ::ea.product.website }}" target="_blank">Website</a> 

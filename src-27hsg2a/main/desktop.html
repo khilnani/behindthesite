@@ -69,9 +69,11 @@
                       </div>
                     <span class="cursor product-link">{{ product.name }}</span>
                     
+                    <!--
                     <span productdetail="productdetail" data-product="{{ ::product.name }}">
                       <a class="product-detail-link" data-custom-tooltip="View a detailed view in a popup"><i class="fa fa-search cursor"></i></a>
                     </span>
+                    //-->
                     
                     <small class="text-muted pull-right">{{ vm.currentPage*vm.pageSize + $index + 1 }}/{{ vm.getTotal() }}</small>
                   </li>
