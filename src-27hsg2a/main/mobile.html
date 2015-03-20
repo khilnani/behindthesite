@@ -18,6 +18,9 @@
                   <span ng-if="vm.query_product == ''">The sites</span>
                   <span ng-if="vm.query_product != ''" class="nowrap">'{{ vm.query_product }}'</span>
                 </span>
+                <span ng-if="!vm.isMobileDevice">
+                  The sites
+                </span>
               </label>
               <div class="input-group ">
                   <select class="form-control input-sm" name="query_product" ng-model="vm.query_product" ng-change="vm.onSelectionChange()" ng-options="item.id as item.name for item in vm.products_select_list"></select>
@@ -32,6 +35,9 @@
                 <span ng-if="vm.isMobileDevice">
                   <span ng-if="vm.query_tech == ''">Technologies</span>
                   <span ng-if="vm.query_tech != ''" class="nowrap">'{{ vm.query_tech }}'</span>
+                </span>
+                <span ng-if="!vm.isMobileDevice">
+                  Technologies
                 </span>
               </label>
               <div class="input-group ">
