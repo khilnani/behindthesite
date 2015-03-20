@@ -161,12 +161,12 @@ angular.module('bts.directives', [])
 })
 */
 
-.directive('popover', ['$templateCache', function ($templateCache) {
-  Logger.info('popover')
+.directive('infopopup', ['$templateCache', function ($templateCache) {
+  Logger.info('infopopup')
   return function(scope, element, attrs) {
-    //Logger.debug(attrs);
+    
     var ele = angular.element(element);
-    var link = ele.find('.popover-link');
+    var link = ele.find('.infopopup-link');
 
     var tmpl = $templateCache.get('popup-hover.html')
 
@@ -193,6 +193,7 @@ angular.module('bts.directives', [])
     link.on('click', function (e) { 
       if (link.data('state') === 'hover') {
           link.data('state', 'pinned');
+          // already visible, no need to show again
       } else {
           link.data('state', 'hover');
           link.popover('hide');
@@ -200,7 +201,6 @@ angular.module('bts.directives', [])
     });
 
     ele.on('shown.bs.popover', function () {
-      $("a[href^='http']").attr("target","_blank");
       ele.find('.close-btn').click( function () {
         link.data('state', 'hover');
         link.popover('hide');
@@ -243,6 +243,7 @@ angular.module('bts.directives', [])
     link.on('click', function (e) { 
       if (link.data('state') === 'hover') {
           link.data('state', 'pinned');
+          // already visible, no need to show again
       } else {
           link.data('state', 'hover');
           link.popover('hide');

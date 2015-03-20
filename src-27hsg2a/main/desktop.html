@@ -68,16 +68,17 @@
                         <p class="margin-top-10" ng-show='product.description != ""'><span class="markdown" ng-bind-html="product.description"></span></p>
                       </div>
                     <span class="cursor product-link">{{ product.name }}</span>
+                    <!--
                     <span productdetail="productdetail" data-product="{{ ::product.name }}">
                       <a class="product-detail-link" data-custom-tooltip="View a detailed view in a popup"><i class="fa fa-search cursor"></i></a>
                     </span>
-                    <small class="text-muted pull-right">{{ vm.currentPage*vm.pageSize + $index + 1 }}/{{ vm.getTotal() }}</span></small>
+                    //-->
+                    <small class="text-muted pull-right">{{ vm.currentPage*vm.pageSize + $index + 1 }}/{{ vm.getTotal() }}</small>
                   </li>
                   <li><small><span class="text-muted"><em>Updated: {{ product.updated }}</em></span></small></li>
-                  <li popover="popover" ng-if='product.insight' data-title="Insight" data-content="{{ ::product.insight }}"><span class="cursor popover-link">Insight <i class="fa fa-graduation-cap"></i></span></li>
-                  <li popover="popover" ng-if='product.notes' data-title="Notes" data-content="{{ ::product.notes }}" ><span class="cursor popover-link">Notes <i class="fa fa-comment"></i></span></li>
-                  <li popover="popover" ng-if='product.references' data-title="References" data-content="{{ ::product.references }}"><span class="cursor popover-link">References <i class="fa fa-external-link"></i></span></li>
-                  
+                  <li infopopup="infopopup" ng-if='product.insight' data-title="Insight" data-content="{{ ::product.insight }}"><span class="cursor infopopup-link">Insight <i class="fa fa-graduation-cap"></i></span></li>
+                  <li infopopup="infopopup" ng-if='product.notes' data-title="Notes" data-content="{{ ::product.notes }}" ><span class="cursor infopopup-link">Notes <i class="fa fa-comment"></i></span></li>
+                  <li infopopup="infopopup" ng-if='product.references' data-title="References" data-content="{{ ::product.references }}"><span class="cursor infopopup-link">References <i class="fa fa-external-link"></i></span></li>
                 </ul>  
               </td>
               <td ng-repeat="tier in product.tiers">
