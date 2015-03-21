@@ -75,11 +75,17 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .pad-bottom-0 {
   padding-bottom: 0px;
 }
+.margin-top-5 {
+  margin-top: 5px;
+}
 .margin-top-10 {
   margin-top: 10px;
 }
 .margin-bottom-0 {
   margin-bottom: 0px;
+}
+.margin-bottom-5 {
+  margin-bottom: 5px;
 }
 .margin-bottom-10 {
   margin-bottom: 10px;
