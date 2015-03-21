@@ -10,9 +10,9 @@
       </small></small></p>
       <p class="hidden-xs text-center align-top"><small><small><small>
               <em><strong>Tips!</strong> - Mouse over everything. Switch between list view
-              <button class="btn btn-default btn-xs" ng-click="vm.isMobile=true" title="List view"><i class="fa fa-list-ol"></i></button>
+              <button class="btn btn-default btn-xs" ng-disabled="vm.isMobile" ng-click="vm.isMobile=true" title="List view"><i class="fa fa-list-ol"></i></button>
               and table view
-              <button class="btn btn-default btn-xs" ng-click="vm.isMobile=false" title="Table view"><i class="fa fa-table"></i></button>
+              <button class="btn btn-default btn-xs" ng-disabled="!vm.isMobile" ng-click="vm.isMobile=false" title="Table view"><i class="fa fa-table"></i></button>
               , and change themes 
               <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#SettingsModal" title="Settings"><i class="fa fa-cog fa-lg"></i></button>
 
