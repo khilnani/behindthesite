@@ -109,7 +109,7 @@ angular.module('bts.services', ['ngResource'])
 angular.module('bts.directives', [])
 
 
-.directive('onRender', function ($timeout) {
+.directive('onFinishRender', function ($timeout) {
   return {
       restrict: 'A',
       link: function (scope, element, attr) {
