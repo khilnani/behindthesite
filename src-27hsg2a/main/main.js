@@ -108,6 +108,20 @@ angular.module('bts.services', ['ngResource'])
 
 angular.module('bts.directives', [])
 
+
+.directive('onRender', function ($timeout) {
+  return {
+      restrict: 'A',
+      link: function (scope, element, attr) {
+          if (scope.$last === true) {
+              $timeout(function () {
+                  scope.$emit('ngRepeatFinished');
+              });
+          }
+      }
+  }
+})
+
 .directive('affix', function () {
   Logger.debug('affix')
   return function(scope, element, attrs) {
@@ -696,6 +710,11 @@ angular.module('bts.controllers', [])
     }
     return match;
   }
+  
+  $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+    Logger.info('ngRepeatFinished');
+    $("a[href^='http']").attr("target","_blank");
+  });
   
   vm.backToTop = function (id) {
     Logger.info('MainCtrl.backToTop: ' + id);
