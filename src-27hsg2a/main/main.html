@@ -27,23 +27,23 @@
 <div class="row container-fluid">
   <div class="row">
     <div id="main" class="col-xs-12">
-    
+
       <!--  Mobile START //-->
       <div ng-if="vm.isMobile"
         ng-include="'main/mobile.html'">
       </div>
       <!--  Mobile END //-->
-      
+
       <!--  Desktop START //-->
-      <div ng-if="!vm.isMobile" 
-        infinite-scroll="vm.infiniteGetAdditionalData()" 
-        infinite-scroll-disabled='vm.busy' 
-        infinite-scroll-distance="0" 
+      <div ng-if="!vm.isMobile"
+        infinite-scroll="vm.infiniteGetAdditionalData()"
+        infinite-scroll-disabled='vm.busy'
+        infinite-scroll-distance="0"
         infinite-scroll-immediate-check="false"
         ng-include="'main/desktop.html'">>
       </div>
       <!--  Desktop END //-->
-      
+
     </div>
   </div>
 </div>
@@ -65,8 +65,8 @@
 <div class="row" ng-if="vm.isMobile && vm.mobileHasMore() && !vm.busy">
   <p class="text-center text-muted margin-bottom-40">
     <button class="btn btn-default vcenter" ng-click="vm.mobileGetAdditionalData()">
-    Loaded {{ vm.infiniteCount }} / {{ vm.getFilteredProducts().length }}  
-    <i class="fa fa-arrow-down"></i> 
+    Loaded {{ vm.infiniteCount }} / {{ vm.getFilteredProducts().length }}
+    <i class="fa fa-arrow-down"></i>
     Click for more
     </button>
   </p>
@@ -77,12 +77,12 @@
 
 
 <!--  Feedback / SubmissionModal Form START //-->
-<div class="modal fade" 
-  id="SubmissionModal" 
-  tabindex="-1" 
-  role="dialog" 
-  aria-labelledby="Feedback Submission Modal" 
-  aria-hidden="true" 
+<div class="modal fade"
+  id="SubmissionModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="Feedback Submission Modal"
+  aria-hidden="true"
   ng-controller="SubmissionForm"
   ng-include="'main/modal-submit.html'">
 </div><!-- /.modal -->
@@ -92,29 +92,15 @@
 
 
 <!--  Setting Modal START //-->
-<div class="modal fade" 
-  id="SettingsModal" 
-  tabindex="-1" 
-  role="dialog" 
-  aria-labelledby="Settings Modal" 
+<div class="modal fade"
+  id="SettingsModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="Settings Modal"
   aria-hidden="true"
   ng-include="'main/modal-desktop-settings.html'">
 </div><!-- /.modal -->
 <!--  Settings Modal END //-->
-
-
-
-
-<!--  MobileSettings Modal MOBILE ONLY START //-->
-<div class="modal fade" 
-  id="MobileSettingsModal" 
-  tabindex="-1" 
-  role="dialog" 
-  aria-labelledby="Mobile Settings Modal" 
-  aria-hidden="true"
-  ng-include="'main/modal-mobile-settings.html'">
-</div><!-- /.modal -->
-<!--  MobileSettings Modal END //-->
 
 
 

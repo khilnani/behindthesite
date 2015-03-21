@@ -216,6 +216,7 @@ thead .grey-on-dark {
 .markdown ul {
   padding-left: 20px;
   list-style: disc;
+  margin-bottom: 0;
 }
 #main-table td {
   width: 12.5%;
