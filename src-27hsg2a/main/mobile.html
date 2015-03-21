@@ -126,7 +126,7 @@
 
                   <h3 class="text-default text-left">{{ ::tier.name }}</h3>
 
-                  <div class="col-xs-12"
+                  <div class="col-xs-12 pad-left-0 pad-right-0"
                       ng-repeat="ea in tier"
                       data-description="{{ ::ea.product.description }}"
                       data-title="{{ ::ea.product.name }}"
@@ -167,7 +167,7 @@
                         <span class="markdown" ng-bind-html="ea.product.description"></span>
                       </p>
                       <p ng-if='ea.notes' class="well well-sm text-left margin-bottom-5">
-                        <em><span class="markdown" ng-bind-html="ea.notes"></span></em>
+                        <em><span class="small markdown" ng-bind-html="ea.notes"></span></em>
                       </p>
                     </div>
 
