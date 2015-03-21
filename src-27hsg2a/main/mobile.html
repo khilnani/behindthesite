@@ -62,6 +62,7 @@
         <div id="accordion" class="panel-group margin-top-10">
           <div id="{{ ::product.name | ws }}-panel"
               ng-repeat="product in filtered = (vm.products | filter:vm.filter | limitTo:vm.infiniteCount)"
+              on-finish-render="ngRepeatFinished"
               class="panel panel-default"
               collapse="collapse">
 
