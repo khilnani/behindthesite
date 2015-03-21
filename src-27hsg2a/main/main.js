@@ -108,7 +108,7 @@ angular.module('bts.services', ['ngResource'])
 
 angular.module('bts.directives', [])
 
-
+// http://stackoverflow.com/questions/15207788/calling-a-function-when-ng-repeat-has-finished
 .directive('onFinishRender', function ($timeout) {
   return {
       restrict: 'A',
