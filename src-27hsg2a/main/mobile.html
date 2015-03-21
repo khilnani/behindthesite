@@ -64,19 +64,35 @@
               ng-repeat="product in filtered = (vm.products | filter:vm.filter | limitTo:vm.infiniteCount)"
               class="panel panel-default"
               collapse="collapse">
+
             <div class="panel-heading">
               <h4 class="panel-title">
+
                 <button type="button" class="btn btn-xs btn-default"
                   data-toggle="collapse"
                   data-target="#{{ ::product.name | ws }}"
                   data-parent="#accordion">{{ ::product.name }}</button>
-                <span class="pull-right"><em><small>{{ ::product.updated }}</small></em></span>
+
+                <span class="pull-right">
+                  <small class="hidden-xs pad-right-60">
+                    <a ng-if='product.website' href="{{ ::product.website }}" target="_blank">Website</a>
+                    <a ng-if='product.twitter' href="{{ ::product.twitter }}" target="_blank">Twitter</a>
+                    <a ng-if='product.irc' href="{{ ::product.irc }}" target="_blank">Irc</a>
+                    <a ng-if='product.repo' href="{{ ::product.repo }}" target="_blank">Code</a>
+                    <a ng-if='product.issues' href="{{ ::product.issues }}" target="_blank">Issues</a>
+                    <a ng-if='product.docs' href="{{ ::product.docs }}" target="_blank">Docs</a>
+                    <a ng-if='product.blogs' href="{{ ::product.blogs }}" target="_blank">Blog</a>
+                  </small>
+                  <em><small>{{ ::product.updated }}</small></em>
+                </span>
+
               </h4>
             </div>
+
             <div id="{{ ::product.name | ws }}" class="panel-collapse collapse {{ ($first && filtered.length == 1) ? 'in' : '' }}">
               <div class="panel-body">
 
-                  <div class="col-xs-12 pad-left-0 pad-right-0 text-left">
+                  <div class="visible-xs-block col-xs-12 pad-left-0 pad-right-0 text-left">
                       <a ng-if='product.website' href="{{ ::product.website }}" target="_blank">Website</a>
                       <a ng-if='product.twitter' href="{{ ::product.twitter }}" target="_blank">Twitter</a>
                       <a ng-if='product.irc' href="{{ ::product.irc }}" target="_blank">Irc</a>
@@ -87,17 +103,18 @@
                   </div>
 
                   <div class="hidden-xs col-xs-12 pad-left-0 pad-right-0 text-left">
-                      <span class="markdown" ng-bind-html="product.description"></span>
+                      <em><span class="markdown" ng-bind-html="product.description"></span></em>
                   </div>
 
-                  <hr class="col-xs-12 margin-top-10 margin-bottom-0"/>
+                  <div class="col-xs-12 pad-left-5 pad-right-5" ng-if='product.insight || product.notes'>
 
-                  <div class="col-xs-12 pad-left-5 pad-right-0" ng-if='product.insight || product.notes'>
+                    <hr class="margin-top-10 margin-bottom-0"/>
+
                     <div class="col-sm-6 pad-left-0 pad-right-5 text-left" ng-if='product.insight'>
                       <h3>Insight <i class="fa fa-graduation-cap"></i></h3>
                       <p><span class="markdown" ng-bind-html="product.insight"></span></p>
                     </div>
-                    <div class="col-sm-6 pad-left-0 pad-right-5 text-left" ng-if='product.notes'>
+                    <div class="col-sm-6 pad-left-0 pad-right-0 text-left" ng-if='product.notes'>
                       <h3>Notes <i class="fa fa-comment"></i></h3>
                       <p><span class="markdown" ng-bind-html="product.notes"></span></p>
                     </div>

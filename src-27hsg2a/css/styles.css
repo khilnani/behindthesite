@@ -57,6 +57,12 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 .pad-left-20 {
   padding-left: 20px;
 }
+.pad-left-40 {
+  padding-left: 40px;
+}
+.pad-left-60 {
+  padding-left: 60px;
+}
 .pad-right-0 {
   padding-right: 0px;
 }
@@ -68,6 +74,12 @@ http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css
 }
 .pad-right-20 {
   padding-right: 20px;
+}
+.pad-right-40 {
+  padding-right: 40px;
+}
+.pad-right-60 {
+  padding-right: 60px;
 }
 .pad-mobile-filter {
   padding: 10px 20px 0px 20px;
