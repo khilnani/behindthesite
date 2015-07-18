@@ -8,6 +8,16 @@
 /*   - see http://csrc.nist.gov/publications/PubsFIPS.html#197                                    */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 
+
+/*
+Aes.Ctr.encrypt(text, key, 256)
+Aes.Ctr.decrypt(text, key, 256)
+Base64.encode(text)
+Base64.decode(text)
+Utf8.encode(text)
+Utf8.decode(text) 
+*/
+
 var Aes = {};  // Aes namespace
 
 /**
