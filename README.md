@@ -23,7 +23,7 @@ Developer Notes
 
 - Source code for the UI code is contained in `src/`
 
-> Unfortunately, i have not open sourced the Python/Django and PostgreSQL server API
+> Unfortunately, i have not open sourced the Python/Django API due to effort to prune it of API keys etc.
 
 - Production code is in the main/root directory.
 - To build, change (CWD) to the `/src` directory and run:
