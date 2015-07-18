@@ -1,4 +1,47 @@
 
+//*****************************************************************************
+// JSON data sources
+
+var TaxonomyJson = {
+  get: function(cb, $http) {
+    $http.get("/data/taxonomy.json")
+    .success(function(data, status, headers, config){
+      cb(JSON.parse(data.data));
+    });
+  }
+};
+
+var StacksJson = {
+  get: function(params, cb, $http) {
+    if(params.start == 0) {
+      $http.get("/data/stacks.json")
+      .success(function(data, status, headers, config){
+        cb(JSON.parse(zq(data.data)));
+      });
+    } else {
+      cb();
+    }
+  }
+};
+
+var ProductsJson = {
+  get: function(cb, $http) {
+    $http.get("/data/products.json")
+    .success(function(data, status, headers, config){
+      cb(JSON.parse(data.data));
+    });
+  }
+};
+
+var UsedProductJson = {
+  get: function(cb, $http) {
+    $http.get("/data/used.json")
+    .success(function(data, status, headers, config){
+      cb(JSON.parse(data.data));
+    });
+  }
+};
+
 
 //*****************************************************************************
 // Services
@@ -333,7 +376,7 @@ angular.module('bts.controllers', [])
   
   $scope.getData = function () {
     Logger.info('SubmissionForm.getData');
-    p13.get(function(res) {
+    ProductsJson.get(function(res) {
       //alert('get');
       Logger.info('ProductSvc.get');
       Logger.debug(res);
@@ -779,7 +822,7 @@ angular.module('bts.controllers', [])
   vm.getData = function () {
     Logger.info('MainCtrl.getData()');
     vm.busy = true;
-    j1.get(function(res) {
+    TaxonomyJson.get(function(res) {
       var taxonomy = res.taxonomy;
       Logger.info('MainCtrl.Taxonomy: ' + taxonomy.length  );
       for(var index in taxonomy) {
@@ -798,7 +841,7 @@ angular.module('bts.controllers', [])
     Logger.info('MainCtrl.getStacks: ' + arguments);
     if( vm.products.length <= start) {
       vm.busy = true;
-      h5.get({start: start, count: count}, function(res) {
+      StacksJson.get({start: start, count: count}, function(res) {
         if(res) {
           var products = res.products;
           Logger.info('MainCtrl.Products: ' + products.length  + '  total: ' + res.total + '   count: ' + res.count);
@@ -906,7 +949,7 @@ angular.module('bts.controllers', [])
   }
 
   vm.getSelectListData = function () {
-    q3.get(function(res) {
+    UsedProductJson.get(function(res) {
       Logger.info('MainCtrl.getSelectListData: UsedProductSvc.get');
       
       vm._buildUsedTechList(res.technologies);
