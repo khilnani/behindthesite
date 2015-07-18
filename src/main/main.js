@@ -6,14 +6,7 @@ var TaxonomyJson = {
   get: function(cb, $http) {
     $http.get("/data/taxonomy.json")
     .success(function(data, status, headers, config){
-      cb(data.data);
-    })
-    .error(function(data, status, headers, config) {
-      console.log('TaxonomyJson');
-      console.log(config);
-      console.log(headers);
-      console.log(status);
-      console.log(data);
+      cb(data);
     });
   }
 };
@@ -23,14 +16,7 @@ var StacksJson = {
     if(params.start == 0) {
       $http.get("/data/stacks.json")
       .success(function(data, status, headers, config){
-        cb(data.data);
-      })
-      .error(function(data, status, headers, config) {
-        console.log('StacksJson');
-        console.log(config);
-        console.log(headers);
-        console.log(status);
-        console.log(data);
+        cb(data);
       });
     } else {
       cb();
@@ -42,14 +28,7 @@ var ProductsJson = {
   get: function(cb, $http) {
     $http.get("/data/products.json")
     .success(function(data, status, headers, config){
-      cb(data.data);
-    })
-    .error(function(data, status, headers, config) {
-      console.log('ProductsJson');
-      console.log(config);
-      console.log(headers);
-      console.log(status);
-      console.log(data);
+      cb(data);
     });
   }
 };
@@ -58,14 +37,7 @@ var UsedProductJson = {
   get: function(cb, $http) {
     $http.get("/data/used.json")
     .success(function(data, status, headers, config){
-      cb(data.data);
-    })
-    .error(function(data, status, headers, config) {
-      console.log('UsedProductJson');
-      console.log(config);
-      console.log(headers);
-      console.log(status);
-      console.log(data);
+      cb(data);
     });
   }
 };
