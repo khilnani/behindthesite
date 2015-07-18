@@ -13,13 +13,12 @@ uglifyjs ../vendor/marked/marked.js \
   ../vendor/angular-loading-bar/build/loading-bar.js \
   ../vendor/ngInfiniteScroll/build/ng-infinite-scroll.js \
   ../vendor/angular-bootstrap/ui-bootstrap-tpls.min.js \
-  common/base64.enc.js \
   common/logger.js \
   common/localstore.js \
   common/utils.js \
   app.js \
   mods/typeahead.js \
-  main/main.enc.js \
+  main/main.js \
   -o ../js/min.js \
   --preamble "/* ####### $(date +"%Y-%m-%d %T %Z") ####### */" \
   -c 'drop_console=true,drop_debugger=true,keep_fargs=true' -m -r '$'
