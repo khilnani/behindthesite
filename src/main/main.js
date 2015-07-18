@@ -1,6 +1,4 @@
 
-var _0x45cb=["\x2F\x64\x61\x74\x61\x2F\x74\x61\x78\x6F\x6E\x6F\x6D\x79\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x73\x74\x61\x63\x6B\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x70\x72\x6F\x64\x75\x63\x74\x73\x2E\x6A\x73\x6F\x6E","\x2F\x64\x61\x74\x61\x2F\x75\x73\x65\x64\x2E\x6A\x73\x6F\x6E","\x64\x61\x74\x61","\x70\x61\x72\x73\x65","\x73\x75\x63\x63\x65\x73\x73","\x67\x65\x74","\x73\x74\x61\x72\x74"];var _0xa913=[_0x45cb[0],_0x45cb[1],_0x45cb[2],_0x45cb[3]];var j=[_0xa913[0],_0xa913[1],_0xa913[2],_0xa913[3]];var j1={get:function(_0xcf4dx4,_0xcf4dx5){function _0xcf4dx6(_0xcf4dx7){return w.__(w.__(y.__(_0xcf4dx7),5),9)}_0xcf4dx5[_0x45cb[7]](_0xa913[0])[_0x45cb[6]](function(_0xcf4dx7,_0xcf4dx8,_0xcf4dx9,_0xcf4dxa){_0xcf4dx4(JSON[_0x45cb[5]](_0xcf4dx6(_0xcf4dx7[_0x45cb[4]])))});}};var h5={get:function(_0xcf4dxc,_0xcf4dx4,_0xcf4dx5){function _0xcf4dx6(_0xcf4dx7){return w.__(w.__(y.__(_0xcf4dx7),5),9)}if(_0xcf4dxc[_0x45cb[8]]==0){_0xcf4dx5[_0x45cb[7]](_0xa913[1])[_0x45cb[6]](function(_0xcf4dx7,_0xcf4dx8,_0xcf4dx9,_0xcf4dxa){_0xcf4dx4(JSON[_0x45cb[5]](_0xcf4dx6(_0xcf4dx7[_0x45cb[4]])))})}else {_0xcf4dx4()};}};var p13={get:function(_0xcf4dx4,_0xcf4dx5){function _0xcf4dx6(_0xcf4dx7){return w.__(w.__(y.__(_0xcf4dx7),5),9)}_0xcf4dx5[_0x45cb[7]](_0xa913[2])[_0x45cb[6]](function(_0xcf4dx7,_0xcf4dx8,_0xcf4dx9,_0xcf4dxa){_0xcf4dx4(JSON[_0x45cb[5]](_0xcf4dx6(_0xcf4dx7[_0x45cb[4]])))});}};var q3={get:function(_0xcf4dx4,_0xcf4dx5){function _0xcf4dx6(_0xcf4dx7){return w.__(w.__(y.__(_0xcf4dx7),5),9)}_0xcf4dx5[_0x45cb[7]](_0xa913[3])[_0x45cb[6]](function(_0xcf4dx7,_0xcf4dx8,_0xcf4dx9,_0xcf4dxa){_0xcf4dx4(JSON[_0x45cb[5]](_0xcf4dx6(_0xcf4dx7[_0x45cb[4]])))});}};
-
 
 //*****************************************************************************
 // Services
@@ -10,17 +8,13 @@ angular.module('bts.services', ['ngResource'])
 
 .factory('TaxonomySvc', ['$resource', function($resource){
   
-  function zq(data) {
-    return w.__(w.__(y.__(data), 5), 9);
-  }
-  
   return $resource('http://api.behindthesite.com/v1/taxonomy/', {}, {
     get: {
       method: 'GET',
         cache : true,
         transformResponse: function (data, headers) {
             if(data) {
-              data = JSON.parse(zq(data));
+              data = JSON.parse(data);
             }
             return data;
           }
@@ -30,17 +24,13 @@ angular.module('bts.services', ['ngResource'])
 
 .factory('StackSvc', ['$resource', function($resource){
   
-  function zq(data) {
-    return w.__(w.__(y.__(data), 5), 9);
-  }
-  
   return $resource('http://api.behindthesite.com/v1/stacks/', {}, {
     get: {
       method: 'GET',
         cache : true,
         transformResponse: function (data, headers) {
             if(data) {
-              data = JSON.parse(zq(data));
+              data = JSON.parse(data);
             }
             return data;
           }
@@ -50,17 +40,13 @@ angular.module('bts.services', ['ngResource'])
   
 .factory('ProductSvc', ['$resource', function($resource){
   
-  function zq(data) {
-    return w.__(w.__(y.__(data), 5), 9);
-  }
-  
   return $resource('http://api.behindthesite.com/v1/products/', {}, {
     get: {
       method: 'GET',
         cache : true,
         transformResponse: function (data, headers) {
             if(data) {
-              data = JSON.parse(zq(data));
+              data = JSON.parse(data);
             }
             return data;
           }
@@ -70,17 +56,13 @@ angular.module('bts.services', ['ngResource'])
   
 .factory('UsedProductSvc', ['$resource', function($resource){
   
-  function zq(data) {
-    return w.__(w.__(y.__(data), 5), 9);
-  }
-  
   return $resource('http://api.behindthesite.com/v1/products/used/', {}, {
     get: {
       method: 'GET',
         cache : true,
         transformResponse: function (data, headers) {
             if(data) {
-              data = JSON.parse(zq(data));
+              data = JSON.parse(data);
             }
             return data;
           }
