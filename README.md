@@ -26,8 +26,8 @@ Developer Notes
 > Unfortunately, i have not open sourced the Python/Django and PostgreSQL server API
 
 - Production code is in the main/root directory.
-- To build, run
-- `build.sh` to minify the javascript. This updates the top level directory
-- `/static.sh`to move static css/images over to the top level directory.
+- To build, change (CWD) to the `/src` directory and run:
+  - `./build.sh` to minify the javascript. This updates the top level directory
+  - `./static.sh` to move static css/images over to the top level directory.
 
 
