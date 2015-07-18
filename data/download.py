@@ -16,5 +16,5 @@ for name, link in urls.iteritems():
   u.close()
   
   f = open(name + '.json', 'w')
-  f.write('{"data":"' + data + '"}')
+  f.write(data)
   f.close()
