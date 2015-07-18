@@ -6,7 +6,7 @@ var TaxonomyJson = {
   get: function(cb, $http) {
     $http.get("/data/taxonomy.json")
     .success(function(data, status, headers, config){
-      cb(JSON.parse(data.data));
+      cb(data.data);
     })
     .error(function(data, status, headers, config) {
       console.log('TaxonomyJson');
@@ -23,7 +23,7 @@ var StacksJson = {
     if(params.start == 0) {
       $http.get("/data/stacks.json")
       .success(function(data, status, headers, config){
-        cb(JSON.parse(data.data));
+        cb(data.data);
       })
       .error(function(data, status, headers, config) {
         console.log('StacksJson');
@@ -42,7 +42,7 @@ var ProductsJson = {
   get: function(cb, $http) {
     $http.get("/data/products.json")
     .success(function(data, status, headers, config){
-      cb(JSON.parse(data.data));
+      cb(data.data);
     })
     .error(function(data, status, headers, config) {
       console.log('ProductsJson');
@@ -58,7 +58,7 @@ var UsedProductJson = {
   get: function(cb, $http) {
     $http.get("/data/used.json")
     .success(function(data, status, headers, config){
-      cb(JSON.parse(data.data));
+      cb(data.data);
     })
     .error(function(data, status, headers, config) {
       console.log('UsedProductJson');
