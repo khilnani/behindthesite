@@ -1,7 +1,0 @@
-- http://javascriptobfuscator.com/
-  - Only Enable
-    - Encode Strings
-    - Encode Numbers
-    - Move Strings
-- http://jsbeautifier.org/
-  - https://github.com/beautify-web/js-beautify
